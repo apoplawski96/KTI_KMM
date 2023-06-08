@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="quiz">Quiz</string>
+    <string name="questionsList">Questions List</string>
+    <string name="dogs">Dogs</string>
+</resources>

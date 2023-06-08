@@ -1,4 +1,4 @@
-package co.apoplawski96.kti.questions.view
+package com.example.myapplication.questions.view
 
 import co.apoplawski96.kti.navigation.Navigator
 import co.apoplawski96.kti.questions.model.Category

@@ -1,36 +1,33 @@
+@file:OptIn(ExperimentalAnimationApi::class)
+
 package com.example.myapplication.android
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material.*
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import com.example.myapplication.App
-import com.example.myapplication.Greeting
+import androidx.compose.animation.ExperimentalAnimationApi
+import co.apoplawski96.kti.navigation.Navigator
+import co.touchlab.kampkit.android.ui.theme.KaMPKitTheme
+import co.touchlab.kampkit.injectLogger
+import co.touchlab.kampkit.models.BreedViewModel
+import co.touchlab.kermit.Logger
+import org.koin.androidx.viewmodel.ext.android.viewModel
+import org.koin.core.component.KoinComponent
+import org.koin.core.component.inject
 
-class MainActivity : ComponentActivity() {
+class MainActivity : ComponentActivity(), KoinComponent {
+
+    private val log: Logger by injectLogger("MainActivity")
+    private val viewModel: BreedViewModel by viewModel()
+
+    private val navigator: Navigator by inject()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            MyApplicationTheme {
-                App()
+            KaMPKitTheme {
+                KTINavHost()
             }
         }
-    }
-}
-
-@Composable
-fun GreetingView(text: String) {
-    Text(text = text)
-}
-
-@Preview
-@Composable
-fun DefaultPreview() {
-    MyApplicationTheme {
-        GreetingView("Hello, Android!")
     }
 }
