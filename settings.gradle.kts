@@ -30,6 +30,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "My_Application"
+rootProject.name = "KIllTheInterview"
 include(":androidApp")
 include(":shared")
