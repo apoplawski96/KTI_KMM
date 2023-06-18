@@ -13,7 +13,7 @@ import androidx.navigation.NavGraphBuilder
 import co.apoplawski96.kti.navigation.Navigator
 import co.apoplawski96.kti.navigation.model.Destinations
 import co.apoplawski96.kti.navigation.model.NavigationCommand
-import co.touchlab.kampkit.android.ui.categories.CategoriesScreen
+import com.example.myapplication.android.ui.categories.CategoriesScreen
 import co.touchlab.kampkit.android.ui.home.MenuScreen
 import co.touchlab.kampkit.android.ui.questions.list.ListScreen
 import co.touchlab.kampkit.android.ui.quiz.QuizScreen

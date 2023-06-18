@@ -4,7 +4,6 @@ import co.touchlab.kampkit.FlowAdapter
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.flow.Flow
-import touchlab.kampkit.models.ViewModel
 
 /**
  * Base class that provides a Kotlin/Native equivalent to the AndroidX `ViewModel`. In particular, this provides

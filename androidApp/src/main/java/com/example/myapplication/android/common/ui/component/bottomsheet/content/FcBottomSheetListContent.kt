@@ -13,7 +13,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Color.Companion.Black
 import androidx.compose.ui.graphics.Color.Companion.White
 import androidx.compose.ui.unit.dp
-import com.apoplawski96.killtheinterview.common.ui.component.KTIText
+import com.example.myapplication.android.common.ui.component.KTIText
 import com.apoplawski96.killtheinterview.common.ui.component.bottomsheet.base.FcBottomSheetSurface
 import com.apoplawski96.killtheinterview.common.ui.component.bottomsheet.content.FcIcon
 import com.apoplawski96.killtheinterview.common.ui.component.bottomsheet.content.FcRadioButton

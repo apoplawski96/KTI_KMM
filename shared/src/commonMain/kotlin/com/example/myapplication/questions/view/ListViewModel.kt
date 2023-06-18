@@ -1,7 +1,7 @@
 package co.apoplawski96.kti.questions.view
 
 import co.apoplawski96.kti.questions.domain.interactors.GetQuestionsShuffled
-import co.apoplawski96.kti.questions.model.Category
+import com.example.myapplication.questions.model.DeprecatedCategory
 import co.apoplawski96.kti.questions.model.Question
 import co.touchlab.kampkit.models.ViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -22,19 +22,19 @@ class ListViewModel(private val getQuestionsShuffled: GetQuestionsShuffled) : Vi
         _state.update {
             ViewState.QuestionsLoaded(
                 questions = getQuestionsShuffled.invoke().filter { question ->
-                    question.category == Category.Android
+                    question.category == DeprecatedCategory.Android
                 }
             )
         }
     }
 
-    fun toggleCategory(category: Category) {
+    fun toggleCategory(category: DeprecatedCategory) {
         val viewStateValue = state.value
         if (viewStateValue is ViewState.QuestionsLoaded) {
             _state.update {
                 viewStateValue.copy(
                     questions = viewStateValue.questions.filter { question ->
-                        question.category == Category.Android
+                        question.category == DeprecatedCategory.Android
                     }
                 )
             }

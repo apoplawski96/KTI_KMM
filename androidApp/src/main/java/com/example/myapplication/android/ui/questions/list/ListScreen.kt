@@ -25,7 +25,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import co.apoplawski96.kti.questions.model.Question
 import co.apoplawski96.kti.questions.view.ListViewModel
-import com.apoplawski96.killtheinterview.common.ui.component.KTICircularProgressIndicator
+import com.example.myapplication.android.common.ui.component.KTICircularProgressIndicator
 import com.apoplawski96.killtheinterview.common.ui.component.KTIDestinationTopBar
 import com.apoplawski96.killtheinterview.common.ui.component.KTIHorizontalSpacer
 import com.apoplawski96.killtheinterview.common.ui.component.bottomsheet.base.FcModalBottomSheetLayout

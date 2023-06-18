@@ -1,11 +1,11 @@
 package com.apoplawski96.killtheinterview.feature.questions.dependency.data
 
-import co.apoplawski96.kti.questions.model.Category
+import com.example.myapplication.questions.model.DeprecatedCategory
 import co.apoplawski96.kti.questions.model.Question
 
 val questionsAndroidFramework = listOf(
     Question(
-        category = Category.Android,
+        category = DeprecatedCategory.Android,
         question = "Principle of least privilege in Android system",
         answer = """
             Each app, by default, has access only to the components that it requires to do its work and no more.
@@ -16,7 +16,7 @@ val questionsAndroidFramework = listOf(
         """.trimIndent()
     ),
     Question(
-        category = Category.Android,
+        category = DeprecatedCategory.Android,
         question = """
             What languages can android apps be written in?
         """.trimIndent(),
@@ -25,7 +25,7 @@ val questionsAndroidFramework = listOf(
         """.trimIndent(),
     ),
     Question(
-        category = Category.Android,
+        category = DeprecatedCategory.Android,
         question = """
             What is .apk file?
         """.trimIndent(),
@@ -34,7 +34,7 @@ val questionsAndroidFramework = listOf(
         """.trimIndent(),
     ),
     Question(
-        category = Category.Android,
+        category = DeprecatedCategory.Android,
         question = """
             What is .aab file?
         """.trimIndent(),
@@ -43,7 +43,7 @@ val questionsAndroidFramework = listOf(
         """.trimIndent(),
     ),
     Question(
-        category = Category.Android,
+        category = DeprecatedCategory.Android,
         question = """
             Describe Android operating system
         """.trimIndent(),
@@ -55,7 +55,7 @@ val questionsAndroidFramework = listOf(
         """.trimIndent(),
     ),
     Question(
-        category = Category.Android,
+        category = DeprecatedCategory.Android,
         question = """
             Describe manifest file
         """.trimIndent(),
@@ -71,7 +71,7 @@ val questionsAndroidFramework = listOf(
         """.trimIndent(),
     ),
     Question(
-        category = Category.Android,
+        category = DeprecatedCategory.Android,
         question = """
             Declaring application components in manifest
         """.trimIndent(),
@@ -81,7 +81,7 @@ val questionsAndroidFramework = listOf(
         """.trimIndent(),
     ),
     Question(
-        category = Category.Android,
+        category = DeprecatedCategory.Android,
         question = """
             Which intent should start services?
         """.trimIndent(),
@@ -90,7 +90,7 @@ val questionsAndroidFramework = listOf(
         """.trimIndent(),
     ),
     Question(
-        category = Category.Android,
+        category = DeprecatedCategory.Android,
         question = """
             Declaring app requirements
         """.trimIndent(),
@@ -109,7 +109,7 @@ val questionsAndroidFramework = listOf(
         """.trimIndent(),
     ),
     Question(
-        category = Category.Android,
+        category = DeprecatedCategory.Android,
         question = """
             Describe app resources in Android
         """.trimIndent(),
@@ -120,7 +120,7 @@ val questionsAndroidFramework = listOf(
         """.trimIndent(),
     ),
     Question(
-        category = Category.Android,
+        category = DeprecatedCategory.Android,
         question = """
             App Manifest Overview
         """.trimIndent(),
@@ -135,7 +135,7 @@ val questionsAndroidFramework = listOf(
         """.trimIndent(),
     ),
     Question(
-        category = Category.Android,
+        category = DeprecatedCategory.Android,
         question = """
             Intent filters
         """.trimIndent(),
@@ -148,7 +148,7 @@ val questionsAndroidFramework = listOf(
         """.trimIndent(),
     ),
     Question(
-        category = Category.Android,
+        category = DeprecatedCategory.Android,
         question = """
             Manifest Permissions
         """.trimIndent(),
@@ -160,7 +160,7 @@ val questionsAndroidFramework = listOf(
         """.trimIndent(),
     ),
     Question(
-        category = Category.Android,
+        category = DeprecatedCategory.Android,
         question = """
             Manifest device compatibility
         """.trimIndent(),
@@ -172,7 +172,7 @@ val questionsAndroidFramework = listOf(
         """.trimIndent(),
     ),
     Question(
-        category = Category.Android,
+        category = DeprecatedCategory.Android,
         question = """
             Should minSdkVersion and targetSdkVersion be included in app manifest?
         """.trimIndent(),
@@ -181,7 +181,7 @@ val questionsAndroidFramework = listOf(
         """.trimIndent(),
     ),
     Question(
-        category = Category.Android,
+        category = DeprecatedCategory.Android,
         question = """
             Device compatibility overview 
         """.trimIndent(),
@@ -194,7 +194,7 @@ val questionsAndroidFramework = listOf(
         """.trimIndent(),
     ),
     Question(
-        category = Category.Android,
+        category = DeprecatedCategory.Android,
         question = """
             Android device compatibility
         """.trimIndent(),
@@ -207,7 +207,7 @@ val questionsAndroidFramework = listOf(
         """.trimIndent(),
     ),
     Question(
-        category = Category.Android,
+        category = DeprecatedCategory.Android,
         question = """
             Android app compatibility
         """.trimIndent(),
@@ -217,7 +217,7 @@ val questionsAndroidFramework = listOf(
         """.trimIndent(),
     ),
     Question(
-        category = Category.Android,
+        category = DeprecatedCategory.Android,
         question = """
             Controlling your app's availability to devices
         """.trimIndent(),
@@ -232,7 +232,7 @@ val questionsAndroidFramework = listOf(
         """.trimIndent(),
     ),
     Question(
-        category = Category.Android,
+        category = DeprecatedCategory.Android,
         question = """
             Device features compatibility
         """.trimIndent(),
@@ -246,7 +246,7 @@ val questionsAndroidFramework = listOf(
         """.trimIndent(),
     ),
     Question(
-        category = Category.Android,
+        category = DeprecatedCategory.Android,
         question = """
             Platform version compatibility
         """.trimIndent(),
@@ -261,7 +261,7 @@ val questionsAndroidFramework = listOf(
         """.trimIndent(),
     ),
     Question(
-        category = Category.Android,
+        category = DeprecatedCategory.Android,
         question = """
             targetSdkVersion behaviour
         """.trimIndent(),
@@ -271,7 +271,7 @@ val questionsAndroidFramework = listOf(
         """.trimIndent(),
     ),
     Question(
-        category = Category.Android,
+        category = DeprecatedCategory.Android,
         question = """
             Screen configuration compatibility
         """.trimIndent(),
@@ -285,7 +285,7 @@ val questionsAndroidFramework = listOf(
         """.trimIndent(),
     ),
     Question(
-        category = Category.Android,
+        category = DeprecatedCategory.Android,
         question = """
             Ways to handle screen compatibility?
         """.trimIndent(),
@@ -302,7 +302,7 @@ val questionsAndroidFramework = listOf(
         """.trimIndent(),
     ),
     Question(
-        category = Category.Android,
+        category = DeprecatedCategory.Android,
         question = """
             Density independence, different pixel densities
         """.trimIndent(),
@@ -318,7 +318,7 @@ val questionsAndroidFramework = listOf(
         """.trimIndent(),
     ),
     Question(
-        category = Category.Android,
+        category = DeprecatedCategory.Android,
         question = """
             Alternative bitmaps
         """.trimIndent(),
@@ -327,7 +327,7 @@ val questionsAndroidFramework = listOf(
         """.trimIndent(),
     ),
     Question(
-        category = Category.Android,
+        category = DeprecatedCategory.Android,
         question = """
             Vector graphics
         """.trimIndent(),
@@ -337,7 +337,7 @@ val questionsAndroidFramework = listOf(
         """.trimIndent(),
     ),
     Question(
-        category = Category.Android,
+        category = DeprecatedCategory.Android,
         question = """
             Android Auto, or Chrome OS devices, you need to do a bit more work.
 
@@ -349,7 +349,7 @@ val questionsAndroidFramework = listOf(
         """.trimIndent(),
     ),
     Question(
-        category = Category.Android,
+        category = DeprecatedCategory.Android,
         question = """
             
         """.trimIndent(),
@@ -358,7 +358,7 @@ val questionsAndroidFramework = listOf(
         """.trimIndent(),
     ),
     Question(
-        category = Category.Android,
+        category = DeprecatedCategory.Android,
         question = """
             
         """.trimIndent(),
@@ -367,7 +367,7 @@ val questionsAndroidFramework = listOf(
         """.trimIndent(),
     ),
     Question(
-        category = Category.Android,
+        category = DeprecatedCategory.Android,
         question = """
             
         """.trimIndent(),

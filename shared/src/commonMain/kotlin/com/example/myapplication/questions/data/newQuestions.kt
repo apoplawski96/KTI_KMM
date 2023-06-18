@@ -1,13 +1,13 @@
 package co.apoplawski96.kti.questions.data
 
-import co.apoplawski96.kti.questions.model.Category
+import com.example.myapplication.questions.model.DeprecatedCategory
 import co.apoplawski96.kti.questions.model.Question
 
 val questionsNew = listOf(
     Question(
         question = "Fragment lifecycle",
         answer = "onAttach(), onCreate(), onCreateView(), onActivityCreated(), onStart(), onResume(), onPause(), onStop(), onDestroyView(), onDestroy(), onDetach()",
-        category = Category.Android
+        category = DeprecatedCategory.Android
     ),
     Question(
         question = "Activity launch modes",
@@ -38,13 +38,13 @@ val questionsNew = listOf(
                 "\n" +
                 "If the instance of the Activity is already created, then the system will route to that task and use the onNewIntent function to pass the data. \n \n" +
                 "",
-        category = Category.Android
+        category = DeprecatedCategory.Android
     ),
     Question(
         question = "ConcatMap",
         answer = "It does almost the same as flatMap, but it does maintain the order. \n" +
                 "It transforms the items emitted by an Observable into Observables, then flattens the emissions from those into a single Observable. It emits the objects while maintaining the order. It is slower though, cause it works kind of sequentially.",
-        category = Category.Rx
+        category = DeprecatedCategory.Rx
     ),
     Question(
         question = "Throttle vs Debounce",
@@ -53,7 +53,7 @@ val questionsNew = listOf(
                 "throttle emits only the first item emitted by the source observable in the time window.\n" +
                 "\n" +
                 "debounce only emits an item after the specified time period has passed without another item being emitted by the source observable.",
-        category = Category.Rx
+        category = DeprecatedCategory.Rx
     ),
     Question(
         question = "MVP vs MVVM",
@@ -69,7 +69,7 @@ val questionsNew = listOf(
             - ViewModels are even friendlier to unit testing as they simply expose state and, therefore, can be independently tested without testing how the data will be consumed. In short, there is no dependence on the view.
             - Only the View contains a reference to the ViewModel, not the other way around. This solves the tight coupling problem. A single View can reference multiple ViewModels.
         """.trimIndent(),
-        category = Category.DesignPatterns
+        category = DeprecatedCategory.DesignPatterns
     ),
     Question(
         question = "What is the difference between replace() and add() in Android fragments?",
@@ -77,7 +77,7 @@ val questionsNew = listOf(
                 "\n" +
                 "add() retains the currently displayed fragment and adds a new fragment onto the fragment stack. This means existing fragment will still be active and will be in the ‘paused’ state as such when a back button is pressed onCreateView() will not be called for the existing fragment(the fragment which was there before new fragment was added)." +
                 "",
-        category = Category.Android
+        category = DeprecatedCategory.Android
     ),
     Question(
         question = "What is the Broadcasts feature in Android?",
@@ -93,19 +93,19 @@ val questionsNew = listOf(
 
             LocalBroadcastManager.sendBroadcast which sends broadcasts to receivers that are in the same app as the sender.
         """.trimIndent(),
-        category = Category.Android
+        category = DeprecatedCategory.Android
     ),
     Question(
         question = "What is Android MultiDex?",
         answer = "Android MultiDex allows you to generate more than one DEX file to get past the limit required by VM.",
-        category = Category.Android
+        category = DeprecatedCategory.Android
     ),
     Question(
         question = "Kotlin sealed class vs abstract class",
         answer = "A sealed class is abstract by itself, it cannot be instantiated directly and can have abstract members.\n" +
                 "\n" +
                 "Sealed classes are used for representing restricted class hierarchies, when a value can have one of the types from a limited set, but cannot have any other type.",
-        category = Category.Kotlin
+        category = DeprecatedCategory.Kotlin
     ),
     Question(
         question = "Why should avoid reflection in Android?\n",
@@ -113,17 +113,17 @@ val questionsNew = listOf(
                 "Reflection can lead to run-time errors." +
                 "Reflection is to be avoided if possible. It's very hacky, very brittle (breaks easily on updates), hard to maintain and often gets you into bad situations by skipping important validation/setup steps. \n" +
                 "The big problem with reflection is that the classes you use might change and you won't notice because the compiler does not know. This is especially bad, when you use it to access third party code that is not under your control or internal apis that are not meant for public consumption. As such it is considered bad practice in general but even more so on Android because of the performance implications. As a rule I would never do anything with reflection that can be done without it.",
-        category = Category.Android
+        category = DeprecatedCategory.Android
     ),
     Question(
         question = "What is the Fragment?",
         answer = "A Fragment is a piece of an activity which enables more modular activity design. A Fragment represents a reusable portion of your app's UI. A fragment defines and manages its own layout, has its own lifecycle, and can handle its own input events. Fragments cannot live on their own, they must be hosted by an activity or another fragment.",
-        category = Category.Android
+        category = DeprecatedCategory.Android
     ),
     Question(
         question = "Name the latest version of Android?",
         answer = "Android 13, Tiramisu in Beta, Stable Android 12",
-        category = Category.Android
+        category = DeprecatedCategory.Android
     ),
     Question(
         question = "What is ANR? Why it’s happen?",
@@ -134,7 +134,7 @@ val questionsNew = listOf(
                 "\n" +
                 "While your activity is in the foreground, your app has not responded to an input event or BroadcastReceiver (such as key press or screen touch events) within 5 seconds.\n" +
                 "While you do not have an activity in the foreground, your BroadcastReceiver hasn't finished executing within a considerable amount of time.",
-        category = Category.Android
+        category = DeprecatedCategory.Android
     ),
     Question(
         question = "Types of services:",
@@ -153,7 +153,7 @@ val questionsNew = listOf(
                 "\n" +
                 "This type of android service allows the components of the application like activity to bound themselves with it. Bound services perform their task as long as any application component is bound to it. More than one component is allowed to bind themselves with a service at a time. In order to bind an application component with a service bindService() method is used.\n" +
                 "\n",
-        category = Category.Android
+        category = DeprecatedCategory.Android
     ),
     Question(
         question = "Activity launch modes." +
@@ -184,42 +184,42 @@ val questionsNew = listOf(
                 "When you invoke the Activity with SingleInstance, then the system will create a new special task that will only have one SingleInstance Activity in it. If you trigger any default Activity from the SingleInstance Activity, it’ll reroute to the previous task and create a new instance of the default Activity.\n" +
                 "\n" +
                 "If the instance of the Activity is already created, then the system will route to that task and use the onNewIntent function to pass the data.",
-        category = Category.Android
+        category = DeprecatedCategory.Android
     ),
     Question(
         question = "Proguard & R8",
         answer = "When you build your project using Android Gradle plugin 3.4.0 or higher, the plugin no longer uses ProGuard to perform compile-time code optimization. Instead, the plugin works with the R8 compiler to handle the following compile-time tasks \n" +
                 "When building the release version of your app, by default, R8 automatically performs the compile-time tasks described above for you. However, you can disable certain tasks or customize R8’s behavior through ProGuard rules files. In fact, R8 works with all of your existing ProGuard rules files, so updating the Android Gradle plugin to use R8 should not require you to change your existing rules. \n" +
                 "",
-        category = Category.Android
+        category = DeprecatedCategory.Android
     ),
     Question(
         question = "Difference between HashMap and HashSet in Java",
         answer = "HashSet does not allow duplicate value. In HashMap duplicate keys are not allowed but duplicate values are allowed. HashMap allows multiple null values and single null key. In HashSet single null value is allowed.\n" +
                 "\n HashMap is faster than HashSet. In HashSet dummy values are allowed but in HashMap dummy values are not allowed.",
-        category = Category.Kotlin
+        category = DeprecatedCategory.Kotlin
     ),
     Question(
         question = "Code shrinking",
         answer = "Code shrinking (or tree-shaking): detects and safely removes unused classes, fields, methods, and attributes from your app and its library dependencies (making it a valuable tool for working around the 64k reference limit). For example, if you use only a few APIs of a library dependency, shrinking can identify library code that your app is not using and remove only that code from your app. To learn more, go to the section about how to shrink your code. \n" +
                 "",
-        category = Category.Android
+        category = DeprecatedCategory.Android
     ),
     Question(
         question = "Resource shrinking",
         answer = "Resource shrinking: removes unused resources from your packaged app, including unused resources in your app’s library dependencies. It works in conjunction with code shrinking such that once unused code has been removed, any resources no longer referenced can be safely removed as well. To learn more, go to the section about how to shrink your resources.",
-        category = Category.Android
+        category = DeprecatedCategory.Android
     ),
     Question(
         question = "Obfuscation",
         answer = "Obfuscation: shortens the name of classes and members, which results in reduced DEX file sizes. To learn more, go to the section about how to obfuscate your code.",
-        category = Category.Android
+        category = DeprecatedCategory.Android
     ),
     Question(
         question = "Optimization:",
         answer = "Optimization: inspects and rewrites your code to further reduce the size of your app’s DEX files. For example, if R8 detects that the else {} branch for a given if/else statement is never taken, R8 removes the code for the else {} branch. To learn more, go to the section about code optimization." +
                 "",
-        category = Category.Android
+        category = DeprecatedCategory.Android
     ),
     Question(
         question = "Permissions on Android",
@@ -227,7 +227,7 @@ val questionsNew = listOf(
                 "\n" +
                 "Restricted data, such as system state and a user's contact information.\n" +
                 "Restricted actions, such as connecting to a paired device and recording audio.",
-        category = Category.Android
+        category = DeprecatedCategory.Android
     ),
     Question(
         question = "Workflow for using permissions",
@@ -235,13 +235,13 @@ val questionsNew = listOf(
                 "\n" +
                 "If you decide that your app must access restricted data or perform restricted actions to fulfill a use case, declare the appropriate permissions. Some permissions, known as install-time permissions, are automatically granted when your app is installed. Other permissions, known as runtime permissions, require your app to go a step further and request the permission at runtime.\n" +
                 "\n",
-        category = Category.Android
+        category = DeprecatedCategory.Android
     ),
     Question(
         question = "Types of permissions",
         answer = "Android categorizes permissions into different types, including install-time permissions, runtime permissions, and special permissions. Each permission's type indicates the scope of restricted data that your app can access, and the scope of restricted actions that your app can perform, when the system grants your app that permission.\n" +
                 "\n",
-        category = Category.Android
+        category = DeprecatedCategory.Android
     ),
     Question(
         question = "Install-time permissions\n",
@@ -255,7 +255,7 @@ val questionsNew = listOf(
                 "The system assigns the \"normal\" protection level to normal permissions, as shown on the permissions API reference page. \n" +
                 "Signature permissions\n" +
                 "If the app declares a signature permission that another app has defined, and if the two apps are signed by the same certificate, then the system grants the permission to the first app at install time. Otherwise, that first app cannot be granted the permission. \n",
-        category = Category.Android
+        category = DeprecatedCategory.Android
     ),
     Question(
         question = "Runtime permissions",
@@ -265,7 +265,7 @@ val questionsNew = listOf(
                 "\n" +
                 "The microphone and camera provide access to particularly sensitive information. Therefore, the system helps you explain why your app accesses this information." +
                 "The system assigns the \"dangerous\" protection level to runtime permissions, as shown on the permissions API reference page.",
-        category = Category.Android
+        category = DeprecatedCategory.Android
     ),
     Question(
         question = "Special permissions",
@@ -274,7 +274,7 @@ val questionsNew = listOf(
                 "The Special app access page in system settings contains a set of user-toggleable operations. Many of these operations are implemented as special permissions.\n" +
                 "\n" +
                 "Each special permission has its own implementation details. The instructions for using each special permission appear on the permissions API reference page. The system assigns the \"appop\" protection level to special permissions.",
-        category = Category.Android
+        category = DeprecatedCategory.Android
     ),
     Question(
         question = "Best practices - Permissions",
@@ -295,7 +295,7 @@ val questionsNew = listOf(
                 "\n\n" +
                 "Make system accesses explicit\n" +
                 "When you access sensitive data or hardware, such as the camera or microphone, provide a continuous indication in your app if the system doesn't already provide these indicators. This reminder helps users understand exactly when your app accesses restricted data or performs restricted actions.",
-        category = Category.Android
+        category = DeprecatedCategory.Android
     ),
     Question(
         question = "Declaring permissions alternatives",
@@ -303,7 +303,7 @@ val questionsNew = listOf(
                 "\n" +
                 "Consider whether another installed app might be able to perform the functionality on your app's behalf. In these cases, you should delegate the task to another app using an intent. In doing so, you don't need to declare the necessary permissions because the other app declares the permission instead. \n" +
                 "",
-        category = Category.Android
+        category = DeprecatedCategory.Android
     ),
     Question(
         question = "ACCESS_COARSE_LOCATION, ACCESS_FINE_LOCATION",
@@ -315,7 +315,7 @@ val questionsNew = listOf(
                 "If your app needs location less often, or only once, consider asking the user to enter an address or a postal code instead.\n" +
                 "Other use cases require a more precise estimate of a device's location. Only in those situations, it's OK to declare the ACCESS_FINE_LOCATION permission.\n" +
                 "\n",
-        category = Category.Android
+        category = DeprecatedCategory.Android
     ),
     Question(
         question = "Using camera without asking for permission",
@@ -330,7 +330,7 @@ val questionsNew = listOf(
                 "In this situation, don't declare the CAMERA permission. Instead, invoke the ACTION_VIDEO_CAPTURE intent action.\n" +
                 "\n" +
                 "\n",
-        category = Category.Android
+        category = DeprecatedCategory.Android
     ),
     Question(
         question = "External storage permissions",
@@ -344,7 +344,7 @@ val questionsNew = listOf(
                 "MediaStore.Video\n" +
                 "MediaStore.Audio\n" +
                 "Use ContentResolver to query media content directly from the media store, rather than attempting to discover media content on your own.",
-        category = Category.Android
+        category = DeprecatedCategory.Android
     ),
     Question(
         question = "Opening documents permissions",
@@ -359,7 +359,7 @@ val questionsNew = listOf(
                 "\n" +
                 "If the user created the document in your app, access it directly.\n" +
                 "If the user created the document in another app, use the Storage Access Framework.",
-        category = Category.Android
+        category = DeprecatedCategory.Android
     ),
     Question(
         question = "Requesting permissions basic principles",
@@ -370,7 +370,7 @@ val questionsNew = listOf(
                 "If the user denies or revokes a permission that a feature needs, gracefully degrade your app so that the user can continue using your app, possibly by disabling the feature that requires the permission.\n" +
                 "Don't assume any system behavior. For example, don't assume that permissions appear in the same permission group. A permission group merely helps the system minimize the number of system dialogs that are presented to the user when an app requests closely-related permissions. \n" +
                 "",
-        category = Category.Android
+        category = DeprecatedCategory.Android
     ),
     Question(
         question = "Workflow for requesting permissions",
@@ -396,7 +396,7 @@ val questionsNew = listOf(
 
             If the user granted the permission to your app, you can access the private user data. If the user denied the permission instead, gracefully degrade your app experience so that it provides functionality to the user, even without the information that's protected by that permission.
         """.trimIndent(),
-        category = Category.Android
+        category = DeprecatedCategory.Android
     ),
     Question(
         question = "Merge vs Rebase",
@@ -409,11 +409,11 @@ val questionsNew = listOf(
                 "Rebase pretends that the work done on the feature branch was always done on the main branch. It takes commits from the feature branch and places them on the main branch. \n \n" +
                 "merge: git checkout master, git merge feature \n \n" +
                 "rebase: git checkout feature, git rebase master, git checkout feature",
-        category = Category.Git
+        category = DeprecatedCategory.Git
     ),
     Question(
         question = "Handling permissions in Compose",
         answer = "rememberPermissionState(), rememberMultiplePermissionsState()",
-        category = Category.Compose
+        category = DeprecatedCategory.Compose
     ),
 )

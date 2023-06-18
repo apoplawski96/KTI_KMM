@@ -1,9 +1,9 @@
 package co.apoplawski96.kti.questions.data
 
-import co.apoplawski96.kti.questions.model.Category
+import com.example.myapplication.questions.model.DeprecatedCategory
 import co.apoplawski96.kti.questions.model.Question
 
-private val category = Category.Compose
+private val category = DeprecatedCategory.Compose
 
 internal val composeQuestions: List<Question> = listOf(
     Question(

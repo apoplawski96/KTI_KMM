@@ -1,8 +1,9 @@
 package com.example.myapplication.questions.view
 
 import co.apoplawski96.kti.navigation.Navigator
-import co.apoplawski96.kti.questions.model.Category
+import com.example.myapplication.questions.model.DeprecatedCategory
 import co.touchlab.kampkit.models.ViewModel
+import com.example.myapplication.questions.model.subcategory.TopCategory
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update
@@ -11,21 +12,21 @@ class CategoriesViewModel(private val navigator: Navigator) : ViewModel() {
 
     sealed interface ViewState {
         object Loading : ViewState
-        data class CategoriesLoaded(val categories: List<Category>) : ViewState
+        data class CategoriesLoaded(val categories: List<TopCategory>) : ViewState
     }
 
     private val _state: MutableStateFlow<ViewState> = MutableStateFlow(ViewState.Loading)
     val state: StateFlow<ViewState> = _state
 
-    fun getCategories() {
+    fun initialize() {
         _state.update {
             ViewState.CategoriesLoaded(
-                categories = Category.values().toList()
+                categories = TopCategory.values().toList()
             )
         }
     }
 
-    fun categorySelected(category: Category) {
+    fun categorySelected(category: TopCategory) {
         // navigate to list screen
     }
 }

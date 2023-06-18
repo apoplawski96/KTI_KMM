@@ -1,6 +1,5 @@
 package co.touchlab.kampkit
 
-import commonAppleMain.co.touchlab.kampkit.db.KaMPKitDb
 import co.touchlab.kermit.Logger
 import com.russhwolf.settings.NSUserDefaultsSettings
 import com.russhwolf.settings.Settings
@@ -13,7 +12,6 @@ import org.koin.core.component.KoinComponent
 import org.koin.core.parameter.parametersOf
 import org.koin.dsl.module
 import platform.Foundation.NSUserDefaults
-import touchlab.kampkit.AppInfo
 
 fun initKoinIos(
     userDefaults: NSUserDefaults,
@@ -28,7 +26,7 @@ fun initKoinIos(
 )
 
 actual val platformModule = module {
-    single<SqlDriver> { NativeSqliteDriver(KaMPKitDb.Schema, "KampkitDb") }
+//    single<SqlDriver> { NativeSqliteDriver(KaMPKitDb.Schema, "KampkitDb") }
 
     single { Darwin.create() }
 

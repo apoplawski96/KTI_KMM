@@ -1,11 +1,12 @@
 package co.apoplawski96.kti.questions.model
 
-import co.apoplawski96.kti.questions.model.subcategory.SubCategory
+import com.example.myapplication.questions.model.subcategory.SubCategory
 import co.apoplawski96.kti.questions.model.subcategory.android.AndroidSubCategory
 import co.touchlab.kampkit.domain.model.Difficulty
+import com.example.myapplication.questions.model.DeprecatedCategory
 
 data class Question(
-    val category: Category,
+    val category: DeprecatedCategory,
     val subCategory: SubCategory = AndroidSubCategory.Activities,
     val difficulty: Difficulty = Difficulty.Beginner,
     val question: String,

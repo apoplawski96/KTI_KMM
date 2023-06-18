@@ -1,9 +1,10 @@
-package co.apoplawski96.kti.questions.model
+package com.example.myapplication.questions.model
 
-import co.apoplawski96.kti.questions.model.subcategory.SubCategory
+import com.example.myapplication.questions.model.subcategory.SubCategory
 
-enum class Category(val subCategories: List<SubCategory> = listOf()) {
-    Android(subCategories = listOf()),
+@Deprecated("Moved to TopCategory & SubCategory models")
+enum class DeprecatedCategory(val subCategories: List<SubCategory> = listOf()) {
+    Android,
     Kotlin(subCategories = listOf()),
     Compose(subCategories = listOf()),
     Rx(subCategories = listOf()),
