@@ -1,4 +1,4 @@
-package com.example.myapplication.android.ui.categories
+package com.example.myapplication.android.ui.subcategory
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.clickable
@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.grid.GridCells
@@ -30,41 +31,56 @@ import androidx.compose.ui.unit.sp
 import co.touchlab.kampkit.android.ui.theme.podme_cinder
 import co.touchlab.kampkit.android.ui.theme.podme_licorice
 import co.touchlab.kampkit.android.ui.theme.podme_soft_white
-import com.apoplawski96.killtheinterview.common.ui.component.KTIHorizontalSpacer
 import com.example.myapplication.android.common.ui.component.KTICircularProgressIndicator
 import com.example.myapplication.android.common.ui.component.KTIText
+import com.example.myapplication.questions.model.subcategory.SubCategory
 import com.example.myapplication.questions.model.subcategory.TopCategory
-import com.example.myapplication.questions.view.CategoriesViewModel
 import org.koin.androidx.compose.getViewModel
 
 @Composable
-fun CategoriesScreen(viewModel: CategoriesViewModel = getViewModel()) {
+fun SubCategoryScreen(
+    viewModel: SubCategoriesViewModel = getViewModel(),
+    topCategory: TopCategory?,
+) {
+    if (topCategory == null) {
+        println("2137 - top category is null")
+        return
+    }
 
     val viewState = viewModel.state.collectAsState().value
     val lazyGridState = rememberLazyGridState()
 
     LaunchedEffect(null) {
-        viewModel.initialize()
+        viewModel.initialize(topCategory)
     }
 
-    CategoriesScreenContent(
+    SubCategoriesScreenContent(
         state = viewState,
-        onClick = { category -> viewModel.categorySelected(category) },
+        onClick = { subCategory ->
+            viewModel.navigateToQuestionsList(
+                topCategory = topCategory,
+                subCategory = subCategory
+            )
+        },
         lazyGridState = lazyGridState
     )
 }
 
 @Composable
-fun CategoriesScreenContent(
-    state: CategoriesViewModel.ViewState,
-    onClick: (TopCategory) -> Unit,
+fun SubCategoriesScreenContent(
+    state: SubCategoriesViewModel.ViewState,
+    onClick: (SubCategory) -> Unit,
     lazyGridState: LazyGridState
 ) {
     Box(modifier = Modifier.fillMaxSize()) {
         when (state) {
-            is CategoriesViewModel.ViewState.CategoriesLoaded -> {
+            is SubCategoriesViewModel.ViewState.Loading -> {
+                KTICircularProgressIndicator(modifier = Modifier.align(Alignment.Center))
+            }
+
+            is SubCategoriesViewModel.ViewState.SubCategoriesLoaded -> {
                 Column {
-                    KTIHorizontalSpacer(height = 24.dp)
+                    RandomCard()
                     CategoriesGrid(
                         categories = state.categories,
                         onClick = onClick,
@@ -72,17 +88,30 @@ fun CategoriesScreenContent(
                     )
                 }
             }
-            is CategoriesViewModel.ViewState.Loading -> {
-                KTICircularProgressIndicator(modifier = Modifier.align(Alignment.Center))
-            }
         }
     }
 }
 
 @Composable
-fun CategoriesGrid(
-    categories: List<TopCategory>,
-    onClick: (TopCategory) -> Unit,
+private fun RandomCard() {
+    Card(
+        shape = RoundedCornerShape(size = 8.dp),
+        backgroundColor = podme_cinder,
+        border = BorderStroke(width = 0.5.dp, color = podme_licorice),
+        modifier = Modifier
+            .clickable { }
+            .padding(4.dp)
+            .heightIn(min = 96.dp)
+            .fillMaxWidth()
+    ) {
+        KTIText(text = "Get random questions")
+    }
+}
+
+@Composable
+private fun CategoriesGrid(
+    categories: List<SubCategory>,
+    onClick: (SubCategory) -> Unit,
     state: LazyGridState,
 ) {
     LazyVerticalGrid(
@@ -91,16 +120,16 @@ fun CategoriesGrid(
         state = state,
         content = {
             items(items = categories) { category ->
-                CategoryCard(category = category, onClick = onClick)
+                SubCategoryCard(category = category, onClick = onClick)
             }
         }
     )
 }
 
 @Composable
-private fun CategoryCard(
-    category: TopCategory,
-    onClick: (TopCategory) -> Unit,
+private fun SubCategoryCard(
+    category: SubCategory,
+    onClick: (SubCategory) -> Unit,
 ) {
     Card(
         shape = RoundedCornerShape(size = 8.dp),

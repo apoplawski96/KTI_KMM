@@ -1,7 +1,7 @@
-package co.apoplawski96.kti.questions.view
+package com.example.myapplication.questions.view
 
-import co.apoplawski96.kti.navigation.Navigator
-import co.apoplawski96.kti.navigation.model.Destinations
+import com.example.myapplication.navigation.Navigator
+import com.example.myapplication.navigation.model.Destinations
 import co.apoplawski96.kti.questions.model.HomeScreenItem
 import co.touchlab.kampkit.models.ViewModel
 import kotlinx.coroutines.flow.MutableStateFlow

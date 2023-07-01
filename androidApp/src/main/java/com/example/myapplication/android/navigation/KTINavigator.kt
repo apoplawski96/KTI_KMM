@@ -1,6 +1,6 @@
 package com.example.myapplication.android.navigation
 
-import co.apoplawski96.kti.navigation.Navigator
+import com.example.myapplication.navigation.Navigator
 import co.apoplawski96.kti.navigation.model.NavigationCommand
 import co.apoplawski96.kti.navigation.model.NavigationDestination
 import kotlinx.coroutines.CoroutineScope

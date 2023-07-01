@@ -5,15 +5,18 @@ import android.content.Context
 import android.content.SharedPreferences
 import android.util.Log
 import co.apoplawski96.kti.common.coroutines.DispatcherProvider
-import co.apoplawski96.kti.navigation.Navigator
-import co.apoplawski96.kti.questions.domain.QuestionsRepository
+import com.example.myapplication.navigation.Navigator
+import com.example.myapplication.questions.domain.legacy.QuestionsRepository
 import co.apoplawski96.kti.questions.domain.interactors.GetQuestionsShuffled
-import co.apoplawski96.kti.questions.view.HomeScreenViewModel
-import co.apoplawski96.kti.questions.view.ListViewModel
+import com.example.myapplication.questions.view.HomeScreenViewModel
+import com.example.myapplication.questions.view.ListViewModel
 import co.touchlab.kampkit.AppInfo
 import co.touchlab.kampkit.initKoin
 import co.touchlab.kampkit.models.BreedViewModel
 import com.example.myapplication.android.navigation.KTINavigator
+import com.example.myapplication.android.ui.subcategory.SubCategoriesViewModel
+import com.example.myapplication.domain.SubCategoriesRepository
+import com.example.myapplication.questions.domain.new.NewQuestionsRepository
 import com.example.myapplication.questions.view.CategoriesViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.SupervisorJob
@@ -34,8 +37,11 @@ class MainApp : Application() {
                 viewModelOf(::HomeScreenViewModel)
                 viewModelOf(::ListViewModel)
                 viewModelOf(::CategoriesViewModel)
+                viewModelOf(::SubCategoriesViewModel)
+                singleOf(::SubCategoriesRepository)
                 singleOf(::GetQuestionsShuffled)
                 singleOf(::QuestionsRepository)
+                singleOf(::NewQuestionsRepository)
                 single<SharedPreferences> {
                     get<Context>().getSharedPreferences("KAMPSTARTER_SETTINGS", Context.MODE_PRIVATE)
                 }

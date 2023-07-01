@@ -1,4 +1,4 @@
-package co.apoplawski96.kti.navigation
+package com.example.myapplication.navigation
 
 import co.apoplawski96.kti.navigation.model.NavigationCommand
 import co.apoplawski96.kti.navigation.model.NavigationDestination

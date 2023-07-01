@@ -1,6 +1,6 @@
 package co.apoplawski96.kti.questions.domain.interactors
 
-import co.apoplawski96.kti.questions.domain.QuestionsRepository
+import com.example.myapplication.questions.domain.legacy.QuestionsRepository
 import co.apoplawski96.kti.questions.model.Question
 
 class GetQuestionsShuffled(private val questionsRepository: QuestionsRepository) {

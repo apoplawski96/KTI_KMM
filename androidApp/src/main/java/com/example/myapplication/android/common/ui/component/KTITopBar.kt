@@ -7,7 +7,7 @@ import androidx.compose.material.TopAppBar
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.runtime.Composable
-import co.apoplawski96.kti.navigation.Navigator
+import com.example.myapplication.navigation.Navigator
 import com.example.myapplication.android.common.ui.component.KTIText
 import org.koin.androidx.compose.get
 

@@ -1,6 +1,6 @@
 @file:OptIn(ExperimentalMaterialApi::class)
 
-package co.touchlab.kampkit.android.ui.questions.list
+package com.example.myapplication.android.ui.questions.list
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -24,15 +24,22 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import co.apoplawski96.kti.questions.model.Question
-import co.apoplawski96.kti.questions.view.ListViewModel
+import com.example.myapplication.questions.view.ListViewModel
 import com.example.myapplication.android.common.ui.component.KTICircularProgressIndicator
 import com.apoplawski96.killtheinterview.common.ui.component.KTIDestinationTopBar
 import com.apoplawski96.killtheinterview.common.ui.component.KTIHorizontalSpacer
 import com.apoplawski96.killtheinterview.common.ui.component.bottomsheet.base.FcModalBottomSheetLayout
+import com.example.myapplication.questions.model.subcategory.SubCategory
+import com.example.myapplication.questions.model.subcategory.TopCategory
 import org.koin.androidx.compose.getViewModel
 
 @Composable
-fun ListScreen(viewModel: ListViewModel = getViewModel()) {
+fun ListScreen(
+    viewModel: ListViewModel = getViewModel(),
+    category: TopCategory?,
+    subCategory: SubCategory?,
+) {
+    if (category == null || subCategory == null) return
 
     val viewState = viewModel.state.collectAsState().value
 
@@ -40,14 +47,18 @@ fun ListScreen(viewModel: ListViewModel = getViewModel()) {
         rememberModalBottomSheetState(initialValue = ModalBottomSheetValue.Hidden)
 
     LaunchedEffect(null) {
-        viewModel.getShuffledQuestionsList()
+        viewModel.initialize(
+            subCategory = subCategory,
+            category = category,
+        )
     }
 
-    ListScreenContent(
-        viewState = viewState,
-        bottomSheetContent = { },
-        bottomSheetState = bottomSheetState,
-    )
+//    ListScreenContent(
+//        viewState = viewState,
+//        bottomSheetContent = { },
+//        bottomSheetState = bottomSheetState,
+//    )
+    Text(text = "Category: ${category.displayName}, subCategory: ${subCategory.displayName}")
 }
 
 @Composable

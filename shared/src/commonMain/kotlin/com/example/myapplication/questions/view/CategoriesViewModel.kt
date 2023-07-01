@@ -1,8 +1,8 @@
 package com.example.myapplication.questions.view
 
-import co.apoplawski96.kti.navigation.Navigator
-import com.example.myapplication.questions.model.DeprecatedCategory
+import com.example.myapplication.navigation.Navigator
 import co.touchlab.kampkit.models.ViewModel
+import com.example.myapplication.navigation.model.Destinations
 import com.example.myapplication.questions.model.subcategory.TopCategory
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -27,6 +27,6 @@ class CategoriesViewModel(private val navigator: Navigator) : ViewModel() {
     }
 
     fun categorySelected(category: TopCategory) {
-        // navigate to list screen
+        navigator.navigate(Destinations.SubCategories.destination(category.id))
     }
 }

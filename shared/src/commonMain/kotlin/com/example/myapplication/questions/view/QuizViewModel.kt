@@ -1,6 +1,6 @@
 package co.apoplawski96.kti.questions.view
 
-import co.apoplawski96.kti.questions.domain.QuestionsRepository
+import com.example.myapplication.questions.domain.legacy.QuestionsRepository
 import co.apoplawski96.kti.questions.model.Question
 import co.apoplawski96.kti.questions.data.questions
 import co.touchlab.kampkit.models.ViewModel

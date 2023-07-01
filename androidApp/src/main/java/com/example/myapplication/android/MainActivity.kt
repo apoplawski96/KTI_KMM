@@ -6,7 +6,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.animation.ExperimentalAnimationApi
-import co.apoplawski96.kti.navigation.Navigator
+import com.example.myapplication.navigation.Navigator
 import co.touchlab.kampkit.android.ui.theme.KaMPKitTheme
 import co.touchlab.kampkit.injectLogger
 import co.touchlab.kampkit.models.BreedViewModel

@@ -1,14 +1,20 @@
-package co.apoplawski96.kti.questions.view
+package com.example.myapplication.questions.view
 
 import co.apoplawski96.kti.questions.domain.interactors.GetQuestionsShuffled
 import com.example.myapplication.questions.model.DeprecatedCategory
 import co.apoplawski96.kti.questions.model.Question
 import co.touchlab.kampkit.models.ViewModel
+import com.example.myapplication.questions.domain.new.NewQuestionsRepository
+import com.example.myapplication.questions.model.subcategory.SubCategory
+import com.example.myapplication.questions.model.subcategory.TopCategory
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update
 
-class ListViewModel(private val getQuestionsShuffled: GetQuestionsShuffled) : ViewModel() {
+class ListViewModel(
+    private val getQuestionsShuffled: GetQuestionsShuffled,
+    private val newQuestionsRepository: NewQuestionsRepository,
+) : ViewModel() {
 
     sealed interface ViewState {
         object Loading : ViewState
@@ -17,6 +23,16 @@ class ListViewModel(private val getQuestionsShuffled: GetQuestionsShuffled) : Vi
 
     private val _state: MutableStateFlow<ViewState> = MutableStateFlow(ViewState.Loading)
     val state: StateFlow<ViewState> = _state
+
+    fun initialize(subCategory: SubCategory, category: TopCategory) {
+        _state.update {
+            val questions = newQuestionsRepository.getQuestions(
+                subCategory = subCategory,
+                topCategory = category,
+            )
+            ViewState.QuestionsLoaded(questions)
+        }
+    }
 
     fun getShuffledQuestionsList() {
         _state.update {
