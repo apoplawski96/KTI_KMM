@@ -2,7 +2,7 @@ package com.example.myapplication.screens.quiz
 
 import com.example.myapplication.legacy.QuestionsRepository
 import com.example.myapplication.model.Question
-import co.apoplawski96.kti.questions.data.questions
+import com.example.myapplication.data.questions
 import co.touchlab.kampkit.models.ViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow

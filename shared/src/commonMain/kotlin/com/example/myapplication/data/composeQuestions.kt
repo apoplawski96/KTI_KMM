@@ -1,4 +1,4 @@
-package co.apoplawski96.kti.questions.data
+package com.example.myapplication.data
 
 import com.example.myapplication.model.DeprecatedCategory
 import com.example.myapplication.model.Question

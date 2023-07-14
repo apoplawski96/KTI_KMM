@@ -1,4 +1,4 @@
-package com.apoplawski96.killtheinterview.feature.questions.dependency.data
+package com.example.myapplication.data
 
 import com.example.myapplication.model.DeprecatedCategory
 import com.example.myapplication.model.Question

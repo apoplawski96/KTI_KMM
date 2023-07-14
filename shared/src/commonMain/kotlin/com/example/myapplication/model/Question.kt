@@ -4,9 +4,11 @@ import com.example.myapplication.model.subcategory.SubCategory
 import com.example.myapplication.model.subcategory.AndroidSubCategory
 import co.touchlab.kampkit.domain.model.Difficulty
 import com.example.myapplication.model.DeprecatedCategory
+import com.example.myapplication.model.subcategory.TopCategory
 
 data class Question(
     val category: DeprecatedCategory,
+    val topCategory: TopCategory = TopCategory.ANDROID,
     val subCategory: SubCategory = AndroidSubCategory.Basics,
     val difficulty: Difficulty = Difficulty.Beginner,
     val question: String,
