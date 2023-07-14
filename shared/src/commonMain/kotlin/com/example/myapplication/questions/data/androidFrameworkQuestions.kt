@@ -1,7 +1,7 @@
 package com.apoplawski96.killtheinterview.feature.questions.dependency.data
 
 import com.example.myapplication.questions.model.DeprecatedCategory
-import co.apoplawski96.kti.questions.model.Question
+import com.example.myapplication.questions.model.Question
 
 val questionsAndroidFramework = listOf(
     Question(

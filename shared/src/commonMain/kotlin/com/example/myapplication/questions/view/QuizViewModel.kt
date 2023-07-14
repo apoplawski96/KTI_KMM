@@ -1,7 +1,7 @@
 package co.apoplawski96.kti.questions.view
 
 import com.example.myapplication.questions.domain.legacy.QuestionsRepository
-import co.apoplawski96.kti.questions.model.Question
+import com.example.myapplication.questions.model.Question
 import co.apoplawski96.kti.questions.data.questions
 import co.touchlab.kampkit.models.ViewModel
 import kotlinx.coroutines.flow.MutableStateFlow

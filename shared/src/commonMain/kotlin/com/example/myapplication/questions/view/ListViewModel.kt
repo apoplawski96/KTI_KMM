@@ -2,7 +2,7 @@ package com.example.myapplication.questions.view
 
 import co.apoplawski96.kti.questions.domain.interactors.GetQuestionsShuffled
 import com.example.myapplication.questions.model.DeprecatedCategory
-import co.apoplawski96.kti.questions.model.Question
+import com.example.myapplication.questions.model.Question
 import co.touchlab.kampkit.models.ViewModel
 import com.example.myapplication.questions.domain.new.NewQuestionsRepository
 import com.example.myapplication.questions.model.subcategory.SubCategory

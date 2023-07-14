@@ -1,4 +1,4 @@
-package co.apoplawski96.kti.questions.model
+package com.example.myapplication.questions.model
 
 import com.example.myapplication.questions.model.subcategory.SubCategory
 import com.example.myapplication.questions.model.subcategory.AndroidSubCategory

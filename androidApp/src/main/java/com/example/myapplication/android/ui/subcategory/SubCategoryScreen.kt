@@ -33,6 +33,7 @@ import co.touchlab.kampkit.android.ui.theme.podme_licorice
 import co.touchlab.kampkit.android.ui.theme.podme_soft_white
 import com.example.myapplication.android.common.ui.component.KTICircularProgressIndicator
 import com.example.myapplication.android.common.ui.component.KTIText
+import com.example.myapplication.questions.model.subcategory.Random
 import com.example.myapplication.questions.model.subcategory.SubCategory
 import com.example.myapplication.questions.model.subcategory.TopCategory
 import org.koin.androidx.compose.getViewModel
@@ -80,7 +81,7 @@ fun SubCategoriesScreenContent(
 
             is SubCategoriesViewModel.ViewState.SubCategoriesLoaded -> {
                 Column {
-                    RandomCard()
+                    RandomCard { onClick(Random) }
                     CategoriesGrid(
                         categories = state.categories,
                         onClick = onClick,
@@ -93,13 +94,13 @@ fun SubCategoriesScreenContent(
 }
 
 @Composable
-private fun RandomCard() {
+private fun RandomCard(onClick: () -> Unit) {
     Card(
         shape = RoundedCornerShape(size = 8.dp),
         backgroundColor = podme_cinder,
         border = BorderStroke(width = 0.5.dp, color = podme_licorice),
         modifier = Modifier
-            .clickable { }
+            .clickable { onClick.invoke() }
             .padding(4.dp)
             .heightIn(min = 96.dp)
             .fillMaxWidth()

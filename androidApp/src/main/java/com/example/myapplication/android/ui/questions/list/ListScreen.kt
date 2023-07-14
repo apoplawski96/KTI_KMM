@@ -23,7 +23,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import co.apoplawski96.kti.questions.model.Question
+import com.example.myapplication.questions.model.Question
 import com.example.myapplication.questions.view.ListViewModel
 import com.example.myapplication.android.common.ui.component.KTICircularProgressIndicator
 import com.apoplawski96.killtheinterview.common.ui.component.KTIDestinationTopBar
@@ -39,6 +39,8 @@ fun ListScreen(
     category: TopCategory?,
     subCategory: SubCategory?,
 ) {
+    println("2137 - category: $category, subCategory: $subCategory")
+
     if (category == null || subCategory == null) return
 
     val viewState = viewModel.state.collectAsState().value
@@ -53,12 +55,11 @@ fun ListScreen(
         )
     }
 
-//    ListScreenContent(
-//        viewState = viewState,
-//        bottomSheetContent = { },
-//        bottomSheetState = bottomSheetState,
-//    )
-    Text(text = "Category: ${category.displayName}, subCategory: ${subCategory.displayName}")
+    ListScreenContent(
+        viewState = viewState,
+        bottomSheetContent = { },
+        bottomSheetState = bottomSheetState,
+    )
 }
 
 @Composable
