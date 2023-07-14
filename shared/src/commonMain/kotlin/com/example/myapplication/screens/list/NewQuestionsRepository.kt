@@ -1,10 +1,10 @@
-package com.example.myapplication.domain
+package com.example.myapplication.screens.list
 
 import com.example.myapplication.data.questionsNew
-import com.example.myapplication.domain.model.Question
-import com.example.myapplication.domain.model.subcategory.Random
-import com.example.myapplication.domain.model.subcategory.SubCategory
-import com.example.myapplication.domain.model.subcategory.TopCategory
+import com.example.myapplication.model.Question
+import com.example.myapplication.model.subcategory.Random
+import com.example.myapplication.model.subcategory.SubCategory
+import com.example.myapplication.model.subcategory.TopCategory
 
 class NewQuestionsRepository {
 

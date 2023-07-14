@@ -1,4 +1,4 @@
-package com.example.myapplication.view
+package com.example.myapplication.screens.home
 
 import com.example.myapplication.navigation.Navigator
 import com.example.myapplication.navigation.model.Destinations

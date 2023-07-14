@@ -1,7 +1,7 @@
 package co.apoplawski96.kti.questions.domain.interactors
 
 import com.example.myapplication.legacy.QuestionsRepository
-import com.example.myapplication.domain.model.Question
+import com.example.myapplication.model.Question
 
 class GetQuestionsShuffled(private val questionsRepository: QuestionsRepository) {
 

@@ -24,9 +24,9 @@ import com.example.myapplication.android.ui.questions.list.ListScreen
 import co.touchlab.kampkit.android.ui.quiz.QuizScreen
 import com.example.myapplication.android.ui.subcategory.SubCategoryScreen
 import com.example.myapplication.navigation.model.NavigationArgument
-import com.example.myapplication.domain.model.subcategory.SubCategory
-import com.example.myapplication.domain.model.subcategory.TopCategory
-import com.example.myapplication.domain.model.subcategory.getSubCategoryForId
+import com.example.myapplication.model.subcategory.SubCategory
+import com.example.myapplication.model.subcategory.TopCategory
+import com.example.myapplication.model.subcategory.getSubCategoryForId
 import com.google.accompanist.navigation.animation.AnimatedNavHost
 import com.google.accompanist.navigation.animation.composable
 import com.google.accompanist.navigation.animation.rememberAnimatedNavController

@@ -1,12 +1,11 @@
-package com.example.myapplication.view
+package com.example.myapplication.screens.list
 
 import co.apoplawski96.kti.questions.domain.interactors.GetQuestionsShuffled
-import com.example.myapplication.domain.model.DeprecatedCategory
-import com.example.myapplication.domain.model.Question
+import com.example.myapplication.model.DeprecatedCategory
+import com.example.myapplication.model.Question
 import co.touchlab.kampkit.models.ViewModel
-import com.example.myapplication.domain.NewQuestionsRepository
-import com.example.myapplication.domain.model.subcategory.SubCategory
-import com.example.myapplication.domain.model.subcategory.TopCategory
+import com.example.myapplication.model.subcategory.SubCategory
+import com.example.myapplication.model.subcategory.TopCategory
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update

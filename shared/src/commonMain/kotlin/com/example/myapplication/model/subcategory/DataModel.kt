@@ -1,4 +1,4 @@
-package com.example.myapplication.domain.model.subcategory
+package com.example.myapplication.model.subcategory
 
 enum class TopCategory(
     val id: String,

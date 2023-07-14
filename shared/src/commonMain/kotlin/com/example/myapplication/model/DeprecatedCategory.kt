@@ -1,6 +1,6 @@
-package com.example.myapplication.domain.model
+package com.example.myapplication.model
 
-import com.example.myapplication.domain.model.subcategory.SubCategory
+import com.example.myapplication.model.subcategory.SubCategory
 
 @Deprecated("Moved to TopCategory & SubCategory models")
 enum class DeprecatedCategory(val subCategories: List<SubCategory> = listOf()) {

@@ -1,6 +1,6 @@
 package com.example.myapplication.legacy
 
-import com.example.myapplication.domain.model.Question
+import com.example.myapplication.model.Question
 import co.apoplawski96.kti.questions.data.questions
 import com.apoplawski96.killtheinterview.feature.questions.dependency.data.questionsAndroidFramework
 import com.example.myapplication.data.questionsNew

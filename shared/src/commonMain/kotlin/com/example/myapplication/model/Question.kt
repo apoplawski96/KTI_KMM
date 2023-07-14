@@ -1,9 +1,9 @@
-package com.example.myapplication.domain.model
+package com.example.myapplication.model
 
-import com.example.myapplication.domain.model.subcategory.SubCategory
-import com.example.myapplication.domain.model.subcategory.AndroidSubCategory
+import com.example.myapplication.model.subcategory.SubCategory
+import com.example.myapplication.model.subcategory.AndroidSubCategory
 import co.touchlab.kampkit.domain.model.Difficulty
-import com.example.myapplication.domain.model.DeprecatedCategory
+import com.example.myapplication.model.DeprecatedCategory
 
 data class Question(
     val category: DeprecatedCategory,

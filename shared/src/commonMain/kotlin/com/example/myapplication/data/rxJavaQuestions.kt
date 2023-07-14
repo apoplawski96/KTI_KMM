@@ -1,7 +1,7 @@
 package co.apoplawski96.kti.questions.data
 
-import com.example.myapplication.domain.model.DeprecatedCategory
-import com.example.myapplication.domain.model.Question
+import com.example.myapplication.model.DeprecatedCategory
+import com.example.myapplication.model.Question
 
 val questionsRxJava = listOf(
     Question(

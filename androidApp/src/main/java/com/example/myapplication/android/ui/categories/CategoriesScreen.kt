@@ -34,8 +34,8 @@ import com.apoplawski96.killtheinterview.common.ui.component.KTIHorizontalSpacer
 import com.example.myapplication.android.common.ui.component.KTICircularProgressIndicator
 import com.example.myapplication.android.common.ui.component.KTIDestinationTopBar
 import com.example.myapplication.android.common.ui.component.KTIText
-import com.example.myapplication.domain.model.subcategory.TopCategory
-import com.example.myapplication.view.CategoriesViewModel
+import com.example.myapplication.model.subcategory.TopCategory
+import com.example.myapplication.screens.categories.CategoriesViewModel
 import org.koin.androidx.compose.getViewModel
 
 @Composable
