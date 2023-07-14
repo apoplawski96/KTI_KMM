@@ -7,7 +7,6 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.grid.GridCells
@@ -31,7 +30,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.apoplawski96.killtheinterview.common.ui.component.KTIHorizontalSpacer
+import com.example.myapplication.android.common.ui.component.KTIVerticalSpacer
 import com.example.myapplication.android.common.ui.component.FcTextTopBar
 import com.example.myapplication.android.common.ui.component.KTICircularProgressIndicator
 import com.example.myapplication.android.common.ui.component.KTITextNew
@@ -128,8 +127,8 @@ private fun CategoriesGrid(
         modifier = Modifier.padding(start = 8.dp, end = 8.dp),
         state = state,
         content = {
-            item { KTIHorizontalSpacer(height = 10.dp) }
-            item { KTIHorizontalSpacer(height = 10.dp) }
+            item { KTIVerticalSpacer(height = 10.dp) }
+            item { KTIVerticalSpacer(height = 10.dp) }
             item { SubCategoryCard(subCategory = null, onClick = { onClick(null) }) }
             items(items = categories) { category ->
                 SubCategoryCard(subCategory = category, onClick = onClick)

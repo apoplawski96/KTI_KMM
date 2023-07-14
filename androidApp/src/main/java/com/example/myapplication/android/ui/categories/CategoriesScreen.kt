@@ -30,7 +30,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.apoplawski96.killtheinterview.common.ui.component.KTIHorizontalSpacer
+import com.example.myapplication.android.common.ui.component.KTIVerticalSpacer
 import com.example.myapplication.android.common.ui.component.FcTextTopBar
 import com.example.myapplication.android.common.ui.component.KTICircularProgressIndicator
 import com.example.myapplication.android.common.ui.component.KTITextNew
@@ -120,8 +120,8 @@ fun CategoriesGrid(
         modifier = Modifier.padding(start = 8.dp, end = 8.dp),
         state = state,
         content = {
-            item { KTIHorizontalSpacer(height = 16.dp) }
-            item { KTIHorizontalSpacer(height = 16.dp) }
+            item { KTIVerticalSpacer(height = 16.dp) }
+            item { KTIVerticalSpacer(height = 16.dp) }
             items(items = categories) { category ->
                 CategoryCard(category = category, onClick = onClick)
             }
