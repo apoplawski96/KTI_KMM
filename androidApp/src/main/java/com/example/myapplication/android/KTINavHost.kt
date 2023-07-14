@@ -142,7 +142,7 @@ private fun NavGraphBuilder.listScreen() {
         val subCategoryId: String? =
             backStackEntry.arguments?.getString(Destinations.QuestionsList.subCategoryIdArg)
         ListScreen(
-            category = TopCategory.getForId(categoryId.toString()),
+            topCategory = TopCategory.getForId(categoryId.toString()),
             subCategory = getSubCategoryForId(subCategoryId)
         )
     }

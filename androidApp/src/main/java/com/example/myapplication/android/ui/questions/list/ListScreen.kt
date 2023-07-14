@@ -12,7 +12,6 @@ import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.KeyboardArrowDown
 import androidx.compose.material.icons.filled.KeyboardArrowUp
-import androidx.compose.material.icons.filled.List
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
@@ -27,10 +26,11 @@ import androidx.compose.ui.unit.sp
 import com.example.myapplication.model.Question
 import com.example.myapplication.screens.list.ListViewModel
 import com.example.myapplication.android.common.ui.component.KTICircularProgressIndicator
-import com.example.myapplication.android.common.ui.component.KTIDestinationTopBar
 import com.apoplawski96.killtheinterview.common.ui.component.KTIHorizontalSpacer
 import com.apoplawski96.killtheinterview.common.ui.component.bottomsheet.base.FcModalBottomSheetLayout
+import com.example.myapplication.android.common.ui.component.FcTextTopBar
 import com.example.myapplication.android.common.ui.component.KTIText
+import com.example.myapplication.android.ui.theme.kti_dark_primary
 import com.example.myapplication.model.subcategory.SubCategory
 import com.example.myapplication.model.subcategory.TopCategory
 import org.koin.androidx.compose.getViewModel
@@ -38,22 +38,23 @@ import org.koin.androidx.compose.getViewModel
 @Composable
 fun ListScreen(
     viewModel: ListViewModel = getViewModel(),
-    category: TopCategory?,
+    topCategory: TopCategory?,
     subCategory: SubCategory?,
 ) {
-    println("2137 - category: $category, subCategory: $subCategory")
-
-    if (category == null) return
+    if (topCategory == null) return
 
     val viewState = viewModel.state.collectAsState().value
 
     val bottomSheetState: ModalBottomSheetState =
         rememberModalBottomSheetState(initialValue = ModalBottomSheetValue.Hidden)
 
+    val subCategoryTitle = subCategory?.displayName ?: "All"
+    val topBarTitle = "$subCategoryTitle (${topCategory.displayName})"
+
     LaunchedEffect(null) {
         viewModel.initialize(
             subCategory = subCategory,
-            topCategory = category,
+            topCategory = topCategory,
         )
     }
 
@@ -61,6 +62,7 @@ fun ListScreen(
         viewState = viewState,
         bottomSheetContent = { },
         bottomSheetState = bottomSheetState,
+        topBarTitle = topBarTitle
     )
 }
 
@@ -70,21 +72,11 @@ private fun ListScreenContent(
     viewState: ListViewModel.ViewState,
     bottomSheetState: ModalBottomSheetState,
     bottomSheetContent: @Composable () -> Unit,
+    topBarTitle: String,
 ) {
     Scaffold(
         topBar = {
-            KTIDestinationTopBar(
-                title = "Random Questions",
-                actions = {
-                    IconButton(
-                        onClick = {
-                            // open bottom sheet
-                        }
-                    ) {
-                        Icon(Icons.Filled.List, "Filter questions")
-                    }
-                }
-            )
+            FcTextTopBar(middleContentText = topBarTitle, isNested = true, hasBrandingLine = true)
         }
     ) {
         FcModalBottomSheetLayout(
@@ -96,7 +88,7 @@ private fun ListScreenContent(
                 contentAlignment = Alignment.Center,
                 modifier = Modifier
                     .fillMaxSize()
-                    .background(Color.Gray),
+                    .background(kti_dark_primary),
             ) {
                 when (viewState) {
                     is ListViewModel.ViewState.QuestionsLoaded -> {
