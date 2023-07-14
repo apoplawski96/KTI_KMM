@@ -19,7 +19,7 @@ import co.touchlab.kampkit.android.ui.home.MenuScreen
 import co.touchlab.kampkit.android.ui.quiz.QuizScreen
 import com.example.myapplication.android.ui.categories.CategoriesScreen
 import com.example.myapplication.android.ui.questions.list.ListScreen
-import com.example.myapplication.android.ui.subcategory.SubCategoryScreen
+import com.example.myapplication.android.ui.subcategory.SubCategoriesScreen
 import com.example.myapplication.model.subcategory.TopCategory
 import com.example.myapplication.model.subcategory.getSubCategoryForId
 import com.example.myapplication.navigation.Navigator
@@ -128,7 +128,7 @@ private fun NavGraphBuilder.subCategoriesScreen() {
     ) { backStackEntry ->
         val categoryId: String? =
             backStackEntry.arguments?.getString(Destinations.SubCategories.categoryIdArgName)
-        SubCategoryScreen(topCategory = TopCategory.getForId(categoryId.toString()))
+        SubCategoriesScreen(topCategory = TopCategory.getForId(categoryId.toString()))
     }
 }
 

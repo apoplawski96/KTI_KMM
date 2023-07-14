@@ -33,13 +33,13 @@ import androidx.compose.ui.unit.sp
 import com.apoplawski96.killtheinterview.common.ui.component.KTIHorizontalSpacer
 import com.example.myapplication.android.common.ui.component.FcTextTopBar
 import com.example.myapplication.android.common.ui.component.KTICircularProgressIndicator
-import com.example.myapplication.android.common.ui.component.KTIDestinationTopBar
 import com.example.myapplication.android.common.ui.component.KTITextNew
 import com.example.myapplication.android.ui.theme.kti_accent_color
 import com.example.myapplication.android.ui.theme.kti_dark_primary
 import com.example.myapplication.android.ui.theme.kti_light_primary
 import com.example.myapplication.android.ui.theme.kti_primary
 import com.example.myapplication.android.ui.theme.kti_text_icons
+import com.example.myapplication.model.subcategory.CardDisplayable
 import com.example.myapplication.model.subcategory.TopCategory
 import com.example.myapplication.screens.categories.CategoriesViewModel
 import org.koin.androidx.compose.getViewModel
@@ -56,15 +56,19 @@ fun CategoriesScreen(viewModel: CategoriesViewModel = getViewModel()) {
 
     CategoriesScreenContent(
         state = viewState,
-        onClick = { category -> viewModel.categorySelected(category) },
-        lazyGridState = lazyGridState
+        lazyGridState = lazyGridState,
+        onClick = { category ->
+            if (category is TopCategory) {
+                viewModel.categorySelected(category)
+            }
+        },
     )
 }
 
 @Composable
-fun CategoriesScreenContent(
+private fun CategoriesScreenContent(
     state: CategoriesViewModel.ViewState,
-    onClick: (TopCategory) -> Unit,
+    onClick: (CardDisplayable) -> Unit,
     lazyGridState: LazyGridState
 ) {
     Box(
@@ -75,8 +79,6 @@ fun CategoriesScreenContent(
                     0.0f to kti_dark_primary,
                     0.9f to kti_primary,
                     1.0f to kti_accent_color.copy(alpha = 0.0001f),
-//                start = Offset(0.0f, 50.0f),
-//                end = Offset(0.0f, 100.0f)
                 )
             )
     ) {
@@ -109,8 +111,8 @@ fun CategoriesScreenContent(
 
 @Composable
 fun CategoriesGrid(
-    categories: List<TopCategory>,
-    onClick: (TopCategory) -> Unit,
+    categories: List<CardDisplayable>,
+    onClick: (CardDisplayable) -> Unit,
     state: LazyGridState,
 ) {
     LazyVerticalGrid(
@@ -129,8 +131,8 @@ fun CategoriesGrid(
 
 @Composable
 private fun CategoryCard(
-    category: TopCategory,
-    onClick: (TopCategory) -> Unit,
+    category: CardDisplayable,
+    onClick: (CardDisplayable) -> Unit,
 ) {
     Card(
         shape = RoundedCornerShape(size = 8.dp),

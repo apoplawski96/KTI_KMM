@@ -2,8 +2,8 @@ package com.example.myapplication.model.subcategory
 
 enum class TopCategory(
     val id: String,
-    val displayName: String,
-) {
+    override val displayName: String,
+) : CardDisplayable {
     ANDROID(id = "1", displayName = "Android"),
     IOS(id = "2", displayName = "iOS"),
     GIT("3", "GIT"),
