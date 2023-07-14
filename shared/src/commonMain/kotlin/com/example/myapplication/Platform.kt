@@ -17,6 +17,5 @@ expect fun readJsonFile(fileName: String): String
 
 expect fun parseQuestionsJson(
     fileName: String,
-    pathRetriever: JsonFilePathRetriever,
     jsonFileReader: JsonFileReader
 ): List<MQuestion>

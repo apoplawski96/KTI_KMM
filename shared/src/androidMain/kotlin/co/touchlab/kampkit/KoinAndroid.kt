@@ -3,6 +3,7 @@ package co.touchlab.kampkit
 import android.content.Context
 import com.example.myapplication.common.coroutines.DispatcherProvider
 import co.touchlab.kampkit.db.KaMPKitDb
+import com.example.myapplication.AndroidJsonFileReader
 import com.example.myapplication.common.JsonFilePathRetriever
 import com.example.myapplication.common.JsonFileReader
 import com.russhwolf.settings.Settings
@@ -34,6 +35,7 @@ actual val platformModule: Module = module {
     single { AndroidDispatcherProvider() } bind DispatcherProvider::class
 
     single<JsonFilePathRetriever> { AndroidJsonFilePathRetriever(context = get()) }
+    single<JsonFileReader> { AndroidJsonFileReader(context = get()) }
 }
 
 class AndroidJsonFilePathRetriever(private val context: Context) : JsonFilePathRetriever {

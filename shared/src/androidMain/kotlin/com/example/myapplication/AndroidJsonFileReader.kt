@@ -1,4 +1,4 @@
-package com.example.myapplication.android.common.data
+package com.example.myapplication
 
 import android.content.Context
 import com.example.myapplication.common.JsonFileReader

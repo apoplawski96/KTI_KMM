@@ -12,7 +12,6 @@ import kotlinx.coroutines.flow.update
 
 class HomeScreenViewModel(
     private val navigator: Navigator,
-    private val jsonFilePathRetriever: JsonFilePathRetriever,
     private val jsonFileReader: JsonFileReader,
 ) : ViewModel() {
 
@@ -37,7 +36,6 @@ class HomeScreenViewModel(
 
         val questions = parseQuestionsJson(
             fileName = "questions.json",
-            pathRetriever = jsonFilePathRetriever,
             jsonFileReader = jsonFileReader,
         )
 

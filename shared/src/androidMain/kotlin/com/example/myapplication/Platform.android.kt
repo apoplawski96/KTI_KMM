@@ -14,14 +14,10 @@ actual fun getPlatform(): Platform = AndroidPlatform()
 
 actual fun parseQuestionsJson(
     fileName: String,
-    pathRetriever: JsonFilePathRetriever,
     jsonFileReader: JsonFileReader,
 ): List<MQuestion> {
-    val filePath = pathRetriever.getPath(fileName = fileName)
-    println("2137 - fileName: $fileName, filePath: $filePath")
-    val jsonFileContent = jsonFileReader.readJsonFile("questions.json")
-    println("2137 - jsonFileContent: $jsonFileContent")
-    return Json.decodeFromString<List<MQuestion>>(jsonFileContent)
+    val jsonFileContent = jsonFileReader.readJsonFile(fileName)
+    return Json.decodeFromString(jsonFileContent)
 }
 
 actual fun readJsonFile(fileName: String): String {

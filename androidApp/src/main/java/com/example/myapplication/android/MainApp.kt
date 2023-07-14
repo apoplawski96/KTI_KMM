@@ -8,7 +8,7 @@ import co.apoplawski96.kti.questions.domain.interactors.GetQuestionsShuffled
 import co.touchlab.kampkit.AppInfo
 import co.touchlab.kampkit.initKoin
 import co.touchlab.kampkit.models.BreedViewModel
-import com.example.myapplication.android.common.data.AndroidJsonFileReader
+import com.example.myapplication.AndroidJsonFileReader
 import com.example.myapplication.android.navigation.KTINavigator
 import com.example.myapplication.common.JsonFileReader
 import com.example.myapplication.common.coroutines.DispatcherProvider
@@ -46,7 +46,6 @@ class MainApp : Application() {
             singleOf(::GetQuestionsShuffled)
             singleOf(::QuestionsRepository)
             singleOf(::NewQuestionsRepository)
-            single<JsonFileReader> { AndroidJsonFileReader(context = get()) }
             single<SharedPreferences> {
                 get<Context>().getSharedPreferences(
                     "KAMPSTARTER_SETTINGS",
