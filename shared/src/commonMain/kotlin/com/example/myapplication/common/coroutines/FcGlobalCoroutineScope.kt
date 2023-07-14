@@ -1,6 +1,5 @@
-package co.touchlab.kampkit.coroutines
+package com.example.myapplication.common.coroutines
 
-import co.apoplawski96.kti.common.coroutines.DispatcherProvider
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.SupervisorJob

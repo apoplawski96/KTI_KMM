@@ -1,4 +1,4 @@
-package com.example.myapplication.questions.view
+package com.example.myapplication.view
 
 import com.example.myapplication.navigation.Navigator
 import com.example.myapplication.navigation.model.Destinations

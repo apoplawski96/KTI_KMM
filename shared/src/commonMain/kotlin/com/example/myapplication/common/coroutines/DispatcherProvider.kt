@@ -1,4 +1,4 @@
-package co.apoplawski96.kti.common.coroutines
+package com.example.myapplication.common.coroutines
 
 import kotlinx.coroutines.CoroutineDispatcher
 

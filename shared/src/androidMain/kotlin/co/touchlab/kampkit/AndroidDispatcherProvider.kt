@@ -1,6 +1,6 @@
 package co.touchlab.kampkit
 
-import co.apoplawski96.kti.common.coroutines.DispatcherProvider
+import com.example.myapplication.common.coroutines.DispatcherProvider
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 

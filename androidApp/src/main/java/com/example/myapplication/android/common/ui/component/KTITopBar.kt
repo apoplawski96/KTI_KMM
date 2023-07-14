@@ -1,4 +1,4 @@
-package com.apoplawski96.killtheinterview.common.ui.component
+package com.example.myapplication.android.common.ui.component
 
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.material.Icon

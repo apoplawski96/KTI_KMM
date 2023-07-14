@@ -1,11 +1,11 @@
-package com.example.myapplication.android.ui.subcategory
+package com.example.myapplication.view
 
 import co.touchlab.kampkit.models.ViewModel
 import com.example.myapplication.domain.SubCategoriesRepository
 import com.example.myapplication.navigation.Navigator
 import com.example.myapplication.navigation.model.Destinations
-import com.example.myapplication.questions.model.subcategory.SubCategory
-import com.example.myapplication.questions.model.subcategory.TopCategory
+import com.example.myapplication.domain.model.subcategory.SubCategory
+import com.example.myapplication.domain.model.subcategory.TopCategory
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update

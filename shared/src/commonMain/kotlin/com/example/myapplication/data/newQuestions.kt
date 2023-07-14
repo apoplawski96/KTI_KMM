@@ -1,7 +1,7 @@
-package com.example.myapplication.questions.data
+package com.example.myapplication.data
 
-import com.example.myapplication.questions.model.DeprecatedCategory
-import com.example.myapplication.questions.model.Question
+import com.example.myapplication.domain.model.DeprecatedCategory
+import com.example.myapplication.domain.model.Question
 
 val questionsNew = listOf(
     Question(

@@ -32,9 +32,10 @@ import co.touchlab.kampkit.android.ui.theme.podme_licorice
 import co.touchlab.kampkit.android.ui.theme.podme_soft_white
 import com.apoplawski96.killtheinterview.common.ui.component.KTIHorizontalSpacer
 import com.example.myapplication.android.common.ui.component.KTICircularProgressIndicator
+import com.example.myapplication.android.common.ui.component.KTIDestinationTopBar
 import com.example.myapplication.android.common.ui.component.KTIText
-import com.example.myapplication.questions.model.subcategory.TopCategory
-import com.example.myapplication.questions.view.CategoriesViewModel
+import com.example.myapplication.domain.model.subcategory.TopCategory
+import com.example.myapplication.view.CategoriesViewModel
 import org.koin.androidx.compose.getViewModel
 
 @Composable
@@ -64,6 +65,7 @@ fun CategoriesScreenContent(
         when (state) {
             is CategoriesViewModel.ViewState.CategoriesLoaded -> {
                 Column {
+                    KTIDestinationTopBar(title = "Categories")
                     KTIHorizontalSpacer(height = 24.dp)
                     CategoriesGrid(
                         categories = state.categories,

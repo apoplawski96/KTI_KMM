@@ -19,7 +19,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import com.example.myapplication.questions.view.HomeScreenViewModel
+import com.example.myapplication.view.HomeScreenViewModel
 import co.apoplawski96.kti.questions.model.HomeScreenItem
 import org.koin.androidx.compose.getViewModel
 

@@ -1,10 +1,10 @@
-package com.example.myapplication.questions.domain.new
+package com.example.myapplication.domain
 
-import com.example.myapplication.questions.data.questionsNew
-import com.example.myapplication.questions.model.Question
-import com.example.myapplication.questions.model.subcategory.Random
-import com.example.myapplication.questions.model.subcategory.SubCategory
-import com.example.myapplication.questions.model.subcategory.TopCategory
+import com.example.myapplication.data.questionsNew
+import com.example.myapplication.domain.model.Question
+import com.example.myapplication.domain.model.subcategory.Random
+import com.example.myapplication.domain.model.subcategory.SubCategory
+import com.example.myapplication.domain.model.subcategory.TopCategory
 
 class NewQuestionsRepository {
 

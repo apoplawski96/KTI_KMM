@@ -1,9 +1,9 @@
 package com.example.myapplication.domain
 
-import com.example.myapplication.questions.model.subcategory.AndroidSubCategory
-import com.example.myapplication.questions.model.subcategory.IOSSubCategory
-import com.example.myapplication.questions.model.subcategory.SubCategory
-import com.example.myapplication.questions.model.subcategory.TopCategory
+import com.example.myapplication.domain.model.subcategory.AndroidSubCategory
+import com.example.myapplication.domain.model.subcategory.IOSSubCategory
+import com.example.myapplication.domain.model.subcategory.SubCategory
+import com.example.myapplication.domain.model.subcategory.TopCategory
 
 class SubCategoriesRepository {
 

@@ -1,4 +1,4 @@
-package com.example.myapplication.questions.model.subcategory
+package com.example.myapplication.domain.model.subcategory
 
 interface SubCategory {
     val displayName: String

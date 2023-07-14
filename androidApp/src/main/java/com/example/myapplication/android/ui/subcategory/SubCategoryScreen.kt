@@ -33,9 +33,10 @@ import co.touchlab.kampkit.android.ui.theme.podme_licorice
 import co.touchlab.kampkit.android.ui.theme.podme_soft_white
 import com.example.myapplication.android.common.ui.component.KTICircularProgressIndicator
 import com.example.myapplication.android.common.ui.component.KTIText
-import com.example.myapplication.questions.model.subcategory.Random
-import com.example.myapplication.questions.model.subcategory.SubCategory
-import com.example.myapplication.questions.model.subcategory.TopCategory
+import com.example.myapplication.domain.model.subcategory.Random
+import com.example.myapplication.domain.model.subcategory.SubCategory
+import com.example.myapplication.domain.model.subcategory.TopCategory
+import com.example.myapplication.view.SubCategoriesViewModel
 import org.koin.androidx.compose.getViewModel
 
 @Composable

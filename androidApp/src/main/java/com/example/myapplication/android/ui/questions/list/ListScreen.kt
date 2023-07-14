@@ -23,14 +23,14 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.myapplication.questions.model.Question
-import com.example.myapplication.questions.view.ListViewModel
+import com.example.myapplication.domain.model.Question
+import com.example.myapplication.view.ListViewModel
 import com.example.myapplication.android.common.ui.component.KTICircularProgressIndicator
-import com.apoplawski96.killtheinterview.common.ui.component.KTIDestinationTopBar
+import com.example.myapplication.android.common.ui.component.KTIDestinationTopBar
 import com.apoplawski96.killtheinterview.common.ui.component.KTIHorizontalSpacer
 import com.apoplawski96.killtheinterview.common.ui.component.bottomsheet.base.FcModalBottomSheetLayout
-import com.example.myapplication.questions.model.subcategory.SubCategory
-import com.example.myapplication.questions.model.subcategory.TopCategory
+import com.example.myapplication.domain.model.subcategory.SubCategory
+import com.example.myapplication.domain.model.subcategory.TopCategory
 import org.koin.androidx.compose.getViewModel
 
 @Composable
