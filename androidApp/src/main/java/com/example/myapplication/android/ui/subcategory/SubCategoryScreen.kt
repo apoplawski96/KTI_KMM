@@ -1,6 +1,7 @@
 package com.example.myapplication.android.ui.subcategory
 
 import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -28,12 +29,15 @@ import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.TextUnitType
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import co.touchlab.kampkit.android.ui.theme.podme_cinder
-import co.touchlab.kampkit.android.ui.theme.podme_licorice
-import co.touchlab.kampkit.android.ui.theme.podme_soft_white
 import com.example.myapplication.android.common.ui.component.KTICircularProgressIndicator
 import com.example.myapplication.android.common.ui.component.KTIDestinationTopBar
 import com.example.myapplication.android.common.ui.component.KTIText
+import com.example.myapplication.android.common.ui.component.KTITextNew
+import com.example.myapplication.android.ui.theme.kti_accent_color
+import com.example.myapplication.android.ui.theme.kti_dark_primary
+import com.example.myapplication.android.ui.theme.kti_light_primary
+import com.example.myapplication.android.ui.theme.kti_primary
+import com.example.myapplication.android.ui.theme.kti_primary_text
 import com.example.myapplication.model.subcategory.SubCategory
 import com.example.myapplication.model.subcategory.TopCategory
 import com.example.myapplication.screens.subcategories.SubCategoriesViewModel
@@ -74,7 +78,7 @@ fun SubCategoriesScreenContent(
     onClick: (SubCategory?) -> Unit,
     lazyGridState: LazyGridState
 ) {
-    Box(modifier = Modifier.fillMaxSize()) {
+    Box(modifier = Modifier.fillMaxSize().background(kti_light_primary)) {
         when (state) {
             is SubCategoriesViewModel.ViewState.Loading -> {
                 KTICircularProgressIndicator(modifier = Modifier.align(Alignment.Center))
@@ -99,15 +103,20 @@ fun SubCategoriesScreenContent(
 private fun RandomCard(onClick: () -> Unit) {
     Card(
         shape = RoundedCornerShape(size = 8.dp),
-        backgroundColor = podme_cinder,
-        border = BorderStroke(width = 0.5.dp, color = podme_licorice),
+        backgroundColor = kti_primary,
+        border = BorderStroke(width = 0.5.dp, color = kti_dark_primary),
         modifier = Modifier
             .clickable { onClick.invoke() }
-            .padding(4.dp)
+            .padding(8.dp)
             .heightIn(min = 96.dp)
             .fillMaxWidth()
     ) {
-        KTIText(text = "Get random questions")
+        KTITextNew(
+            text = "Get random questions",
+            fontSize = 18.sp,
+            fontWeight = FontWeight.W400,
+            color = kti_accent_color
+        )
     }
 }
 
@@ -123,7 +132,7 @@ private fun CategoriesGrid(
         state = state,
         content = {
             items(items = categories) { category ->
-                SubCategoryCard(category = category, onClick = onClick)
+                SubCategoryCard(subCategory = category, onClick = onClick)
             }
         }
     )
@@ -131,15 +140,15 @@ private fun CategoriesGrid(
 
 @Composable
 private fun SubCategoryCard(
-    category: SubCategory,
+    subCategory: SubCategory,
     onClick: (SubCategory) -> Unit,
 ) {
     Card(
         shape = RoundedCornerShape(size = 8.dp),
-        backgroundColor = podme_cinder,
-        border = BorderStroke(width = 0.5.dp, color = podme_licorice),
+        backgroundColor = kti_primary,
+        border = BorderStroke(width = 0.5.dp, color = kti_dark_primary),
         modifier = Modifier
-            .clickable { onClick.invoke(category) }
+            .clickable { onClick.invoke(subCategory) }
             .padding(4.dp)
             .heightIn(min = 96.dp)
     ) {
@@ -149,7 +158,7 @@ private fun SubCategoryCard(
             verticalArrangement = Arrangement.Bottom,
         ) {
             KTIText(
-                text = category.displayName,
+                text = subCategory.displayName,
                 maxLines = 2,
                 overflow = TextOverflow.Ellipsis,
                 textStyle = TextStyle(
@@ -157,7 +166,7 @@ private fun SubCategoryCard(
                     fontSize = 14.sp,
                     lineHeight = 18.2.sp,
                     letterSpacing = TextUnit(-0.01f, TextUnitType.Sp),
-                    color = podme_soft_white
+                    color = kti_primary_text
                 )
             )
         }

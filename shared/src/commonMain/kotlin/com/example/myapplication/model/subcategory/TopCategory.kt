@@ -14,7 +14,11 @@ enum class TopCategory(
     REACT("8", "React"),
     WEB("9", "Web"),
     C_SHARP("10", "C#"),
-    DOT_NET("11", ".NET");
+    DOT_NET("11", ".NET"),
+    ANGULAR("11", "Angular"),
+    GRAPH_QL("11", "Graph QL"),
+    SCRUM("11", "Scrum"),
+    CPP("11", "C++");
 
     companion object {
 
