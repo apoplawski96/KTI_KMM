@@ -1,6 +1,5 @@
 package com.example.myapplication
 
-import com.example.myapplication.common.JsonFilePathRetriever
 import com.example.myapplication.common.JsonFileReader
 
 interface Platform {
@@ -18,4 +17,4 @@ expect fun readJsonFile(fileName: String): String
 expect fun parseQuestionsJson(
     fileName: String,
     jsonFileReader: JsonFileReader
-): List<MQuestion>
+): List<QuestionSchema>

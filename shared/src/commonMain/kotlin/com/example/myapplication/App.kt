@@ -28,7 +28,7 @@ fun App() {
 }
 
 @Serializable
-data class MQuestion(
+data class QuestionSchema(
     val id: Int,
     val question: String,
     val answer: String,

@@ -1,7 +1,5 @@
 package com.example.myapplication
 
-import android.content.Context
-import com.example.myapplication.common.JsonFilePathRetriever
 import com.example.myapplication.common.JsonFileReader
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.json.Json
@@ -15,7 +13,7 @@ actual fun getPlatform(): Platform = AndroidPlatform()
 actual fun parseQuestionsJson(
     fileName: String,
     jsonFileReader: JsonFileReader,
-): List<MQuestion> {
+): List<QuestionSchema> {
     val jsonFileContent = jsonFileReader.readJsonFile(fileName)
     return Json.decodeFromString(jsonFileContent)
 }

@@ -38,8 +38,6 @@ class HomeScreenViewModel(
             fileName = "questions.json",
             jsonFileReader = jsonFileReader,
         )
-
-        println("2137 - $questions")
     }
 
     fun onItemClicked(item: HomeScreenItem) {
