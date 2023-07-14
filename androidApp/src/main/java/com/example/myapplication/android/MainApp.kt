@@ -8,9 +8,7 @@ import co.apoplawski96.kti.questions.domain.interactors.GetQuestionsShuffled
 import co.touchlab.kampkit.AppInfo
 import co.touchlab.kampkit.initKoin
 import co.touchlab.kampkit.models.BreedViewModel
-import com.example.myapplication.AndroidJsonFileReader
 import com.example.myapplication.android.navigation.KTINavigator
-import com.example.myapplication.common.JsonFileReader
 import com.example.myapplication.common.coroutines.DispatcherProvider
 import com.example.myapplication.legacy.QuestionsRepository
 import com.example.myapplication.navigation.Navigator
@@ -18,7 +16,6 @@ import com.example.myapplication.screens.categories.CategoriesRepository
 import com.example.myapplication.screens.categories.CategoriesViewModel
 import com.example.myapplication.screens.home.HomeScreenViewModel
 import com.example.myapplication.screens.list.ListViewModel
-import com.example.myapplication.screens.list.NewQuestionsRepository
 import com.example.myapplication.screens.subcategories.SubCategoriesRepository
 import com.example.myapplication.screens.subcategories.SubCategoriesViewModel
 import kotlinx.coroutines.CoroutineScope
@@ -45,7 +42,6 @@ class MainApp : Application() {
             singleOf(::CategoriesRepository)
             singleOf(::GetQuestionsShuffled)
             singleOf(::QuestionsRepository)
-            singleOf(::NewQuestionsRepository)
             single<SharedPreferences> {
                 get<Context>().getSharedPreferences(
                     "KAMPSTARTER_SETTINGS",

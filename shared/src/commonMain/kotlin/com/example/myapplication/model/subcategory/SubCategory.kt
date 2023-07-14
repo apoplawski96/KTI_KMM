@@ -5,15 +5,8 @@ interface SubCategory {
     val id: String
 }
 
-object Random : SubCategory {
-    override val displayName: String
-        get() = "Random"
-    override val id: String
-        get() = "666"
-}
-
 val allSubCategories: List<SubCategory> = listOf(
-    AndroidSubCategory.values().toList() + IOSSubCategory.values().toList() + Random
+    AndroidSubCategory.values().toList() + IOSSubCategory.values().toList()
 ).flatten()
 
 enum class AndroidSubCategory(
