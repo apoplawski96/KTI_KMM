@@ -3,6 +3,7 @@
 package com.example.myapplication.android.ui.questions.list
 
 import android.annotation.SuppressLint
+import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -12,6 +13,7 @@ import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.KeyboardArrowDown
 import androidx.compose.material.icons.filled.KeyboardArrowUp
+import androidx.compose.material.icons.outlined.Settings
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
@@ -19,20 +21,28 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.myapplication.model.Question
-import com.example.myapplication.screens.list.ListViewModel
-import com.example.myapplication.android.common.ui.component.KTICircularProgressIndicator
 import com.apoplawski96.killtheinterview.common.ui.component.KTIHorizontalSpacer
 import com.apoplawski96.killtheinterview.common.ui.component.bottomsheet.base.FcModalBottomSheetLayout
 import com.example.myapplication.android.common.ui.component.FcTextTopBar
+import com.example.myapplication.android.common.ui.component.KTICircularProgressIndicator
 import com.example.myapplication.android.common.ui.component.KTIText
+import com.example.myapplication.android.common.ui.component.KTITextNew
+import com.example.myapplication.android.common.ui.component.clickableNoRipple
+import com.example.myapplication.android.ui.theme.kti_accent_color
 import com.example.myapplication.android.ui.theme.kti_dark_primary
+import com.example.myapplication.android.ui.theme.kti_green
+import com.example.myapplication.android.ui.theme.kti_light_primary
+import com.example.myapplication.android.ui.theme.kti_primary
+import com.example.myapplication.android.ui.theme.kti_primary_text
+import com.example.myapplication.android.ui.theme.kti_secondary_text
+import com.example.myapplication.model.Question
 import com.example.myapplication.model.subcategory.SubCategory
 import com.example.myapplication.model.subcategory.TopCategory
+import com.example.myapplication.screens.list.ListViewModel
 import org.koin.androidx.compose.getViewModel
 
 @Composable
@@ -76,7 +86,19 @@ private fun ListScreenContent(
 ) {
     Scaffold(
         topBar = {
-            FcTextTopBar(middleContentText = topBarTitle, isNested = true, hasBrandingLine = true)
+            FcTextTopBar(
+                middleContentText = topBarTitle,
+                isNested = true,
+                hasBrandingLine = true,
+                rightActionButtons = {
+                    IconButton(onClick = {}) {
+                        Icon(
+                            imageVector = Icons.Outlined.Settings,
+                            contentDescription = "Settings icon",
+                            tint = kti_primary_text)
+                    }
+                }
+            )
         }
     ) {
         FcModalBottomSheetLayout(
@@ -94,6 +116,7 @@ private fun ListScreenContent(
                     is ListViewModel.ViewState.QuestionsLoaded -> {
                         QuestionListItem(questions = viewState.questions)
                     }
+
                     is ListViewModel.ViewState.Loading -> {
                         KTICircularProgressIndicator()
                     }
@@ -112,14 +135,22 @@ private fun QuestionListItem(questions: List<Question>) {
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .background(Color.Gray)
+            .background(kti_dark_primary)
+            .background(
+                brush = Brush.verticalGradient(
+                    0.0f to kti_dark_primary,
+                    0.9f to kti_primary,
+                    1.0f to kti_accent_color.copy(alpha = 0.0001f),
+                )
+            )
     ) {
         LazyColumn(verticalArrangement = Arrangement.spacedBy(2.dp)) {
             itemsIndexed(items = questions) { _, item ->
                 val isExpanded = rememberSaveable(item) { mutableStateOf(false) }
                 val isAnswered = rememberSaveable(item) { mutableStateOf(false) }
 
-                val color = if (isAnswered.value) Color.Green else Color.White
+                val color =
+                    if (isAnswered.value) kti_green else kti_light_primary.copy(alpha = 0.6f)
 
                 Column(
                     verticalArrangement = Arrangement.Top,
@@ -130,10 +161,10 @@ private fun QuestionListItem(questions: List<Question>) {
                         .padding(bottom = 8.dp, start = 8.dp, end = 8.dp)
                 ) {
                     KTIHorizontalSpacer(height = 8.dp)
-                    Text(
+                    KTITextNew(
                         text = item.question,
                         fontSize = 20.sp,
-                        fontWeight = FontWeight.SemiBold
+                        fontWeight = FontWeight.SemiBold,
                     )
                     KTIHorizontalSpacer(height = 8.dp)
                     ShowHideAnswerTextButton(
@@ -141,23 +172,29 @@ private fun QuestionListItem(questions: List<Question>) {
                         displayAnswerOnClick = { isExpanded.value = !isExpanded.value }
                     )
                     KTIHorizontalSpacer(height = 8.dp)
-                    TextButton(
-                        onClick = {
-                            isAnswered.value = !isAnswered.value
-                            isExpanded.value = !isAnswered.value
-                        }
-                    ) {
-                        Text(text = if (isAnswered.value) "Not answered" else "Set as answered")
-                    }
-                    KTIHorizontalSpacer(height = 8.dp)
-                    if (isExpanded.value) {
+                    AnimatedVisibility(isExpanded.value) {
                         val answerText = if (item.answer.isEmpty().not()) {
                             item.answer
                         } else {
                             "ANSWER MISSING!"
                         }
-                        Text(text = answerText)
+                        KTITextNew(
+                            text = answerText,
+                            fontSize = 14.sp,
+                            fontWeight = FontWeight.W400
+                        )
                     }
+                    KTIHorizontalSpacer(height = 16.dp)
+                    KTITextNew(
+                        text = if (isAnswered.value) "Not answered" else "Set as answered",
+                        fontSize = 12.sp,
+                        fontWeight = FontWeight.W400,
+                        color = kti_secondary_text,
+                        modifier = Modifier.clickableNoRipple {
+                            isAnswered.value = !isAnswered.value
+                            isExpanded.value = !isAnswered.value
+                        }
+                    )
                 }
             }
         }
@@ -176,11 +213,16 @@ private fun ShowHideAnswerTextButton(
     ) {
         Icon(
             imageVector = if (displayAnswer) Icons.Default.KeyboardArrowUp else Icons.Default.KeyboardArrowDown,
-            contentDescription = null
+            contentDescription = null,
+            tint = kti_accent_color
         )
-        TextButton(onClick = displayAnswerOnClick) {
-            Text(text = if (displayAnswer) "Hide answer" else "Display answer")
-        }
+        KTITextNew(
+            text = if (displayAnswer) "Hide answer" else "Display answer",
+            fontSize = 14.sp,
+            fontWeight = FontWeight.W400,
+            modifier = Modifier.clickableNoRipple { displayAnswerOnClick() },
+            color = kti_primary_text.copy(alpha = 0.8f)
+        )
     }
 }
 
