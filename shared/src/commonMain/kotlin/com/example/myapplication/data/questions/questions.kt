@@ -1,4 +1,4 @@
-package com.example.myapplication.data
+package com.example.myapplication.data.questions
 
 import com.example.myapplication.model.DeprecatedCategory
 import com.example.myapplication.model.Question

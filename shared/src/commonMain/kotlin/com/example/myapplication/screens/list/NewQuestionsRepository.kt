@@ -1,6 +1,6 @@
 package com.example.myapplication.screens.list
 
-import com.example.myapplication.data.questionsNew
+import com.example.myapplication.data.questions.questionsNew
 import com.example.myapplication.model.Question
 import com.example.myapplication.model.subcategory.Random
 import com.example.myapplication.model.subcategory.SubCategory

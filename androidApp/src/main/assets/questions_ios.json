@@ -1,0 +1,52 @@
+[
+  {
+    "id": 10,
+    "question": "What is Auto Layout in iOS development?",
+    "answer": "Auto Layout is a constraint-based layout system in iOS development that allows you to create user interfaces that adapt to different screen sizes and orientations. It enables you to define relationships between UI elements using constraints.",
+    "difficulty": "Medium",
+    "topCategory": "iOS",
+    "topCategoryId": 2,
+    "subCategory": "User Interface",
+    "subCategoryId": 4
+  },
+  {
+    "id": 11,
+    "question": "What is the purpose of Interface Builder in iOS?",
+    "answer": "Interface Builder is a visual design tool in Xcode that allows developers to design and configure user interfaces for iOS apps without writing code. It provides an intuitive way to create UI elements, define constraints, and set up interactions.",
+    "difficulty": "Easy",
+    "topCategory": "iOS",
+    "topCategoryId": 2,
+    "subCategory": "User Interface",
+    "subCategoryId": 4
+  },
+  {
+    "id": 12,
+    "question": "What is URLSession in iOS?",
+    "answer": "URLSession is a class in iOS that provides an API for making network requests. It supports various types of network tasks, including data retrieval, file uploads and downloads, and background transfers.",
+    "difficulty": "Easy",
+    "topCategory": "iOS",
+    "topCategoryId": 2,
+    "subCategory": "Networking",
+    "subCategoryId": 5
+  },
+  {
+    "id": 13,
+    "question": "What is JSONSerialization in iOS?",
+    "answer": "JSONSerialization is a class in iOS that provides methods for converting between JSON data and Foundation objects (such as arrays and dictionaries). It enables parsing and serialization of JSON data in iOS applications.",
+    "difficulty": "Medium",
+    "topCategory": "iOS",
+    "topCategoryId": 2,
+    "subCategory": "Networking",
+    "subCategoryId": 5
+  },
+  {
+    "id": 14,
+    "question": "What is Core Data in iOS?",
+    "answer": "Core Data is a framework in iOS that allows you to manage the model layer objects in your application. It provides an object graph management and persistence solution, enabling data storage, querying, and relationships.",
+    "difficulty": "Medium",
+    "topCategory": "iOS",
+    "topCategoryId": 2,
+    "subCategory": "Core Data",
+    "subCategoryId": 6
+  }
+]

@@ -72,7 +72,7 @@ fun SubCategoryScreen(
 @Composable
 fun SubCategoriesScreenContent(
     state: SubCategoriesViewModel.ViewState,
-    onClick: (SubCategory) -> Unit,
+    onClick: (SubCategory?) -> Unit,
     lazyGridState: LazyGridState
 ) {
     Box(modifier = Modifier.fillMaxSize()) {
@@ -84,7 +84,7 @@ fun SubCategoriesScreenContent(
             is SubCategoriesViewModel.ViewState.SubCategoriesLoaded -> {
                 Column {
                     KTIDestinationTopBar(title = "Sub categories")
-                    RandomCard { onClick(Random) }
+                    RandomCard { onClick(null) }
                     CategoriesGrid(
                         categories = state.categories,
                         onClick = onClick,

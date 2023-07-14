@@ -15,6 +15,8 @@ enum class TopCategory(
     companion object {
 
         fun getForId(id: String): TopCategory? = values().toList().firstOrNull { category -> id == category.id }
+
+        fun getForName(name: String): TopCategory? = values().toList().firstOrNull { category -> name == category.displayName }
     }
 }
 

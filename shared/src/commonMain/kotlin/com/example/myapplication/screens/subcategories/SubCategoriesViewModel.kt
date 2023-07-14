@@ -31,12 +31,12 @@ class SubCategoriesViewModel(
 
     fun navigateToQuestionsList(
         topCategory: TopCategory,
-        subCategory: SubCategory
+        subCategory: SubCategory?
     ) {
         navigator.navigate(
             destination = Destinations.QuestionsList.destination(
                 topCategoryId = topCategory.id,
-                subCategoryId = subCategory.id
+                subCategoryId = subCategory?.id
             )
         )
     }

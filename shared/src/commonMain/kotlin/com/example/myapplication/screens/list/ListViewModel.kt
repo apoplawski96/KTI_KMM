@@ -1,46 +1,33 @@
 package com.example.myapplication.screens.list
 
 import co.apoplawski96.kti.questions.domain.interactors.GetQuestionsShuffled
+import co.touchlab.kampkit.models.ViewModel
+import com.example.myapplication.domain.GetQuestions
 import com.example.myapplication.model.DeprecatedCategory
 import com.example.myapplication.model.Question
-import co.touchlab.kampkit.models.ViewModel
 import com.example.myapplication.model.subcategory.SubCategory
 import com.example.myapplication.model.subcategory.TopCategory
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update
 
-class ListViewModel(
-    private val getQuestionsShuffled: GetQuestionsShuffled,
-    private val newQuestionsRepository: NewQuestionsRepository,
-) : ViewModel() {
+class ListViewModel(private val getQuestions: GetQuestions) : ViewModel() {
 
     sealed interface ViewState {
         object Loading : ViewState
+        object Error : ViewState
         data class QuestionsLoaded(val questions: List<Question>) : ViewState
     }
 
     private val _state: MutableStateFlow<ViewState> = MutableStateFlow(ViewState.Loading)
     val state: StateFlow<ViewState> = _state
 
-    fun initialize(subCategory: SubCategory, category: TopCategory) {
-        _state.update {
-            val questions = newQuestionsRepository.getQuestions(
-                subCategory = subCategory,
-                topCategory = category,
-            )
-            ViewState.QuestionsLoaded(questions)
+    fun initialize(topCategory: TopCategory, subCategory: SubCategory?) {
+        val result = when (val questions = getQuestions.invoke(topCategory, subCategory)) {
+            is GetQuestions.Result.Success -> ViewState.QuestionsLoaded(questions.questions)
+            is GetQuestions.Result.Error -> ViewState.Error
         }
-    }
-
-    fun getShuffledQuestionsList() {
-        _state.update {
-            ViewState.QuestionsLoaded(
-                questions = getQuestionsShuffled.invoke().filter { question ->
-                    question.category == DeprecatedCategory.Android
-                }
-            )
-        }
+        _state.update { result }
     }
 
     fun toggleCategory(category: DeprecatedCategory) {

@@ -2,6 +2,7 @@
 
 package com.example.myapplication.android.ui.questions.list
 
+import android.annotation.SuppressLint
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -29,6 +30,7 @@ import com.example.myapplication.android.common.ui.component.KTICircularProgress
 import com.example.myapplication.android.common.ui.component.KTIDestinationTopBar
 import com.apoplawski96.killtheinterview.common.ui.component.KTIHorizontalSpacer
 import com.apoplawski96.killtheinterview.common.ui.component.bottomsheet.base.FcModalBottomSheetLayout
+import com.example.myapplication.android.common.ui.component.KTIText
 import com.example.myapplication.model.subcategory.SubCategory
 import com.example.myapplication.model.subcategory.TopCategory
 import org.koin.androidx.compose.getViewModel
@@ -41,7 +43,7 @@ fun ListScreen(
 ) {
     println("2137 - category: $category, subCategory: $subCategory")
 
-    if (category == null || subCategory == null) return
+    if (category == null) return
 
     val viewState = viewModel.state.collectAsState().value
 
@@ -51,7 +53,7 @@ fun ListScreen(
     LaunchedEffect(null) {
         viewModel.initialize(
             subCategory = subCategory,
-            category = category,
+            topCategory = category,
         )
     }
 
@@ -62,6 +64,7 @@ fun ListScreen(
     )
 }
 
+@SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
 private fun ListScreenContent(
     viewState: ListViewModel.ViewState,
@@ -101,6 +104,10 @@ private fun ListScreenContent(
                     }
                     is ListViewModel.ViewState.Loading -> {
                         KTICircularProgressIndicator()
+                    }
+
+                    ListViewModel.ViewState.Error -> {
+                        KTIText(text = "error")
                     }
                 }
             }

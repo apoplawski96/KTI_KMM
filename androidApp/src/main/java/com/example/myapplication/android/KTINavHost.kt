@@ -9,24 +9,22 @@ import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.navigation.NamedNavArgument
-import androidx.navigation.NavArgument
 import androidx.navigation.NavController
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavType
 import androidx.navigation.navArgument
-import com.example.myapplication.navigation.Navigator
-import com.example.myapplication.navigation.model.Destinations
 import co.apoplawski96.kti.navigation.model.NavigationCommand
-import com.example.myapplication.android.ui.categories.CategoriesScreen
 import co.touchlab.kampkit.android.ui.home.MenuScreen
-import com.example.myapplication.android.ui.questions.list.ListScreen
 import co.touchlab.kampkit.android.ui.quiz.QuizScreen
+import com.example.myapplication.android.ui.categories.CategoriesScreen
+import com.example.myapplication.android.ui.questions.list.ListScreen
 import com.example.myapplication.android.ui.subcategory.SubCategoryScreen
-import com.example.myapplication.navigation.model.NavigationArgument
-import com.example.myapplication.model.subcategory.SubCategory
 import com.example.myapplication.model.subcategory.TopCategory
 import com.example.myapplication.model.subcategory.getSubCategoryForId
+import com.example.myapplication.navigation.Navigator
+import com.example.myapplication.navigation.model.Destinations
+import com.example.myapplication.navigation.model.NavigationArgument
 import com.google.accompanist.navigation.animation.AnimatedNavHost
 import com.google.accompanist.navigation.animation.composable
 import com.google.accompanist.navigation.animation.rememberAnimatedNavController
@@ -93,9 +91,14 @@ private fun handleNavigationCommand(
 }
 
 private fun List<NavigationArgument>.toAndroidNavArgs(): List<NamedNavArgument> =
-    this.map { navArgument -> navArgument(name = navArgument.key) { navArgument.getArgType() } }
+    this.map { navArgument ->
+        navArgument(name = navArgument.key) {
+            type = navArgument.getArgType()
+            nullable = navArgument.nullable
+        }
+    }
 
-private fun NavigationArgument.getArgType(): NavType<out Any?> = when(this) {
+private fun NavigationArgument.getArgType(): NavType<out Any?> = when (this) {
     is NavigationArgument.IntArgument -> NavType.IntType
     is NavigationArgument.StringArgument -> NavType.StringType
 }
@@ -134,8 +137,13 @@ private fun NavGraphBuilder.listScreen() {
         route = Destinations.QuestionsList.route,
         arguments = Destinations.QuestionsList.arguments.toAndroidNavArgs()
     ) { backStackEntry ->
-        val categoryId: String? = backStackEntry.arguments?.getString(Destinations.QuestionsList.topCategoryIdArg)
-        val subCategoryId: String? = backStackEntry.arguments?.getString(Destinations.QuestionsList.subCategoryIdArg)
-        ListScreen(category = TopCategory.getForId(categoryId.toString()), subCategory = getSubCategoryForId(subCategoryId))
+        val categoryId: String? =
+            backStackEntry.arguments?.getString(Destinations.QuestionsList.topCategoryIdArg)
+        val subCategoryId: String? =
+            backStackEntry.arguments?.getString(Destinations.QuestionsList.subCategoryIdArg)
+        ListScreen(
+            category = TopCategory.getForId(categoryId.toString()),
+            subCategory = getSubCategoryForId(subCategoryId)
+        )
     }
 }

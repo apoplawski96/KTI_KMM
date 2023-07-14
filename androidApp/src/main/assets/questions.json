@@ -48,5 +48,45 @@
     "topCategoryId": 1,
     "subCategory": "Coroutines",
     "subCategoryId": 1
+  },
+  {
+    "id": 6,
+    "question": "What is an Activity in Android?",
+    "answer": "An Activity represents a single screen with a user interface in an Android application. It is a fundamental component of an Android app and serves as the entry point for interacting with the user.",
+    "difficulty": "Easy",
+    "topCategory": "Android",
+    "topCategoryId": 1,
+    "subCategory": "Basic",
+    "subCategoryId": 2
+  },
+  {
+    "id": 7,
+    "question": "What is the AndroidManifest.xml file used for?",
+    "answer": "The AndroidManifest.xml file contains essential information about an Android application. It defines the app's package name, permissions, components (such as activities, services, and broadcast receivers), and other configurations required for the app to run.",
+    "difficulty": "Easy",
+    "topCategory": "Android",
+    "topCategoryId": 1,
+    "subCategory": "Basic",
+    "subCategoryId": 2
+  },
+  {
+    "id": 8,
+    "question": "What is Jetpack Compose?",
+    "answer": "Jetpack Compose is a modern toolkit for building native Android UI using a declarative approach. It simplifies the UI development process and offers a more efficient way to create dynamic and interactive user interfaces.",
+    "difficulty": "Medium",
+    "topCategory": "Android",
+    "topCategoryId": 1,
+    "subCategory": "Compose",
+    "subCategoryId": 3
+  },
+  {
+    "id": 9,
+    "question": "What are the key benefits of using Jetpack Compose?",
+    "answer": "Jetpack Compose provides benefits such as simplified UI development, declarative UI programming model, efficient UI updates with state management, built-in support for theming and animations, and improved testing and debugging capabilities.",
+    "difficulty": "Medium",
+    "topCategory": "Android",
+    "topCategoryId": 1,
+    "subCategory": "Compose",
+    "subCategoryId": 3
   }
 ]

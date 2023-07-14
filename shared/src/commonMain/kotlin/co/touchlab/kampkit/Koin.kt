@@ -7,6 +7,9 @@ import co.touchlab.kampkit.models.BreedRepository
 import co.touchlab.kermit.Logger
 import co.touchlab.kermit.StaticConfig
 import co.touchlab.kermit.platformLogWriter
+import com.example.myapplication.data.QuestionsDataSource
+import com.example.myapplication.domain.GetQuestions
+import com.example.myapplication.domain.QuestionsConverter
 import kotlinx.coroutines.Dispatchers
 import kotlinx.datetime.Clock
 import org.koin.core.KoinApplication
@@ -14,6 +17,7 @@ import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
 import org.koin.core.context.startKoin
 import org.koin.core.module.Module
+import org.koin.core.module.dsl.singleOf
 import org.koin.core.parameter.parametersOf
 import org.koin.core.scope.Scope
 import org.koin.dsl.module
@@ -59,6 +63,10 @@ private val coreModule = module {
     single<Clock> {
         Clock.System
     }
+
+    singleOf(::QuestionsDataSource)
+    singleOf(::GetQuestions)
+    singleOf(::QuestionsConverter)
 
     // platformLogWriter() is a relatively simple config option, useful for local debugging. For production
     // uses you *may* want to have a more robust configuration from the native platform. In KaMP Kit,

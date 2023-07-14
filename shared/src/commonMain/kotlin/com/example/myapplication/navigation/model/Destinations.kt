@@ -34,10 +34,10 @@ object Destinations {
         override val arguments: List<NavigationArgument>
             get() = listOf(
                 NavigationArgument.StringArgument(key = topCategoryIdArg),
-                NavigationArgument.StringArgument(key = subCategoryIdArg)
+                NavigationArgument.StringArgument(key = subCategoryIdArg, nullable = true)
             )
 
-        fun destination(topCategoryId: String, subCategoryId: String) = navigationDestinationOf(
+        fun destination(topCategoryId: String, subCategoryId: String?) = navigationDestinationOf(
             route = "$genericRoute/$topCategoryId/$subCategoryId",
             genericRoute = genericRoute,
             arguments = arguments
