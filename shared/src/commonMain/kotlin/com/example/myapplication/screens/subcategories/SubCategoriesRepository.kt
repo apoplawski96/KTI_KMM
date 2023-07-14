@@ -10,5 +10,6 @@ class SubCategoriesRepository {
     operator fun invoke(category: TopCategory): List<SubCategory> = when(category) {
         TopCategory.ANDROID -> AndroidSubCategory.values().toList()
         TopCategory.IOS -> IOSSubCategory.values().toList()
+        else -> emptyList()
     }
 }

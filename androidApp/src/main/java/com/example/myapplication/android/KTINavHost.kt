@@ -43,7 +43,7 @@ fun KTINavHost(navigator: Navigator = get()) {
 
     AnimatedNavHost(
         navController = animatedNavController,
-        startDestination = Destinations.Menu.route
+        startDestination = Destinations.Categories.route
     ) {
         menuScreen()
         listScreen()

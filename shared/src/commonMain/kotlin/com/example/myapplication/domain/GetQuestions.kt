@@ -19,6 +19,7 @@ class GetQuestions(
         val questionsRaw = when(topCategory) {
             TopCategory.ANDROID -> questionsDataSource.getQuestionsAndroid()
             TopCategory.IOS -> questionsDataSource.getQuestionsIOS()
+            else -> emptyList()
         }
         val questionsConverted = questionsConverter.convert(questionsRaw)
 
