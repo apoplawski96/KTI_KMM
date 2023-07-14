@@ -45,6 +45,7 @@ kotlin {
                 implementation(libs.multiplatformSettings.common)
                 implementation(libs.kotlinx.dateTime)
                 api(libs.touchlab.kermit)
+                implementation(libs.kotlinx.serialization.json)
             }
         }
         val commonTest by getting {

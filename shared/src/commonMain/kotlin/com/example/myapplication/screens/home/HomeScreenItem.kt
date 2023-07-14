@@ -1,4 +1,4 @@
-package co.apoplawski96.kti.questions.model
+package com.example.myapplication.screens.home
 
 enum class HomeScreenItem {
     QUESTIONS_QUIZ,

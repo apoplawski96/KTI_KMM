@@ -2,14 +2,18 @@ package com.example.myapplication.screens.home
 
 import com.example.myapplication.navigation.Navigator
 import com.example.myapplication.navigation.model.Destinations
-import co.apoplawski96.kti.questions.model.HomeScreenItem
 import co.touchlab.kampkit.models.ViewModel
+import com.example.myapplication.common.JsonFilePathRetriever
+import com.example.myapplication.common.JsonFileReader
+import com.example.myapplication.parseQuestionsJson
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 
 class HomeScreenViewModel(
     private val navigator: Navigator,
+    private val jsonFilePathRetriever: JsonFilePathRetriever,
+    private val jsonFileReader: JsonFileReader,
 ) : ViewModel() {
 
     sealed interface ViewState {
@@ -30,6 +34,14 @@ class HomeScreenViewModel(
                 )
             )
         }
+
+        val questions = parseQuestionsJson(
+            fileName = "questions.json",
+            pathRetriever = jsonFilePathRetriever,
+            jsonFileReader = jsonFileReader,
+        )
+
+        println("2137 - $questions")
     }
 
     fun onItemClicked(item: HomeScreenItem) {

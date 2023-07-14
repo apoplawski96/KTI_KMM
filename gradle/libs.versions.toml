@@ -2,6 +2,7 @@
 kotlin = "1.7.20"
 
 ## SDK Versions
+kotlinxSerializationJson = "1.3.3"
 minSdk = "21"
 targetSdk = "33"
 compileSdk = "33"
@@ -64,6 +65,7 @@ koin-test = { module = "io.insert-koin:koin-test", version.ref = "koin" }
 
 kotlinx-dateTime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.ref = "kotlinx-datetime" }
 
+kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinxSerializationJson" }
 ktor-client-core = { module = "io.ktor:ktor-client-core", version.ref = "ktor" }
 ktor-client-ios = { module = "io.ktor:ktor-client-ios", version.ref = "ktor" }
 ktor-client-logging = { module = "io.ktor:ktor-client-logging", version.ref = "ktor" }

@@ -1,0 +1,52 @@
+[
+  {
+    "id": 1,
+    "question": "What are Coroutines in Android?",
+    "answer": "Coroutines are a concurrency design pattern introduced in Kotlin. They provide a way to write asynchronous and non-blocking code in a sequential and more readable manner.",
+    "difficulty": "Easy",
+    "topCategory": "Android",
+    "topCategoryId": 1,
+    "subCategory": "Coroutines",
+    "subCategoryId": 1
+  },
+  {
+    "id": 2,
+    "question": "What are the main advantages of using Coroutines in Android development?",
+    "answer": "Coroutines offer several benefits, such as simplified concurrency, structured concurrency, easy cancellation, built-in support for asynchronous operations, and seamless integration with Kotlin.",
+    "difficulty": "Medium",
+    "topCategory": "Android",
+    "topCategoryId": 1,
+    "subCategory": "Coroutines",
+    "subCategoryId": 1
+  },
+  {
+    "id": 3,
+    "question": "What is the difference between launch() and async() functions in Coroutines?",
+    "answer": "The launch() function is used for fire-and-forget style operations, while the async() function is used when you need to obtain a result from the coroutine. The async() function returns a deferred value that can be used to retrieve the result later.",
+    "difficulty": "Medium",
+    "topCategory": "Android",
+    "topCategoryId": 1,
+    "subCategory": "Coroutines",
+    "subCategoryId": 1
+  },
+  {
+    "id": 4,
+    "question": "How can you handle exceptions in Coroutines?",
+    "answer": "In Coroutines, you can handle exceptions using try-catch blocks within the coroutine or by using the CoroutineExceptionHandler to handle uncaught exceptions in a centralized manner.",
+    "difficulty": "Easy",
+    "topCategory": "Android",
+    "topCategoryId": 1,
+    "subCategory": "Coroutines",
+    "subCategoryId": 1
+  },
+  {
+    "id": 5,
+    "question": "What is a CoroutineScope in Android?",
+    "answer": "A CoroutineScope is an interface provided by the Coroutine library that defines a context for coroutines. It manages the lifecycle of coroutines and provides the necessary functions to launch and manage coroutines within its scope.",
+    "difficulty": "Easy",
+    "topCategory": "Android",
+    "topCategoryId": 1,
+    "subCategory": "Coroutines",
+    "subCategoryId": 1
+  }
+]

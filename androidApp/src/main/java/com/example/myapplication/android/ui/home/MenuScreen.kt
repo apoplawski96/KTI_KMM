@@ -20,7 +20,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import com.example.myapplication.screens.home.HomeScreenViewModel
-import co.apoplawski96.kti.questions.model.HomeScreenItem
+import com.example.myapplication.screens.home.HomeScreenItem
 import org.koin.androidx.compose.getViewModel
 
 @Composable
