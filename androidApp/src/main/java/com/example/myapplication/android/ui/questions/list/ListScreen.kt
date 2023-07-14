@@ -17,7 +17,6 @@ import androidx.compose.material.icons.filled.MailOutline
 import androidx.compose.material.icons.outlined.Done
 import androidx.compose.material.icons.outlined.Menu
 import androidx.compose.material.icons.outlined.Refresh
-import androidx.compose.material.icons.outlined.Share
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
@@ -144,7 +143,6 @@ private fun QuestionList(questions: List<Question>) {
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .background(kti_dark_primary)
             .background(
                 brush = Brush.verticalGradient(
                     0.0f to kti_dark_primary,
@@ -154,6 +152,14 @@ private fun QuestionList(questions: List<Question>) {
             )
     ) {
         LazyColumn {
+            item {
+                Spacer(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(6.dp)
+                        .background(kti_light_primary.copy(alpha = 0.3f))
+                )
+            }
             itemsIndexed(items = questions) { _, item ->
                 val isExpanded = rememberSaveable(item) { mutableStateOf(false) }
                 val isAnswered = rememberSaveable(item) { mutableStateOf(false) }
@@ -161,7 +167,7 @@ private fun QuestionList(questions: List<Question>) {
                 val color = if (isAnswered.value) {
                     kti_green
                 } else {
-                    kti_light_primary.copy(alpha = 0.6f)
+                    kti_light_primary.copy(alpha = 0.3f)
                 }
 
                 Column(
@@ -170,9 +176,8 @@ private fun QuestionList(questions: List<Question>) {
                     modifier = Modifier
                         .fillMaxSize()
                         .background(color)
-                        .padding(bottom = 8.dp)
                 ) {
-                    KTIVerticalSpacer(height = 4.dp)
+                    KTIVerticalSpacer(height = 8.dp)
                     AnimatedVisibility(visible = isAnswered.value.not()) {
                         KTIVerticalSpacer(height = 12.dp)
                         KTITextNew(
@@ -183,22 +188,22 @@ private fun QuestionList(questions: List<Question>) {
                             modifier = Modifier.padding(horizontal = 10.dp)
                         )
                     }
-                    KTIVerticalSpacer(height = if (isAnswered.value.not()) 0.dp else 8.dp)
+                    KTIVerticalSpacer(height = if (isAnswered.value.not()) 2.dp else 0.dp)
                     KTITextNew(
                         text = item.question,
                         fontSize = if (isAnswered.value.not()) 20.sp else 16.sp,
-                        fontWeight = FontWeight.SemiBold,
-                        modifier = Modifier.padding(horizontal = HORIZONTAL_PADDING),
-                        color = if (isAnswered.value.not()) kti_primary_text else kti_secondary_text
+                        fontWeight = if (isAnswered.value.not()) FontWeight.SemiBold else FontWeight.Normal,
+                        modifier = Modifier.padding(horizontal = HORIZONTAL_PADDING + 2.dp),
+                        color = kti_primary_text
                     )
-                    KTIVerticalSpacer(height = 8.dp)
+                    KTIVerticalSpacer(height = if (isAnswered.value.not()) 8.dp else 0.dp)
                     AnimatedVisibility(visible = !isAnswered.value) {
                         ShowHideAnswerTextButton(
                             displayAnswer = isExpanded.value,
                             displayAnswerOnClick = { isExpanded.value = !isExpanded.value },
                         )
+                        KTIVerticalSpacer(height = 8.dp)
                     }
-                    KTIVerticalSpacer(height = 8.dp)
                     AnimatedVisibility(isExpanded.value) {
                         val answerText = if (item.answer.isEmpty().not()) {
                             item.answer
@@ -209,7 +214,7 @@ private fun QuestionList(questions: List<Question>) {
                             text = answerText,
                             fontSize = 14.sp,
                             fontWeight = FontWeight.W400,
-                            modifier = Modifier.padding(horizontal = HORIZONTAL_PADDING)
+                            modifier = Modifier.padding(horizontal = HORIZONTAL_PADDING + 2.dp)
                         )
                     }
                     KTIVerticalSpacer(height = 24.dp)
@@ -222,17 +227,18 @@ private fun QuestionList(questions: List<Question>) {
                     ) {
                         SetAnsweredSection(
                             isAnswered = isAnswered.value,
-                            toggleOnAnswered = {
-                                isAnswered.value = !isAnswered.value
+                            toggleAsAnswered = {
+                                isAnswered.value = true
+                                isExpanded.value = false
                             },
-                            toggleIsExpanded = {
-                                isExpanded.value = !isAnswered.value
+                            toggleReopen = {
+                                isAnswered.value = false
+                                isExpanded.value = false
                             }
                         )
                         IconsSection(isAnswered = isAnswered.value)
                     }
-
-                    KTIVerticalSpacer(height = 12.dp)
+                    KTIVerticalSpacer(height = 18.dp)
                     Divider(
                         modifier = Modifier.fillMaxWidth(),
                         thickness = 1.dp,
@@ -265,9 +271,9 @@ private fun ShowHideAnswerTextButton(
         )
         KTIHorizontalSpacer(width = 4.dp)
         KTITextNew(
-            text = if (displayAnswer) "Hide answer" else "Display answer",
+            text = if (displayAnswer) "Hide answer" else "Show answer",
             fontSize = 14.sp,
-            fontWeight = FontWeight.W400,
+            fontWeight = FontWeight.W300,
             modifier = Modifier.clickableNoRipple { displayAnswerOnClick() },
             color = kti_primary_text.copy(alpha = 0.8f)
         )
@@ -308,9 +314,16 @@ private fun IconsSection(isAnswered: Boolean) {
 @Composable
 private fun SetAnsweredSection(
     isAnswered: Boolean,
-    toggleOnAnswered: () -> Unit,
-    toggleIsExpanded: () -> Unit,
+    toggleAsAnswered: () -> Unit,
+    toggleReopen: () -> Unit,
 ) {
+    val onClick = {
+        if (isAnswered.not()) {
+            toggleAsAnswered.invoke()
+        } else {
+            toggleReopen.invoke()
+        }
+    }
     Row(
         horizontalArrangement = Arrangement.End,
         verticalAlignment = Alignment.CenterVertically,
@@ -318,12 +331,9 @@ private fun SetAnsweredSection(
         KTITextNew(
             text = if (isAnswered) "Reopen" else "Set as answered",
             fontSize = 14.sp,
-            fontWeight = FontWeight.W400,
+            fontWeight = if (isAnswered) FontWeight.W500 else FontWeight.W400,
             color = if (isAnswered.not()) kti_secondary_text else kti_primary_text,
-            modifier = Modifier.clickableNoRipple {
-                toggleOnAnswered.invoke()
-                toggleIsExpanded.invoke()
-            },
+            modifier = Modifier.clickableNoRipple { onClick.invoke() },
         )
         KTIHorizontalSpacer(width = 8.dp)
         Icon(
@@ -332,10 +342,7 @@ private fun SetAnsweredSection(
             tint = if (isAnswered.not()) kti_green.copy(alpha = 0.5f) else kti_primary_text,
             modifier = Modifier
                 .size(12.dp)
-                .clickableNoRipple {
-                    toggleOnAnswered.invoke()
-                    toggleIsExpanded.invoke()
-                }
+                .clickableNoRipple { onClick.invoke() }
         )
     }
 }
