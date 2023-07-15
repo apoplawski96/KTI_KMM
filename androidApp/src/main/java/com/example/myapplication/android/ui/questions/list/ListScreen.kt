@@ -207,7 +207,7 @@ private fun ListScreenContent(
     }
 }
 
-private val HORIZONTAL_PADDING = 8.dp
+private val horizontalPadding = 8.dp
 
 @Composable
 private fun QuestionList(questions: List<Question>) {
@@ -222,7 +222,7 @@ private fun QuestionList(questions: List<Question>) {
                 )
             )
     ) {
-        LazyColumn {
+        LazyColumn { // TODO: Add unique keys
             item {
                 Spacer(
                     modifier = Modifier
@@ -264,7 +264,7 @@ private fun QuestionList(questions: List<Question>) {
                         text = item.question,
                         fontSize = if (isAnswered.value.not()) 20.sp else 16.sp,
                         fontWeight = if (isAnswered.value.not()) FontWeight.SemiBold else FontWeight.Normal,
-                        modifier = Modifier.padding(horizontal = HORIZONTAL_PADDING + 2.dp),
+                        modifier = Modifier.padding(horizontal = horizontalPadding + 2.dp),
                         color = kti_primary_text
                     )
                     KTIVerticalSpacer(height = if (isAnswered.value.not()) 8.dp else 0.dp)
@@ -285,7 +285,7 @@ private fun QuestionList(questions: List<Question>) {
                             text = answerText,
                             fontSize = 14.sp,
                             fontWeight = FontWeight.W400,
-                            modifier = Modifier.padding(horizontal = HORIZONTAL_PADDING + 2.dp)
+                            modifier = Modifier.padding(horizontal = horizontalPadding + 2.dp)
                         )
                     }
                     KTIVerticalSpacer(height = 24.dp)
@@ -294,7 +294,7 @@ private fun QuestionList(questions: List<Question>) {
                         verticalAlignment = Alignment.CenterVertically,
                         modifier = Modifier
                             .fillMaxWidth()
-                            .padding(horizontal = HORIZONTAL_PADDING + 8.dp)
+                            .padding(horizontal = horizontalPadding + 8.dp)
                     ) {
                         SetAnsweredSection(
                             isAnswered = isAnswered.value,
@@ -331,7 +331,7 @@ private fun ShowHideAnswerTextButton(
         verticalAlignment = Alignment.CenterVertically,
         modifier = Modifier
             .clickableNoRipple { displayAnswerOnClick() }
-            .padding(horizontal = HORIZONTAL_PADDING)
+            .padding(horizontal = horizontalPadding)
             .fillMaxWidth()
     ) {
         Icon(
