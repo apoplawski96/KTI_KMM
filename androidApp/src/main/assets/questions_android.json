@@ -599,5 +599,389 @@
     "topCategoryId": 1,
     "subCategory": "Basic",
     "subCategoryId": 11
+  },
+
+  {
+    "id": 127,
+    "question": "What is a coroutine in Kotlin?",
+    "answer": "A coroutine in Kotlin is a concurrency design pattern that allows you to write asynchronous, non-blocking code in a sequential manner. It provides a way to convert complex asynchronous code into simpler, more readable code by avoiding the use of callbacks and managing concurrency using a structured approach.",
+    "difficulty": "Unknown",
+    "topCategory": "Android",
+    "topCategoryId": 1,
+    "subCategory": "Coroutines",
+    "subCategoryId": 12
+  },
+  {
+    "id": 128,
+    "question": "What are the main advantages of using coroutines?",
+    "answer": "Some advantages of using coroutines include: simplified asynchronous programming, sequential code execution, structured concurrency, built-in cancellation support, and coroutine scope for managing lifecycles.",
+    "difficulty": "Unknown",
+    "topCategory": "Android",
+    "topCategoryId": 1,
+    "subCategory": "Coroutines",
+    "subCategoryId": 12
+  },
+  {
+    "id": 129,
+    "question": "How do coroutines differ from threads?",
+    "answer": "Coroutines are lightweight and designed for managing concurrency within a single thread. They provide a way to suspend and resume execution at specific points, allowing efficient utilization of resources. In contrast, threads are operating system-level constructs that execute code concurrently and require more system resources.",
+    "difficulty": "Unknown",
+    "topCategory": "Android",
+    "topCategoryId": 1,
+    "subCategory": "Coroutines",
+    "subCategoryId": 12
+  },
+  {
+    "id": 130,
+    "question": "What is a suspend function in Kotlin coroutines?",
+    "answer": "A suspend function is a function that can be paused and resumed later without blocking the thread. It is marked with the `suspend` modifier and can only be called from within a coroutine or another suspend function. Suspend functions are used to perform non-blocking operations and can be used to replace blocking IO calls.",
+    "difficulty": "Unknown",
+    "topCategory": "Android",
+    "topCategoryId": 1,
+    "subCategory": "Coroutines",
+    "subCategoryId": 12
+  },
+  {
+    "id": 131,
+    "question": "What is the difference between `launch` and `async` in coroutines?",
+    "answer": "In coroutines, `launch` is used to start a new coroutine and it returns a `Job` that represents the coroutine. The `launch` coroutine builder is used for fire-and-forget scenarios where you don't need the result of the coroutine.\n\nOn the other hand, `async` is used to start a new coroutine that computes a result asynchronously. It returns an instance of `Deferred` that represents a future result. You can use the `await` function on the `Deferred` to get the result of the coroutine when needed.",
+    "difficulty": "Unknown",
+    "topCategory": "Android",
+    "topCategoryId": 1,
+    "subCategory": "Coroutines",
+    "subCategoryId": 12
+  },
+  {
+    "id": 132,
+    "question": "What is a coroutine context in Kotlin?",
+    "answer": "A coroutine context in Kotlin represents the context in which a coroutine is executed. It includes the coroutine dispatcher and other elements such as coroutine name, exception handler, and parent job. The coroutine context is propagated through coroutines and determines the execution context for suspending functions and coroutine builders. The context can be modified using coroutine builders like `withContext` and `coroutineScope` to change the dispatcher or other elements of the context.",
+    "difficulty": "Unknown",
+    "topCategory": "Android",
+    "topCategoryId": 1,
+    "subCategory": "Coroutines",
+    "subCategoryId": 12
+  },
+  {
+    "id": 133,
+    "question": "What is structured concurrency in Kotlin coroutines?",
+    "answer": "Structured concurrency is a principle in Kotlin coroutines that promotes the structured and controlled execution of concurrent operations. It ensures that all launched coroutines are properly completed and resources are released. With structured concurrency, coroutines are organized hierarchically, and child coroutines are automatically canceled if their parent coroutine fails or is canceled. This simplifies error handling and resource management in concurrent code.",
+    "difficulty": "Unknown",
+    "topCategory": "Android",
+    "topCategoryId": 1,
+    "subCategory": "Coroutines",
+    "subCategoryId": 12
+  },
+  {
+    "id": 134,
+    "question": "How can you handle exceptions in coroutines?",
+    "answer": "Exceptions in coroutines can be handled using the `try-catch` construct within the coroutine or by using the `CoroutineExceptionHandler` to define a global exception handler for all coroutines within a specific context. Additionally, the `SupervisorJob` can be used to create a hierarchy of coroutines where exceptions in child coroutines do not propagate to their parent coroutine.",
+    "difficulty": "Unknown",
+    "topCategory": "Android",
+    "topCategoryId": 1,
+    "subCategory": "Coroutines",
+    "subCategoryId": 12
+  },
+  {
+    "id": 135,
+    "question": "What is the difference between `launch` and `runBlocking` in coroutines?",
+    "answer": "In coroutines, `launch` is a non-blocking coroutine builder that starts a new coroutine and returns a `Job` that represents the coroutine. It is typically used at the top-level to launch coroutines that run in the background.\n\nOn the other hand, `runBlocking` is a blocking coroutine builder that starts a new coroutine and blocks the current thread until the coroutine completes. It is mainly used in test code or in situations where you need to bridge between blocking and non-blocking code.",
+    "difficulty": "Unknown",
+    "topCategory": "Android",
+    "topCategoryId": 1,
+    "subCategory": "Coroutines",
+    "subCategoryId": 12
+  },
+  {
+    "id": 136,
+    "question": "What is coroutine scope in Kotlin?",
+    "answer": "Coroutine scope in Kotlin represents a structured concurrency scope for managing the lifecycle of coroutines. It provides a structured way to launch coroutines within a specific context and ensures that all launched coroutines are completed before the scope is completed. Coroutine scope is typically used in conjunction with functions like `coroutineScope`, `viewModelScope`, or custom scopes to manage the lifecycle and cancellation of coroutines in a structured manner.",
+    "difficulty": "Unknown",
+    "topCategory": "Android",
+    "topCategoryId": 1,
+    "subCategory": "Coroutines",
+    "subCategoryId": 12
+  },
+
+  {
+    "id": 146,
+    "question": "What is the purpose of coroutine cancellation in Kotlin?",
+    "answer": "Coroutine cancellation in Kotlin allows you to gracefully terminate the execution of a coroutine. It helps in releasing resources, stopping long-running operations, and preventing memory leaks. Cancellation can be done manually using coroutine scope cancellation functions like `cancel`, or it can be handled automatically by structured concurrency using coroutine cancellation hierarchies.",
+    "difficulty": "Unknown",
+    "topCategory": "Android",
+    "topCategoryId": 1,
+    "subCategory": "Coroutines",
+    "subCategoryId": 12
+  },
+  {
+    "id": 147,
+    "question": "How can you handle coroutine cancellation exceptions in Kotlin?",
+    "answer": "When a coroutine is canceled, a `CancellationException` is thrown by default. You can handle this exception using a `try-catch` block around the suspended function call or using the `CoroutineExceptionHandler` to define a global exception handler. Additionally, you can use the `withContext` function to wrap the suspended call in a try-catch block and handle the exception appropriately.",
+    "difficulty": "Unknown",
+    "topCategory": "Android",
+    "topCategoryId": 1,
+    "subCategory": "Coroutines",
+    "subCategoryId": 12
+  },
+  {
+    "id": 148,
+    "question": "What is the purpose of `CoroutineScope` in Kotlin coroutines?",
+    "answer": "The `CoroutineScope` interface in Kotlin coroutines provides a way to manage the lifecycle of coroutines. It defines coroutine builders like `launch` and `async` and also contains functions for cancellation, exception handling, and coroutine context management. By implementing or using a `CoroutineScope`, you can control the behavior of coroutines within that scope and ensure proper cleanup and cancellation of coroutines when needed.",
+    "difficulty": "Unknown",
+    "topCategory": "Android",
+    "topCategoryId": 1,
+    "subCategory": "Coroutines",
+    "subCategoryId": 12
+  },
+  {
+    "id": 149,
+    "question": "What is the difference between `withContext` and `async` in coroutines?",
+    "answer": "The `withContext` function in coroutines is used to switch the coroutine's context to a different dispatcher. It suspends the current coroutine, switches the execution context, and resumes the coroutine in the new context. It is typically used to perform blocking IO or switch to a different dispatcher.\n\nOn the other hand, `async` is a coroutine builder that starts a new coroutine and returns a `Deferred` object representing the result of the coroutine. It allows parallel execution of multiple coroutines and provides a way to retrieve the result using the `await` function. It is often used when you need to perform multiple concurrent operations and combine their results later.",
+    "difficulty": "Unknown",
+    "topCategory": "Android",
+    "topCategoryId": 1,
+    "subCategory": "Coroutines",
+    "subCategoryId": 12
+  },
+  {
+    "id": 150,
+    "question": "What is the purpose of coroutine scopes like `viewModelScope` and `lifecycleScope`?",
+    "answer": "Coroutine scopes like `viewModelScope` and `lifecycleScope` are provided by libraries such as `ViewModel` and `Lifecycle`. They allow you to launch coroutines that are automatically canceled when the associated lifecycle is destroyed. This helps in managing coroutine lifecycles in Android components like ViewModel and Activity/Fragment, ensuring that coroutines are canceled and resources are released appropriately, preventing memory leaks and unnecessary work.",
+    "difficulty": "Unknown",
+    "topCategory": "Android",
+    "topCategoryId": 1,
+    "subCategory": "Coroutines",
+    "subCategoryId": 12
+  },
+  {
+    "id": 151,
+    "question": "What is the difference between `GlobalScope` and `CoroutineScope` in Kotlin?",
+    "answer": "The `GlobalScope` is a predefined coroutine scope available globally that allows launching top-level coroutines that are not bound to any specific lifecycle. It has a longer lifecycle than most Android components and is not tied to any specific lifecycle. It is generally recommended to avoid using `GlobalScope` in Android apps.\n\nOn the other hand, `CoroutineScope` is an interface that represents a specific scope for coroutines. It provides functions like `launch` and `async` to launch coroutines within that scope. It is usually associated with a specific lifecycle or context, such as the `viewModelScope` or `lifecycleScope` in Android components.",
+    "difficulty": "Unknown",
+    "topCategory": "Android",
+    "topCategoryId": 1,
+    "subCategory": "Coroutines",
+    "subCategoryId": 12
+  },
+  {
+    "id": 152,
+    "question": "How can you handle coroutine exceptions in Kotlin coroutines?",
+    "answer": "Coroutine exceptions in Kotlin coroutines can be handled using the `try-catch` construct within the coroutine or by using the `CoroutineExceptionHandler` to define a global exception handler. Additionally, you can use the `supervisorScope` function to create a separate scope where exceptions in child coroutines do not propagate to the parent scope. This allows for isolated error handling within a coroutine hierarchy.",
+    "difficulty": "Unknown",
+    "topCategory": "Android",
+    "topCategoryId": 1,
+    "subCategory": "Coroutines",
+    "subCategoryId": 12
+  },
+  {
+    "id": 153,
+    "question": "What is the purpose of the `await` function in Kotlin coroutines?",
+    "answer": "The `await` function is used to retrieve the result of a `Deferred` object in Kotlin coroutines. It suspends the current coroutine until the result is available, and then resumes the coroutine with the retrieved result. It is typically used in combination with the `async` coroutine builder to perform concurrent operations and wait for their results. The `await` function allows for sequential execution and easy composition of asynchronous operations in a non-blocking manner.",
+    "difficulty": "Unknown",
+    "topCategory": "Android",
+    "topCategoryId": 1,
+    "subCategory": "Coroutines",
+    "subCategoryId": 12
+  },
+  {
+    "id": 154,
+    "question": "What is the difference between `runBlocking` and `coroutineScope` in Kotlin?",
+    "answer": "In Kotlin coroutines, `runBlocking` is a blocking coroutine builder that blocks the current thread until the enclosed coroutine is completed. It is typically used in test code or in bridging between blocking and non-blocking code.\n\nOn the other hand, `coroutineScope` is a suspending function that creates a new coroutine scope and suspends the current coroutine until all child coroutines are completed. It is often used when you need to perform multiple concurrent operations and wait for their completion before proceeding.",
+    "difficulty": "Unknown",
+    "topCategory": "Android",
+    "topCategoryId": 1,
+    "subCategory": "Coroutines",
+    "subCategoryId": 12
+  },
+
+  {
+    "id": 164,
+    "question": "What is Jetpack Compose?",
+    "answer": "Jetpack Compose is a modern UI toolkit for building native Android apps. It provides a declarative approach to building user interfaces, allowing you to describe your UI using composable functions. Compose simplifies UI development by eliminating the need for XML layouts and manual view updates. It offers a reactive programming model, automatic state handling, and powerful layout capabilities.",
+    "difficulty": "Unknown",
+    "topCategory": "Android",
+    "topCategoryId": 1,
+    "subCategory": "Compose",
+    "subCategoryId": 10
+  },
+  {
+    "id": 165,
+    "question": "What are the main advantages of using Jetpack Compose?",
+    "answer": "Some of the main advantages of using Jetpack Compose include:\n\n1. Declarative UI: Compose allows you to define your UI using composable functions, making it easier to understand and maintain.\n2. Reactive updates: Compose automatically updates the UI when the underlying data changes, reducing boilerplate code.\n3. State management: Compose provides built-in state management capabilities, simplifying the handling of UI state.\n4. Powerful layout system: Compose offers a flexible and powerful layout system that adapts to different screen sizes and orientations.\n5. Interactive and dynamic UI: Compose enables the creation of interactive and dynamic UIs with less code.\n6. Integration with existing code: Compose can be integrated with existing Android code, allowing gradual adoption in existing projects.",
+    "difficulty": "Unknown",
+    "topCategory": "Android",
+    "topCategoryId": 1,
+    "subCategory": "Compose",
+    "subCategoryId": 10
+  },
+  {
+    "id": 166,
+    "question": "What is a composable function in Jetpack Compose?",
+    "answer": "A composable function in Jetpack Compose is a function that is annotated with the `@Composable` annotation. These functions are used to define UI components and UI layouts. Composable functions describe the structure and appearance of the UI based on the provided input and state. They can be combined and reused to create complex UI hierarchies.",
+    "difficulty": "Unknown",
+    "topCategory": "Android",
+    "topCategoryId": 1,
+    "subCategory": "Compose",
+    "subCategoryId": 10
+  },
+  {
+    "id": 167,
+    "question": "What is the role of the `setContent` function in Jetpack Compose?",
+    "answer": "The `setContent` function is a key function in Jetpack Compose that sets the top-level content of an application or a UI component. It takes a composable function as a parameter, which defines the structure and appearance of the UI. The `setContent` function is typically called in the `onCreate` method of an `Activity` or in the `setContent` method of a Compose `View`.",
+    "difficulty": "Unknown",
+    "topCategory": "Android",
+    "topCategoryId": 1,
+    "subCategory": "Compose",
+    "subCategoryId": 10
+  },
+  {
+    "id": 168,
+    "question": "What is the difference between Compose and traditional Android View-based UI development?",
+    "answer": "The main difference between Compose and traditional Android View-based UI development is the approach used to define and update the UI.\n\nIn traditional Android development, UI layouts are defined using XML files (e.g., LinearLayout, RelativeLayout) and are inflated at runtime. View-based UIs require manual view updates to reflect changes in the underlying data.\n\nIn contrast, Compose uses a declarative approach where UI components are defined using composable functions. The UI is automatically updated when the underlying data changes, eliminating the need for manual view updates. Compose provides a reactive programming model that simplifies UI development and reduces boilerplate code.",
+    "difficulty": "Unknown",
+    "topCategory": "Android",
+    "topCategoryId": 1,
+    "subCategory": "Compose",
+    "subCategoryId": 10
+  },
+  {
+    "id": 169,
+    "question": "What is state in Jetpack Compose?",
+    "answer": "In Jetpack Compose, state represents the mutable data that can trigger UI updates. State is typically used to hold information that can change over time, such as user input or application state. Compose provides built-in state management functions and data structures, like `mutableStateOf`, to handle state and automatically update the UI when the state changes.",
+    "difficulty": "Unknown",
+    "topCategory": "Android",
+    "topCategoryId": 1,
+    "subCategory": "Compose",
+    "subCategoryId": 10
+  },
+  {
+    "id": 170,
+    "question": "What is the purpose of the `remember` function in Jetpack Compose?",
+    "answer": "The `remember` function in Jetpack Compose is used to retain a value across recompositions. It is similar to the concept of state but is optimized for performance. The `remember` function ensures that the value is only recomputed when its inputs change. It is often used to cache expensive computations or to preserve the state of a composable function across recompositions.",
+    "difficulty": "Unknown",
+    "topCategory": "Android",
+    "topCategoryId": 1,
+    "subCategory": "Compose",
+    "subCategoryId": 10
+  },
+  {
+    "id": 171,
+    "question": "What is the purpose of the `Modifier` class in Jetpack Compose?",
+    "answer": "The `Modifier` class in Jetpack Compose is used to modify the behavior and appearance of composable functions. It provides a way to apply various transformations, such as size, padding, alignment, and interaction modifiers, to the UI components. The `Modifier` class enables flexible and powerful layout capabilities in Compose.",
+    "difficulty": "Unknown",
+    "topCategory": "Android",
+    "topCategoryId": 1,
+    "subCategory": "Compose",
+    "subCategoryId": 10
+  },
+  {
+    "id": 172,
+    "question": "What is recomposition in Jetpack Compose?",
+    "answer": "Recomposition in Jetpack Compose refers to the process of updating the UI based on changes in the underlying data or state. When the data or state used by a composable function changes, Compose automatically triggers a recomposition of that function and its dependent functions. Recomposition ensures that the UI stays up to date with the latest data and reflects the changes in a reactive manner.",
+    "difficulty": "Unknown",
+    "topCategory": "Android",
+    "topCategoryId": 1,
+    "subCategory": "Compose",
+    "subCategoryId": 10
+  },
+  {
+    "id": 173,
+    "question": "What is the purpose of the `rememberCoroutineScope` function in Jetpack Compose?",
+    "answer": "The `rememberCoroutineScope` function in Jetpack Compose is used to create and retain a coroutine scope across recompositions. It ensures that coroutines launched within the scope are canceled when the composable function is removed from the composition. This function is useful when working with coroutines in Compose and helps manage the lifecycle of coroutines within the UI.",
+    "difficulty": "Unknown",
+    "topCategory": "Android",
+    "topCategoryId": 1,
+    "subCategory": "Compose",
+    "subCategoryId": 10
+  },
+
+  {
+    "id": 183,
+    "question": "What are the key principles of Jetpack Compose?",
+    "answer": "The key principles of Jetpack Compose include:\n\n1. Declarative UI: Compose provides a declarative approach to UI development, where you describe what the UI should look like based on the current state.\n2. Composable functions: UI components in Compose are built using composable functions, allowing for easy composition and reuse.\n3. Reactive updates: Compose automatically updates the UI when the underlying data changes, ensuring consistency between the UI and the data.\n4. State management: Compose provides built-in tools for managing and observing state, making it easier to handle dynamic UI behavior.\n5. Simplified layouts: Compose offers a flexible and powerful layout system that simplifies the creation of responsive UIs.\n6. Material Design integration: Compose seamlessly integrates with Material Design guidelines and components, providing a modern and consistent UI experience.",
+    "difficulty": "Unknown",
+    "topCategory": "Android",
+    "topCategoryId": 1,
+    "subCategory": "Compose",
+    "subCategoryId": 10
+  },
+  {
+    "id": 184,
+    "question": "What is the purpose of the `rememberSaveable` function in Jetpack Compose?",
+    "answer": "The `rememberSaveable` function in Jetpack Compose is used to remember and save the state of a composable function across configuration changes, such as screen rotations. It allows the UI to preserve its state and data when the configuration changes, ensuring a smooth user experience. `rememberSaveable` is often used for preserving form data, scroll positions, or other user interactions that should persist across configuration changes.",
+    "difficulty": "Unknown",
+    "topCategory": "Android",
+    "topCategoryId": 1,
+    "subCategory": "Compose",
+    "subCategoryId": 10
+  },
+  {
+    "id": 185,
+    "question": "What is the purpose of the `rememberCoroutineScope` function in Jetpack Compose?",
+    "answer": "The `rememberCoroutineScope` function in Jetpack Compose is used to create and retain a coroutine scope across recompositions. It ensures that coroutines launched within the scope are canceled when the composable function is removed from the composition. This function is useful when working with coroutines in Compose and helps manage the lifecycle of coroutines within the UI.",
+    "difficulty": "Unknown",
+    "topCategory": "Android",
+    "topCategoryId": 1,
+    "subCategory": "Compose",
+    "subCategoryId": 10
+  },
+  {
+    "id": 186,
+    "question": "What is the purpose of the `rememberScrollState` function in Jetpack Compose?",
+    "answer": "The `rememberScrollState` function in Jetpack Compose is used to create and retain the state of a scrollable component, such as a `LazyColumn` or `ScrollView`. It tracks the scroll position and provides methods to programmatically scroll the content. `rememberScrollState` is often used in combination with scrollable UI components to create smooth scrolling behavior in Compose applications.",
+    "difficulty": "Unknown",
+    "topCategory": "Android",
+    "topCategoryId": 1,
+    "subCategory": "Compose",
+    "subCategoryId": 10
+  },
+  {
+    "id": 187,
+    "question": "What is the purpose of the `rememberUpdatedState` function in Jetpack Compose?",
+    "answer": "The `rememberUpdatedState` function in Jetpack Compose is used to wrap a state value to ensure that it only triggers recomposition if the value has actually changed. This function is useful when working with mutable state that doesn't properly trigger recompositions on its own. By wrapping the state value with `rememberUpdatedState`, you can ensure that only relevant changes trigger recompositions, optimizing performance in Compose applications.",
+    "difficulty": "Unknown",
+    "topCategory": "Android",
+    "topCategoryId": 1,
+    "subCategory": "Compose",
+    "subCategoryId": 10
+  },
+  {
+    "id": 188,
+    "question": "What is the purpose of the `rememberCoroutineScope` function in Jetpack Compose?",
+    "answer": "The `rememberCoroutineScope` function in Jetpack Compose is used to create and retain a coroutine scope across recompositions. It ensures that coroutines launched within the scope are canceled when the composable function is removed from the composition. This function is useful when working with coroutines in Compose and helps manage the lifecycle of coroutines within the UI.",
+    "difficulty": "Unknown",
+    "topCategory": "Android",
+    "topCategoryId": 1,
+    "subCategory": "Compose",
+    "subCategoryId": 10
+  },
+  {
+    "id": 189,
+    "question": "What is the purpose of the `rememberUpdatedState` function in Jetpack Compose?",
+    "answer": "The `rememberUpdatedState` function in Jetpack Compose is used to wrap a state value to ensure that it only triggers recomposition if the value has actually changed. This function is useful when working with mutable state that doesn't properly trigger recompositions on its own. By wrapping the state value with `rememberUpdatedState`, you can ensure that only relevant changes trigger recompositions, optimizing performance in Compose applications.",
+    "difficulty": "Unknown",
+    "topCategory": "Android",
+    "topCategoryId": 1,
+    "subCategory": "Compose",
+    "subCategoryId": 10
+  },
+  {
+    "id": 190,
+    "question": "What is the purpose of the `LaunchedEffect` composable in Jetpack Compose?",
+    "answer": "The `LaunchedEffect` composable in Jetpack Compose is used to launch a coroutine when the composable is initially displayed or recomposed. It is similar to the `Effect` composable but automatically cancels the coroutine when the composable is removed from the composition. `LaunchedEffect` is often used for performing side-effects, such as fetching data from a network or updating a database, in response to changes in the composition or user interactions.",
+    "difficulty": "Unknown",
+    "topCategory": "Android",
+    "topCategoryId": 1,
+    "subCategory": "Compose",
+    "subCategoryId": 10
+  },
+  {
+    "id": 191,
+    "question": "What is the purpose of the `rememberCoroutineScope` function in Jetpack Compose?",
+    "answer": "The `rememberCoroutineScope` function in Jetpack Compose is used to create and retain a coroutine scope across recompositions. It ensures that coroutines launched within the scope are canceled when the composable function is removed from the composition. This function is useful when working with coroutines in Compose and helps manage the lifecycle of coroutines within the UI.",
+    "difficulty": "Unknown",
+    "topCategory": "Android",
+    "topCategoryId": 1,
+    "subCategory": "Compose",
+    "subCategoryId": 10
   }
 ]
