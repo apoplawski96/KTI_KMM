@@ -69,6 +69,7 @@ fun ListScreen(
 
     val viewState = viewModel.viewState.collectAsState().value
     val selectedDifficulties = viewModel.selectedDifficulties.collectAsState().value
+    val scoreboard = viewModel.scoreboard.collectAsState().value
 
     val bottomSheetState: ModalBottomSheetState = rememberModalBottomSheetState(
         initialValue = ModalBottomSheetValue.Hidden
@@ -116,8 +117,10 @@ fun ListScreen(
         toggleDropdownMenu = { sortDropdownMenuDisplayed = !sortDropdownMenuDisplayed },
         sortDropdownMenuDisplayed = sortDropdownMenuDisplayed,
         onSortModeClick = { sortMode -> viewModel.sortModeSelected(sortMode) },
-        questionsAnsweredCount = 0,
-        questionsTotalCount = 100
+        questionsAnsweredCount = scoreboard.answeredCount,
+        questionsTotalCount = scoreboard.totalCount,
+        markAsAnswered = { question -> viewModel.markQuestionAsAnswered(question) },
+        markAsUnanswered = { question -> viewModel.markQuestionAsUnanswered(question) }
     )
 }
 
@@ -132,6 +135,8 @@ private fun ListScreenContent(
     sortDropdownMenuDisplayed: Boolean,
     toggleDropdownMenu: () -> Unit,
     onSortModeClick: (ListViewModel.SortMode) -> Unit,
+    markAsAnswered: (Question) -> Unit,
+    markAsUnanswered: (Question) -> Unit,
     questionsAnsweredCount: Int,
     questionsTotalCount: Int,
 ) {
@@ -140,7 +145,7 @@ private fun ListScreenContent(
             FcTextTopBar(
                 middleContentText = topBarTitle,
                 isNested = true,
-                hasBrandingLine = true,
+                hasBrandingLine = false,
                 rightActionButtons = {
                     IconButton(onClick = onToggleBottomSheetClick) {
                         if (bottomSheetState.isVisible) {
@@ -196,7 +201,13 @@ private fun ListScreenContent(
             ) {
                 when (viewState) {
                     is ListViewModel.ViewState.QuestionsLoaded -> {
-                        QuestionList(questions = viewState.questions)
+                        QuestionList(
+                            questions = viewState.questions,
+                            markAsAnswered = markAsAnswered,
+                            markAsUnanswered = markAsUnanswered,
+                            questionsTotalCount = questionsTotalCount,
+                            questionsAnsweredCount = questionsAnsweredCount
+                        )
                     }
 
                     is ListViewModel.ViewState.Loading -> {
@@ -215,7 +226,13 @@ private fun ListScreenContent(
 private val horizontalPadding = 8.dp
 
 @Composable
-private fun QuestionList(questions: List<Question>) {
+private fun QuestionList(
+    questions: List<Question>,
+    markAsAnswered: (Question) -> Unit,
+    markAsUnanswered: (Question) -> Unit,
+    questionsAnsweredCount: Int,
+    questionsTotalCount: Int,
+) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -227,7 +244,7 @@ private fun QuestionList(questions: List<Question>) {
                 )
             )
     ) {
-        ListScreenScoreBar(score = 0, total = 20)
+        ListScreenScoreBar(score = questionsAnsweredCount, total = questionsTotalCount)
         LazyColumn { // TODO: Add unique keys
             item {
                 Spacer(
@@ -307,10 +324,12 @@ private fun QuestionList(questions: List<Question>) {
                             toggleAsAnswered = {
                                 isAnswered.value = true
                                 isExpanded.value = false
+                                markAsAnswered(item)
                             },
                             toggleReopen = {
                                 isAnswered.value = false
                                 isExpanded.value = false
+                                markAsUnanswered(item)
                             }
                         )
                         IconsSection(isAnswered = isAnswered.value)

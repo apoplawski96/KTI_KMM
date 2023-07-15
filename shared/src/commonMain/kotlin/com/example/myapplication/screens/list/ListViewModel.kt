@@ -31,11 +31,19 @@ class ListViewModel(private val getQuestions: GetQuestions) : ViewModel() {
         RANDOMIZED(displayName = "Randomize order");
     }
 
+    data class Scoreboard(val answeredCount: Int, val totalCount: Int)
+
+    private val _answeredQuestions: MutableStateFlow<List<Question>> = MutableStateFlow(emptyList())
+    private val answeredQuestions: StateFlow<List<Question>> = _answeredQuestions
+
     private val _sortMode: MutableSharedFlow<SortMode> = MutableSharedFlow()
     private val sortMode: SharedFlow<SortMode> = _sortMode
 
     private val _selectedDifficulties: MutableStateFlow<List<Difficulty>> = MutableStateFlow(Difficulty.values().toList())
     val selectedDifficulties: StateFlow<List<Difficulty>> = _selectedDifficulties
+
+    private val _scoreboard: MutableStateFlow<Scoreboard> = MutableStateFlow(Scoreboard(0, 0))
+    val scoreboard: StateFlow<Scoreboard> = _scoreboard
 
     private val _viewEvents: MutableSharedFlow<ViewEvent> = MutableSharedFlow()
     val viewEvents: SharedFlow<ViewEvent> = _viewEvents
@@ -45,14 +53,20 @@ class ListViewModel(private val getQuestions: GetQuestions) : ViewModel() {
 
     fun initialize(topCategory: TopCategory, subCategory: SubCategory?) {
         val result = when (val questions = getQuestions.invoke(topCategory, subCategory)) {
-            is GetQuestions.Result.Success -> ViewState.QuestionsLoaded(questions.questions.sortedBy { it.difficulty })
-            is GetQuestions.Result.Error -> ViewState.Error
+            is GetQuestions.Result.Success -> {
+                _scoreboard.update { scoreboard.value.copy(totalCount = questions.questions.count()) }
+                ViewState.QuestionsLoaded(questions.questions.sortedBy { it.difficulty })
+            }
+            is GetQuestions.Result.Error -> {
+                ViewState.Error
+            }
         }
 
         _viewState.update { result }
 
         collectSelectedDifficultiesUpdates()
         collectSortModeUpdates()
+        collectAnsweredQuestionsUpdates()
     }
 
     fun toggleBottomSheet() {
@@ -85,6 +99,20 @@ class ListViewModel(private val getQuestions: GetQuestions) : ViewModel() {
         }
     }
 
+    fun markQuestionAsAnswered(question: Question) {
+        if (answeredQuestions.value.contains(question)) return
+
+        val updatedList = answeredQuestions.value + question
+        _answeredQuestions.update { updatedList }
+    }
+
+    fun markQuestionAsUnanswered(question: Question) {
+        if (answeredQuestions.value.contains(question).not()) return
+
+        val updatedList = answeredQuestions.value.filterNot { it == question }
+        _answeredQuestions.update { updatedList }
+    }
+
     private fun collectSelectedDifficultiesUpdates() {
         val initialViewState = viewState.value
         viewModelScope.launch {
@@ -112,6 +140,14 @@ class ListViewModel(private val getQuestions: GetQuestions) : ViewModel() {
                     }
                     _viewState.update { ViewState.QuestionsLoaded(sortedQuestions) }
                 }
+            }
+        }
+    }
+
+    private fun collectAnsweredQuestionsUpdates() {
+        viewModelScope.launch {
+            answeredQuestions.collect { answeredQuestions ->
+                _scoreboard.update { scoreboard.value.copy(answeredCount = answeredQuestions.count()) }
             }
         }
     }
