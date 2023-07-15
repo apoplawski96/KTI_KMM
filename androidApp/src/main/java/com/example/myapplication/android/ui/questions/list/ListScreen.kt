@@ -20,9 +20,12 @@ import androidx.compose.material.icons.outlined.Refresh
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
@@ -66,15 +69,18 @@ fun ListScreen(
     val viewState = viewModel.state.collectAsState().value
     val selectedDifficulties = viewModel.selectedDifficulties.collectAsState().value
 
-    val bottomSheetState: ModalBottomSheetState =
-        rememberModalBottomSheetState(initialValue = ModalBottomSheetValue.Hidden)
+    val bottomSheetState: ModalBottomSheetState = rememberModalBottomSheetState(
+        initialValue = ModalBottomSheetValue.Hidden
+    )
+
+    var sortDropdownMenuDisplayed by remember { mutableStateOf(false) }
 
     val subCategoryTitle = subCategory?.displayName ?: "All"
     val topBarTitle = "$subCategoryTitle (${topCategory.displayName})"
 
     LaunchedEffect(null) {
         viewModel.events.collect { event ->
-            when(event) {
+            when (event) {
                 ListViewModel.ViewEvent.ToggleBottomSheet -> {
                     toggleBottomSheet(
                         scope = scope,
@@ -95,7 +101,7 @@ fun ListScreen(
     ListScreenContent(
         viewState = viewState,
         bottomSheetContent = {
-             ListScreenBottomSheetContent(
+            ListScreenBottomSheetContent(
                 onRandomizeQuestionsClick = {},
                 selectedDifficulties = selectedDifficulties,
                 onDifficultyToggled = { toggledDifficulty ->
@@ -105,8 +111,9 @@ fun ListScreen(
         },
         bottomSheetState = bottomSheetState,
         topBarTitle = topBarTitle,
-        onMenuClick = { },
-        onToggleBottomSheetClick = { viewModel.toggleBottomSheet() }
+        onToggleBottomSheetClick = { viewModel.toggleBottomSheet() },
+        toggleDropdownMenu = { sortDropdownMenuDisplayed = !sortDropdownMenuDisplayed },
+        sortDropdownMenuDisplayed = sortDropdownMenuDisplayed,
     )
 }
 
@@ -116,9 +123,10 @@ private fun ListScreenContent(
     viewState: ListViewModel.ViewState,
     bottomSheetState: ModalBottomSheetState,
     bottomSheetContent: @Composable () -> Unit,
-    onMenuClick: () -> Unit,
     onToggleBottomSheetClick: () -> Unit,
     topBarTitle: String,
+    sortDropdownMenuDisplayed: Boolean,
+    toggleDropdownMenu: () -> Unit,
 ) {
     Scaffold(
         topBar = {
@@ -128,18 +136,38 @@ private fun ListScreenContent(
                 hasBrandingLine = true,
                 rightActionButtons = {
                     IconButton(onClick = onToggleBottomSheetClick) {
-                        Icon(
-                            imageVector = Icons.Filled.KeyboardArrowUp,
-                            contentDescription = "Bottom sheet icon",
-                            tint = kti_accent_color
-                        )
+                        if (bottomSheetState.isVisible) {
+                            Icon(
+                                imageVector = Icons.Filled.KeyboardArrowDown,
+                                contentDescription = "Bottom sheet icon",
+                                tint = kti_accent_color
+                            )
+                        } else {
+                            Icon(
+                                imageVector = Icons.Filled.KeyboardArrowUp,
+                                contentDescription = "Bottom sheet icon",
+                                tint = kti_accent_color
+                            )
+                        }
                     }
-                    IconButton(onClick = onMenuClick) {
+                    IconButton(onClick = toggleDropdownMenu) {
                         Icon(
                             imageVector = Icons.Outlined.Menu,
                             contentDescription = "Menu icon",
                             tint = kti_primary_text
                         )
+                    }
+
+                    DropdownMenu(
+                        expanded = sortDropdownMenuDisplayed,
+                        onDismissRequest = toggleDropdownMenu
+                    ) {
+                        DropdownMenuItem(onClick = { /*TODO*/ }) {
+                            Text("Option 1")
+                        }
+                        DropdownMenuItem(onClick = { /*TODO*/ }) {
+                            Text("Option 2")
+                        }
                     }
                 }
             )

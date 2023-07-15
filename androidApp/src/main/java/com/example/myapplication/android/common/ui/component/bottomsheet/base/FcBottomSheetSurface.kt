@@ -77,7 +77,9 @@ private fun BottomSheetTitle(
             .then(
                 if (bottomSheetTitleProperties.shouldFillMaxWidth) {
                     Modifier.fillMaxWidth()
-                } else Modifier
+                } else {
+                    Modifier
+                }
             ),
         text = title,
         color = kti_dark_primary.copy(alpha = 0.8f),
