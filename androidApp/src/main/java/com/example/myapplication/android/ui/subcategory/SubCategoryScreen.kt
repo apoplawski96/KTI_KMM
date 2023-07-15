@@ -30,10 +30,12 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.myapplication.android.common.ui.component.KTIBoxWithGradientBackground
 import com.example.myapplication.android.common.ui.component.KTIVerticalSpacer
 import com.example.myapplication.android.common.ui.component.KTITextTopBar
 import com.example.myapplication.android.common.ui.component.KTICircularProgressIndicator
 import com.example.myapplication.android.common.ui.component.KTITextNew
+import com.example.myapplication.android.common.ui.component.clickableNoRipple
 import com.example.myapplication.android.ui.theme.kti_accent_color
 import com.example.myapplication.android.ui.theme.kti_dark_primary
 import com.example.myapplication.android.ui.theme.kti_light_primary
@@ -78,31 +80,25 @@ fun SubCategoriesScreenContent(
     lazyGridState: LazyGridState,
     topCategory: TopCategory,
 ) {
-    Box(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(
-                brush = Brush.verticalGradient(
-                    0.0f to kti_dark_primary,
-                    0.9f to kti_primary,
-                    1.0f to kti_accent_color.copy(alpha = 0.0001f),
-                )
-            )
-    ) {
+    KTIBoxWithGradientBackground {
         when (state) {
             is SubCategoriesViewModel.ViewState.Loading -> {
-                KTICircularProgressIndicator(modifier = Modifier.align(Alignment.Center))
+                KTICircularProgressIndicator()
             }
 
             is SubCategoriesViewModel.ViewState.SubCategoriesLoaded -> {
-                Column {
+                Column(modifier = Modifier.fillMaxSize()) {
                     KTITextTopBar(
                         middleContentText = "${topCategory.displayName} categories",
                         isNested = true,
                         hasBrandingLine = true,
                         rightActionButtons = {
                             IconButton(onClick = { }) {
-                                Icon(Icons.Filled.Search, "Back Icon", tint = kti_accent_color)
+//                                Icon(
+//                                    imageVector = Icons.Filled.Search,
+//                                    contentDescription = "Back Icon",
+//                                    tint = kti_accent_color
+//                                )
                             }
                         })
                     CategoriesGrid(
@@ -145,9 +141,9 @@ private fun SubCategoryCard(
     Card(
         shape = RoundedCornerShape(size = 8.dp),
         backgroundColor = kti_primary,
-        border = BorderStroke(width = 0.5.dp, color = kti_light_primary),
+        border = BorderStroke(width = 0.5.dp, color = kti_light_primary.copy(alpha = 0.2f)),
         modifier = Modifier
-            .clickable { onClick.invoke(subCategory) }
+            .clickableNoRipple { onClick.invoke(subCategory) }
             .padding(4.dp)
             .heightIn(min = 96.dp)
     ) {

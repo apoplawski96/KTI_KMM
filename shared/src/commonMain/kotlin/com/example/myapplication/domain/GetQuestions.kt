@@ -18,7 +18,6 @@ class GetQuestions(
     fun invoke(topCategory: TopCategory, subCategory: SubCategory?): Result = try {
         val questionsRaw = when(topCategory) {
             TopCategory.ANDROID -> questionsDataSource.getQuestionsAndroid()
-            TopCategory.IOS -> questionsDataSource.getQuestionsIOS()
             else -> emptyList()
         }
         val questionsConverted = questionsConverter.convert(questionsRaw)

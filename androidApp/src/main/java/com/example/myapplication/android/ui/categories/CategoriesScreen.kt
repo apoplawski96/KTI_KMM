@@ -35,6 +35,7 @@ import com.example.myapplication.android.common.ui.component.KTIVerticalSpacer
 import com.example.myapplication.android.common.ui.component.KTITextTopBar
 import com.example.myapplication.android.common.ui.component.KTICircularProgressIndicator
 import com.example.myapplication.android.common.ui.component.KTITextNew
+import com.example.myapplication.android.common.ui.component.clickableNoRipple
 import com.example.myapplication.android.ui.theme.kti_accent_color
 import com.example.myapplication.android.ui.theme.kti_dark_primary
 import com.example.myapplication.android.ui.theme.kti_light_primary
@@ -75,18 +76,18 @@ private fun CategoriesScreenContent(
      KTIBoxWithGradientBackground {
         when (state) {
             is CategoriesViewModel.ViewState.CategoriesLoaded -> {
-                Column {
+                Column(modifier = Modifier.fillMaxSize()) {
                     KTITextTopBar(
                         middleContentText = "Categories",
                         isNested = false,
                         hasBrandingLine = true,
                         rightActionButtons = {
                             IconButton(onClick = { }) {
-                                Icon(
-                                    imageVector = Icons.Filled.Search,
-                                    contentDescription = "Back Icon",
-                                    tint = kti_accent_color
-                                )
+//                                Icon(
+//                                    imageVector = Icons.Filled.Search,
+//                                    contentDescription = "Back Icon",
+//                                    tint = kti_accent_color
+//                                )
                             }
                         })
                     CategoriesGrid(
@@ -132,9 +133,9 @@ private fun CategoryCard(
     Card(
         shape = RoundedCornerShape(size = 8.dp),
         backgroundColor = kti_primary,
-        border = BorderStroke(width = 0.5.dp, color = kti_light_primary),
+        border = BorderStroke(width = 0.5.dp, color = kti_light_primary.copy(alpha = 0.2f)),
         modifier = Modifier
-            .clickable { onClick.invoke(category) }
+            .clickableNoRipple { onClick.invoke(category) }
             .padding(4.dp)
             .heightIn(min = 96.dp)
     ) {

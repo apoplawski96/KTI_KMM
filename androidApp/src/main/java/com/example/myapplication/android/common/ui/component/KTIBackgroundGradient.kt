@@ -42,6 +42,5 @@ fun KTIBoxWithGradientBackground(
 
 private fun getGradientBrush() = Brush.verticalGradient(
     0.0f to kti_dark_primary,
-    0.9f to kti_primary,
-    1.0f to kti_accent_color.copy(alpha = 0.0001f),
+    1.0f to kti_primary,
 )

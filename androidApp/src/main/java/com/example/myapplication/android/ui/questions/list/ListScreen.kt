@@ -5,7 +5,6 @@ package com.example.myapplication.android.ui.questions.list
 import android.annotation.SuppressLint
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
@@ -13,7 +12,6 @@ import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.KeyboardArrowDown
 import androidx.compose.material.icons.filled.KeyboardArrowUp
-import androidx.compose.material.icons.filled.MailOutline
 import androidx.compose.material.icons.outlined.Done
 import androidx.compose.material.icons.outlined.Refresh
 import androidx.compose.runtime.Composable
@@ -78,7 +76,6 @@ fun ListScreen(
     var sortDropdownMenuDisplayed by remember { mutableStateOf(false) }
 
     val subCategoryTitle = subCategory?.displayName ?: "All"
-    val topBarTitle = "$subCategoryTitle (${topCategory.displayName})"
 
     LaunchedEffect(null) {
         viewModel.viewEvents.collect { event ->
@@ -111,7 +108,7 @@ fun ListScreen(
             )
         },
         bottomSheetState = bottomSheetState,
-        topBarTitle = topBarTitle,
+        topBarTitle = subCategoryTitle,
         onToggleBottomSheetClick = { viewModel.toggleBottomSheet() },
         toggleDropdownMenu = { sortDropdownMenuDisplayed = !sortDropdownMenuDisplayed },
         sortDropdownMenuDisplayed = sortDropdownMenuDisplayed,
@@ -199,7 +196,7 @@ private fun QuestionList(
     questionsAnsweredCount: Int,
     questionsTotalCount: Int,
 ) {
-    Column(modifier = Modifier.fillMaxWidth()) {
+    Column(modifier = Modifier.fillMaxSize()) {
         ListScreenScoreBar(score = questionsAnsweredCount, total = questionsTotalCount)
         LazyColumn {
             itemsIndexed(
@@ -386,14 +383,14 @@ private fun IconsSection(isAnswered: Boolean) {
 //                .size(16.dp)
 //        )
 //        KTIHorizontalSpacer(width = 16.dp)
-        Icon(
-            imageVector = Icons.Filled.MailOutline,
-            contentDescription = null,
-            tint = color,
-            modifier = Modifier
-                .clickable {}
-                .size(16.dp)
-        )
+//        Icon(
+//            imageVector = Icons.Filled.MailOutline,
+//            contentDescription = null,
+//            tint = color,
+//            modifier = Modifier
+//                .clickable {}
+//                .size(16.dp)
+//        )
     }
 }
 
