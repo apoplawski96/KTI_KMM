@@ -86,11 +86,11 @@ class ListViewModel(private val getQuestions: GetQuestions) : ViewModel() {
     }
 
     private fun collectSelectedDifficultiesUpdates() {
-        val viewState = viewState.value
+        val initialViewState = viewState.value
         viewModelScope.launch {
             selectedDifficulties.collect { selectedDifficulties ->
-                if (viewState is ViewState.QuestionsLoaded) {
-                    val filteredQuestions = viewState.questions.filter { question ->
+                if (initialViewState is ViewState.QuestionsLoaded) {
+                    val filteredQuestions = initialViewState.questions.filter { question ->
                         selectedDifficulties.contains(question.difficulty)
                     }
                     _viewState.update { ViewState.QuestionsLoaded(filteredQuestions) }
@@ -100,11 +100,11 @@ class ListViewModel(private val getQuestions: GetQuestions) : ViewModel() {
     }
 
     private fun collectSortModeUpdates() {
-        val viewState = viewState.value
         viewModelScope.launch {
             sortMode.collect { sortMode ->
-                if (viewState is ViewState.QuestionsLoaded) {
-                    val questions = viewState.questions
+                val currentViewState = viewState.value
+                if (currentViewState is ViewState.QuestionsLoaded) {
+                    val questions = currentViewState.questions
                     val sortedQuestions = when(sortMode) {
                         SortMode.BY_DIFFICULTY_ASCENDING -> questions.sortedBy { it.difficulty }
                         SortMode.BY_DIFFICULTY_DESCENDING -> questions.sortedByDescending { it.difficulty }
