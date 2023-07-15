@@ -10,7 +10,6 @@ import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.firstOrNull
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
@@ -32,15 +31,19 @@ class ListViewModel(private val getQuestions: GetQuestions) : ViewModel() {
     private val _events: MutableSharedFlow<ViewEvent> = MutableSharedFlow()
     val events: SharedFlow<ViewEvent> = _events
 
-    private val _state: MutableStateFlow<ViewState> = MutableStateFlow(ViewState.Loading)
-    val state: StateFlow<ViewState> = _state
+    private val _viewState: MutableStateFlow<ViewState> = MutableStateFlow(ViewState.Loading)
+    val state: StateFlow<ViewState> = _viewState
 
     fun initialize(topCategory: TopCategory, subCategory: SubCategory?) {
         val result = when (val questions = getQuestions.invoke(topCategory, subCategory)) {
             is GetQuestions.Result.Success -> ViewState.QuestionsLoaded(questions.questions)
             is GetQuestions.Result.Error -> ViewState.Error
         }
-        _state.update { result }
+
+        _viewState.update { result }
+
+        observeSelectedDifficulties()
+        observeSubCategoryFilters()
     }
 
     fun toggleBottomSheet() {
@@ -65,5 +68,26 @@ class ListViewModel(private val getQuestions: GetQuestions) : ViewModel() {
         }
 
         _selectedDifficulties.update { result }
+    }
+
+    private fun observeSelectedDifficulties() {
+        val viewState = state.value
+        viewModelScope.launch {
+            selectedDifficulties.collect { selectedDifficulties ->
+                println("2137 - collected: $selectedDifficulties")
+                if (viewState is ViewState.QuestionsLoaded) {
+                    val filteredQuestions = viewState.questions.filter { question ->
+                        selectedDifficulties.all { difficultyItem ->
+                            difficultyItem.id == question.difficulty.id
+                        }
+                    }
+                    _viewState.update { ViewState.QuestionsLoaded(filteredQuestions) }
+                }
+            }
+        }
+    }
+
+    private fun observeSubCategoryFilters() {
+
     }
 }
