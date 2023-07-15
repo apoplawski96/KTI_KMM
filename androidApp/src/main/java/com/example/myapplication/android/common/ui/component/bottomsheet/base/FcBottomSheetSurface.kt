@@ -16,10 +16,14 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.example.myapplication.android.common.ui.component.KTIText
+import com.example.myapplication.android.common.ui.component.KTITextNew
 import com.example.myapplication.android.common.ui.component.KTIVerticalSpacer
+import com.example.myapplication.android.ui.theme.kti_dark_primary
 import com.example.myapplication.android.ui.theme.kti_secondary_text
 
 object TestTagsRadioBottomSheet {
@@ -40,10 +44,10 @@ fun FcBottomSheetSurface(
     ) {
         Column(modifier = Modifier.fillMaxWidth()) {
             BottomSheetNotch()
-//            BottomSheetTitle(
-//                title = title,
-//                bottomSheetTitleProperties = bottomSheetTitleProperties
-//            )
+            BottomSheetTitle(
+                title = title,
+                bottomSheetTitleProperties = bottomSheetTitleProperties
+            )
             KTIVerticalSpacer(height = 16.dp)
             content()
         }
@@ -67,7 +71,7 @@ private fun BottomSheetTitle(
     title: String,
     bottomSheetTitleProperties: BottomSheetTitleProperties = bottomSheetTitlePropertiesFromDefault(),
 ) {
-    KTIText(
+    KTITextNew(
         modifier = Modifier
             .padding(start = 16.dp, end = 16.dp, top = 24.dp)
             .then(
@@ -76,6 +80,9 @@ private fun BottomSheetTitle(
                 } else Modifier
             ),
         text = title,
+        color = kti_dark_primary.copy(alpha = 0.8f),
+        fontWeight = FontWeight.W300,
+        fontSize = 16.sp
     )
 }
 

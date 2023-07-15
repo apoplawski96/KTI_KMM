@@ -33,7 +33,7 @@ fun ListScreenBottomSheetContent(
     selectedDifficulties: List<Difficulty>,
     onDifficultyToggled: (Difficulty) -> Unit,
 ) {
-    FcBottomSheetSurface(title = "Options") {
+    FcBottomSheetSurface(title = "Filter questions by difficulty") {
         Column(modifier = Modifier.fillMaxWidth()) {
             difficultiesToSelectableListItems(selectedDifficulties).forEach { difficulty ->
                 SelectableListItem(
