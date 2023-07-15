@@ -74,12 +74,9 @@ class ListViewModel(private val getQuestions: GetQuestions) : ViewModel() {
         val viewState = state.value
         viewModelScope.launch {
             selectedDifficulties.collect { selectedDifficulties ->
-                println("2137 - collected: $selectedDifficulties")
                 if (viewState is ViewState.QuestionsLoaded) {
                     val filteredQuestions = viewState.questions.filter { question ->
-                        selectedDifficulties.all { difficultyItem ->
-                            difficultyItem.id == question.difficulty.id
-                        }
+                        selectedDifficulties.contains(question.difficulty)
                     }
                     _viewState.update { ViewState.QuestionsLoaded(filteredQuestions) }
                 }
