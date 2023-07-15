@@ -29,6 +29,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -114,7 +115,9 @@ fun ListScreen(
         onToggleBottomSheetClick = { viewModel.toggleBottomSheet() },
         toggleDropdownMenu = { sortDropdownMenuDisplayed = !sortDropdownMenuDisplayed },
         sortDropdownMenuDisplayed = sortDropdownMenuDisplayed,
-        onSortModeClick = { sortMode -> viewModel.sortModeSelected(sortMode) }
+        onSortModeClick = { sortMode -> viewModel.sortModeSelected(sortMode) },
+        questionsAnsweredCount = 0,
+        questionsTotalCount = 100
     )
 }
 
@@ -129,6 +132,8 @@ private fun ListScreenContent(
     sortDropdownMenuDisplayed: Boolean,
     toggleDropdownMenu: () -> Unit,
     onSortModeClick: (ListViewModel.SortMode) -> Unit,
+    questionsAnsweredCount: Int,
+    questionsTotalCount: Int,
 ) {
     Scaffold(
         topBar = {
@@ -176,7 +181,7 @@ private fun ListScreenContent(
                     }
                 }
             )
-        }
+        },
     ) {
         FcModalBottomSheetLayout(
             sheetState = bottomSheetState,
@@ -211,7 +216,7 @@ private val horizontalPadding = 8.dp
 
 @Composable
 private fun QuestionList(questions: List<Question>) {
-    Box(
+    Column(
         modifier = Modifier
             .fillMaxSize()
             .background(
@@ -222,6 +227,7 @@ private fun QuestionList(questions: List<Question>) {
                 )
             )
     ) {
+        ListScreenScoreBar(score = 0, total = 20)
         LazyColumn { // TODO: Add unique keys
             item {
                 Spacer(

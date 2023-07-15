@@ -33,11 +33,6 @@ class HomeScreenViewModel(
                 )
             )
         }
-
-        val questions = parseQuestionsJson(
-            fileName = "questions.json",
-            jsonFileReader = jsonFileReader,
-        )
     }
 
     fun onItemClicked(item: HomeScreenItem) {

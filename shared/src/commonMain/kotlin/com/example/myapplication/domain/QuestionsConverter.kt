@@ -11,15 +11,15 @@ import com.example.myapplication.model.subcategory.allSubCategories
 class QuestionsConverter {
 
     fun convert(questions: List<QuestionSchema>): List<Question> =
-        questions.map { questionSchema ->
+        questions.mapNotNull { questionSchema ->
             Question(
                 id = questionSchema.id,
                 answer = questionSchema.answer,
                 question = questionSchema.question,
-                category = DeprecatedCategory.Android, // todo: fix emptyList returns
-                difficulty = Difficulty.getForName(questionSchema.difficulty) ?: return emptyList(),
-                topCategory = TopCategory.getForName(questionSchema.topCategory) ?: return emptyList(),
-                subCategory = getSubCategoryForName(questionSchema.subCategory) ?: return emptyList(),
+                category = DeprecatedCategory.Android,
+                difficulty = Difficulty.getForName(questionSchema.difficulty) ?: Difficulty.Intermediate,
+                topCategory = TopCategory.getForName(questionSchema.topCategory) ?: return@mapNotNull null,
+                subCategory = getSubCategoryForName(questionSchema.subCategory) ?: null,
                 topCategoryId = questionSchema.topCategoryId,
                 subCategoryId = questionSchema.subCategoryId,
             )

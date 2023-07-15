@@ -1,0 +1,12 @@
+[
+  {
+    "id": 47,
+    "question": "Imperative vs Declarative",
+    "answer": "In imperative programming, you write instructions to explicitly state how to achieve a certain result. You specify each step and the order in which they should be executed. In declarative programming, you describe the desired outcome or result, and the programming language takes care of determining how to achieve that result. You specify what should be done, but not necessarily how it should be done. Declarative programming is often more concise and focuses on the end goal rather than the specific implementation details.",
+    "difficulty": "Easy",
+    "topCategory": "Programming Paradigms",
+    "topCategoryId": 2,
+    "subCategory": "Unknown",
+    "subCategoryId": 0
+  }
+]

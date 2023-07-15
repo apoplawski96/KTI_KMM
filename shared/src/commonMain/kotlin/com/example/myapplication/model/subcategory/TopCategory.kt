@@ -18,7 +18,8 @@ enum class TopCategory(
     ANGULAR("11", "Angular"),
     GRAPH_QL("11", "Graph QL"),
     SCRUM("11", "Scrum"),
-    CPP("11", "C++");
+    CPP("11", "C++"),
+    KOTLIN("12", "Kotlin");
 
     companion object {
 

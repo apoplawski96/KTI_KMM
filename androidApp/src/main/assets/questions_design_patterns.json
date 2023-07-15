@@ -1,0 +1,12 @@
+[
+  {
+    "id": 49,
+    "question": "Describe Singleton design pattern",
+    "answer": "The Singleton design pattern is a creational design pattern that restricts the instantiation of a class to a single instance and provides a global point of access to that instance. It ensures that only one instance of the class exists throughout the application and provides a way to access that instance globally. The Singleton pattern is commonly used in scenarios where a single object needs to coordinate actions across the system.",
+    "difficulty": "Easy",
+    "topCategory": "Design Patterns",
+    "topCategoryId": 3,
+    "subCategory": "Unknown",
+    "subCategoryId": 0
+  }
+]

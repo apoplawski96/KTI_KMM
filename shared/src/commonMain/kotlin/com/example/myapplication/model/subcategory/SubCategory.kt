@@ -19,7 +19,9 @@ enum class AndroidSubCategory(
 ) : SubCategory, CardDisplayable {
     Basics(displayName = "Basic", id = "1"),
     Coroutines(displayName = "Coroutines", id = "2"),
-    Compose(displayName = "Compose", id = "3");
+    Compose(displayName = "Compose", id = "3"),
+    Rx(displayName = "Rx", id = "7"),
+    StateAndSharedFlow(displayName = "StateAndSharedFlow", id = "8");
 }
 
 enum class IOSSubCategory(override val displayName: String, override val id: String) : SubCategory, CardDisplayable {

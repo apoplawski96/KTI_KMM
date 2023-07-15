@@ -32,9 +32,6 @@ class MainActivity : ComponentActivity(), KoinComponent {
                 KTINavHost()
             }
         }
-
-        val json = this.applicationContext.loadJSONFromAssets("questions.json")
-        Log.d("2137", json)
     }
 }
 

@@ -10,7 +10,7 @@ data class Question(
     val subCategoryId: Int = -1,
     val category: DeprecatedCategory,
     val topCategory: TopCategory = TopCategory.ANDROID,
-    val subCategory: SubCategory = AndroidSubCategory.Basics,
+    val subCategory: SubCategory? = AndroidSubCategory.Basics,
     val difficulty: Difficulty = Difficulty.Beginner,
     val question: String,
     val answer: String,

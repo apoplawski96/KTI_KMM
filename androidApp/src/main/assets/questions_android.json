@@ -1,0 +1,422 @@
+[
+  {
+    "id": 1,
+    "question": "What are Coroutines in Android?",
+    "answer": "Coroutines are a concurrency design pattern introduced in Kotlin. They provide a way to write asynchronous and non-blocking code in a sequential and more readable manner.",
+    "difficulty": "Easy",
+    "topCategory": "Android",
+    "topCategoryId": 1,
+    "subCategory": "Coroutines",
+    "subCategoryId": 1
+  },
+  {
+    "id": 2,
+    "question": "What are the main advantages of using Coroutines in Android development?",
+    "answer": "Coroutines offer several benefits, such as simplified concurrency, structured concurrency, easy cancellation, built-in support for asynchronous operations, and seamless integration with Kotlin.",
+    "difficulty": "Medium",
+    "topCategory": "Android",
+    "topCategoryId": 1,
+    "subCategory": "Coroutines",
+    "subCategoryId": 1
+  },
+  {
+    "id": 3,
+    "question": "What is the difference between launch() and async() functions in Coroutines?",
+    "answer": "The launch() function is used for fire-and-forget style operations, while the async() function is used when you need to obtain a result from the coroutine. The async() function returns a deferred value that can be used to retrieve the result later.",
+    "difficulty": "Medium",
+    "topCategory": "Android",
+    "topCategoryId": 1,
+    "subCategory": "Coroutines",
+    "subCategoryId": 1
+  },
+  {
+    "id": 4,
+    "question": "How can you handle exceptions in Coroutines?",
+    "answer": "In Coroutines, you can handle exceptions using try-catch blocks within the coroutine or by using the CoroutineExceptionHandler to handle uncaught exceptions in a centralized manner.",
+    "difficulty": "Easy",
+    "topCategory": "Android",
+    "topCategoryId": 1,
+    "subCategory": "Coroutines",
+    "subCategoryId": 1
+  },
+  {
+    "id": 5,
+    "question": "What is a CoroutineScope in Android?",
+    "answer": "A CoroutineScope is an interface provided by the Coroutine library that defines a context for coroutines. It manages the lifecycle of coroutines and provides the necessary functions to launch and manage coroutines within its scope.",
+    "difficulty": "Easy",
+    "topCategory": "Android",
+    "topCategoryId": 1,
+    "subCategory": "Coroutines",
+    "subCategoryId": 1
+  },
+  {
+    "id": 6,
+    "question": "What is an Activity in Android?",
+    "answer": "An Activity represents a single screen with a user interface in an Android application. It is a fundamental component of an Android app and serves as the entry point for interacting with the user.",
+    "difficulty": "Easy",
+    "topCategory": "Android",
+    "topCategoryId": 1,
+    "subCategory": "Basic",
+    "subCategoryId": 2
+  },
+  {
+    "id": 7,
+    "question": "What is the AndroidManifest.xml file used for?",
+    "answer": "The AndroidManifest.xml file contains essential information about an Android application. It defines the app's package name, permissions, components (such as activities, services, and broadcast receivers), and other configurations required for the app to run.",
+    "difficulty": "Easy",
+    "topCategory": "Android",
+    "topCategoryId": 1,
+    "subCategory": "Basic",
+    "subCategoryId": 2
+  },
+  {
+    "id": 8,
+    "question": "What is Jetpack Compose?",
+    "answer": "Jetpack Compose is a modern toolkit for building native Android UI using a declarative approach. It simplifies the UI development process and offers a more efficient way to create dynamic and interactive user interfaces.",
+    "difficulty": "Medium",
+    "topCategory": "Android",
+    "topCategoryId": 1,
+    "subCategory": "Compose",
+    "subCategoryId": 3
+  },
+  {
+    "id": 9,
+    "question": "What are the key benefits of using Jetpack Compose?",
+    "answer": "Jetpack Compose provides benefits such as simplified UI development, declarative UI programming model, efficient UI updates with state management, built-in support for theming and animations, and improved testing and debugging capabilities.",
+    "difficulty": "Medium",
+    "topCategory": "Android",
+    "topCategoryId": 1,
+    "subCategory": "Compose",
+    "subCategoryId": 3
+  },
+  {
+    "id": 15,
+    "question": "What does subscribeOn(scheduler) do?",
+    "answer": "The `subscribeOn` operator is used on Observables to specify the thread on which Observers should receive the emitted items. It asynchronously subscribes Observers to the ObservableSource on the specified Scheduler.",
+    "difficulty": "Medium",
+    "topCategory": "Android",
+    "topCategoryId": 1,
+    "subCategory": "Rx",
+    "subCategoryId": 7
+  },
+  {
+    "id": 16,
+    "question": "RxJava Operators - Defer",
+    "answer": "The `defer` operator delays the creation of an Observable until an Observer subscribes. It ensures that each Observer receives a fresh instance of the Observable.",
+    "difficulty": "Easy",
+    "topCategory": "Android",
+    "topCategoryId": 1,
+    "subCategory": "Rx",
+    "subCategoryId": 7
+  },
+  {
+    "id": 17,
+    "question": "RxJava Operators - Interval",
+    "answer": "The `interval` operator creates an Observable that emits a sequence of integers spaced by a specified time interval. It is useful for creating timers, periodic tasks, or scheduling actions.",
+    "difficulty": "Medium",
+    "topCategory": "Android",
+    "topCategoryId": 1,
+    "subCategory": "Rx",
+    "subCategoryId": 7
+  },
+  {
+    "id": 18,
+    "question": "RxJava Operators - Timer",
+    "answer": "The `timer` operator creates an Observable that emits a single item after a specified delay. It is useful for triggering actions after a certain period of time.",
+    "difficulty": "Easy",
+    "topCategory": "Android",
+    "topCategoryId": 1,
+    "subCategory": "Rx",
+    "subCategoryId": 7
+  },
+  {
+    "id": 19,
+    "question": "RxJava Operators - Buffer",
+    "answer": "The `buffer` operator periodically gathers items emitted by an Observable into bundles and emits these bundles instead of emitting the items one at a time. It is useful for grouping or batching emitted items.",
+    "difficulty": "Medium",
+    "topCategory": "Android",
+    "topCategoryId": 1,
+    "subCategory": "Rx",
+    "subCategoryId": 7
+  },
+  {
+    "id": 20,
+    "question": "RxJava Operators - FlatMap",
+    "answer": "The `flatMap` operator transforms the items emitted by an Observable into Observables, then flattens the emissions from those Observables into a single Observable. Note that the order of emissions may not be preserved.",
+    "difficulty": "Medium",
+    "topCategory": "Android",
+    "topCategoryId": 1,
+    "subCategory": "Rx",
+    "subCategoryId": 7
+  },
+  {
+    "id": 21,
+    "question": "RxJava Operators - Scan",
+    "answer": "The `scan` operator applies a function to each item emitted by an Observable, sequentially, and emits each intermediate result. It is useful for performing calculations or accumulating values over time.",
+    "difficulty": "Medium",
+    "topCategory": "Android",
+    "topCategoryId": 1,
+    "subCategory": "Rx",
+    "subCategoryId": 7
+  },
+  {
+    "id": 22,
+    "question": "RxJava Operators - Debounce",
+    "answer": "The `debounce` operator only emits an item from an Observable if a specified timespan has passed without any subsequent emissions. It is useful for handling events that occur too frequently.",
+    "difficulty": "Medium",
+    "topCategory": "Android",
+    "topCategoryId": 1,
+    "subCategory": "Rx",
+    "subCategoryId": 7
+  },
+  {
+    "id": 23,
+    "question": "RxJava Operators - Distinct",
+    "answer": "The `distinct` operator suppresses duplicate items emitted by an Observable, ensuring that only unique items are passed along. It is useful for filtering out repeated values.",
+    "difficulty": "Medium",
+    "topCategory": "Android",
+    "topCategoryId": 1,
+    "subCategory": "Rx",
+    "subCategoryId": 7
+  },
+  {
+    "id": 24,
+    "question": "RxJava Operators - IgnoreElements",
+    "answer": "The `ignoreElements` operator does not emit any items from an Observable but mirrors its termination notification. It is useful when you are only interested in the completion or error signal of an Observable.",
+    "difficulty": "Easy",
+    "topCategory": "Android",
+    "topCategoryId": 1,
+    "subCategory": "Rx",
+    "subCategoryId": 7
+  },
+  {
+    "id": 25,
+    "question": "RxJava Operators - Last",
+    "answer": "The `last` operator emits only the last item emitted by an Observable, or a default item if the Observable completes without emitting any items. It is useful for retrieving the last value of a sequence.",
+    "difficulty": "Easy",
+    "topCategory": "Android",
+    "topCategoryId": 1,
+    "subCategory": "Rx",
+    "subCategoryId": 7
+  },
+  {
+    "id": 26,
+    "question": "RxJava Operators - Sample",
+    "answer": "The `sample` operator emits the most recent item emitted by an Observable within periodic time intervals. It is useful for sampling values at regular intervals or based on external events.",
+    "difficulty": "Medium",
+    "topCategory": "Android",
+    "topCategoryId": 1,
+    "subCategory": "Rx",
+    "subCategoryId": 7
+  },
+  {
+    "id": 27,
+    "question": "RxJava Operators - Take, TakeLast",
+    "answer": "The `take` operator emits only the first n items emitted by an Observable, while the `takeLast` operator emits only the last n items emitted by an Observable. They are useful for limiting the number of emitted items.",
+    "difficulty": "Easy",
+    "topCategory": "Android",
+    "topCategoryId": 1,
+    "subCategory": "Rx",
+    "subCategoryId": 7
+  },
+  {
+    "id": 28,
+    "question": "RxJava Operators - CombineLatest",
+    "answer": "The `combineLatest` operator combines the emissions of multiple Observables together via a specified function and emits items based on the results of this function. It triggers emissions whenever any of the combined Observables emit an item.",
+    "difficulty": "Unknown",
+    "topCategory": "Android",
+    "topCategoryId": 1,
+    "subCategory": "Rx",
+    "subCategoryId": 7
+  },
+  {
+    "id": 29,
+    "question": "RxJava Operators - Join",
+    "answer": "The `join` operator combines items emitted by two Observables whenever an item from one Observable is emitted during a time window defined according to an item emitted by the other Observable. It is useful for handling temporal relationships between items.",
+    "difficulty": "Unknown",
+    "topCategory": "Android",
+    "topCategoryId": 1,
+    "subCategory": "Rx",
+    "subCategoryId": 7
+  },
+  {
+    "id": 30,
+    "question": "RxJava Operators - Merge",
+    "answer": "The `merge` operator combines multiple Observables into one by merging their emissions. It interleaves the items emitted by the source Observables, emitting them as they arrive. It is useful for combining concurrent streams of data.",
+    "difficulty": "Unknown",
+    "topCategory": "Android",
+    "topCategoryId": 1,
+    "subCategory": "Rx",
+    "subCategoryId": 7
+  },
+  {
+    "id": 31,
+    "question": "RxJava Operators - StartWith",
+    "answer": "The `startWith` operator emits a specified sequence of items before beginning to emit the items from the source Observable. It is useful for prepending initial or default values to an Observable sequence.",
+    "difficulty": "Unknown",
+    "topCategory": "Android",
+    "topCategoryId": 1,
+    "subCategory": "Rx",
+    "subCategoryId": 7
+  },
+  {
+    "id": 32,
+    "question": "RxJava Operators - Switch",
+    "answer": "The `switch` operator converts an Observable that emits Observables into a single Observable that emits the items emitted by the most-recently-emitted Observable. It switches to a new Observable whenever a new one is emitted.",
+    "difficulty": "Unknown",
+    "topCategory": "Android",
+    "topCategoryId": 1,
+    "subCategory": "Rx",
+    "subCategoryId": 7
+  },
+  {
+    "id": 33,
+    "question": "RxJava Operators - Zip",
+    "answer": "The `zip` operator combines the emissions of multiple Observables together via a specified function and emits single items for each combination based on the results of this function. It emits items only when all combined Observables have emitted an item.",
+    "difficulty": "Unknown",
+    "topCategory": "Android",
+    "topCategoryId": 1,
+    "subCategory": "Rx",
+    "subCategoryId": 7
+  },
+  {
+    "id": 34,
+    "question": "RxJava Operators - ObserveOn",
+    "answer": "The `observeOn` operator specifies the scheduler on which an observer will observe the emissions of an Observable. It is useful for specifying the thread or scheduler for consuming or processing emitted items.",
+    "difficulty": "Unknown",
+    "topCategory": "Android",
+    "topCategoryId": 1,
+    "subCategory": "Rx",
+    "subCategoryId": 7
+  },
+  {
+    "id": 35,
+    "question": "RxJava Operators - Subscribe",
+    "answer": "The `subscribe` operator allows you to operate upon the emissions and notifications from an Observable. It provides various overloads to specify the actions to be taken on each emitted item, error, or completion signal.",
+    "difficulty": "Unknown",
+    "topCategory": "Android",
+    "topCategoryId": 1,
+    "subCategory": "Rx",
+    "subCategoryId": 7
+  },
+  {
+    "id": 36,
+    "question": "RxJava Operators - Map",
+    "answer": "The `map` operator transforms the items emitted by an Observable by applying a function to each item. It allows you to perform a one-to-one transformation of the emitted values.",
+    "difficulty": "Unknown",
+    "topCategory": "Android",
+    "topCategoryId": 1,
+    "subCategory": "Rx",
+    "subCategoryId": 7
+  },
+  {
+    "id": 37,
+    "question": "RxJava Operators - Window",
+    "answer": "The `window` operator periodically subdivides items from an Observable into Observable windows and emits these windows instead of emitting the items one at a time. It is useful for grouping or batching emitted items into separate Observables.",
+    "difficulty": "Unknown",
+    "topCategory": "Android",
+    "topCategoryId": 1,
+    "subCategory": "Rx",
+    "subCategoryId": 7
+  },
+  {
+    "id": 38,
+    "question": "Describe StateFlow.",
+    "answer": "State flow is a special-purpose, high-performance, and efficient implementation of SharedFlow for the narrow, but widely used case of sharing a state. State flow always has an initial value, replays one most recent value to new subscribers, does not buffer any more values, but keeps the last emitted one, and does not support resetReplayCache. MutableStateFlow(initialValue) is a shared flow with the following parameters: val shared = MutableSharedFlow(replay = 1, onBufferOverflow = BufferOverflow.DROP_OLDEST) shared.tryEmit(initialValue) emit the initial value val state = shared.distinctUntilChanged() get StateFlow-like behavior. A SharedFlow that represents a read-only state with a single updatable data value that emits updates to the value to its collectors. A state flow is a hot flow because its active instance exists independently of the presence of collectors. Its current value can be retrieved via the value property. When a new consumer starts collecting from the flow, it receives the last state in the stream and any subsequent states.",
+    "difficulty": "Medium",
+    "topCategory": "Android",
+    "topCategoryId": 1,
+    "subCategory": "StateAndSharedFlow",
+    "subCategoryId": 8
+  },
+  {
+    "id": 39,
+    "question": "Describe the differences and similarities between State Flow & Shared Flow.",
+    "answer": "StateFlow is a specialized configuration of SharedFlow optimized for sharing state: the last emitted item is replayed to new collectors, and items are conflated using Any.equals. Similarities: - StateFlow & SharedFlow are both hot flows - They are both Flows. Differences: - SharedFlows are used for one-time-events, such as displaying Snackbar or Toasts - StateFlow will automatically emit the value after, for example, device rotates - StateFlow would not re-emit the same value, so i.e., displaying the same Snackbar multiple times would be impossible.",
+    "difficulty": "Medium",
+    "topCategory": "Android",
+    "topCategoryId": 1,
+    "subCategory": "StateAndSharedFlow",
+    "subCategoryId": 8
+  },
+  {
+    "id": 40,
+    "question": "Describe SharedFlow.",
+    "answer": "A hot Flow that shares emitted values among all its collectors in a broadcast fashion so that all collectors get all emitted values. A shared flow is called hot because its active instance exists independently of the presence of collectors. This is opposed to a regular Flow, such as defined by the flow { ... } function, which is cold and is started separately for each collector. SharedFlow is useful for broadcasting events that happen inside an application to subscribers that can come and go. A shared flow keeps a specific number of the most recent values in its replay cache. Every new subscriber first gets the values from the replay cache and then gets new emitted values. The maximum size of the replay cache is specified when the shared flow is created by the replay parameter. A snapshot of the current replay cache is available via the replayCache property, and it can be reset with the MutableSharedFlow.resetReplayCache function. Use SharedFlow when you need a StateFlow with tweaks in its behavior such as extra buffering, replaying more values, or omitting the initial value.",
+    "difficulty": "Medium",
+    "topCategory": "Android",
+    "topCategoryId": 1,
+    "subCategory": "StateAndSharedFlow",
+    "subCategoryId": 8
+  },
+  {
+    "id": 41,
+    "question": "What is a hot flow? What is a cold flow?",
+    "answer": "A cold flow does not start producing values until one starts to collect them. Cold flows are created on-demand and emit data when they’re being observed. On the other hand, a hot flow starts producing values immediately and is always active, even if there are no subscribers/collectors. Hot flows are better for sharing state across multiple observers.",
+    "difficulty": "Easy",
+    "topCategory": "Android",
+    "topCategoryId": 1,
+    "subCategory": "StateAndSharedFlow",
+    "subCategoryId": 9
+  },
+  {
+    "id": 42,
+    "question": "LiveData vs StateFlow",
+    "answer": "LiveData is an Android-only class and is therefore unfit for the domain and data layer. StateFlow, on the other hand, is a Flow, which enables the use of powerful Flow operators and is not limited to the Android platform.",
+    "difficulty": "Easy",
+    "topCategory": "Android",
+    "topCategoryId": 1,
+    "subCategory": "StateAndSharedFlow",
+    "subCategoryId": 9
+  },
+  {
+    "id": 43,
+    "question": "launchWhenStarted{ }, repeatOnLifecycle {}",
+    "answer": "The `launchWhenStarted` function launches and runs the given block when the Lifecycle controlling the LifecycleCoroutineScope is at least in the STARTED state. The returned Job will be cancelled when the Lifecycle is destroyed. However, this API is not recommended to use as it can lead to wasted resources in some cases. It is recommended to use the `Lifecycle.repeatOnLifecycle` API instead, which will be removed in a future release.",
+    "difficulty": "Easy",
+    "topCategory": "Android",
+    "topCategoryId": 1,
+    "subCategory": "Coroutines",
+    "subCategoryId": 9
+  },
+  {
+    "id": 44,
+    "question": "repeatOnLifecycle() {}",
+    "answer": "The `repeatOnLifecycle` function launches the block in a new coroutine every time the lifecycle is in the STARTED state or above, and cancels it when it's in the STOPPED state.",
+    "difficulty": "Easy",
+    "topCategory": "Android",
+    "topCategoryId": 1,
+    "subCategory": "Coroutines",
+    "subCategoryId": 9
+  },
+  {
+    "id": 45,
+    "question": "Flow vs StateFlow & LiveData",
+    "answer": "Flow does not hold a state. On the other hand, StateFlow and LiveData are both Flow-based implementations that can hold and emit a state. StateFlow is optimized for sharing state with additional features such as replaying the last emitted value, while LiveData is specifically designed for use in Android applications and provides lifecycle-aware behavior.",
+    "difficulty": "Easy",
+    "topCategory": "Android",
+    "topCategoryId": 1,
+    "subCategory": "StateAndSharedFlow",
+    "subCategoryId": 8
+  },
+  {
+    "id": 46,
+    "question": "shareIn(), stateIn()",
+    "answer": "The `shareIn` and `stateIn` operators convert cold flows into hot flows. They multicast the information that comes from a cold upstream flow to multiple collectors. A cold flow is created on-demand and emits data when it's being observed, while a hot flow is always active and can emit data regardless of whether or not it's being observed.",
+    "difficulty": "Easy",
+    "topCategory": "Android",
+    "topCategoryId": 1,
+    "subCategory": "StateAndSharedFlow",
+    "subCategoryId": 8
+  },
+  {
+    "id": 48,
+    "question": "Compose",
+    "answer": "Jetpack Compose is a modern UI toolkit for building native Android UIs. It offers a declarative approach to building user interfaces, where you describe your UI and Compose takes care of the rest. Compose intelligently determines which parts of the UI need to be redrawn at any given time, resulting in efficient UI updates. It simplifies UI development by allowing you to focus on what the UI should look like rather than how to update it in response to state changes. With Compose, you can create dynamic, interactive, and highly customizable UIs with less code compared to traditional Android View-based development.",
+    "difficulty": "Easy",
+    "topCategory": "Android",
+    "topCategoryId": 1,
+    "subCategory": "Compose",
+    "subCategoryId": 10
+  }
+]

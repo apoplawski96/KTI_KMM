@@ -1,0 +1,42 @@
+[
+  {
+    "id": 51,
+    "question": "Tell some advantages of Kotlin over Java? or What are the Kotlin functionalities that we can't achieve in Java?",
+    "answer": "Some advantages of Kotlin over Java include:\n\n- Null safety: Kotlin has built-in null safety features, reducing the chances of null pointer exceptions.\n- Kotlin coroutines: Kotlin provides native support for coroutines, which simplifies asynchronous programming.\n- Triple and Pair structures: Kotlin provides convenient Triple and Pair classes for handling multiple values.\n- Destructuring Initialization: Kotlin allows destructuring declarations, making it easier to initialize multiple variables at once.\n- Inline functions: Kotlin supports inline functions, which improve performance by eliminating the overhead of function calls.\n- Infix functions: Kotlin allows defining functions that can be called using the infix notation, improving code readability.\n- Scope functions: Kotlin provides scope functions like `let`, `apply`, `run`, `with`, and `also`, which enable concise and expressive coding patterns.\n- Writing functions at the file level: Kotlin allows defining functions outside of classes, enabling top-level functions.\n",
+    "difficulty": "Easy",
+    "topCategory": "Kotlin",
+    "topCategoryId": 5,
+    "subCategory": "Unknown",
+    "subCategoryId": 0
+  },
+  {
+    "id": 52,
+    "question": "Inline functions",
+    "answer": "Inline functions are functions that are expanded at the call site. When you mark a function as `inline`, the compiler replaces the function call with the actual function body, eliminating the overhead of the function call. This can improve performance by reducing function call stack overhead and allowing more efficient optimizations. However, inline functions can increase the size of the compiled code, so they are best used for small functions or functions that are frequently called.",
+    "difficulty": "Easy",
+    "topCategory": "Kotlin",
+    "topCategoryId": 5,
+    "subCategory": "Unknown",
+    "subCategoryId": 0
+  },
+  {
+    "id": 53,
+    "question": "Inline classes",
+    "answer": "Inline classes are a feature in Kotlin that allow you to define lightweight wrapper classes. An inline class is defined using the `inline` modifier before the class declaration. Inline classes are used when you want to create a new type with minimal overhead, as the actual instances of the inline class are replaced by the underlying type at compile-time. This reduces memory overhead and runtime performance impact. Inline classes can only have a single property in their primary constructor, and they cannot have any inheritance relationships or implement interfaces. They are useful for creating type-safe wrappers around simple types and improving code readability and type safety.",
+    "difficulty": "Easy",
+    "topCategory": "Kotlin",
+    "topCategoryId": 5,
+    "subCategory": "Unknown",
+    "subCategoryId": 0
+  },
+  {
+    "id": 54,
+    "question": "Infix functions",
+    "answer": "Infix functions are functions that can be called using the infix notation, which allows omitting the dot and parentheses for the call. Infix functions must meet the following requirements:\n\n- They must be member functions or extension functions.\n- They must have a single parameter.\n- The parameter must not accept a variable number of arguments and must have no default value.\n\nUsing infix functions can make the code more readable and concise, especially when working with DSL-like constructs or defining domain-specific languages (DSLs) in Kotlin.",
+    "difficulty": "Easy",
+    "topCategory": "Kotlin",
+    "topCategoryId": 5,
+    "subCategory": "Unknown",
+    "subCategoryId": 0
+  }
+]
