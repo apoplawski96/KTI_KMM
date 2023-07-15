@@ -1,4 +1,4 @@
-package co.touchlab.kampkit.android.ui.home
+package com.example.myapplication.android.ui.home
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable

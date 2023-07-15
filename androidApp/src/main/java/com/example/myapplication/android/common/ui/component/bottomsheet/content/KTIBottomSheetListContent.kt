@@ -12,7 +12,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.example.myapplication.android.common.ui.component.KTIText
 import com.example.myapplication.android.common.ui.component.bottomsheet.base.KTIBottomSheetSurface
-import com.apoplawski96.killtheinterview.common.ui.component.bottomsheet.content.KTIRadioButton
 import com.example.myapplication.android.common.ui.component.bottomsheet.model.BottomSheetListItem
 import com.example.myapplication.android.R
 import com.example.myapplication.android.ui.theme.kti_green

@@ -5,11 +5,11 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.SupervisorJob
 import kotlin.coroutines.CoroutineContext
 
-interface FcGlobalCoroutineScope : CoroutineScope
+interface KTIGlobalCoroutineScope : CoroutineScope
 
-internal class FcGlobalCoroutineScopeImpl internal constructor(
+internal class KTIGlobalCoroutineScopeImpl internal constructor(
     dispatcherProvider: DispatcherProvider,
-) : FcGlobalCoroutineScope {
+) : KTIGlobalCoroutineScope {
 
     override val coroutineContext: CoroutineContext =
         SupervisorJob() + dispatcherProvider.default + CoroutineExceptionHandler { _, _ -> }

@@ -104,7 +104,6 @@ fun ListScreen(
         viewState = viewState,
         bottomSheetContent = {
             ListScreenBottomSheetContent(
-                onRandomizeQuestionsClick = {},
                 selectedDifficulties = selectedDifficulties,
                 onDifficultyToggled = { toggledDifficulty ->
                     viewModel.toggleDifficulty(toggledDifficulty)

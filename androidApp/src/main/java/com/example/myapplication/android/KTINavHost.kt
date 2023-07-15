@@ -15,7 +15,7 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavType
 import androidx.navigation.navArgument
 import co.apoplawski96.kti.navigation.model.NavigationCommand
-import co.touchlab.kampkit.android.ui.home.MenuScreen
+import com.example.myapplication.android.ui.home.MenuScreen
 import co.touchlab.kampkit.android.ui.quiz.QuizScreen
 import com.example.myapplication.android.ui.categories.CategoriesScreen
 import com.example.myapplication.android.ui.questions.list.ListScreen

@@ -30,6 +30,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.myapplication.android.common.ui.component.KTIBoxWithGradientBackground
 import com.example.myapplication.android.common.ui.component.KTIVerticalSpacer
 import com.example.myapplication.android.common.ui.component.KTITextTopBar
 import com.example.myapplication.android.common.ui.component.KTICircularProgressIndicator
@@ -71,17 +72,7 @@ private fun CategoriesScreenContent(
     onClick: (CardDisplayable) -> Unit,
     lazyGridState: LazyGridState
 ) {
-    Box(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(
-                brush = Brush.verticalGradient(
-                    0.0f to kti_dark_primary,
-                    0.9f to kti_primary,
-                    1.0f to kti_accent_color.copy(alpha = 0.0001f),
-                )
-            )
-    ) {
+     KTIBoxWithGradientBackground {
         when (state) {
             is CategoriesViewModel.ViewState.CategoriesLoaded -> {
                 Column {
@@ -91,7 +82,11 @@ private fun CategoriesScreenContent(
                         hasBrandingLine = true,
                         rightActionButtons = {
                             IconButton(onClick = { }) {
-                                Icon(Icons.Filled.Search, "Back Icon", tint = kti_accent_color)
+                                Icon(
+                                    imageVector = Icons.Filled.Search,
+                                    contentDescription = "Back Icon",
+                                    tint = kti_accent_color
+                                )
                             }
                         })
                     CategoriesGrid(
@@ -103,7 +98,7 @@ private fun CategoriesScreenContent(
             }
 
             is CategoriesViewModel.ViewState.Loading -> {
-                KTICircularProgressIndicator(modifier = Modifier.align(Alignment.Center))
+                KTICircularProgressIndicator()
             }
         }
     }

@@ -1,4 +1,4 @@
-package com.apoplawski96.killtheinterview.common.ui.component.bottomsheet.content
+package com.example.myapplication.android.common.ui.component.bottomsheet.content
 
 import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.animation.core.tween
