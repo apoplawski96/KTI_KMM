@@ -15,7 +15,6 @@ import androidx.compose.material.icons.filled.KeyboardArrowDown
 import androidx.compose.material.icons.filled.KeyboardArrowUp
 import androidx.compose.material.icons.filled.MailOutline
 import androidx.compose.material.icons.outlined.Done
-import androidx.compose.material.icons.outlined.Menu
 import androidx.compose.material.icons.outlined.Refresh
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -28,27 +27,28 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Brush
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.myapplication.android.common.ui.component.FcTextTopBar
+import com.example.myapplication.android.common.ui.component.KTIBoxWithGradientBackground
 import com.example.myapplication.android.common.ui.component.KTICircularProgressIndicator
 import com.example.myapplication.android.common.ui.component.KTIHorizontalSpacer
 import com.example.myapplication.android.common.ui.component.KTIText
 import com.example.myapplication.android.common.ui.component.KTITextNew
 import com.example.myapplication.android.common.ui.component.KTIVerticalSpacer
-import com.example.myapplication.android.common.ui.component.bottomsheet.base.FcModalBottomSheetLayout
+import com.example.myapplication.android.common.ui.component.bottomsheet.base.KTIModalBottomSheetLayout
 import com.example.myapplication.android.common.ui.component.clickableNoRipple
+import com.example.myapplication.android.ui.questions.list.components.ListScreenBottomSheetContent
+import com.example.myapplication.android.ui.questions.list.components.ListScreenScoreBar
+import com.example.myapplication.android.ui.questions.list.components.ListScreenTopBar
 import com.example.myapplication.android.ui.theme.kti_accent_color
 import com.example.myapplication.android.ui.theme.kti_dark_primary
 import com.example.myapplication.android.ui.theme.kti_divider
 import com.example.myapplication.android.ui.theme.kti_green
 import com.example.myapplication.android.ui.theme.kti_light_primary
-import com.example.myapplication.android.ui.theme.kti_primary
 import com.example.myapplication.android.ui.theme.kti_primary_text
 import com.example.myapplication.android.ui.theme.kti_secondary_text
+import com.example.myapplication.model.Difficulty
 import com.example.myapplication.model.Question
 import com.example.myapplication.model.subcategory.SubCategory
 import com.example.myapplication.model.subcategory.TopCategory
@@ -120,7 +120,7 @@ fun ListScreen(
         questionsAnsweredCount = scoreboard.answeredCount,
         questionsTotalCount = scoreboard.totalCount,
         markAsAnswered = { question -> viewModel.markQuestionAsAnswered(question) },
-        markAsUnanswered = { question -> viewModel.markQuestionAsUnanswered(question) }
+        markAsUnanswered = { question -> viewModel.markQuestionAsUnanswered(question) },
     )
 }
 
@@ -142,84 +142,51 @@ private fun ListScreenContent(
 ) {
     Scaffold(
         topBar = {
-            FcTextTopBar(
-                middleContentText = topBarTitle,
-                isNested = true,
-                hasBrandingLine = false,
-                rightActionButtons = {
-                    IconButton(onClick = onToggleBottomSheetClick) {
-                        if (bottomSheetState.isVisible) {
-                            Icon(
-                                imageVector = Icons.Filled.KeyboardArrowDown,
-                                contentDescription = "Bottom sheet icon",
-                                tint = kti_accent_color
-                            )
-                        } else {
-                            Icon(
-                                imageVector = Icons.Filled.KeyboardArrowUp,
-                                contentDescription = "Bottom sheet icon",
-                                tint = kti_accent_color
-                            )
-                        }
-                    }
-                    IconButton(onClick = toggleDropdownMenu) {
-                        Icon(
-                            imageVector = Icons.Outlined.Menu,
-                            contentDescription = "Menu icon",
-                            tint = kti_primary_text
-                        )
-                    }
-                    DropdownMenu(
-                        expanded = sortDropdownMenuDisplayed,
-                        onDismissRequest = toggleDropdownMenu
-                    ) {
-                        ListViewModel.SortMode.values().toList().forEach { sortMode ->
-                            DropdownMenuItem(onClick = { onSortModeClick(sortMode) }) {
-                                KTITextNew(
-                                    text = sortMode.displayName,
-                                    fontSize = 16.sp,
-                                    fontWeight = FontWeight.W400,
-                                    color = kti_dark_primary
-                                )
-                            }
-                        }
-                    }
-                }
+            ListScreenTopBar(
+                bottomSheetState = bottomSheetState,
+                onToggleBottomSheetClick = onToggleBottomSheetClick,
+                topBarTitle = topBarTitle,
+                sortDropdownMenuDisplayed = sortDropdownMenuDisplayed,
+                toggleDropdownMenu = toggleDropdownMenu,
+                onSortModeClick = onSortModeClick
             )
         },
     ) {
-        FcModalBottomSheetLayout(
-            sheetState = bottomSheetState,
-            bottomSheetContent = bottomSheetContent,
-            modifier = Modifier.fillMaxSize(),
+        Box(
+            contentAlignment = Alignment.Center,
+            modifier = Modifier
+                .fillMaxSize()
+                .background(kti_dark_primary),
         ) {
-            Box(
-                contentAlignment = Alignment.Center,
-                modifier = Modifier
-                    .fillMaxSize()
-                    .background(kti_dark_primary),
+            KTIModalBottomSheetLayout(
+                sheetState = bottomSheetState,
+                bottomSheetContent = bottomSheetContent,
+                modifier = Modifier.fillMaxSize(),
             ) {
-                when (viewState) {
-                    is ListViewModel.ViewState.QuestionsLoaded -> {
-                        QuestionList(
-                            questions = viewState.questions,
-                            markAsAnswered = markAsAnswered,
-                            markAsUnanswered = markAsUnanswered,
-                            questionsTotalCount = questionsTotalCount,
-                            questionsAnsweredCount = questionsAnsweredCount
-                        )
-                    }
+                KTIBoxWithGradientBackground {
+                    when (viewState) {
+                        is ListViewModel.ViewState.QuestionsLoaded -> {
+                            QuestionList(
+                                questions = viewState.questions,
+                                markAsAnswered = markAsAnswered,
+                                markAsUnanswered = markAsUnanswered,
+                                questionsTotalCount = questionsTotalCount,
+                                questionsAnsweredCount = questionsAnsweredCount
+                            )
+                        }
 
-                    is ListViewModel.ViewState.Loading -> {
-                        KTICircularProgressIndicator()
-                    }
+                        is ListViewModel.ViewState.Loading -> {
+                            KTICircularProgressIndicator()
+                        }
 
-                    ListViewModel.ViewState.Error -> {
-                        KTIText(text = "error")
+                        ListViewModel.ViewState.Error -> {
+                            KTIText(text = "Error!")
+                        }
                     }
                 }
             }
         }
+
     }
 }
 
@@ -233,117 +200,115 @@ private fun QuestionList(
     questionsAnsweredCount: Int,
     questionsTotalCount: Int,
 ) {
+    Column(modifier = Modifier.fillMaxWidth()) {
+        ListScreenScoreBar(score = questionsAnsweredCount, total = questionsTotalCount)
+        LazyColumn {
+            itemsIndexed(
+                items = questions,
+                key = { _, item -> "${item.id} + ${item.hashCode()}" }
+            ) { _, item ->
+                QuestionItem(
+                    item = item,
+                    markAsAnswered = markAsAnswered,
+                    markAsUnanswered = markAsUnanswered,
+                )
+            }
+        }
+    }
+}
+
+@Composable
+private fun QuestionItem(
+    item: Question,
+    markAsAnswered: (Question) -> Unit,
+    markAsUnanswered: (Question) -> Unit,
+) {
+    val isExpanded = rememberSaveable(item) { mutableStateOf(false) }
+    val isAnswered = rememberSaveable(item) { mutableStateOf(false) }
     Column(
+        verticalArrangement = Arrangement.Top,
+        horizontalAlignment = Alignment.Start,
         modifier = Modifier
             .fillMaxSize()
             .background(
-                brush = Brush.verticalGradient(
-                    0.0f to kti_dark_primary,
-                    0.9f to kti_primary,
-                    1.0f to kti_accent_color.copy(alpha = 0.0001f),
-                )
-            )
-    ) {
-        ListScreenScoreBar(score = questionsAnsweredCount, total = questionsTotalCount)
-        LazyColumn { // TODO: Add unique keys
-            item {
-                Spacer(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(6.dp)
-                        .background(kti_light_primary.copy(alpha = 0.3f))
-                )
-            }
-            itemsIndexed(items = questions) { _, item ->
-                val isExpanded = rememberSaveable(item) { mutableStateOf(false) }
-                val isAnswered = rememberSaveable(item) { mutableStateOf(false) }
-
-                val color = if (isAnswered.value) {
+                if (isAnswered.value) {
                     kti_green
                 } else {
                     kti_light_primary.copy(alpha = 0.3f)
                 }
-
-                Column(
-                    verticalArrangement = Arrangement.Top,
-                    horizontalAlignment = Alignment.Start,
-                    modifier = Modifier
-                        .fillMaxSize()
-                        .background(color)
-                ) {
-                    KTIVerticalSpacer(height = 8.dp)
-                    AnimatedVisibility(visible = isAnswered.value.not()) {
-                        KTIVerticalSpacer(height = 12.dp)
-                        KTITextNew(
-                            text = item.difficulty.displayName,
-                            fontSize = 10.sp,
-                            fontWeight = FontWeight.W300,
-                            color = kti_primary_text.copy(alpha = 0.6f),
-                            modifier = Modifier.padding(horizontal = 10.dp)
-                        )
-                    }
-                    KTIVerticalSpacer(height = if (isAnswered.value.not()) 2.dp else 0.dp)
-                    KTITextNew(
-                        text = item.question,
-                        fontSize = if (isAnswered.value.not()) 20.sp else 16.sp,
-                        fontWeight = if (isAnswered.value.not()) FontWeight.SemiBold else FontWeight.Normal,
-                        modifier = Modifier.padding(horizontal = horizontalPadding + 2.dp),
-                        color = kti_primary_text
-                    )
-                    KTIVerticalSpacer(height = if (isAnswered.value.not()) 8.dp else 0.dp)
-                    AnimatedVisibility(visible = !isAnswered.value) {
-                        ShowHideAnswerTextButton(
-                            displayAnswer = isExpanded.value,
-                            displayAnswerOnClick = { isExpanded.value = !isExpanded.value },
-                        )
-                        KTIVerticalSpacer(height = 8.dp)
-                    }
-                    AnimatedVisibility(isExpanded.value) {
-                        val answerText = if (item.answer.isEmpty().not()) {
-                            item.answer
-                        } else {
-                            "ANSWER MISSING!"
-                        }
-                        KTITextNew(
-                            text = answerText,
-                            fontSize = 14.sp,
-                            fontWeight = FontWeight.W400,
-                            modifier = Modifier.padding(horizontal = horizontalPadding + 2.dp)
-                        )
-                    }
-                    KTIVerticalSpacer(height = 24.dp)
-                    Row(
-                        horizontalArrangement = Arrangement.SpaceBetween,
-                        verticalAlignment = Alignment.CenterVertically,
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(horizontal = horizontalPadding + 8.dp)
-                    ) {
-                        SetAnsweredSection(
-                            isAnswered = isAnswered.value,
-                            toggleAsAnswered = {
-                                isAnswered.value = true
-                                isExpanded.value = false
-                                markAsAnswered(item)
-                            },
-                            toggleReopen = {
-                                isAnswered.value = false
-                                isExpanded.value = false
-                                markAsUnanswered(item)
-                            }
-                        )
-                        IconsSection(isAnswered = isAnswered.value)
-                    }
-                    KTIVerticalSpacer(height = 18.dp)
-                    Divider(
-                        modifier = Modifier.fillMaxWidth(),
-                        thickness = 1.dp,
-                        color = kti_divider.copy(alpha = 0.06f)
-                    )
-                }
-            }
+            )
+    ) {
+        KTIVerticalSpacer(height = 8.dp)
+        AnimatedVisibility(visible = isAnswered.value.not()) {
+            QuestionDifficulty(difficulty = item.difficulty)
         }
+        QuestionTitle(isAnswered = isAnswered.value, question = item.question)
+        AnimatedVisibility(visible = isAnswered.value.not()) {
+            ShowHideAnswerTextButton(
+                displayAnswer = isExpanded.value,
+                displayAnswerOnClick = { isExpanded.value = !isExpanded.value },
+            )
+        }
+        AnimatedVisibility(isExpanded.value) {
+            KTITextNew(
+                text = item.answer,
+                fontSize = 14.sp,
+                fontWeight = FontWeight.W400,
+                modifier = Modifier.padding(horizontal = horizontalPadding + 2.dp)
+            )
+        }
+        KTIVerticalSpacer(height = 24.dp)
+        BottomSection(
+            isAnswered = isAnswered.value,
+            markAsAnswered = { question ->
+                isAnswered.value = true
+                isExpanded.value = false
+                markAsAnswered.invoke(question)
+            },
+            markAsUnanswered = { question ->
+                isAnswered.value = false
+                isExpanded.value = false
+                markAsUnanswered.invoke(question)
+            },
+            item = item,
+        )
+        KTIVerticalSpacer(height = 18.dp)
+        Divider(
+            modifier = Modifier.fillMaxWidth(),
+            thickness = 1.dp,
+            color = kti_divider.copy(alpha = 0.06f)
+        )
     }
+}
+
+@Composable
+private fun QuestionDifficulty(
+    difficulty: Difficulty,
+) {
+    KTIVerticalSpacer(height = 12.dp)
+    KTITextNew(
+        text = difficulty.displayName,
+        fontSize = 10.sp,
+        fontWeight = FontWeight.W300,
+        color = kti_primary_text.copy(alpha = 0.6f),
+        modifier = Modifier.padding(horizontal = 10.dp)
+    )
+}
+
+@Composable
+private fun QuestionTitle(
+    isAnswered: Boolean,
+    question: String,
+) {
+    KTIVerticalSpacer(height = if (isAnswered.not()) 2.dp else 0.dp)
+    KTITextNew(
+        text = question,
+        fontSize = if (isAnswered.not()) 20.sp else 16.sp,
+        fontWeight = if (isAnswered.not()) FontWeight.SemiBold else FontWeight.Normal,
+        modifier = Modifier.padding(horizontal = horizontalPadding + 2.dp),
+        color = kti_primary_text
+    )
+    KTIVerticalSpacer(height = if (isAnswered.not()) 8.dp else 0.dp)
 }
 
 @Composable
@@ -351,28 +316,54 @@ private fun ShowHideAnswerTextButton(
     displayAnswer: Boolean,
     displayAnswerOnClick: () -> Unit,
 ) {
+    Column(modifier = Modifier.fillMaxWidth()) {
+        Row(
+            horizontalArrangement = Arrangement.Start,
+            verticalAlignment = Alignment.CenterVertically,
+            modifier = Modifier
+                .clickableNoRipple { displayAnswerOnClick() }
+                .padding(horizontal = horizontalPadding)
+                .fillMaxWidth()
+        ) {
+            Icon(
+                imageVector = if (displayAnswer) Icons.Default.KeyboardArrowUp else Icons.Default.KeyboardArrowDown,
+                contentDescription = null,
+                tint = kti_accent_color.copy(alpha = 0.5f),
+                modifier = Modifier.clickableNoRipple { displayAnswerOnClick() }
+            )
+            KTIHorizontalSpacer(width = 4.dp)
+            KTITextNew(
+                text = if (displayAnswer) "Hide answer" else "Show answer",
+                fontSize = 14.sp,
+                fontWeight = FontWeight.W300,
+                modifier = Modifier.clickableNoRipple { displayAnswerOnClick() },
+                color = kti_primary_text.copy(alpha = 0.8f)
+            )
+        }
+        KTIVerticalSpacer(height = 8.dp)
+    }
+}
+
+@Composable
+private fun BottomSection(
+    isAnswered: Boolean,
+    markAsAnswered: (Question) -> Unit,
+    markAsUnanswered: (Question) -> Unit,
+    item: Question,
+) {
     Row(
-        horizontalArrangement = Arrangement.Start,
+        horizontalArrangement = Arrangement.SpaceBetween,
         verticalAlignment = Alignment.CenterVertically,
         modifier = Modifier
-            .clickableNoRipple { displayAnswerOnClick() }
-            .padding(horizontal = horizontalPadding)
             .fillMaxWidth()
+            .padding(horizontal = horizontalPadding + 8.dp)
     ) {
-        Icon(
-            imageVector = if (displayAnswer) Icons.Default.KeyboardArrowUp else Icons.Default.KeyboardArrowDown,
-            contentDescription = null,
-            tint = kti_accent_color.copy(alpha = 0.5f),
-            modifier = Modifier.clickableNoRipple { displayAnswerOnClick() }
+        SetAnsweredSection(
+            isAnswered = isAnswered,
+            toggleAsAnswered = { markAsAnswered(item) },
+            toggleReopen = { markAsUnanswered(item) }
         )
-        KTIHorizontalSpacer(width = 4.dp)
-        KTITextNew(
-            text = if (displayAnswer) "Hide answer" else "Show answer",
-            fontSize = 14.sp,
-            fontWeight = FontWeight.W300,
-            modifier = Modifier.clickableNoRipple { displayAnswerOnClick() },
-            color = kti_primary_text.copy(alpha = 0.8f)
-        )
+        IconsSection(isAnswered = isAnswered)
     }
 }
 
@@ -413,13 +404,7 @@ private fun SetAnsweredSection(
     toggleAsAnswered: () -> Unit,
     toggleReopen: () -> Unit,
 ) {
-    val onClick = {
-        if (isAnswered.not()) {
-            toggleAsAnswered.invoke()
-        } else {
-            toggleReopen.invoke()
-        }
-    }
+    val onClick = { if (isAnswered.not()) toggleAsAnswered.invoke() else toggleReopen.invoke() }
     Row(
         horizontalArrangement = Arrangement.End,
         verticalAlignment = Alignment.CenterVertically,

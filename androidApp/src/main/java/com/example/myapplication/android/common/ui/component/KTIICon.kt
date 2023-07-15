@@ -2,7 +2,6 @@ package com.example.myapplication.android.common.ui.component
 
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.sizeIn
 import androidx.compose.material.Icon
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -11,7 +10,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.Dp
 
 @Composable
-fun FcIcon(
+fun KTIICon(
     @DrawableRes drawableRes: Int,
     size: Dp,
     tint: Color,

@@ -31,7 +31,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.myapplication.android.common.ui.component.KTIVerticalSpacer
-import com.example.myapplication.android.common.ui.component.FcTextTopBar
+import com.example.myapplication.android.common.ui.component.KTITextTopBar
 import com.example.myapplication.android.common.ui.component.KTICircularProgressIndicator
 import com.example.myapplication.android.common.ui.component.KTITextNew
 import com.example.myapplication.android.ui.theme.kti_accent_color
@@ -96,7 +96,7 @@ fun SubCategoriesScreenContent(
 
             is SubCategoriesViewModel.ViewState.SubCategoriesLoaded -> {
                 Column {
-                    FcTextTopBar(
+                    KTITextTopBar(
                         middleContentText = "${topCategory.displayName} categories",
                         isNested = true,
                         hasBrandingLine = true,

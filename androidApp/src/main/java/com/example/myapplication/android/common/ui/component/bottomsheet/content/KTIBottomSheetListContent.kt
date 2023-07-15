@@ -9,16 +9,11 @@ import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.Color.Companion.Black
-import androidx.compose.ui.graphics.Color.Companion.White
 import androidx.compose.ui.unit.dp
 import com.example.myapplication.android.common.ui.component.KTIText
-import com.example.myapplication.android.common.ui.component.bottomsheet.base.FcBottomSheetSurface
-import com.apoplawski96.killtheinterview.common.ui.component.bottomsheet.content.FcIcon
-import com.apoplawski96.killtheinterview.common.ui.component.bottomsheet.content.FcRadioButton
-import com.apoplawski96.killtheinterview.common.ui.component.bottomsheet.content.iconSize
-import com.apoplawski96.killtheinterview.common.ui.component.bottomsheet.model.BottomSheetListItem
+import com.example.myapplication.android.common.ui.component.bottomsheet.base.KTIBottomSheetSurface
+import com.apoplawski96.killtheinterview.common.ui.component.bottomsheet.content.KTIRadioButton
+import com.example.myapplication.android.common.ui.component.bottomsheet.model.BottomSheetListItem
 import com.example.myapplication.android.R
 import com.example.myapplication.android.ui.theme.kti_green
 import com.example.myapplication.android.ui.theme.kti_primary
@@ -30,12 +25,12 @@ enum class BottomSheetListItemType {
 }
 
 @Composable
-fun <T> FcBottomSheetListContent(
+fun <T> KTIBottomSheetListContent(
     title: String,
     listItems: List<BottomSheetListItem<T>>,
     onItemSelected: (T) -> Unit,
 ) {
-    FcBottomSheetSurface(title = title) {
+    KTIBottomSheetSurface(title = title) {
         SelectableItemsList(
             listItems = listItems,
             onItemSelected = onItemSelected,
@@ -127,7 +122,7 @@ private fun SelectedItemCheckmark() {
         color = kti_green,
         shape = CircleShape
     ) {
-        com.example.myapplication.android.common.ui.component.FcIcon(
+        com.example.myapplication.android.common.ui.component.KTIICon(
             drawableRes = R.drawable.ic_check,
             size = 20.dp,
             contentDescription = null,
@@ -138,7 +133,7 @@ private fun SelectedItemCheckmark() {
 
 @Composable
 private fun UnselectedItemCheckmark() {
-    com.example.myapplication.android.common.ui.component.FcIcon(
+    com.example.myapplication.android.common.ui.component.KTIICon(
         drawableRes = R.drawable.ic_circle,
         size = 20.dp,
         tint = kti_primary
@@ -147,5 +142,5 @@ private fun UnselectedItemCheckmark() {
 
 @Composable
 private fun RadioItem(isSelected: Boolean, onClick: (() -> Unit)?) {
-    FcRadioButton(selected = isSelected, onClick = onClick)
+    KTIRadioButton(selected = isSelected, onClick = onClick)
 }

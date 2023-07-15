@@ -1,3 +1,5 @@
+@file:JvmName("KTITopBarKt")
+
 package com.example.myapplication.android.common.ui.component
 
 import androidx.compose.foundation.background
@@ -16,13 +18,11 @@ import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
 import androidx.compose.material.TopAppBar
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.KeyboardArrowLeft
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.Layout
-import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
@@ -36,15 +36,10 @@ import com.example.myapplication.navigation.Navigator
 import org.koin.androidx.compose.get
 import kotlin.math.max
 
-object TestTagsTopBar {
-    const val TOP_BAR = "TOP_BAR"
-    const val TOP_BAR_TEXT = "TOP_BAR_TEXT"
-}
-
 @Composable
-fun FcRootTopBar(
+fun KTIRootTopBar(
     leftActionButtons: @Composable RowScope.() -> Unit = {  },
-    middleContent: @Composable () -> Unit = { TopBarIcon() },
+    middleContent: @Composable () -> Unit = { },
     rightActionButtons: @Composable (RowScope.() -> Unit)? = {  },
     hasBrandingLine: Boolean = false,
 ) {
@@ -52,7 +47,7 @@ fun FcRootTopBar(
 }
 
 @Composable
-fun FcTextTopBar(
+fun KTITextTopBar(
     middleContentText: String,
     isNested: Boolean,
     actionsEnabled: Boolean = true,
@@ -89,7 +84,6 @@ private fun FcTopBarContent(
             modifier = Modifier
                 .statusBarsPadding()
                 .height(56.dp)
-                .testTag(TestTagsTopBar.TOP_BAR)
         ) {
             val content: @Composable () -> Unit = {
                 Row(
@@ -137,17 +131,6 @@ private fun FcTopBarContent(
 }
 
 @Composable
-private fun TopBarIcon() {
-//    FcIcon(
-//        drawableRes = R.drawable.ic_goal_logo_with_text,
-//        size = iconSize(width = 112.dp, height = 56.dp),
-//        contentDescription = "Goal logo",
-//        tint = GoalTheme.colors.onPrimary,
-//        modifier = Modifier.padding(vertical = 4.dp)
-//    )
-}
-
-@Composable
 fun TopBarText(text: String) {
     Box(
         modifier = Modifier
@@ -159,7 +142,6 @@ fun TopBarText(text: String) {
             textAlign = TextAlign.Center,
             maxLines = 1,
             overflow = TextOverflow.Ellipsis,
-            modifier = Modifier.testTag(TestTagsTopBar.TOP_BAR_TEXT),
             fontSize = 18.sp,
             fontWeight = FontWeight.W600,
         )

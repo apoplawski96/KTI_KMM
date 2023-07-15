@@ -1,4 +1,4 @@
-package com.example.myapplication.android.ui.questions.list
+package com.example.myapplication.android.ui.questions.list.components
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -15,11 +15,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.apoplawski96.killtheinterview.common.ui.component.bottomsheet.model.BottomSheetListItem
+import com.example.myapplication.android.common.ui.component.bottomsheet.model.BottomSheetListItem
 import com.example.myapplication.android.common.ui.component.KTIHorizontalSpacer
 import com.example.myapplication.android.common.ui.component.KTITextNew
 import com.example.myapplication.android.common.ui.component.KTIVerticalSpacer
-import com.example.myapplication.android.common.ui.component.bottomsheet.base.FcBottomSheetSurface
+import com.example.myapplication.android.common.ui.component.bottomsheet.base.KTIBottomSheetSurface
 import com.example.myapplication.android.common.ui.component.bottomsheet.content.BottomSheetListItemType
 import com.example.myapplication.android.common.ui.component.bottomsheet.content.SelectableListItem
 import com.example.myapplication.android.common.ui.component.clickableNoRipple
@@ -33,7 +33,7 @@ fun ListScreenBottomSheetContent(
     selectedDifficulties: List<Difficulty>,
     onDifficultyToggled: (Difficulty) -> Unit,
 ) {
-    FcBottomSheetSurface(title = "Filter questions by difficulty") {
+    KTIBottomSheetSurface(title = "Filter questions by difficulty") {
         Column(modifier = Modifier.fillMaxWidth()) {
             difficultiesToSelectableListItems(selectedDifficulties).forEach { difficulty ->
                 SelectableListItem(

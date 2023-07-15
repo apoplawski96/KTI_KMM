@@ -20,7 +20,6 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.myapplication.android.common.ui.component.KTIText
 import com.example.myapplication.android.common.ui.component.KTITextNew
 import com.example.myapplication.android.common.ui.component.KTIVerticalSpacer
 import com.example.myapplication.android.ui.theme.kti_dark_primary
@@ -31,7 +30,7 @@ object TestTagsRadioBottomSheet {
 }
 
 @Composable
-fun FcBottomSheetSurface(
+fun KTIBottomSheetSurface(
     title: String,
     bottomSheetTitleProperties: BottomSheetTitleProperties = bottomSheetTitlePropertiesFromDefault(),
     content: @Composable (() -> Unit)

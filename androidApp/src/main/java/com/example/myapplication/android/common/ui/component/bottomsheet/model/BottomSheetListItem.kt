@@ -1,4 +1,4 @@
-package com.apoplawski96.killtheinterview.common.ui.component.bottomsheet.model
+package com.example.myapplication.android.common.ui.component.bottomsheet.model
 
 import com.example.myapplication.android.common.ui.component.bottomsheet.content.BottomSheetListItemType
 

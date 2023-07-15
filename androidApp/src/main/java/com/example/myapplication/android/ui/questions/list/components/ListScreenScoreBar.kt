@@ -1,4 +1,4 @@
-package com.example.myapplication.android.ui.questions.list
+package com.example.myapplication.android.ui.questions.list.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column

@@ -13,7 +13,7 @@ import androidx.compose.ui.unit.dp
 
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
-fun FcModalBottomSheetLayout(
+fun KTIModalBottomSheetLayout(
     sheetState: ModalBottomSheetState,
     bottomSheetContent: @Composable () -> Unit,
     modifier: Modifier = Modifier,
