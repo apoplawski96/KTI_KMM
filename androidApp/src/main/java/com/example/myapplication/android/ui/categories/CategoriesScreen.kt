@@ -80,15 +80,9 @@ private fun CategoriesScreenContent(
                     KTITextTopBar(
                         middleContentText = "Categories",
                         isNested = false,
-                        hasBrandingLine = true,
+                        hasBrandingLine = false,
                         rightActionButtons = {
-                            IconButton(onClick = { }) {
-//                                Icon(
-//                                    imageVector = Icons.Filled.Search,
-//                                    contentDescription = "Back Icon",
-//                                    tint = kti_accent_color
-//                                )
-                            }
+
                         })
                     CategoriesGrid(
                         categories = state.categories,

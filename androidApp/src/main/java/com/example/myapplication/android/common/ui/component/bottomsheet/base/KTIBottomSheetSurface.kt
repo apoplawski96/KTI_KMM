@@ -23,11 +23,8 @@ import androidx.compose.ui.unit.sp
 import com.example.myapplication.android.common.ui.component.KTITextNew
 import com.example.myapplication.android.common.ui.component.KTIVerticalSpacer
 import com.example.myapplication.android.ui.theme.kti_dark_primary
+import com.example.myapplication.android.ui.theme.kti_primary_text
 import com.example.myapplication.android.ui.theme.kti_secondary_text
-
-object TestTagsRadioBottomSheet {
-    const val RADIO_BOTTOM_SHEET = "RADIO_BOTTOM_SHEET"
-}
 
 @Composable
 fun KTIBottomSheetSurface(
@@ -37,9 +34,7 @@ fun KTIBottomSheetSurface(
 ) {
     Surface(
         shape = RoundedCornerShape(topStart = 16.dp, topEnd = 16.dp),
-        color = kti_secondary_text,
-        modifier = Modifier
-            .testTag(TestTagsRadioBottomSheet.RADIO_BOTTOM_SHEET)
+        color = kti_dark_primary,
     ) {
         Column(modifier = Modifier.fillMaxWidth()) {
             BottomSheetNotch()
@@ -81,7 +76,7 @@ private fun BottomSheetTitle(
                 }
             ),
         text = title,
-        color = kti_dark_primary.copy(alpha = 0.8f),
+        color = kti_primary_text.copy(alpha = 0.8f),
         fontWeight = FontWeight.W300,
         fontSize = 16.sp
     )

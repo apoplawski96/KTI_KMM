@@ -2,6 +2,7 @@ package com.example.myapplication.android.ui.theme
 
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import com.example.myapplication.android.R
 
@@ -19,4 +20,5 @@ val fontsKanit = FontFamily(
     Font(R.font.kanit_medium, weight = FontWeight.W500),
     Font(R.font.kanit_semibold, weight = FontWeight.W600),
     Font(R.font.kanit_bold, weight = FontWeight.W700),
+    Font(R.font.kanit_italic, weight = FontWeight.W400, style = FontStyle.Italic)
 )

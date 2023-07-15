@@ -18,6 +18,7 @@ import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
 import androidx.compose.material.TopAppBar
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.KeyboardArrowLeft
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -59,7 +60,7 @@ fun KTITextTopBar(
         leftActionButtons = {
             if (isNested) {
                 IconButton(onClick = { navigator.navigateBack() }) {
-                    Icon(Icons.Filled.KeyboardArrowLeft, "Back Icon", tint = kti_primary_text)
+                    Icon(Icons.Filled.ArrowBack, "Back Icon", tint = kti_primary_text)
                 }
             }
         },

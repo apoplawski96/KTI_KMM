@@ -38,6 +38,7 @@ import com.example.myapplication.android.common.ui.component.KTITextNew
 import com.example.myapplication.android.common.ui.component.clickableNoRipple
 import com.example.myapplication.android.ui.theme.kti_accent_color
 import com.example.myapplication.android.ui.theme.kti_dark_primary
+import com.example.myapplication.android.ui.theme.kti_green
 import com.example.myapplication.android.ui.theme.kti_light_primary
 import com.example.myapplication.android.ui.theme.kti_primary
 import com.example.myapplication.android.ui.theme.kti_text_icons
@@ -91,7 +92,7 @@ fun SubCategoriesScreenContent(
                     KTITextTopBar(
                         middleContentText = "${topCategory.displayName} categories",
                         isNested = true,
-                        hasBrandingLine = true,
+                        hasBrandingLine = false,
                         rightActionButtons = {
                             IconButton(onClick = { }) {
 //                                Icon(

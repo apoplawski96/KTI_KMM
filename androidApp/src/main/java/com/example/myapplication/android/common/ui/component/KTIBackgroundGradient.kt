@@ -8,6 +8,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
+import com.example.myapplication.android.ui.theme.grey
 import com.example.myapplication.android.ui.theme.kti_accent_color
 import com.example.myapplication.android.ui.theme.kti_dark_primary
 import com.example.myapplication.android.ui.theme.kti_primary
@@ -42,5 +43,5 @@ fun KTIBoxWithGradientBackground(
 
 private fun getGradientBrush() = Brush.verticalGradient(
     0.0f to kti_dark_primary,
-    1.0f to kti_primary,
+    1.0f to grey
 )

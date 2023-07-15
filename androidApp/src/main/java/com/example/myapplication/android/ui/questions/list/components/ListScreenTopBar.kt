@@ -67,7 +67,7 @@ fun ListScreenTopBar(
                             text = sortMode.displayName,
                             fontSize = 16.sp,
                             fontWeight = FontWeight.W400,
-                            color = kti_dark_primary
+                            color = kti_primary_text
                         )
                     }
                 }

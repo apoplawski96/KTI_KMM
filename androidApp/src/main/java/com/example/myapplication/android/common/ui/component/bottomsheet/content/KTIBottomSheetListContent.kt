@@ -16,6 +16,7 @@ import com.example.myapplication.android.common.ui.component.bottomsheet.model.B
 import com.example.myapplication.android.R
 import com.example.myapplication.android.ui.theme.kti_green
 import com.example.myapplication.android.ui.theme.kti_primary
+import com.example.myapplication.android.ui.theme.kti_secondary_text
 
 enum class BottomSheetListItemType {
     RADIO,
@@ -84,7 +85,7 @@ fun <T> SelectableListItem(
                 .align(Alignment.CenterVertically)
                 .padding(end = 16.dp),
             text = item.label,
-            color = kti_primary
+            color = kti_secondary_text
         )
         when (itemType) {
             BottomSheetListItemType.CHECKABLE -> CheckableItem(

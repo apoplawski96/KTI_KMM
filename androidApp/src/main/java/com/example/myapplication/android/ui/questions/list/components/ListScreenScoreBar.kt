@@ -27,11 +27,11 @@ fun ListScreenScoreBar(score: Int, total: Int) {
             KTITextNew(
                 text = "Question answered: $score/$total",
                 fontSize = 13.sp,
-                fontWeight = FontWeight.W300,
-                color = kti_primary_text.copy(alpha = 0.9f),
+                fontWeight = FontWeight.W400,
+                color = kti_primary_text,
                 modifier = Modifier.padding(start = 12.dp, top = 0.dp, bottom = 8.dp, end = 12.dp)
             )
         }
-        Divider(color = kti_accent_color, thickness = 2.dp)
+        Divider(color = kti_accent_color.copy(0.8f), thickness = 1.dp)
     }
 }
