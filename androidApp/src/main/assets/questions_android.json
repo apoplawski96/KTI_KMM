@@ -50,26 +50,6 @@
     "subCategoryId": 1
   },
   {
-    "id": 6,
-    "question": "What is an Activity in Android?",
-    "answer": "An Activity represents a single screen with a user interface in an Android application. It is a fundamental component of an Android app and serves as the entry point for interacting with the user.",
-    "difficulty": "Easy",
-    "topCategory": "Android",
-    "topCategoryId": 1,
-    "subCategory": "Basic",
-    "subCategoryId": 2
-  },
-  {
-    "id": 7,
-    "question": "What is the AndroidManifest.xml file used for?",
-    "answer": "The AndroidManifest.xml file contains essential information about an Android application. It defines the app's package name, permissions, components (such as activities, services, and broadcast receivers), and other configurations required for the app to run.",
-    "difficulty": "Easy",
-    "topCategory": "Android",
-    "topCategoryId": 1,
-    "subCategory": "Basic",
-    "subCategoryId": 2
-  },
-  {
     "id": 8,
     "question": "What is Jetpack Compose?",
     "answer": "Jetpack Compose is a modern toolkit for building native Android UI using a declarative approach. It simplifies the UI development process and offers a more efficient way to create dynamic and interactive user interfaces.",
@@ -418,5 +398,206 @@
     "topCategoryId": 1,
     "subCategory": "Compose",
     "subCategoryId": 10
+  },
+  {
+    "id": 105,
+    "question": "What is an Activity in Android?",
+    "answer": "An Activity is a core component in Android that represents a single screen with a user interface. It is a window that contains the UI elements and responds to user interactions. Each Activity is independent and can be launched by an Intent or as part of a task.",
+    "difficulty": "Unknown",
+    "topCategory": "Android",
+    "topCategoryId": 1,
+    "subCategory": "Basic",
+    "subCategoryId": 11
+  },
+  {
+    "id": 106,
+    "question": "What is an Intent in Android?",
+    "answer": "An Intent is a messaging object in Android that is used to request an action from another component, such as starting an Activity, broadcasting a message, or invoking a service. It can carry data using extras and can specify the target component explicitly or implicitly based on the action and data.",
+    "difficulty": "Unknown",
+    "topCategory": "Android",
+    "topCategoryId": 1,
+    "subCategory": "Basic",
+    "subCategoryId": 11
+  },
+  {
+    "id": 107,
+    "question": "What is a Fragment in Android?",
+    "answer": "A Fragment is a modular section of an Activity that represents a reusable portion of the user interface and behavior. Fragments are used to build flexible and dynamic UI designs that can be combined and reused across multiple Activities. They have their own lifecycle and can be added or replaced within an Activity dynamically.",
+    "difficulty": "Unknown",
+    "topCategory": "Android",
+    "topCategoryId": 1,
+    "subCategory": "Basic",
+    "subCategoryId": 11
+  },
+  {
+    "id": 108,
+    "question": "What is the AndroidManifest.xml file in Android?",
+    "answer": "The AndroidManifest.xml file is an essential configuration file in an Android app that provides essential information about the app to the Android system. It contains details such as the app's package name, declared components (Activities, Services, Broadcast Receivers), required permissions, and hardware requirements. It acts as a blueprint for the Android system to understand and interact with the app.",
+    "difficulty": "Unknown",
+    "topCategory": "Android",
+    "topCategoryId": 1,
+    "subCategory": "Basic",
+    "subCategoryId": 11
+  },
+  {
+    "id": 109,
+    "question": "What is Gradle in Android?",
+    "answer": "Gradle is a build system in Android used for building and managing the app's dependencies, resources, and configuration. It uses a Groovy or Kotlin-based DSL (Domain-Specific Language) for defining the build scripts. Gradle is highly customizable and allows developers to automate repetitive tasks, handle different build variants, and integrate with external libraries and plugins.",
+    "difficulty": "Unknown",
+    "topCategory": "Android",
+    "topCategoryId": 1,
+    "subCategory": "Basic",
+    "subCategoryId": 11
+  },
+  {
+    "id": 110,
+    "question": "What is a Layout in Android?",
+    "answer": "A Layout in Android is a container that holds UI elements and arranges them on the screen. It defines the structure and appearance of the user interface. Android provides various types of layouts, such as LinearLayout, RelativeLayout, ConstraintLayout, and FrameLayout, to organize and position the UI elements in different ways.",
+    "difficulty": "Unknown",
+    "topCategory": "Android",
+    "topCategoryId": 1,
+    "subCategory": "Basic",
+    "subCategoryId": 11
+  },
+  {
+    "id": 111,
+    "question": "What is an Adapter in Android?",
+    "answer": "An Adapter is a bridge between the UI components (such as ListView, RecyclerView) and the data source. It provides data to the UI components, creates views for each item, and handles user interactions. Adapters are commonly used to display data in a list or grid format and support efficient recycling of views to optimize memory usage and scrolling performance.",
+    "difficulty": "Unknown",
+    "topCategory": "Android",
+    "topCategoryId": 1,
+    "subCategory": "Basic",
+    "subCategoryId": 11
+  },
+  {
+    "id": 112,
+    "question": "What is a Service in Android?",
+    "answer": "A Service is a component in Android that runs in the background to perform long-running operations or handle remote API calls independently of the UI. It does not have a user interface and can run even if the app is not in the foreground. Services are commonly used for tasks such as playing music, downloading files, or handling network operations.",
+    "difficulty": "Unknown",
+    "topCategory": "Android",
+    "topCategoryId": 1,
+    "subCategory": "Basic",
+    "subCategoryId": 11
+  },
+  {
+    "id": 113,
+    "question": "What is a Content Provider in Android?",
+    "answer": "A Content Provider is a component in Android that manages access to a structured set of data, typically stored in a SQLite database or accessed through a network API. It allows different apps to securely share data and provides a consistent interface to access and manipulate the data. Content Providers are commonly used in conjunction with ContentResolver to perform CRUD (Create, Read, Update, Delete) operations on the shared data.",
+    "difficulty": "Unknown",
+    "topCategory": "Android",
+    "topCategoryId": 1,
+    "subCategory": "Basic",
+    "subCategoryId": 11
+  },
+  {
+    "id": 114,
+    "question": "What is a BroadcastReceiver in Android?",
+    "answer": "A BroadcastReceiver is a component in Android that listens for and responds to system-wide broadcast messages or intents. It allows apps to receive and react to events, such as network connectivity changes, battery low notifications, or incoming SMS messages, even if the app is not currently running or in the foreground. BroadcastReceivers are registered in the AndroidManifest.xml file or dynamically at runtime.",
+    "difficulty": "Unknown",
+    "topCategory": "Android",
+    "topCategoryId": 1,
+    "subCategory": "Basic",
+    "subCategoryId": 11
+  },
+
+  {
+    "id": 115,
+    "question": "What is a RecyclerView in Android?",
+    "answer": "A RecyclerView is a more advanced and flexible version of the ListView in Android. It is used to efficiently display large data sets in a scrollable list or grid format. Unlike the ListView, the RecyclerView separates the concerns of data management, item view creation, and item view recycling. It uses a RecyclerView.Adapter to bind data to individual items and a RecyclerView.LayoutManager to handle the arrangement of items on the screen.",
+    "difficulty": "Unknown",
+    "topCategory": "Android",
+    "topCategoryId": 1,
+    "subCategory": "Basic",
+    "subCategoryId": 11
+  },
+  {
+    "id": 116,
+    "question": "What is an AsyncTask in Android?",
+    "answer": "An AsyncTask is a helper class in Android that simplifies the execution of background tasks on a separate worker thread while keeping the UI thread responsive. It provides convenient methods for performing tasks asynchronously, such as downloading files, performing network operations, or processing data. AsyncTask consists of three main methods: onPreExecute, doInBackground, and onPostExecute, which are executed on the UI thread and worker thread respectively.",
+    "difficulty": "Unknown",
+    "topCategory": "Android",
+    "topCategoryId": 1,
+    "subCategory": "Basic",
+    "subCategoryId": 11
+  },
+  {
+    "id": 117,
+    "question": "What is a Toast in Android?",
+    "answer": "A Toast is a small message that appears as a temporary popup on the screen to display brief information or notifications. It is typically used to show simple feedback or alert messages to the user. Toasts are non-intrusive and automatically disappear after a short duration. They can be created and displayed using the Toast.makeText() method and customized with duration, position, and layout parameters.",
+    "difficulty": "Unknown",
+    "topCategory": "Android",
+    "topCategoryId": 1,
+    "subCategory": "Basic",
+    "subCategoryId": 11
+  },
+  {
+    "id": 118,
+    "question": "What is the Context in Android?",
+    "answer": "The Context in Android refers to the current state or environment in which an app is running. It provides access to various resources, services, and information about the app's application environment. The Context is required for performing many essential tasks in Android, such as accessing system services, loading resources, starting activities, and creating views. It is typically passed as a parameter or obtained from the app's components, such as Activity or Application.",
+    "difficulty": "Unknown",
+    "topCategory": "Android",
+    "topCategoryId": 1,
+    "subCategory": "Basic",
+    "subCategoryId": 11
+  },
+  {
+    "id": 119,
+    "question": "What is an APK in Android?",
+    "answer": "An APK (Android Package Kit) is the file format used to distribute and install applications on the Android operating system. It contains all the necessary files and metadata required to run the app on an Android device. The APK file is generated by the Android build process and typically includes the compiled code, resources, manifest file, and other assets. Users can install APK files either from app stores like Google Play or by downloading them from other sources.",
+    "difficulty": "Unknown",
+    "topCategory": "Android",
+    "topCategoryId": 1,
+    "subCategory": "Basic",
+    "subCategoryId": 11
+  },
+  {
+    "id": 120,
+    "question": "What is an XML layout file in Android?",
+    "answer": "An XML layout file in Android defines the structure and appearance of the user interface for an Activity or Fragment. It is used to describe the placement and properties of UI elements, such as TextViews, Buttons, ImageViews, and more. XML layout files are created in the res/layout directory of an Android project and are inflated at runtime to create the actual views. They allow developers to separate the UI design from the code logic and support multiple device configurations and languages through resource qualifiers.",
+    "difficulty": "Unknown",
+    "topCategory": "Android",
+    "topCategoryId": 1,
+    "subCategory": "Basic",
+    "subCategoryId": 11
+  },
+  {
+    "id": 121,
+    "question": "What is a Context Menu in Android?",
+    "answer": "A Context Menu in Android is a floating menu that appears when the user performs a long press on a UI element, such as a button or list item. It provides a set of actions or options related to the selected item. Context menus are commonly used to offer additional functionality or operations on specific items, such as deleting, sharing, or editing. They can be defined in XML or created programmatically using the registerForContextMenu() and onCreateContextMenu() methods.",
+    "difficulty": "Unknown",
+    "topCategory": "Android",
+    "topCategoryId": 1,
+    "subCategory": "Basic",
+    "subCategoryId": 11
+  },
+  {
+    "id": 122,
+    "question": "What is a ViewPager in Android?",
+    "answer": "A ViewPager is a UI component in Android that allows the user to swipe horizontally to navigate between multiple pages, typically represented as fragments or views. It is commonly used to create screens with tabs or slide-based content. The ViewPager automatically handles the animation and layout of the pages and provides a smooth scrolling experience. It is often combined with TabLayout to create a tabbed interface with swipeable content.",
+    "difficulty": "Unknown",
+    "topCategory": "Android",
+    "topCategoryId": 1,
+    "subCategory": "Basic",
+    "subCategoryId": 11
+  },
+  {
+    "id": 123,
+    "question": "What is an AlertDialog in Android?",
+    "answer": "An AlertDialog is a modal dialog box in Android that displays a message, prompt, or set of options to the user. It is typically used to show important information, ask for confirmation, or prompt the user for input. AlertDialogs can have customizable titles, messages, buttons, and a variety of predefined styles. They are created and displayed using the AlertDialog.Builder class and can handle user interactions through listeners or callbacks.",
+    "difficulty": "Unknown",
+    "topCategory": "Android",
+    "topCategoryId": 1,
+    "subCategory": "Basic",
+    "subCategoryId": 11
+  },
+  {
+    "id": 124,
+    "question": "What is ProGuard in Android?",
+    "answer": "ProGuard is a tool in Android used for code shrinking, obfuscation, and optimization. It reduces the size of the APK by removing unused code, renaming classes, fields, and methods to make the code harder to understand and reverse engineer. ProGuard can significantly reduce the APK size and improve the app's performance. It is commonly used in release builds to protect sensitive information, prevent unauthorized code analysis, and improve the app's security.",
+    "difficulty": "Unknown",
+    "topCategory": "Android",
+    "topCategoryId": 1,
+    "subCategory": "Basic",
+    "subCategoryId": 11
   }
 ]

@@ -18,7 +18,11 @@ import com.example.myapplication.android.ui.theme.kti_primary_text
 
 @Composable
 fun ListScreenScoreBar(score: Int, total: Int) {
-    Column(modifier = Modifier.fillMaxWidth().background(kti_dark_primary.copy(alpha = 0.8f))) {
+    Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .background(kti_dark_primary.copy(alpha = 0.8f))
+    ) {
         Row(modifier = Modifier.fillMaxWidth()) {
             KTITextNew(
                 text = "Question answered: $score/$total",
