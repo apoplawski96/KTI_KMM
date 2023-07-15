@@ -21,6 +21,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -28,13 +29,13 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.apoplawski96.killtheinterview.common.ui.component.bottomsheet.base.FcModalBottomSheetLayout
 import com.example.myapplication.android.common.ui.component.FcTextTopBar
 import com.example.myapplication.android.common.ui.component.KTICircularProgressIndicator
 import com.example.myapplication.android.common.ui.component.KTIHorizontalSpacer
 import com.example.myapplication.android.common.ui.component.KTIText
 import com.example.myapplication.android.common.ui.component.KTITextNew
 import com.example.myapplication.android.common.ui.component.KTIVerticalSpacer
+import com.example.myapplication.android.common.ui.component.bottomsheet.base.FcModalBottomSheetLayout
 import com.example.myapplication.android.common.ui.component.clickableNoRipple
 import com.example.myapplication.android.ui.theme.kti_accent_color
 import com.example.myapplication.android.ui.theme.kti_dark_primary
@@ -48,6 +49,8 @@ import com.example.myapplication.model.Question
 import com.example.myapplication.model.subcategory.SubCategory
 import com.example.myapplication.model.subcategory.TopCategory
 import com.example.myapplication.screens.list.ListViewModel
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.launch
 import org.koin.androidx.compose.getViewModel
 
 @Composable
@@ -58,13 +61,29 @@ fun ListScreen(
 ) {
     if (topCategory == null) return
 
+    val scope = rememberCoroutineScope()
+
     val viewState = viewModel.state.collectAsState().value
+    val selectedDifficulties = viewModel.selectedDifficulties.collectAsState().value
 
     val bottomSheetState: ModalBottomSheetState =
         rememberModalBottomSheetState(initialValue = ModalBottomSheetValue.Hidden)
 
     val subCategoryTitle = subCategory?.displayName ?: "All"
     val topBarTitle = "$subCategoryTitle (${topCategory.displayName})"
+
+    LaunchedEffect(null) {
+        viewModel.events.collect { event ->
+            when(event) {
+                ListViewModel.ViewEvent.ToggleBottomSheet -> {
+                    toggleBottomSheet(
+                        scope = scope,
+                        bottomSheetState = bottomSheetState,
+                    )
+                }
+            }
+        }
+    }
 
     LaunchedEffect(null) {
         viewModel.initialize(
@@ -75,9 +94,19 @@ fun ListScreen(
 
     ListScreenContent(
         viewState = viewState,
-        bottomSheetContent = { },
+        bottomSheetContent = {
+             ListScreenBottomSheetContent(
+                onRandomizeQuestionsClick = {},
+                selectedDifficulties = selectedDifficulties,
+                onDifficultyToggled = { toggledDifficulty ->
+                    viewModel.toggleDifficulty(toggledDifficulty)
+                }
+            )
+        },
         bottomSheetState = bottomSheetState,
-        topBarTitle = topBarTitle
+        topBarTitle = topBarTitle,
+        onMenuClick = { },
+        onToggleBottomSheetClick = { viewModel.toggleBottomSheet() }
     )
 }
 
@@ -87,6 +116,8 @@ private fun ListScreenContent(
     viewState: ListViewModel.ViewState,
     bottomSheetState: ModalBottomSheetState,
     bottomSheetContent: @Composable () -> Unit,
+    onMenuClick: () -> Unit,
+    onToggleBottomSheetClick: () -> Unit,
     topBarTitle: String,
 ) {
     Scaffold(
@@ -96,10 +127,17 @@ private fun ListScreenContent(
                 isNested = true,
                 hasBrandingLine = true,
                 rightActionButtons = {
-                    IconButton(onClick = {}) {
+                    IconButton(onClick = onToggleBottomSheetClick) {
+                        Icon(
+                            imageVector = Icons.Filled.KeyboardArrowUp,
+                            contentDescription = "Bottom sheet icon",
+                            tint = kti_accent_color
+                        )
+                    }
+                    IconButton(onClick = onMenuClick) {
                         Icon(
                             imageVector = Icons.Outlined.Menu,
-                            contentDescription = "Settings icon",
+                            contentDescription = "Menu icon",
                             tint = kti_primary_text
                         )
                     }
@@ -344,6 +382,20 @@ private fun SetAnsweredSection(
                 .size(12.dp)
                 .clickableNoRipple { onClick.invoke() }
         )
+    }
+}
+
+@ExperimentalMaterialApi
+private fun toggleBottomSheet(
+    scope: CoroutineScope,
+    bottomSheetState: ModalBottomSheetState,
+) {
+    scope.launch {
+        when (bottomSheetState.currentValue) {
+            ModalBottomSheetValue.Hidden -> bottomSheetState.show()
+            ModalBottomSheetValue.Expanded,
+            ModalBottomSheetValue.HalfExpanded -> bottomSheetState.hide()
+        }
     }
 }
 

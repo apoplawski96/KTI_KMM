@@ -1,4 +1,4 @@
-package com.apoplawski96.killtheinterview.common.ui.component.bottomsheet.base
+package com.example.myapplication.android.common.ui.component.bottomsheet.base
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
@@ -19,6 +19,8 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.example.myapplication.android.common.ui.component.KTIText
+import com.example.myapplication.android.common.ui.component.KTIVerticalSpacer
+import com.example.myapplication.android.ui.theme.kti_secondary_text
 
 object TestTagsRadioBottomSheet {
     const val RADIO_BOTTOM_SHEET = "RADIO_BOTTOM_SHEET"
@@ -32,16 +34,17 @@ fun FcBottomSheetSurface(
 ) {
     Surface(
         shape = RoundedCornerShape(topStart = 16.dp, topEnd = 16.dp),
-        color = Color.White,
+        color = kti_secondary_text,
         modifier = Modifier
             .testTag(TestTagsRadioBottomSheet.RADIO_BOTTOM_SHEET)
     ) {
         Column(modifier = Modifier.fillMaxWidth()) {
             BottomSheetNotch()
-            BottomSheetTitle(
-                title = title,
-                bottomSheetTitleProperties = bottomSheetTitleProperties
-            )
+//            BottomSheetTitle(
+//                title = title,
+//                bottomSheetTitleProperties = bottomSheetTitleProperties
+//            )
+            KTIVerticalSpacer(height = 16.dp)
             content()
         }
     }

@@ -1,4 +1,4 @@
-package com.apoplawski96.killtheinterview.common.ui.component.bottomsheet.base
+package com.example.myapplication.android.common.ui.component.bottomsheet.base
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.defaultMinSize

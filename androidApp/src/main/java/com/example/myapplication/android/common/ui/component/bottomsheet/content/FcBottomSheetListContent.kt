@@ -14,12 +14,14 @@ import androidx.compose.ui.graphics.Color.Companion.Black
 import androidx.compose.ui.graphics.Color.Companion.White
 import androidx.compose.ui.unit.dp
 import com.example.myapplication.android.common.ui.component.KTIText
-import com.apoplawski96.killtheinterview.common.ui.component.bottomsheet.base.FcBottomSheetSurface
+import com.example.myapplication.android.common.ui.component.bottomsheet.base.FcBottomSheetSurface
 import com.apoplawski96.killtheinterview.common.ui.component.bottomsheet.content.FcIcon
 import com.apoplawski96.killtheinterview.common.ui.component.bottomsheet.content.FcRadioButton
 import com.apoplawski96.killtheinterview.common.ui.component.bottomsheet.content.iconSize
 import com.apoplawski96.killtheinterview.common.ui.component.bottomsheet.model.BottomSheetListItem
 import com.example.myapplication.android.R
+import com.example.myapplication.android.ui.theme.kti_green
+import com.example.myapplication.android.ui.theme.kti_primary
 
 enum class BottomSheetListItemType {
     RADIO,
@@ -66,7 +68,7 @@ private fun <T> SelectableItemsList(
 }
 
 @Composable
-private fun <T> SelectableListItem(
+fun <T> SelectableListItem(
     isSelected: Boolean,
     item: BottomSheetListItem<T>,
     onItemSelected: (T) -> Unit,
@@ -88,6 +90,7 @@ private fun <T> SelectableListItem(
                 .align(Alignment.CenterVertically)
                 .padding(end = 16.dp),
             text = item.label,
+            color = kti_primary
         )
         when (itemType) {
             BottomSheetListItemType.CHECKABLE -> CheckableItem(
@@ -121,24 +124,24 @@ private fun CheckableItem(isSelected: Boolean) {
 @Composable
 private fun SelectedItemCheckmark() {
     Surface(
-        color = Color.Green,
+        color = kti_green,
         shape = CircleShape
     ) {
-        FcIcon(
-            drawableRes = R.drawable.ic_font,
-            size = iconSize(20.dp),
+        com.example.myapplication.android.common.ui.component.FcIcon(
+            drawableRes = R.drawable.ic_check,
+            size = 20.dp,
             contentDescription = null,
-            tint = White,
+            tint = kti_primary,
         )
     }
 }
 
 @Composable
 private fun UnselectedItemCheckmark() {
-    FcIcon(
-        drawableRes = R.drawable.ic_font,
-        size = iconSize(20.dp),
-        tint = Black
+    com.example.myapplication.android.common.ui.component.FcIcon(
+        drawableRes = R.drawable.ic_circle,
+        size = 20.dp,
+        tint = kti_primary
     )
 }
 

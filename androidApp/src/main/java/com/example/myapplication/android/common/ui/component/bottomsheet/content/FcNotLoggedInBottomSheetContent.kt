@@ -10,8 +10,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import com.apoplawski96.killtheinterview.common.ui.component.bottomsheet.base.FcBottomSheetSurface
-import com.apoplawski96.killtheinterview.common.ui.component.bottomsheet.base.bottomSheetTitlePropertiesFromDefault
+import com.example.myapplication.android.common.ui.component.bottomsheet.base.FcBottomSheetSurface
+import com.example.myapplication.android.common.ui.component.bottomsheet.base.bottomSheetTitlePropertiesFromDefault
 
 @Composable
 fun FcNotLoggedInBottomSheetContent(

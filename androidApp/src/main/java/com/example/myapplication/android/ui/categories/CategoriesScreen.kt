@@ -120,8 +120,8 @@ fun CategoriesGrid(
         modifier = Modifier.padding(start = 8.dp, end = 8.dp),
         state = state,
         content = {
-            item { KTIVerticalSpacer(height = 16.dp) }
-            item { KTIVerticalSpacer(height = 16.dp) }
+            item { KTIVerticalSpacer(height = 20.dp) }
+            item { KTIVerticalSpacer(height = 20.dp) }
             items(items = categories) { category ->
                 CategoryCard(category = category, onClick = onClick)
             }

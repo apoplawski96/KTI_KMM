@@ -1,15 +1,18 @@
 package com.example.myapplication.screens.list
 
-import co.apoplawski96.kti.questions.domain.interactors.GetQuestionsShuffled
 import co.touchlab.kampkit.models.ViewModel
 import com.example.myapplication.domain.GetQuestions
-import com.example.myapplication.model.DeprecatedCategory
+import com.example.myapplication.model.Difficulty
 import com.example.myapplication.model.Question
 import com.example.myapplication.model.subcategory.SubCategory
 import com.example.myapplication.model.subcategory.TopCategory
+import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.firstOrNull
 import kotlinx.coroutines.flow.update
+import kotlinx.coroutines.launch
 
 class ListViewModel(private val getQuestions: GetQuestions) : ViewModel() {
 
@@ -18,6 +21,16 @@ class ListViewModel(private val getQuestions: GetQuestions) : ViewModel() {
         object Error : ViewState
         data class QuestionsLoaded(val questions: List<Question>) : ViewState
     }
+
+    sealed interface ViewEvent {
+        object ToggleBottomSheet : ViewEvent
+    }
+
+    private val _selectedDifficulties: MutableStateFlow<List<Difficulty>> = MutableStateFlow(Difficulty.values().toList())
+    val selectedDifficulties: StateFlow<List<Difficulty>> = _selectedDifficulties
+
+    private val _events: MutableSharedFlow<ViewEvent> = MutableSharedFlow()
+    val events: SharedFlow<ViewEvent> = _events
 
     private val _state: MutableStateFlow<ViewState> = MutableStateFlow(ViewState.Loading)
     val state: StateFlow<ViewState> = _state
@@ -30,16 +43,27 @@ class ListViewModel(private val getQuestions: GetQuestions) : ViewModel() {
         _state.update { result }
     }
 
-    fun toggleCategory(category: DeprecatedCategory) {
-        val viewStateValue = state.value
-        if (viewStateValue is ViewState.QuestionsLoaded) {
-            _state.update {
-                viewStateValue.copy(
-                    questions = viewStateValue.questions.filter { question ->
-                        question.category == DeprecatedCategory.Android
-                    }
-                )
-            }
+    fun toggleBottomSheet() {
+        viewModelScope.launch {
+            _events.emit(ViewEvent.ToggleBottomSheet)
         }
+    }
+
+    fun toggleDifficulty(selectedDifficulty: Difficulty) {
+        val isDifficultyAlreadySelected = selectedDifficulties.value.firstOrNull { difficulty ->
+            selectedDifficulty == difficulty
+        } != null
+
+        if (isDifficultyAlreadySelected && selectedDifficulties.value.count() < 2) return
+
+        val result = if (isDifficultyAlreadySelected) {
+            selectedDifficulties.value.filterNot { difficulty ->
+                selectedDifficulty == difficulty
+            }
+        } else {
+            selectedDifficulties.value.toMutableList() + selectedDifficulty
+        }
+
+        _selectedDifficulties.update { result }
     }
 }
