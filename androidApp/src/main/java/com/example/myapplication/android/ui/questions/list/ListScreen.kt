@@ -66,7 +66,7 @@ fun ListScreen(
 
     val scope = rememberCoroutineScope()
 
-    val viewState = viewModel.state.collectAsState().value
+    val viewState = viewModel.viewState.collectAsState().value
     val selectedDifficulties = viewModel.selectedDifficulties.collectAsState().value
 
     val bottomSheetState: ModalBottomSheetState = rememberModalBottomSheetState(
@@ -79,7 +79,7 @@ fun ListScreen(
     val topBarTitle = "$subCategoryTitle (${topCategory.displayName})"
 
     LaunchedEffect(null) {
-        viewModel.events.collect { event ->
+        viewModel.viewEvents.collect { event ->
             when (event) {
                 ListViewModel.ViewEvent.ToggleBottomSheet -> {
                     toggleBottomSheet(
@@ -114,6 +114,7 @@ fun ListScreen(
         onToggleBottomSheetClick = { viewModel.toggleBottomSheet() },
         toggleDropdownMenu = { sortDropdownMenuDisplayed = !sortDropdownMenuDisplayed },
         sortDropdownMenuDisplayed = sortDropdownMenuDisplayed,
+        onSortModeClick = { sortMode -> viewModel.sortModeSelected(sortMode) }
     )
 }
 
@@ -127,6 +128,7 @@ private fun ListScreenContent(
     topBarTitle: String,
     sortDropdownMenuDisplayed: Boolean,
     toggleDropdownMenu: () -> Unit,
+    onSortModeClick: (ListViewModel.SortMode) -> Unit,
 ) {
     Scaffold(
         topBar = {
@@ -157,16 +159,19 @@ private fun ListScreenContent(
                             tint = kti_primary_text
                         )
                     }
-
                     DropdownMenu(
                         expanded = sortDropdownMenuDisplayed,
                         onDismissRequest = toggleDropdownMenu
                     ) {
-                        DropdownMenuItem(onClick = { /*TODO*/ }) {
-                            Text("Option 1")
-                        }
-                        DropdownMenuItem(onClick = { /*TODO*/ }) {
-                            Text("Option 2")
+                        ListViewModel.SortMode.values().toList().forEach { sortMode ->
+                            DropdownMenuItem(onClick = { onSortModeClick(sortMode) }) {
+                                KTITextNew(
+                                    text = sortMode.displayName,
+                                    fontSize = 16.sp,
+                                    fontWeight = FontWeight.W400,
+                                    color = kti_dark_primary
+                                )
+                            }
                         }
                     }
                 }

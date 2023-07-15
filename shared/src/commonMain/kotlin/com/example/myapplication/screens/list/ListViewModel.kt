@@ -25,30 +25,39 @@ class ListViewModel(private val getQuestions: GetQuestions) : ViewModel() {
         object ToggleBottomSheet : ViewEvent
     }
 
+    enum class SortMode(val displayName: String) {
+        BY_DIFFICULTY_ASCENDING(displayName = "By difficulty ascending"),
+        BY_DIFFICULTY_DESCENDING(displayName = "By difficulty descending"),
+        RANDOMIZED(displayName = "Randomize order");
+    }
+
+    private val _sortMode: MutableSharedFlow<SortMode> = MutableSharedFlow()
+    private val sortMode: SharedFlow<SortMode> = _sortMode
+
     private val _selectedDifficulties: MutableStateFlow<List<Difficulty>> = MutableStateFlow(Difficulty.values().toList())
     val selectedDifficulties: StateFlow<List<Difficulty>> = _selectedDifficulties
 
-    private val _events: MutableSharedFlow<ViewEvent> = MutableSharedFlow()
-    val events: SharedFlow<ViewEvent> = _events
+    private val _viewEvents: MutableSharedFlow<ViewEvent> = MutableSharedFlow()
+    val viewEvents: SharedFlow<ViewEvent> = _viewEvents
 
     private val _viewState: MutableStateFlow<ViewState> = MutableStateFlow(ViewState.Loading)
-    val state: StateFlow<ViewState> = _viewState
+    val viewState: StateFlow<ViewState> = _viewState
 
     fun initialize(topCategory: TopCategory, subCategory: SubCategory?) {
         val result = when (val questions = getQuestions.invoke(topCategory, subCategory)) {
-            is GetQuestions.Result.Success -> ViewState.QuestionsLoaded(questions.questions)
+            is GetQuestions.Result.Success -> ViewState.QuestionsLoaded(questions.questions.sortedBy { it.difficulty })
             is GetQuestions.Result.Error -> ViewState.Error
         }
 
         _viewState.update { result }
 
-        observeSelectedDifficulties()
-        observeSubCategoryFilters()
+        collectSelectedDifficultiesUpdates()
+        collectSortModeUpdates()
     }
 
     fun toggleBottomSheet() {
         viewModelScope.launch {
-            _events.emit(ViewEvent.ToggleBottomSheet)
+            _viewEvents.emit(ViewEvent.ToggleBottomSheet)
         }
     }
 
@@ -70,8 +79,14 @@ class ListViewModel(private val getQuestions: GetQuestions) : ViewModel() {
         _selectedDifficulties.update { result }
     }
 
-    private fun observeSelectedDifficulties() {
-        val viewState = state.value
+    fun sortModeSelected(sortMode: SortMode) {
+        viewModelScope.launch {
+            _sortMode.emit(sortMode)
+        }
+    }
+
+    private fun collectSelectedDifficultiesUpdates() {
+        val viewState = viewState.value
         viewModelScope.launch {
             selectedDifficulties.collect { selectedDifficulties ->
                 if (viewState is ViewState.QuestionsLoaded) {
@@ -84,7 +99,20 @@ class ListViewModel(private val getQuestions: GetQuestions) : ViewModel() {
         }
     }
 
-    private fun observeSubCategoryFilters() {
-
+    private fun collectSortModeUpdates() {
+        val viewState = viewState.value
+        viewModelScope.launch {
+            sortMode.collect { sortMode ->
+                if (viewState is ViewState.QuestionsLoaded) {
+                    val questions = viewState.questions
+                    val sortedQuestions = when(sortMode) {
+                        SortMode.BY_DIFFICULTY_ASCENDING -> questions.sortedBy { it.difficulty }
+                        SortMode.BY_DIFFICULTY_DESCENDING -> questions.sortedByDescending { it.difficulty }
+                        SortMode.RANDOMIZED -> questions.shuffled()
+                    }
+                    _viewState.update { ViewState.QuestionsLoaded(sortedQuestions) }
+                }
+            }
+        }
     }
 }
