@@ -8,10 +8,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
-import com.example.myapplication.android.ui.theme.grey
-import com.example.myapplication.android.ui.theme.kti_accent_color
-import com.example.myapplication.android.ui.theme.kti_dark_primary
-import com.example.myapplication.android.ui.theme.kti_primary
+import com.example.myapplication.android.ui.theme.kti_background_grey
+import com.example.myapplication.android.ui.theme.kti_grey
+import com.example.myapplication.android.ui.theme.kti_soft_white
 
 @Composable
 fun KTIColumnWithGradientColumn(
@@ -35,13 +34,13 @@ fun KTIBoxWithGradientBackground(
         contentAlignment = contentAlignment,
         modifier = Modifier
             .fillMaxSize()
-            .background(brush = getGradientBrush()),
+            .background(kti_background_grey),
     ) {
         content.invoke()
     }
 }
 
 private fun getGradientBrush() = Brush.verticalGradient(
-    0.0f to kti_dark_primary,
-    1.0f to grey
+    0.0f to kti_soft_white,
+    1.0f to kti_grey
 )

@@ -27,6 +27,6 @@ class QuestionsConverter {
 
     private fun getSubCategoryForName(name: String): SubCategory? =
         allSubCategories.firstOrNull { subCategory ->
-            name == subCategory.displayName
+            name == subCategory.keyName
         }
 }

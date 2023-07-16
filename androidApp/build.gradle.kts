@@ -77,6 +77,8 @@ dependencies {
 
     implementation("androidx.navigation:navigation-compose:2.5.3")
     implementation ("com.google.accompanist:accompanist-navigation-animation:0.23.1")
+    implementation ("com.google.accompanist:accompanist-systemuicontroller:0.30.0")
+
     implementation(Dependencies.Koin.koinAndroid)
     implementation(Dependencies.Koin.koinCore)
     implementation(Dependencies.Koin.koinCompose)

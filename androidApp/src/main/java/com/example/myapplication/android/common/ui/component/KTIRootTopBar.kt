@@ -19,7 +19,6 @@ import androidx.compose.material.IconButton
 import androidx.compose.material.TopAppBar
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
-import androidx.compose.material.icons.filled.KeyboardArrowLeft
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -30,9 +29,9 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Constraints
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.myapplication.android.ui.theme.kti_accent_color
-import com.example.myapplication.android.ui.theme.kti_dark_primary
-import com.example.myapplication.android.ui.theme.kti_primary_text
+import com.example.myapplication.android.ui.theme.kti_accent
+import com.example.myapplication.android.ui.theme.kti_soft_white
+import com.example.myapplication.android.ui.theme.kti_soft_black
 import com.example.myapplication.navigation.Navigator
 import org.koin.androidx.compose.get
 import kotlin.math.max
@@ -60,7 +59,7 @@ fun KTITextTopBar(
         leftActionButtons = {
             if (isNested) {
                 IconButton(onClick = { navigator.navigateBack() }) {
-                    Icon(Icons.Filled.ArrowBack, "Back Icon", tint = kti_primary_text)
+                    Icon(Icons.Filled.ArrowBack, "Back Icon", tint = kti_soft_black)
                 }
             }
         },
@@ -77,10 +76,10 @@ private fun FcTopBarContent(
     rightActionButtons: @Composable (RowScope.() -> Unit)?,
     hasBrandingLine: Boolean = false,
 ) {
-    Column(modifier = Modifier.background(kti_dark_primary)) {
+    Column(modifier = Modifier.background(kti_soft_white)) {
         TopAppBar(
             elevation = 0.dp,
-            backgroundColor = kti_dark_primary,
+            backgroundColor = kti_soft_white,
             contentPadding = PaddingValues(horizontal = 4.dp),
             modifier = Modifier
                 .statusBarsPadding()
@@ -127,7 +126,7 @@ private fun FcTopBarContent(
                 }
             }
         }
-        if (hasBrandingLine) Divider(color = kti_accent_color, thickness = 2.dp)
+        if (hasBrandingLine) Divider(color = kti_accent, thickness = 2.dp)
     }
 }
 
@@ -143,8 +142,8 @@ fun TopBarText(text: String) {
             textAlign = TextAlign.Center,
             maxLines = 1,
             overflow = TextOverflow.Ellipsis,
-            fontSize = 18.sp,
-            fontWeight = FontWeight.W600,
+            fontSize = 20.sp,
+            fontWeight = FontWeight.W500,
         )
     }
 }

@@ -10,7 +10,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.Dp
 
 @Composable
-fun KTIICon(
+fun KTIIcon(
     @DrawableRes drawableRes: Int,
     size: Dp,
     tint: Color,

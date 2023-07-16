@@ -14,9 +14,8 @@ import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.TextUnitType
 import androidx.compose.ui.unit.sp
 import com.example.myapplication.android.ui.theme.kti_text_icons
-import com.example.myapplication.android.ui.theme.fonts
 import com.example.myapplication.android.ui.theme.fontsKanit
-import com.example.myapplication.android.ui.theme.kti_primary_text
+import com.example.myapplication.android.ui.theme.kti_soft_black
 
 @Composable
 fun KTIText(
@@ -51,7 +50,7 @@ fun KTITextNew(
     fontSize: TextUnit,
     fontWeight: FontWeight,
     modifier: Modifier = Modifier,
-    color: Color = kti_primary_text,
+    color: Color = kti_soft_black,
     fontFamily: FontFamily = fontsKanit,
     maxLines: Int = Int.MAX_VALUE,
     overflow: TextOverflow = TextOverflow.Ellipsis,

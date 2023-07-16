@@ -15,7 +15,7 @@ import com.example.myapplication.android.common.ui.component.bottomsheet.base.KT
 import com.example.myapplication.android.common.ui.component.bottomsheet.model.BottomSheetListItem
 import com.example.myapplication.android.R
 import com.example.myapplication.android.ui.theme.kti_green
-import com.example.myapplication.android.ui.theme.kti_primary
+import com.example.myapplication.android.ui.theme.kti_grayish
 import com.example.myapplication.android.ui.theme.kti_secondary_text
 
 enum class BottomSheetListItemType {
@@ -122,21 +122,21 @@ private fun SelectedItemCheckmark() {
         color = kti_green,
         shape = CircleShape
     ) {
-        com.example.myapplication.android.common.ui.component.KTIICon(
+        com.example.myapplication.android.common.ui.component.KTIIcon(
             drawableRes = R.drawable.ic_check,
             size = 20.dp,
             contentDescription = null,
-            tint = kti_primary,
+            tint = kti_grayish,
         )
     }
 }
 
 @Composable
 private fun UnselectedItemCheckmark() {
-    com.example.myapplication.android.common.ui.component.KTIICon(
+    com.example.myapplication.android.common.ui.component.KTIIcon(
         drawableRes = R.drawable.ic_circle,
         size = 20.dp,
-        tint = kti_primary
+        tint = kti_grayish
     )
 }
 

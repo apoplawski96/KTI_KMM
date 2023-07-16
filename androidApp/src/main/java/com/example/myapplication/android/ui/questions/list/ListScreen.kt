@@ -37,12 +37,11 @@ import com.example.myapplication.android.common.ui.component.clickableNoRipple
 import com.example.myapplication.android.ui.questions.list.components.ListScreenBottomSheetContent
 import com.example.myapplication.android.ui.questions.list.components.ListScreenScoreBar
 import com.example.myapplication.android.ui.questions.list.components.ListScreenTopBar
-import com.example.myapplication.android.ui.theme.kti_accent_color
-import com.example.myapplication.android.ui.theme.kti_dark_primary
+import com.example.myapplication.android.ui.theme.kti_accent
+import com.example.myapplication.android.ui.theme.kti_soft_white
 import com.example.myapplication.android.ui.theme.kti_divider
 import com.example.myapplication.android.ui.theme.kti_green
-import com.example.myapplication.android.ui.theme.kti_primary_text
-import com.example.myapplication.model.Difficulty
+import com.example.myapplication.android.ui.theme.kti_soft_black
 import com.example.myapplication.model.Question
 import com.example.myapplication.model.subcategory.SubCategory
 import com.example.myapplication.model.subcategory.TopCategory
@@ -148,7 +147,7 @@ private fun ListScreenContent(
             contentAlignment = Alignment.Center,
             modifier = Modifier
                 .fillMaxSize()
-                .background(kti_dark_primary),
+                .background(kti_soft_white),
         ) {
             KTIModalBottomSheetLayout(
                 sheetState = bottomSheetState,
@@ -224,7 +223,7 @@ private fun QuestionItem(
                 if (isAnswered.value) {
                     kti_green
                 } else {
-                    kti_dark_primary
+                    kti_soft_white
                 }
             )
     ) {
@@ -273,7 +272,7 @@ private fun QuestionItem(
                         Icon(
                             imageVector = Icons.Filled.Refresh,
                             contentDescription = "Reopen question",
-                            tint = kti_dark_primary,
+                            tint = kti_soft_white,
                             modifier = Modifier.size(18.dp)
                         )
                     }
@@ -309,7 +308,7 @@ private fun QuestionTopSection(
         text = "${question.topCategory.displayName}, ${question.subCategory?.displayName} (Difficulty: ${question.difficulty.displayName})", // todo: check subcategory
         fontSize = 10.sp,
         fontWeight = FontWeight.W300,
-        color = kti_primary_text.copy(alpha = 0.6f),
+        color = kti_soft_black.copy(alpha = 0.6f),
         modifier = Modifier.padding(horizontal = 10.dp),
         lineHeight = 6.sp,
     )
@@ -326,7 +325,7 @@ private fun QuestionTitle(
         fontSize = 14.sp,
         fontWeight = if (isAnswered.not()) FontWeight.SemiBold else FontWeight.Normal,
         modifier = Modifier.padding(horizontal = horizontalPadding + 2.dp),
-        color = if (isAnswered.not()) kti_primary_text else kti_dark_primary,
+        color = if (isAnswered.not()) kti_soft_black else kti_soft_white,
         lineHeight = 14.sp,
     )
     KTIVerticalSpacer(height = if (isAnswered.not()) 4.dp else 0.dp)
@@ -340,7 +339,7 @@ private fun ToggleAnswerButton(
     Icon(
         imageVector = if (shouldDisplayAnswer) Icons.Default.KeyboardArrowUp else Icons.Default.KeyboardArrowDown,
         contentDescription = null,
-        tint = if (shouldDisplayAnswer) kti_accent_color else kti_primary_text,
+        tint = if (shouldDisplayAnswer) kti_accent else kti_soft_black,
         modifier = Modifier
             .clickableNoRipple { displayAnswerOnClick() }
             .size(18.dp)

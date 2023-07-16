@@ -1,10 +1,7 @@
 package com.example.myapplication.android.ui.subcategory
 
 import androidx.compose.foundation.BorderStroke
-import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.heightIn
@@ -16,16 +13,12 @@ import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.lazy.grid.rememberLazyGridState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Card
-import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Search
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
@@ -36,11 +29,9 @@ import com.example.myapplication.android.common.ui.component.KTITextTopBar
 import com.example.myapplication.android.common.ui.component.KTICircularProgressIndicator
 import com.example.myapplication.android.common.ui.component.KTITextNew
 import com.example.myapplication.android.common.ui.component.clickableNoRipple
-import com.example.myapplication.android.ui.theme.kti_accent_color
-import com.example.myapplication.android.ui.theme.kti_dark_primary
-import com.example.myapplication.android.ui.theme.kti_green
-import com.example.myapplication.android.ui.theme.kti_light_primary
-import com.example.myapplication.android.ui.theme.kti_primary
+import com.example.myapplication.android.ui.theme.kti_accent
+import com.example.myapplication.android.ui.theme.kti_grayish_light
+import com.example.myapplication.android.ui.theme.kti_grayish
 import com.example.myapplication.android.ui.theme.kti_text_icons
 import com.example.myapplication.model.subcategory.SubCategory
 import com.example.myapplication.model.subcategory.TopCategory
@@ -92,7 +83,7 @@ fun SubCategoriesScreenContent(
                     KTITextTopBar(
                         middleContentText = "${topCategory.displayName} categories",
                         isNested = true,
-                        hasBrandingLine = false,
+                        hasBrandingLine = true,
                         rightActionButtons = {
                             IconButton(onClick = { }) {
 //                                Icon(
@@ -121,7 +112,7 @@ private fun CategoriesGrid(
 ) {
     LazyVerticalGrid(
         columns = GridCells.Fixed(count = 2),
-        modifier = Modifier.padding(start = 8.dp, end = 8.dp),
+        modifier = Modifier.padding(start = 4.dp, end = 4.dp),
         state = state,
         content = {
             item { KTIVerticalSpacer(height = 20.dp) }
@@ -141,11 +132,11 @@ private fun SubCategoryCard(
 ) {
     Card(
         shape = RoundedCornerShape(size = 8.dp),
-        backgroundColor = kti_primary,
-        border = BorderStroke(width = 0.5.dp, color = kti_light_primary.copy(alpha = 0.2f)),
+        backgroundColor = kti_grayish,
+        border = BorderStroke(width = 0.5.dp, color = kti_grayish_light.copy(alpha = 0.2f)),
         modifier = Modifier
             .clickableNoRipple { onClick.invoke(subCategory) }
-            .padding(4.dp)
+            .padding(2.dp)
             .heightIn(min = 96.dp)
     ) {
         Column(
@@ -159,7 +150,7 @@ private fun SubCategoryCard(
                 overflow = TextOverflow.Ellipsis,
                 fontWeight = FontWeight(400),
                 fontSize = 14.sp,
-                color = if (subCategory != null) kti_text_icons else kti_accent_color
+                color = if (subCategory != null) kti_text_icons else kti_accent
             )
         }
     }

@@ -15,9 +15,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 import com.example.myapplication.android.common.ui.component.KTITextNew
 import com.example.myapplication.android.common.ui.component.KTITextTopBar
-import com.example.myapplication.android.ui.theme.kti_accent_color
-import com.example.myapplication.android.ui.theme.kti_dark_primary
-import com.example.myapplication.android.ui.theme.kti_primary_text
+import com.example.myapplication.android.ui.theme.kti_accent
+import com.example.myapplication.android.ui.theme.kti_soft_black
 import com.example.myapplication.screens.list.ListViewModel
 
 @OptIn(ExperimentalMaterialApi::class)
@@ -40,13 +39,13 @@ fun ListScreenTopBar(
                     Icon(
                         imageVector = Icons.Filled.KeyboardArrowDown,
                         contentDescription = "Bottom sheet icon",
-                        tint = kti_accent_color
+                        tint = kti_accent
                     )
                 } else {
                     Icon(
                         imageVector = Icons.Filled.KeyboardArrowUp,
                         contentDescription = "Bottom sheet icon",
-                        tint = kti_accent_color
+                        tint = kti_accent
                     )
                 }
             }
@@ -54,7 +53,7 @@ fun ListScreenTopBar(
                 Icon(
                     imageVector = Icons.Outlined.Menu,
                     contentDescription = "Menu icon",
-                    tint = kti_primary_text
+                    tint = kti_soft_black
                 )
             }
             DropdownMenu(
@@ -67,7 +66,7 @@ fun ListScreenTopBar(
                             text = sortMode.displayName,
                             fontSize = 16.sp,
                             fontWeight = FontWeight.W400,
-                            color = kti_primary_text
+                            color = kti_soft_black
                         )
                     }
                 }

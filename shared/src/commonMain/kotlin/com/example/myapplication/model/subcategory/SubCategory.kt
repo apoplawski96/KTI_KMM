@@ -5,8 +5,9 @@ interface CardDisplayable {
 }
 
 interface SubCategory {
-    val displayName: String
+    val keyName: String
     val id: String
+    val displayName: String
 }
 
 val allSubCategories: List<SubCategory> = listOf(
@@ -14,20 +15,25 @@ val allSubCategories: List<SubCategory> = listOf(
 ).flatten()
 
 enum class AndroidSubCategory(
-    override val displayName: String,
-    override val id: String
+    override val keyName: String,
+    override val id: String,
+    override val displayName: String
 ) : SubCategory, CardDisplayable {
-    Basics(displayName = "Basic", id = "1"),
-    Coroutines(displayName = "Coroutines", id = "2"),
-    Compose(displayName = "Compose", id = "3"),
-    Rx(displayName = "Rx", id = "7"),
-    StateAndSharedFlow(displayName = "StateAndSharedFlow", id = "8");
+    Basics(keyName = "Basic", id = "1", displayName = "Basics"),
+    Coroutines(keyName = "Coroutines", id = "2", displayName = "Coroutines"),
+    Compose(keyName = "Compose", id = "3", displayName = "Compose"),
+    Rx(keyName = "Rx", id = "7", displayName = "RxJava"),
+    StateAndSharedFlow(keyName = "StateAndSharedFlow", id = "8", "State & Shared Flow");
 }
 
-enum class IOSSubCategory(override val displayName: String, override val id: String) : SubCategory, CardDisplayable {
-    UserInterface(displayName = "User Interface", id = "101"),
-    CoreData(displayName = "Core Data", id = "102"),
-    Networking(displayName = "Networking", id = "103");
+enum class IOSSubCategory(
+    override val keyName: String,
+    override val id: String,
+    override val displayName: String
+) : SubCategory, CardDisplayable {
+    UserInterface(keyName = "User Interface", id = "101", displayName = "User interface"),
+    CoreData(keyName = "Core Data", id = "102", displayName = "Core data"),
+    Networking(keyName = "Networking", id = "103", displayName = "Networking");
 }
 
 fun getSubCategoryForId(id: String?): SubCategory? =

@@ -14,7 +14,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -22,9 +21,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.myapplication.android.common.ui.component.KTITextNew
 import com.example.myapplication.android.common.ui.component.KTIVerticalSpacer
-import com.example.myapplication.android.ui.theme.kti_dark_primary
-import com.example.myapplication.android.ui.theme.kti_primary_text
-import com.example.myapplication.android.ui.theme.kti_secondary_text
+import com.example.myapplication.android.ui.theme.kti_soft_white
+import com.example.myapplication.android.ui.theme.kti_soft_black
 
 @Composable
 fun KTIBottomSheetSurface(
@@ -34,7 +32,7 @@ fun KTIBottomSheetSurface(
 ) {
     Surface(
         shape = RoundedCornerShape(topStart = 16.dp, topEnd = 16.dp),
-        color = kti_dark_primary,
+        color = kti_soft_white,
     ) {
         Column(modifier = Modifier.fillMaxWidth()) {
             BottomSheetNotch()
@@ -76,7 +74,7 @@ private fun BottomSheetTitle(
                 }
             ),
         text = title,
-        color = kti_primary_text.copy(alpha = 0.8f),
+        color = kti_soft_black.copy(alpha = 0.8f),
         fontWeight = FontWeight.W300,
         fontSize = 16.sp
     )
