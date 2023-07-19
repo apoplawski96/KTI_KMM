@@ -18,9 +18,10 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.myapplication.screens.home.HomeScreenViewModel
 import com.example.myapplication.screens.home.HomeScreenItem
+import com.example.myapplication.screens.home.HomeScreenViewModel
 import org.koin.androidx.compose.getViewModel
 
 @Composable
@@ -51,6 +52,7 @@ private fun HomeScreenContent(
             is HomeScreenViewModel.ViewState.HomeItems -> {
                 MenuItems(items = state.items, onItemClicked = onItemClicked)
             }
+
             is HomeScreenViewModel.ViewState.Loading -> {
                 CircularProgressIndicator()
             }
@@ -89,4 +91,13 @@ private fun MenuItem(
                 .padding(horizontal = 16.dp, vertical = 8.dp)
         )
     }
+}
+
+@Preview
+@Composable
+private fun Preview() {
+    HomeScreenContent(
+        state = HomeScreenViewModel.ViewState.HomeItems(HomeScreenItem.values().toList()),
+        onItemClicked = {}
+    )
 }

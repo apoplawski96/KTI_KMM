@@ -81,4 +81,13 @@ object Destinations {
             arguments = arguments
         )
     }
+
+    object WelcomeScreen : NavigationDestination {
+        override val route: String
+            get() = "destination_welcome_screen"
+        override val genericRoute: String
+            get() = "destination_welcome_screen"
+        override val arguments: List<NavigationArgument>
+            get() = emptyList()
+    }
 }

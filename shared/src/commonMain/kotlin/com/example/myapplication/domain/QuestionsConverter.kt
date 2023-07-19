@@ -19,7 +19,7 @@ class QuestionsConverter {
                 category = DeprecatedCategory.Android,
                 difficulty = Difficulty.getForName(questionSchema.difficulty) ?: Difficulty.Intermediate,
                 topCategory = TopCategory.getForName(questionSchema.topCategory) ?: return@mapNotNull null,
-                subCategory = getSubCategoryForName(questionSchema.subCategory) ?: null,
+                subCategory = getSubCategoryForName(questionSchema.subCategory),
                 topCategoryId = questionSchema.topCategoryId,
                 subCategoryId = questionSchema.subCategoryId,
             )

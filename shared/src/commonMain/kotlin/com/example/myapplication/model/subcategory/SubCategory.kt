@@ -23,7 +23,8 @@ enum class AndroidSubCategory(
     Coroutines(keyName = "Coroutines", id = "2", displayName = "Coroutines"),
     Compose(keyName = "Compose", id = "3", displayName = "Compose"),
     Rx(keyName = "Rx", id = "7", displayName = "RxJava"),
-    StateAndSharedFlow(keyName = "StateAndSharedFlow", id = "8", "State & Shared Flow");
+    StateAndSharedFlow(keyName = "StateAndSharedFlow", id = "8", "State & Shared Flow"),
+    AndroidPlatform(keyName = "Android Platform", id = "11", displayName = "Android Platform");
 }
 
 enum class IOSSubCategory(

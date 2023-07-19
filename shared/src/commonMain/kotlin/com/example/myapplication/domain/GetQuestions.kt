@@ -18,7 +18,11 @@ class GetQuestions(
     fun invoke(topCategory: TopCategory, subCategory: SubCategory?): Result = try {
         val questionsRaw = when(topCategory) {
             TopCategory.ANDROID -> questionsDataSource.getQuestionsAndroid()
-            else -> emptyList()
+            TopCategory.GIT -> questionsDataSource.getQuestionsGit()
+            TopCategory.REST -> emptyList()
+            TopCategory.DESIGN_PATTERNS -> questionsDataSource.getQuestionsDesignPatterns()
+            TopCategory.PROGRAMMING_PARADIGMS -> questionsDataSource.getQuestionsProgrammingParadigms()
+            TopCategory.KOTLIN -> questionsDataSource.getQuestionsKotlin()
         }
         val questionsConverted = questionsConverter.convert(questionsRaw)
 

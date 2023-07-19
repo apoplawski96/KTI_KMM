@@ -983,5 +983,176 @@
     "topCategoryId": 1,
     "subCategory": "Compose",
     "subCategoryId": 10
+  },
+  {
+    "id": 192,
+    "question": "Describe dispatchers in Coroutines",
+    "answer": "Dispatchers in Coroutines are used to specify the thread or thread pool on which a coroutine should run. Coroutines can be launched on various dispatchers to control their execution context. Some commonly used dispatchers are:\n\n- `Dispatchers.Default`: This uses a shared background pool of threads and is suitable for CPU-intensive operations.\n- `Dispatchers.IO`: This is optimized for I/O tasks such as reading from or writing to files or making network requests.\n- `Dispatchers.Main`: This is the main thread dispatcher and is used for updating the UI.\n\nYou can also create your own custom dispatchers if needed. It's important to choose the appropriate dispatcher for each coroutine to ensure efficient and non-blocking execution.",
+    "difficulty": "Unknown",
+    "topCategory": "Android",
+    "topCategoryId": 1,
+    "subCategory": "Coroutines",
+    "subCategoryId": 4
+  },
+  {
+    "id": 193,
+    "question": "What is the difference between lifecycleScope and viewModelScope?",
+    "answer": "Both `lifecycleScope` and `viewModelScope` are Kotlin Coroutine Scopes available in Android.\n\n`lifecycleScope`: It is a CoroutineScope tied to the lifecycle of an Android component, typically an Activity or Fragment. When the associated component is destroyed, all coroutines launched in `lifecycleScope` will be automatically canceled, helping to avoid memory leaks and unnecessary work.\n\n`viewModelScope`: It is a CoroutineScope tied to the lifecycle of a ViewModel. It allows launching coroutines that are tied to the ViewModel's lifecycle. When the ViewModel is cleared or destroyed (e.g., during configuration changes or when the activity is finished), all coroutines in `viewModelScope` will be automatically canceled.\n\nIn summary, `lifecycleScope` is typically used for coroutines that should be tied to the lifecycle of an Activity or Fragment, while `viewModelScope` is used for coroutines that should be tied to the lifecycle of a ViewModel.",
+    "difficulty": "Unknown",
+    "topCategory": "Android",
+    "topCategoryId": 1,
+    "subCategory": "Coroutines",
+    "subCategoryId": 4
+  },
+  {
+    "id": 194,
+    "question": "What is the difference between suspending and blocking in Kotlin coroutines?",
+    "answer": "In Kotlin coroutines, suspending and blocking are two different concepts related to handling concurrency.\n\nSuspending: A suspending function is a function that can be paused and resumed later without blocking the thread. It is marked with the `suspend` keyword in its signature. Suspending functions are designed to perform asynchronous operations without blocking the main thread. When a suspending function is called, it may suspend its execution until the result is available, but it does not block the thread. Instead, it allows other tasks to be executed on the same thread.\n\nBlocking: A blocking function, on the other hand, is a function that blocks the thread until the operation is completed. When a blocking function is called, it prevents the thread from executing any other tasks until the operation is finished. This can lead to performance issues, especially in Android applications, where blocking the main thread can cause the app to become unresponsive.\n\nIn summary, suspending functions allow asynchronous operations without blocking the thread, while blocking functions halt the execution of the thread until the operation is complete.",
+    "difficulty": "Unknown",
+    "topCategory": "Android",
+    "topCategoryId": 1,
+    "subCategory": "Coroutines",
+    "subCategoryId": 4
+  },
+  {
+    "id": 195,
+    "question": "What is SupervisorScope, and how is it used with SupervisorJob in Kotlin coroutines?",
+    "answer": "In Kotlin coroutines, `SupervisorScope` and `SupervisorJob` are used to create a scope that handles the failure of child coroutines independently. When a coroutine fails due to an exception in a `SupervisorScope`, the failure is contained to that specific coroutine, and the exception does not propagate to the parent or other sibling coroutines within the same scope.\n\nHere's how you can use `SupervisorScope` with `SupervisorJob`:\n\n```\nimport kotlinx.coroutines.*\n\nclass MyViewModel : ViewModel() {\n\n    // Create a SupervisorJob\n    private val supervisorJob = SupervisorJob()\n\n    // Create a CoroutineScope using the SupervisorJob\n    private val viewModelScope = CoroutineScope(Dispatchers.Main + supervisorJob)\n\n    fun doSomething() {\n        // Start a coroutine within the SupervisorScope\n        viewModelScope.launch {\n            try {\n                // Do some work that might throw an exception\n                // ...\n            } catch (e: Exception) {\n                // Exception handling specific to this coroutine\n                // It won't affect other coroutines within the same scope\n            }\n        }\n    }\n\n    // Function to cancel all child coroutines when needed\n    fun cancelAllCoroutines() {\n        supervisorJob.cancelChildren()\n    }\n}\n```\n\nBy using `SupervisorScope` with `SupervisorJob`, you can create fault-tolerant coroutines that handle exceptions in a way that isolates them from other coroutines within the same scope.",
+    "difficulty": "Unknown",
+    "topCategory": "Android",
+    "topCategoryId": 1,
+    "subCategory": "Coroutines",
+    "subCategoryId": 4
+  },
+  {
+    "id": 196,
+    "question": "What is the difference between Scope cancellation and cancellation of its children in Kotlin coroutines?",
+    "answer": "In Kotlin coroutines, scope cancellation and cancellation of its children refer to different ways of handling coroutines within a coroutine scope when the scope itself is canceled.\n\n1. Scope Cancellation:\nWhen a coroutine scope is canceled using its `cancel` function or if the scope's job is completed or canceled, all coroutines launched within that scope are canceled. This includes both the coroutine that launched the children coroutines and the children coroutines themselves. The cancellation is propagated down the coroutine hierarchy.\n\n2. Cancellation of Children:\nOn the other hand, if a specific coroutine is canceled using its `cancel` function, only that particular coroutine is canceled. The cancellation does not affect other coroutines launched within the same scope. It's a localized cancellation that doesn't propagate up or down the hierarchy.\n\nIn summary, scope cancellation affects all coroutines within that scope, whereas cancellation of children affects only the targeted coroutine, leaving other coroutines in the scope unaffected.",
+    "difficulty": "Unknown",
+    "topCategory": "Android",
+    "topCategoryId": 1,
+    "subCategory": "Coroutines",
+    "subCategoryId": 4
+  },
+  {
+    "id": 245,
+    "question": "Data and file storage overview",
+    "answer": "In Android, data and file storage are essential for storing various types of information used by apps. Data storage options include Shared Preferences, which are used to store key-value pairs, and SQLite databases, which provide a structured way to store relational data. File storage can be achieved using internal storage, external storage (SD card), or cache directories. Each storage option has its advantages and use cases, depending on the type of data to be stored and the level of security required.",
+    "difficulty": "Unknown",
+    "topCategory": "Android",
+    "topCategoryId": 1,
+    "subCategory": "Android Platform",
+    "subCategoryId": 11
+  },
+  {
+    "id": 246,
+    "question": "targetSdkVersion behavior",
+    "answer": "The targetSdkVersion is an attribute in the AndroidManifest.xml file that specifies the highest API level that the app is designed to run on. It affects the app's behavior when running on devices with newer versions of Android. If the targetSdkVersion is set to a lower API level, the app runs in compatibility mode, and some newer features and behaviors are disabled to maintain compatibility with the specified version. On the other hand, setting targetSdkVersion to the latest API level allows the app to use the latest features and optimizations available in the newer Android versions.",
+    "difficulty": "Unknown",
+    "topCategory": "Android",
+    "topCategoryId": 1,
+    "subCategory": "Android Platform",
+    "subCategoryId": 11
+  },
+  {
+    "id": 247,
+    "question": "Obfuscation in Android",
+    "answer": "Obfuscation is the process of transforming the app's code to make it more challenging to understand or reverse-engineer. In Android, ProGuard is a widely used tool for code obfuscation. ProGuard renames classes, fields, and methods to short, meaningless names, making the code harder to decipher. Additionally, it removes unused code and resources, resulting in a smaller APK size. Obfuscation helps to protect intellectual property and sensitive information, such as API keys, from being easily extracted by malicious users.",
+    "difficulty": "Unknown",
+    "topCategory": "Android",
+    "topCategoryId": 1,
+    "subCategory": "Android Platform",
+    "subCategoryId": 11
+  },
+  {
+    "id": 248,
+    "question": "Serializable vs Parcelable",
+    "answer": "Serializable and Parcelable are two mechanisms in Android used to transfer objects between components, such as activities and fragments. Serializable is a standard Java interface that serializes an object into a byte stream, allowing it to be easily saved to storage or transmitted over the network. However, it can be slow and inefficient. Parcelable is an Android-specific interface that serializes an object into a Parcel, which is optimized for Android's IPC (Inter-Process Communication). Parcelable is faster and more efficient than Serializable, making it the preferred choice for passing data between components within an Android app.",
+    "difficulty": "Unknown",
+    "topCategory": "Android",
+    "topCategoryId": 1,
+    "subCategory": "Android Platform",
+    "subCategoryId": 11
+  },
+  {
+    "id": 249,
+    "question": "Permissions on Android",
+    "answer": "Permissions in Android are security measures that control an app's access to device resources and user data. Android uses a permission system to ensure that apps request access to sensitive information or features only when necessary and that users are aware of the requested access. Common Android permissions include access to the camera, microphone, contacts, location, and storage. Users must grant permissions before an app can access the corresponding resources or data.",
+    "difficulty": "Unknown",
+    "topCategory": "Android",
+    "topCategoryId": 1,
+    "subCategory": "Android Platform",
+    "subCategoryId": 11
+  },
+  {
+    "id": 250,
+    "question": "Requesting permissions in Android",
+    "answer": "To request permissions in Android, developers need to declare the required permissions in the AndroidManifest.xml file. At runtime, the app must explicitly request dangerous permissions from the user using the runtime permission model introduced in Android 6.0 (API level 23) and higher. When a permission is requested, the user is presented with a dialog explaining why the app needs the permission. The user can choose to grant or deny the permission. If the permission is denied, the app should handle the situation gracefully and provide alternative functionality.",
+    "difficulty": "Unknown",
+    "topCategory": "Android",
+    "topCategoryId": 1,
+    "subCategory": "Android Platform",
+    "subCategoryId": 11
+  },
+  {
+    "id": 251,
+    "question": "compileSdk vs targetSdk",
+    "answer": "In Android, 'compileSdkVersion' and 'targetSdkVersion' are two important attributes in the build.gradle file. 'compileSdkVersion' specifies the Android API level that the app is compiled against, providing access to the corresponding APIs and features during development. 'targetSdkVersion', on the other hand, is the highest API level that the app is designed to run on. It affects the app's behavior on devices with newer versions of Android. The app runs in compatibility mode if 'targetSdkVersion' is set to a lower API level, while setting it to the latest API level allows the app to use the latest features and optimizations available in the newer Android versions.",
+    "difficulty": "Unknown",
+    "topCategory": "Android",
+    "topCategoryId": 1,
+    "subCategory": "Android Platform",
+    "subCategoryId": 11
+  },
+  {
+    "id": 252,
+    "question": "Describe Android operating system",
+    "answer": "Android is a mobile operating system developed by Google based on the Linux kernel and designed primarily for touchscreen devices such as smartphones and tablets. It is open-source and allows developers to create and customize apps using Java or Kotlin programming languages. Android offers a rich set of APIs and frameworks for building a wide range of applications, including games, social media apps, productivity tools, and more. It provides features like multi-tasking, notifications, widgets, and support for various hardware components, making it a versatile and popular platform for mobile development.",
+    "difficulty": "Unknown",
+    "topCategory": "Android",
+    "topCategoryId": 1,
+    "subCategory": "Android Platform",
+    "subCategoryId": 11
+  },
+  {
+    "id": 253,
+    "question": "What are intents in Android?",
+    "answer": "Intents are a fundamental component of Android's inter-application communication system. They are messages that allow components, such as activities, services, and broadcast receivers, to request actions from other components or to respond to actions from other components. Intents can be explicit, specifying the target component, or implicit, defining the action and data and letting the system determine the suitable components to handle the request. Intents play a vital role in launching activities, starting services, and broadcasting events in Android applications.",
+    "difficulty": "Unknown",
+    "topCategory": "Android",
+    "topCategoryId": 1,
+    "subCategory": "Android Platform",
+    "subCategoryId": 11
+  },
+  {
+    "id": 254,
+    "question": "What are memory leaks in Android?",
+    "answer": "Memory leaks in Android occur when an app unintentionally retains references to objects that are no longer needed, preventing the system from reclaiming memory occupied by those objects. If memory leaks are not addressed, they can lead to increased memory usage, degraded app performance, and even app crashes due to OutOfMemoryErrors. Common causes of memory leaks in Android include holding references to objects across configuration changes, failing to unregister listeners or callbacks, and improper usage of static variables or singleton patterns. Proper memory management and understanding the Android activity lifecycle are essential to avoid memory leaks in Android apps.",
+    "difficulty": "Unknown",
+    "topCategory": "Android",
+    "topCategoryId": 1,
+    "subCategory": "Android Platform",
+    "subCategoryId": 11
+  },
+  {
+    "id": 255,
+    "question": "Activity lifecycle in Android",
+    "answer": "The Activity lifecycle in Android defines the different states an activity goes through during its lifetime. It consists of several callback methods that allow developers to manage the state and behavior of an activity. The basic lifecycle states are 'onCreate', 'onStart', 'onResume', 'onPause', 'onStop', 'onDestroy', and 'onRestart'. Activities transition between these states as they are created, started, resumed, paused, stopped, and destroyed by the system or user interactions. Understanding the activity lifecycle is crucial for managing resources, saving and restoring state, and providing a smooth user experience in Android applications.",
+    "difficulty": "Unknown",
+    "topCategory": "Android",
+    "topCategoryId": 1,
+    "subCategory": "Android Platform",
+    "subCategoryId": 11
+  },
+  {
+    "id": 256,
+    "question": "Fragment lifecycle in Android",
+    "answer": "Fragments in Android also have a lifecycle similar to activities, with lifecycle methods such as 'onAttach', 'onCreate', 'onViewCreated', 'onStart', 'onResume', 'onPause', 'onStop', 'onDestroyView', 'onDestroy', and 'onDetach'. Fragments can be attached to activities and can be dynamically added, removed, and replaced within an activity. Properly managing the fragment lifecycle is crucial for creating responsive and flexible UIs, handling configuration changes, and maintaining a good user experience in Android apps that use fragments.",
+    "difficulty": "Unknown",
+    "topCategory": "Android",
+    "topCategoryId": 1,
+    "subCategory": "Android Platform",
+    "subCategoryId": 11
   }
+
 ]

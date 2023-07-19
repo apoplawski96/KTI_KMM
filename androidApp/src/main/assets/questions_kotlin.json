@@ -1,41 +1,131 @@
 [
   {
-    "id": 51,
-    "question": "Tell some advantages of Kotlin over Java? or What are the Kotlin functionalities that we can't achieve in Java?",
-    "answer": "Some advantages of Kotlin over Java include:\n\n- Null safety: Kotlin has built-in null safety features, reducing the chances of null pointer exceptions.\n- Kotlin coroutines: Kotlin provides native support for coroutines, which simplifies asynchronous programming.\n- Triple and Pair structures: Kotlin provides convenient Triple and Pair classes for handling multiple values.\n- Destructuring Initialization: Kotlin allows destructuring declarations, making it easier to initialize multiple variables at once.\n- Inline functions: Kotlin supports inline functions, which improve performance by eliminating the overhead of function calls.\n- Infix functions: Kotlin allows defining functions that can be called using the infix notation, improving code readability.\n- Scope functions: Kotlin provides scope functions like `let`, `apply`, `run`, `with`, and `also`, which enable concise and expressive coding patterns.\n- Writing functions at the file level: Kotlin allows defining functions outside of classes, enabling top-level functions.\n",
-    "difficulty": "Easy",
+    "id": 222,
+    "question": "Lazy property",
+    "answer": "A lazy property in Kotlin is a property that is initialized lazily, meaning it is not evaluated until it is accessed for the first time. The initialization code for the property is executed only once, and subsequent accesses to the property return the same value. Lazy properties are useful when the initialization of a property is expensive and you want to defer its computation until it is actually needed. They can improve performance by avoiding unnecessary computations and initialization.",
+    "difficulty": "Unknown",
     "topCategory": "Kotlin",
-    "topCategoryId": 5,
+    "topCategoryId": 22,
     "subCategory": "Unknown",
     "subCategoryId": 0
   },
   {
-    "id": 52,
+    "id": 223,
+    "question": "lateinit vs lazy",
+    "answer": "lateinit and lazy are both mechanisms in Kotlin to deal with the initialization of properties:\n\n1. lateinit: It is used for non-null properties that will be initialized later, typically in a different part of the code. The property must be declared with the 'lateinit' modifier, and it cannot be a primitive type.\n\n2. lazy: It is used for properties that are computationally expensive to initialize and can be evaluated lazily. The property must be declared with the 'lazy' delegate, which takes a lambda function to compute the initial value. The evaluation is deferred until the property is accessed for the first time.\n\nThe choice between lateinit and lazy depends on the specific use case and requirements of the property initialization.",
+    "difficulty": "Unknown",
+    "topCategory": "Kotlin",
+    "topCategoryId": 22,
+    "subCategory": "Unknown",
+    "subCategoryId": 0
+  },
+  {
+    "id": 224,
+    "question": "suspended function",
+    "answer": "A suspended function in Kotlin is a function that can be paused and resumed later without blocking the thread. It is used in conjunction with coroutines, which are Kotlin's lightweight concurrency framework. Suspended functions are defined with the 'suspend' modifier and can perform long-running or blocking operations without blocking the thread. They can be invoked from other suspending functions or from coroutine scopes. Suspended functions enable asynchronous and non-blocking programming in Kotlin, allowing for more efficient and responsive applications.",
+    "difficulty": "Unknown",
+    "topCategory": "Kotlin",
+    "topCategoryId": 22,
+    "subCategory": "Unknown",
+    "subCategoryId": 0
+  },
+  {
+    "id": 225,
+    "question": "Data classes",
+    "answer": "Data classes in Kotlin are a concise way to declare classes that are primarily used to hold data. They automatically generate useful methods such as equals(), hashCode(), toString(), and copy() based on the properties declared in the primary constructor. Data classes can significantly reduce boilerplate code when working with immutable data. They are commonly used to model DTOs (Data Transfer Objects), POJOs (Plain Old Java Objects), or any other class that primarily holds data.",
+    "difficulty": "Unknown",
+    "topCategory": "Kotlin",
+    "topCategoryId": 22,
+    "subCategory": "Unknown",
+    "subCategoryId": 0
+  },
+  {
+    "id": 226,
+    "question": "Val vs const val",
+    "answer": "In Kotlin, 'val' and 'const val' are used to declare read-only properties:\n\n1. val: It is used to declare a property that is read-only, meaning it can be assigned a value once and cannot be reassigned. The value of a 'val' property can be determined at runtime.\n\n2. const val: It is used to declare a compile-time constant property, meaning its value is known and fixed at compile-time. The value of a 'const val' property must be a primitive type or a String and is evaluated during compilation.\n\nThe choice between 'val' and 'const val' depends on whether the property's value is known at compile-time or runtime.",
+    "difficulty": "Unknown",
+    "topCategory": "Kotlin",
+    "topCategoryId": 22,
+    "subCategory": "Unknown",
+    "subCategoryId": 0
+  },
+  {
+    "id": 227,
+    "question": "inner vs nested class",
+    "answer": "In Kotlin, 'inner' and 'nested' are used to define nested classes:\n\n1. inner class: It is a class that is defined inside another class and has access to the outer class's members. An inner class holds a reference to the outer class and can access its properties and methods. Inner classes are typically used when the nested class needs to access the state of the outer class.\n\n2. nested class: It is a class that is defined inside another class but does not have access to the outer class's members by default. A nested class is like a static class in Java and is independent of the outer class. Nested classes are commonly used for logical grouping and code organization.\n\nThe choice between inner and nested classes depends on whether the nested class needs to access the outer class's members or not.",
+    "difficulty": "Unknown",
+    "topCategory": "Kotlin",
+    "topCategoryId": 22,
+    "subCategory": "Unknown",
+    "subCategoryId": 0
+  },
+  {
+    "id": 228,
+    "question": "Kotlin advantages over Java",
+    "answer": "Kotlin offers several advantages over Java for Android development:\n\n1. Concise syntax: Kotlin has a more concise syntax, reducing boilerplate code and improving readability.\n2. Null safety: Kotlin's type system includes built-in null safety features, reducing the risk of null pointer exceptions.\n3. Coroutines: Kotlin provides native support for coroutines, making asynchronous programming easier and more efficient.\n4. Extension functions: Kotlin allows adding new functions to existing classes without modifying their source code.\n5. Smart casts: Kotlin's type system enables smart casts, reducing the need for explicit type checks and casts.\n\nThese are just a few examples of how Kotlin improves the Android development experience. Kotlin's interoperability with Java also makes it easy to migrate existing Java codebases to Kotlin.",
+    "difficulty": "Unknown",
+    "topCategory": "Kotlin",
+    "topCategoryId": 22,
+    "subCategory": "Unknown",
+    "subCategoryId": 0
+  },
+  {
+    "id": 229,
+    "question": "Open vs public",
+    "answer": "In Kotlin, 'open' and 'public' are access modifiers used to control the visibility and inheritance of classes and members:\n\n1. open: It is used to mark a class or a member as open, allowing it to be subclassed or overridden by other classes. By default, classes and members are final and cannot be overridden. The 'open' modifier promotes extensibility and inheritance.\n\n2. public: It is used to mark a class or a member as public, making it accessible from other classes and modules. Public visibility is the default visibility in Kotlin, and it allows unrestricted access to the class or member.\n\nThe choice between 'open' and 'public' depends on the desired visibility and extensibility of the class or member.",
+    "difficulty": "Unknown",
+    "topCategory": "Kotlin",
+    "topCategoryId": 22,
+    "subCategory": "Unknown",
+    "subCategoryId": 0
+  },
+  {
+    "id": 230,
     "question": "Inline functions",
-    "answer": "Inline functions are functions that are expanded at the call site. When you mark a function as `inline`, the compiler replaces the function call with the actual function body, eliminating the overhead of the function call. This can improve performance by reducing function call stack overhead and allowing more efficient optimizations. However, inline functions can increase the size of the compiled code, so they are best used for small functions or functions that are frequently called.",
-    "difficulty": "Easy",
+    "answer": "Inline functions are functions that are expanded at the call site. When you mark a function as 'inline', the compiler replaces the function call with the actual function body, eliminating the overhead of the function call. This can improve performance by reducing function call stack overhead and allowing more efficient optimizations. However, inline functions can increase the size of the compiled code, so they are best used for small functions or functions that are frequently called.",
+    "difficulty": "Unknown",
     "topCategory": "Kotlin",
-    "topCategoryId": 5,
+    "topCategoryId": 22,
     "subCategory": "Unknown",
     "subCategoryId": 0
   },
   {
-    "id": 53,
-    "question": "Inline classes",
-    "answer": "Inline classes are a feature in Kotlin that allow you to define lightweight wrapper classes. An inline class is defined using the `inline` modifier before the class declaration. Inline classes are used when you want to create a new type with minimal overhead, as the actual instances of the inline class are replaced by the underlying type at compile-time. This reduces memory overhead and runtime performance impact. Inline classes can only have a single property in their primary constructor, and they cannot have any inheritance relationships or implement interfaces. They are useful for creating type-safe wrappers around simple types and improving code readability and type safety.",
-    "difficulty": "Easy",
+    "id": 231,
+    "question": "Unit vs nothing",
+    "answer": "In Kotlin, 'Unit' and 'Nothing' are special types with distinct purposes:\n\n1. Unit: It is the return type of a function that does not explicitly return any useful value. It is similar to 'void' in Java, but 'Unit' is an actual type with a single value, denoted by 'Unit'.\n\n2. Nothing: It is a type that represents a value that never exists. It is used to indicate that a function will never return normally, for example, a function that always throws an exception or enters an infinite loop.\n\nBoth 'Unit' and 'Nothing' play important roles in Kotlin's type system and help in expressing the intent and behavior of functions.",
+    "difficulty": "Unknown",
     "topCategory": "Kotlin",
-    "topCategoryId": 5,
+    "topCategoryId": 22,
     "subCategory": "Unknown",
     "subCategoryId": 0
   },
   {
-    "id": 54,
+    "id": 232,
+    "question": "Scope functions",
+    "answer": "Kotlin provides several scope functions that allow you to execute a block of code in the context of an object. The scope functions are: 'let', 'run', 'with', 'apply', and 'also'. Each scope function has a different use case and provides a concise way to work with objects.\n\n1. let: It is used for scoping an object and performing some operation on it. It is often used for null-checking and data transformation.\n2. run: It is used for scoping an object and performing operations that do not require the return value. It is useful for initializing or configuring objects.\n3. with: It is used to perform operations on an object without the need for repeated references to the object.\n4. apply: It is used for scoping an object and performing initialization or configuration operations.\n5. also: It is used for additional actions that do not affect the object itself, such as logging or side effects.\n\nScope functions enhance the readability and maintainability of code by providing a clear and expressive way to work with objects.",
+    "difficulty": "Unknown",
+    "topCategory": "Kotlin",
+    "topCategoryId": 22,
+    "subCategory": "Unknown",
+    "subCategoryId": 0
+  },
+  {
+    "id": 233,
     "question": "Infix functions",
     "answer": "Infix functions are functions that can be called using the infix notation, which allows omitting the dot and parentheses for the call. Infix functions must meet the following requirements:\n\n- They must be member functions or extension functions.\n- They must have a single parameter.\n- The parameter must not accept a variable number of arguments and must have no default value.\n\nUsing infix functions can make the code more readable and concise, especially when working with DSL-like constructs or defining domain-specific languages (DSLs) in Kotlin.",
-    "difficulty": "Easy",
+    "difficulty": "Unknown",
     "topCategory": "Kotlin",
-    "topCategoryId": 5,
+    "topCategoryId": 22,
+    "subCategory": "Unknown",
+    "subCategoryId": 0
+  },
+  {
+    "id": 234,
+    "question": "Inline classes",
+    "answer": "Inline classes are a feature in Kotlin that allow you to define lightweight wrapper classes. An inline class is defined using the 'inline' modifier before the class declaration. Inline classes are used when you want to create a new type with minimal overhead, as the actual instances of the inline class are replaced by the underlying type at compile-time. This reduces memory overhead and runtime performance impact. Inline classes can only have a single property in their primary constructor, and they cannot have any inheritance relationships or implement interfaces. They are useful for creating type-safe wrappers around simple types and improving code readability and type safety.",
+    "difficulty": "Unknown",
+    "topCategory": "Kotlin",
+    "topCategoryId": 22,
     "subCategory": "Unknown",
     "subCategoryId": 0
   }

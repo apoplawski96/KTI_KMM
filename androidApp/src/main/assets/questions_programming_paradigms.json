@@ -5,6 +5,116 @@
     "answer": "In imperative programming, you write instructions to explicitly state how to achieve a certain result. You specify each step and the order in which they should be executed. In declarative programming, you describe the desired outcome or result, and the programming language takes care of determining how to achieve that result. You specify what should be done, but not necessarily how it should be done. Declarative programming is often more concise and focuses on the end goal rather than the specific implementation details.",
     "difficulty": "Easy",
     "topCategory": "Programming Paradigms",
+    "topCategoryId": 20,
+    "subCategory": "Unknown",
+    "subCategoryId": 0
+  },
+  {
+    "id": 198,
+    "question": "Rest API principles",
+    "answer": "REST (Representational State Transfer) is an architectural style for designing networked applications. The key principles of REST API are:\n\n1. Stateless: Each request from a client to the server must contain all the information needed to understand and process the request. The server should not store any client context between requests.\n\n2. Client-Server Architecture: The client and server are separate entities that communicate over a network. The client is responsible for the user interface and user experience, while the server is responsible for processing requests and managing resources.\n\n3. Uniform Interface: The API should have a consistent and uniform interface to interact with resources. This includes the use of standard HTTP methods like GET, POST, PUT, DELETE, and standard data formats like JSON or XML.\n\n4. Resource-Based: Resources should be identified and exposed as URLs (Uniform Resource Locators). Each resource should have a unique URL, and the server should use these URLs to manage and manipulate resources.\n\n5. Stateless Communication: Each request from a client to a server must contain all the information needed to understand and process the request. The server should not store any client context between requests.\n\n6. Cacheable: Responses from the server should be explicitly marked as cacheable or non-cacheable to improve performance and reduce the number of requests.\n\n7. Layered System: The architecture should be designed in layers, where each layer has a specific responsibility and interacts with adjacent layers in a defined way. This allows for better scalability and separation of concerns.\n",
+    "difficulty": "Unknown",
+    "topCategory": "Programming Paradigms",
+    "topCategoryId": 20,
+    "subCategory": "Unknown",
+    "subCategoryId": 0
+  },
+  {
+    "id": 199,
+    "question": "Clean architecture - describe it",
+    "answer": "Clean Architecture is a software architecture pattern that emphasizes separation of concerns and independent layers. It was introduced by Robert C. Martin (Uncle Bob) and aims to create a flexible and maintainable codebase by following the SOLID principles. Clean Architecture consists of several layers, each with its own specific responsibilities and dependencies:\n\n1. Entities: The innermost layer representing the core business logic and business rules. It contains enterprise-wide business rules and should not be affected by external changes.\n\n2. Use Cases (Interactors): This layer contains application-specific business rules and coordinates the data flow between the Entities and the Interface Adapters. It contains application-specific business rules and orchestrates the data flow between different layers.\n\n3. Interface Adapters: This layer adapts the data from the Use Cases layer to the outside world. It translates data between the use cases and the external systems, such as databases or web frameworks.\n\n4. Frameworks & Drivers: The outermost layer containing all the external systems and tools. It includes the UI, web frameworks, databases, and other frameworks. This layer should be kept separate from the core business logic to keep the application independent of external technologies.\n\nThe key benefits of Clean Architecture include maintainability, testability, scalability, and flexibility to change external dependencies without affecting the core business logic.",
+    "difficulty": "Unknown",
+    "topCategory": "Programming Paradigms",
+    "topCategoryId": 20,
+    "subCategory": "Unknown",
+    "subCategoryId": 0
+  },
+  {
+    "id": 200,
+    "question": "Composition over inheritance",
+    "answer": "Composition over inheritance is a principle in object-oriented programming that suggests favoring composition (object composition) over inheritance to achieve code reuse and flexibility in the design of classes. Instead of inheriting behavior from parent classes, a class should be composed of objects that implement the desired behavior. This approach provides more flexibility and reduces tight coupling between classes, making it easier to modify and extend the behavior of a class without affecting other classes in the hierarchy. Composition allows for a more modular and flexible codebase, and it is often preferred in modern software design.",
+    "difficulty": "Unknown",
+    "topCategory": "Programming Paradigms",
+    "topCategoryId": 20,
+    "subCategory": "Unknown",
+    "subCategoryId": 0
+  },
+  {
+    "id": 201,
+    "question": "Interface segregation principle",
+    "answer": "The Interface Segregation Principle is one of the SOLID principles of object-oriented design. It states that a class should not be forced to implement interfaces it does not use. In other words, a class should have only the methods that are relevant to its behavior, and it should not be obligated to implement unnecessary methods from an interface. By adhering to this principle, we can create more cohesive and focused interfaces that better represent the responsibilities of the classes that implement them. This helps to avoid interface pollution and makes the system more maintainable and flexible.",
+    "difficulty": "Unknown",
+    "topCategory": "Programming Paradigms",
+    "topCategoryId": 20,
+    "subCategory": "Unknown",
+    "subCategoryId": 0
+  },
+  {
+    "id": 202,
+    "question": "Dependency injection",
+    "answer": "Dependency Injection (DI) is a design pattern used to implement Inversion of Control (IoC) in software applications. It is a process in which the dependencies of a class (i.e., objects that a class relies on to perform its tasks) are provided from the outside rather than being created within the class itself. DI helps to decouple classes and makes them more independent and easier to test. There are three common types of DI:\n\n1. Constructor Injection: Dependencies are provided through a class constructor.\n2. Method Injection: Dependencies are provided through class methods.\n3. Property Injection: Dependencies are provided through public properties or setters.\n\nBy using DI, classes can be more modular, maintainable, and testable. It allows for better separation of concerns and promotes the Single Responsibility Principle.",
+    "difficulty": "Unknown",
+    "topCategory": "Programming Paradigms",
+    "topCategoryId": 20,
+    "subCategory": "Unknown",
+    "subCategoryId": 0
+  },
+  {
+    "id": 203,
+    "question": "Dependency inversion principle",
+    "answer": "The Dependency Inversion Principle (DIP) is one of the SOLID principles of object-oriented design. It states that high-level modules should not depend on low-level modules. Both should depend on abstractions. In other words, the classes should depend on abstract interfaces rather than concrete implementations. By adhering to this principle, we can achieve a flexible and maintainable codebase. Changes in high-level modules won't affect low-level modules, and it becomes easier to introduce new implementations of dependencies without changing the high-level classes.",
+    "difficulty": "Unknown",
+    "topCategory": "Programming Paradigms",
+    "topCategoryId": 20,
+    "subCategory": "Unknown",
+    "subCategoryId": 0
+  },
+  {
+    "id": 204,
+    "question": "Clean code",
+    "answer": "Clean code refers to writing code that is easy to read, understand, and maintain. It follows best practices, adheres to coding standards, and is well-organized. Clean code is not just about achieving the correct functionality; it also focuses on making the codebase readable and maintainable for the development team. Some key principles of clean code include meaningful and descriptive naming, keeping functions small and focused, avoiding code duplication, and writing self-documenting code. Clean code is essential for the long-term success of a project and helps in reducing technical debt.",
+    "difficulty": "Unknown",
+    "topCategory": "Programming Paradigms",
+    "topCategoryId": 20,
+    "subCategory": "Unknown",
+    "subCategoryId": 0
+  },
+  {
+    "id": 205,
+    "question": "Open closed principle",
+    "answer": "The Open/Closed Principle (OCP) is one of the SOLID principles of object-oriented design. It states that software entities (classes, modules, functions) should be open for extension but closed for modification. In other words, the behavior of a class should be extendable without modifying its source code. New functionality should be added by adding new code rather than changing existing code. By adhering to this principle, the system becomes more robust and flexible to change without affecting existing code. The use of interfaces and abstract classes plays a crucial role in achieving the Open/Closed Principle.",
+    "difficulty": "Unknown",
+    "topCategory": "Programming Paradigms",
+    "topCategoryId": 20,
+    "subCategory": "Unknown",
+    "subCategoryId": 0
+  },
+  {
+    "id": 206,
+    "question": "What is API?",
+    "answer": "API stands for Application Programming Interface. It is a set of rules and protocols that allows different software applications to communicate and interact with each other. APIs define the methods and data formats that applications can use to request and exchange information. APIs are essential for enabling integration between different systems and services, allowing them to work together and share data. In web development, APIs are often used to enable communication between client-side applications (e.g., web or mobile apps) and server-side applications or web services. APIs can be based on various protocols, such as HTTP/HTTPS, REST, SOAP, GraphQL, etc.",
+    "difficulty": "Unknown",
+    "topCategory": "Programming Paradigms",
+    "topCategoryId": 20,
+    "subCategory": "Unknown",
+    "subCategoryId": 0
+  },
+  {
+    "id": 207,
+    "question": "Liskov substitution principle",
+    "answer": "The Liskov Substitution Principle (LSP) is one of the SOLID principles of object-oriented design. It states that objects of a superclass should be replaceable with objects of its subclasses without affecting the correctness of the program. In other words, the subclasses must be able to substitute for their base classes without introducing errors or unexpected behavior. This principle ensures that the behavior of the base class is preserved in its subclasses and that the program's logic remains consistent. Adhering to LSP promotes code reuse and helps in creating a more flexible and maintainable codebase.",
+    "difficulty": "Unknown",
+    "topCategory": "Programming Paradigms",
+    "topCategoryId": 20,
+    "subCategory": "Unknown",
+    "subCategoryId": 0
+  },
+  {
+    "id": 197,
+    "question": "Difference between reactive and imperative programming",
+    "answer": "Reactive programming and imperative programming are two different programming paradigms.\n\n1. Imperative Programming:\nImperative programming is a programming paradigm that focuses on describing how a program operates by specifying the steps that the computer must take to achieve a certain result. It is based on giving explicit instructions or commands to the computer, which are executed in order.\n\n2. Reactive Programming:\nReactive programming, on the other hand, is a programming paradigm that focuses on data flows and the propagation of change. It is based on the concept of streams of data, where changes in data are automatically propagated to dependent components or functions without requiring explicit instructions.\n\nKey Differences:\n- In imperative programming, the focus is on the step-by-step procedure to achieve a result, while in reactive programming, the focus is on data flows and how changes are propagated.\n- Imperative programming is generally sequential and relies on mutable state, whereas reactive programming is declarative and often based on immutable data.\n- Reactive programming allows for better handling of asynchronous and event-driven scenarios, making it suitable for handling real-time data streams and user interfaces.\n- Imperative programming can be more straightforward for small, simple tasks, while reactive programming excels in handling complex and dynamic data flows.\n",
+    "difficulty": "Unknown",
+    "topCategory": "Programming Paradigms",
     "topCategoryId": 2,
     "subCategory": "Unknown",
     "subCategoryId": 0

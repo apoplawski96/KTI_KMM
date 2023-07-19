@@ -1,0 +1,103 @@
+[
+  {
+    "id": 235,
+    "question": "What is Git?",
+    "answer": "Git is a distributed version control system used to track changes in source code during software development. It allows multiple developers to collaborate on a project and provides features such as version history, branching, merging, and conflict resolution. Git is widely used in the software development industry to manage code repositories efficiently and to track the evolution of a project over time.",
+    "difficulty": "Unknown",
+    "topCategory": "GIT",
+    "topCategoryId": 23,
+    "subCategory": "Unknown",
+    "subCategoryId": 0
+  },
+  {
+    "id": 236,
+    "question": "What is a repository in Git?",
+    "answer": "In Git, a repository is a data structure that stores the version history and metadata of a project. It acts as a central storage location for all the files and directories that make up the project, along with information about when and how they were changed. A repository in Git allows developers to collaborate, share code, and track changes in the project over time.",
+    "difficulty": "Unknown",
+    "topCategory": "GIT",
+    "topCategoryId": 23,
+    "subCategory": "Unknown",
+    "subCategoryId": 0
+  },
+  {
+    "id": 237,
+    "question": "What is a commit in Git?",
+    "answer": "A commit in Git represents a snapshot of the changes made to the files in a repository at a specific point in time. When you make changes to the files in your project, you can create a commit to save those changes to the Git repository. Each commit has a unique identifier and includes information about the changes made, the author of the commit, and the time when it was created. Commits are an essential part of version control in Git and allow you to track the history of your project and collaborate with other developers.",
+    "difficulty": "Unknown",
+    "topCategory": "GIT",
+    "topCategoryId": 23,
+    "subCategory": "Unknown",
+    "subCategoryId": 0
+  },
+  {
+    "id": 238,
+    "question": "What is a branch in Git?",
+    "answer": "In Git, a branch is a lightweight movable pointer to a specific commit. It represents an independent line of development and allows you to work on different features or bug fixes without affecting the main codebase. Branches are useful for organizing and isolating work in progress. When you create a new branch, it starts as a copy of the commit you are currently on, and any new commits you create will be added to that branch. Branches in Git are easy to create, merge, and delete, making them a powerful feature for managing code development.",
+    "difficulty": "Unknown",
+    "topCategory": "GIT",
+    "topCategoryId": 23,
+    "subCategory": "Unknown",
+    "subCategoryId": 0
+  },
+  {
+    "id": 239,
+    "question": "What is the difference between 'git pull' and 'git fetch'?",
+    "answer": "Both 'git pull' and 'git fetch' are used to update a local repository with changes from a remote repository, but they work differently:\n\n- git pull: It fetches changes from the remote repository and automatically tries to merge them with the current branch. It is a combination of 'git fetch' and 'git merge'. If there are conflicts during the merge, you need to resolve them before the changes are committed.\n\n- git fetch: It fetches changes from the remote repository but does not automatically merge them with the current branch. It only updates the remote tracking branches. You can review the changes and decide how to integrate them into your local branch, such as using 'git merge' or 'git rebase'.",
+    "difficulty": "Unknown",
+    "topCategory": "GIT",
+    "topCategoryId": 23,
+    "subCategory": "Unknown",
+    "subCategoryId": 0
+  },
+  {
+    "id": 240,
+    "question": "What is the difference between 'git merge' and 'git rebase'?",
+    "answer": "Both 'git merge' and 'git rebase' are used to integrate changes from one branch into another, but they work differently:\n\n- git merge: It combines the changes from one branch into another branch by creating a new commit. The new commit represents the merge result and has two parent commits. The merge commit shows that the branches have been merged and allows you to preserve the history of both branches.\n\n- git rebase: It moves the changes from one branch to another by rewriting the commit history. The commits from the rebased branch are replayed on top of the target branch. This results in a linear history and avoids creating a merge commit. However, rebasing can lead to conflicts that need to be resolved for each commit in the rebased branch.",
+    "difficulty": "Unknown",
+    "topCategory": "GIT",
+    "topCategoryId": 23,
+    "subCategory": "Unknown",
+    "subCategoryId": 0
+  },
+  {
+    "id": 241,
+    "question": "What is a remote in Git?",
+    "answer": "In Git, a remote is a reference to a repository located on another server or on the same server but in a different directory. It allows you to interact with repositories hosted on services like GitHub, GitLab, or Bitbucket. When you clone a repository, Git automatically creates a remote named 'origin', which points to the remote repository you cloned from. Remotes are essential for collaborating with other developers, pushing and pulling changes, and keeping your local repository in sync with the remote repository.",
+    "difficulty": "Unknown",
+    "topCategory": "GIT",
+    "topCategoryId": 23,
+    "subCategory": "Unknown",
+    "subCategoryId": 0
+  },
+  {
+    "id": 242,
+    "question": "What is a pull request in Git?",
+    "answer": "A pull request in Git is a request to merge changes from one branch into another branch. It is typically used when working with remote repositories, such as those hosted on GitHub or GitLab. After making changes in a feature branch, you create a pull request to propose the changes for review and merging into the main branch. Pull requests provide a collaborative code review process, allowing other developers to review the changes, leave comments, and discuss any potential issues before the merge is performed.",
+    "difficulty": "Unknown",
+    "topCategory": "GIT",
+    "topCategoryId": 23,
+    "subCategory": "Unknown",
+    "subCategoryId": 0
+  },
+  {
+    "id": 243,
+    "question": "What is a git stash?",
+    "answer": "In Git, 'git stash' is a command used to temporarily store changes that are not ready to be committed. It allows you to save the current state of your working directory, including both staged and unstaged changes, without creating a commit. This is useful when you need to switch to a different branch or perform some other operation without committing the current changes. Later, you can apply the stashed changes back to your working directory using 'git stash apply' or 'git stash pop'. Stashing is a handy way to save your work in progress and switch between different tasks or branches.",
+    "difficulty": "Unknown",
+    "topCategory": "GIT",
+    "topCategoryId": 23,
+    "subCategory": "Unknown",
+    "subCategoryId": 0
+  },
+  {
+    "id": 244,
+    "question": "What is gitignore?",
+    "answer": "A .gitignore file is used in Git to specify which files and directories should be ignored and not tracked by the version control system. When you add files or directories to the .gitignore file, Git will not include them in the staging area, and they will not be part of the commits. This is helpful for excluding build artifacts, temporary files, IDE-specific files, and sensitive information from being committed to the repository. Keeping a well-maintained .gitignore file is essential for maintaining a clean and focused repository.",
+    "difficulty": "Unknown",
+    "topCategory": "GIT",
+    "topCategoryId": 23,
+    "subCategory": "Unknown",
+    "subCategoryId": 0
+  }
+
+]

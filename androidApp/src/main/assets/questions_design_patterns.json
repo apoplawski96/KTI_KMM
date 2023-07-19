@@ -5,7 +5,77 @@
     "answer": "The Singleton design pattern is a creational design pattern that restricts the instantiation of a class to a single instance and provides a global point of access to that instance. It ensures that only one instance of the class exists throughout the application and provides a way to access that instance globally. The Singleton pattern is commonly used in scenarios where a single object needs to coordinate actions across the system.",
     "difficulty": "Easy",
     "topCategory": "Design Patterns",
-    "topCategoryId": 3,
+    "topCategoryId": 21,
+    "subCategory": "Unknown",
+    "subCategoryId": 0
+  },
+  {
+    "id": 208,
+    "question": "State design pattern",
+    "answer": "The State design pattern is a behavioral design pattern that allows an object to change its behavior when its internal state changes. It enables an object to alter its behavior when the internal state changes, without changing its class. The State pattern is particularly useful in scenarios where an object's behavior varies based on its internal state, and the object needs to transition between different states smoothly. By using the State pattern, the complexity of state transitions is encapsulated within the state classes, promoting clean code and making it easier to add new states or modify existing ones.",
+    "difficulty": "Unknown",
+    "topCategory": "Design Patterns",
+    "topCategoryId": 21,
+    "subCategory": "Unknown",
+    "subCategoryId": 0
+  },
+  {
+    "id": 209,
+    "question": "Decorator design pattern",
+    "answer": "The Decorator design pattern is a structural design pattern that allows behavior to be added to an individual object, either statically or dynamically, without affecting the behavior of other objects from the same class. It is used to extend the functionality of objects at runtime by wrapping them with additional behavior. The Decorator pattern promotes the principle of Open/Closed, as it allows new behavior to be added to objects without modifying their code. This pattern is particularly useful when you have a set of classes with many possible combinations of features, and you want to avoid a class explosion.",
+    "difficulty": "Unknown",
+    "topCategory": "Design Patterns",
+    "topCategoryId": 21,
+    "subCategory": "Unknown",
+    "subCategoryId": 0
+  },
+  {
+    "id": 210,
+    "question": "MVP vs MVVM",
+    "answer": "MVP (Model-View-Presenter) and MVVM (Model-View-ViewModel) are two common architectural patterns used in Android development:\n\nMVP:\n- Model-View-Presenter separates the responsibilities of an Android component into three parts: Model, View, and Presenter.\n- Model represents the data and business logic.\n- View displays the data and notifies the Presenter of user actions.\n- Presenter acts as an intermediary between the Model and View, handling user interactions and updating the View based on the data from the Model.\n\nMVVM:\n- Model-View-ViewModel is a more recent pattern and has become popular due to its data-binding capabilities in frameworks like Android's Data Binding Library and Jetpack Compose.\n- Model represents the data and business logic.\n- View is responsible for displaying data and user interface elements.\n- ViewModel is a mediator between the Model and View, exposing data and behaviors to the View via data-binding.\n\nBoth patterns aim to separate concerns, making the code more maintainable and testable. The choice between MVP and MVVM often depends on the specific needs of the project and the development team's preferences.",
+    "difficulty": "Unknown",
+    "topCategory": "Design Patterns",
+    "topCategoryId": 21,
+    "subCategory": "Unknown",
+    "subCategoryId": 0
+  },
+  {
+    "id": 211,
+    "question": "Facade design pattern",
+    "answer": "The Facade design pattern is a structural design pattern that provides a simplified interface to a complex system of classes, libraries, or APIs. It acts as a unified and higher-level interface, making it easier for clients to interact with the subsystem. By using the Facade pattern, clients can access the functionalities of a complex system without needing to understand its internal complexities. The Facade pattern promotes loose coupling and encapsulation, as clients only interact with the facade interface without directly accessing the underlying components.",
+    "difficulty": "Unknown",
+    "topCategory": "Design Patterns",
+    "topCategoryId": 21,
+    "subCategory": "Unknown",
+    "subCategoryId": 0
+  },
+  {
+    "id": 212,
+    "question": "Types of design patterns with examples",
+    "answer": "Design patterns are typically categorized into three main types:\n\n1. Creational Design Patterns: These patterns focus on object creation mechanisms and provide ways to create objects in a manner suitable for the situation.\nExample: Singleton, Factory Method, Builder.\n\n2. Structural Design Patterns: These patterns deal with the composition of classes and objects to form larger structures.\nExample: Adapter, Decorator, Facade.\n\n3. Behavioral Design Patterns: These patterns focus on communication and interaction between objects.\nExample: Observer, Strategy, Command.\n\nEach type of design pattern addresses specific design problems and helps in achieving various software design goals, such as flexibility, extensibility, and maintainability.",
+    "difficulty": "Unknown",
+    "topCategory": "Design Patterns",
+    "topCategoryId": 21,
+    "subCategory": "Unknown",
+    "subCategoryId": 0
+  },
+  {
+    "id": 213,
+    "question": "Strategy design pattern",
+    "answer": "The Strategy design pattern is a behavioral design pattern that allows selecting an algorithm at runtime from a family of interchangeable algorithms. It enables clients to choose from multiple algorithms dynamically without affecting the client code. In this pattern, the algorithms are encapsulated in separate classes that implement a common interface. The client code can switch between different strategies by setting a specific strategy at runtime. The Strategy pattern promotes flexibility and avoids code duplication by separating the algorithm from the client code.",
+    "difficulty": "Unknown",
+    "topCategory": "Design Patterns",
+    "topCategoryId": 21,
+    "subCategory": "Unknown",
+    "subCategoryId": 0
+  },
+  {
+    "id": 214,
+    "question": "Most popular design patterns in Android",
+    "answer": "Several design patterns are widely used in Android development:\n\n1. Singleton: Used to ensure that a class has only one instance and provides a global point of access to that instance.\n\n2. Observer: Used to implement event handling and communication between components.\n\n3. Adapter: Used to convert one interface into another, allowing incompatible classes to work together.\n\n4. Builder: Used to construct complex objects step by step.\n\n5. Factory Method: Used to create objects without specifying the exact class of the object that will be created.\n\n6. MVP (Model-View-Presenter) and MVVM (Model-View-ViewModel): Architectural patterns used to separate concerns and make the code more maintainable.\n\nThese patterns are just a few examples of how design patterns can be applied to solve common problems in Android development. Understanding and utilizing these patterns can lead to more efficient and maintainable Android applications.",
+    "difficulty": "Unknown",
+    "topCategory": "Design Patterns",
+    "topCategoryId": 21,
     "subCategory": "Unknown",
     "subCategoryId": 0
   }
