@@ -128,5 +128,165 @@
     "topCategoryId": 22,
     "subCategory": "Unknown",
     "subCategoryId": 0
+  },
+  {
+    "id": 300,
+    "question": "Describe null safety",
+    "answer": "Null safety is a feature in Kotlin that helps prevent null pointer exceptions by distinguishing between nullable and non-nullable types. In Kotlin, a variable of a non-nullable type cannot hold a null value, and the compiler enforces this at compile-time. To represent the possibility of null, you need to use a nullable type denoted by adding a '?' to the type (e.g., 'String?' instead of 'String'). This encourages developers to handle null values explicitly, reducing the likelihood of runtime null pointer exceptions.",
+    "difficulty": "Unknown",
+    "topCategory": "Kotlin",
+    "topCategoryId": 22,
+    "subCategory": "Unknown",
+    "subCategoryId": 0
+  },
+  {
+    "id": 301,
+    "question": "Extension functions",
+    "answer": "Extension functions allow you to add new functionality to existing classes without modifying their source code. They are defined outside the class and provide a way to extend the behavior of classes from external libraries or the standard library. Extension functions are called as if they were methods of the extended class, but they do not actually modify the class itself. This makes it easy to enhance the capabilities of classes without the need for inheritance or delegation. Extension functions are a powerful feature of Kotlin that promotes clean and concise code.",
+    "difficulty": "Unknown",
+    "topCategory": "Kotlin",
+    "topCategoryId": 22,
+    "subCategory": "Unknown",
+    "subCategoryId": 0
+  },
+  {
+    "id": 302,
+    "question": "Checked exceptions",
+    "answer": "Unlike Java, Kotlin does not have checked exceptions. Checked exceptions are exceptions that must be either caught or declared in the method signature using the 'throws' keyword in Java. Kotlin uses unchecked exceptions, which means that you don't need to specify or handle exceptions in the function signature unless they are runtime exceptions. This decision was made to improve code readability and make exception handling more flexible and less cumbersome.",
+    "difficulty": "Unknown",
+    "topCategory": "Kotlin",
+    "topCategoryId": 22,
+    "subCategory": "Unknown",
+    "subCategoryId": 0
+  },
+  {
+    "id": 303,
+    "question": "Smart casts",
+    "answer": "Smart casts are a feature in Kotlin that allow the compiler to automatically cast a variable after a type check. For example, if you check that a variable is of a specific type, the compiler automatically casts it to that type in the subsequent block of code. This eliminates the need for explicit type casting and makes the code more concise and readable. Smart casts work with 'is' checks for non-nullable types and 'is' and 'as?' checks for nullable types.",
+    "difficulty": "Unknown",
+    "topCategory": "Kotlin",
+    "topCategoryId": 22,
+    "subCategory": "Unknown",
+    "subCategoryId": 0
+  },
+  {
+    "id": 304,
+    "question": "Type inference",
+    "answer": "Type inference is a feature in Kotlin that allows the compiler to automatically determine the type of a variable based on its initializer expression. When you declare a variable without specifying its type, the compiler infers the type from the context in which the variable is used. This makes the code more concise and reduces the need for explicit type declarations. Type inference works well in most cases, but you can also specify the type explicitly when needed.",
+    "difficulty": "Unknown",
+    "topCategory": "Kotlin",
+    "topCategoryId": 22,
+    "subCategory": "Unknown",
+    "subCategoryId": 0
+  },
+  {
+    "id": 305,
+    "question": "Functional programming",
+    "answer": "Functional programming is a programming paradigm that treats computation as the evaluation of mathematical functions and avoids changing state and mutable data. In Kotlin, functional programming is supported through lambda expressions, higher-order functions, and the use of immutable data structures. Functional programming promotes the use of pure functions that do not have side effects and are independent of the state of the program. This leads to more predictable and easier-to-maintain code.",
+    "difficulty": "Unknown",
+    "topCategory": "Kotlin",
+    "topCategoryId": 22,
+    "subCategory": "Unknown",
+    "subCategoryId": 0
+  },
+  {
+    "id": 306,
+    "question": "Destructuring declarations",
+    "answer": "Destructuring declarations in Kotlin allow you to break a data structure like a data class, tuple, or other object into its individual components and assign them to separate variables in a concise way. For example, you can extract properties of a data class or elements of a list directly into separate variables using destructuring declarations. This feature simplifies working with data structures and improves the readability of your code.",
+    "difficulty": "Unknown",
+    "topCategory": "Kotlin",
+    "topCategoryId": 22,
+    "subCategory": "Unknown",
+    "subCategoryId": 0
+  },
+  {
+    "id": 307,
+    "question": "Basic data types",
+    "answer": "Kotlin provides several basic data types, including:\n\n- Int: 32-bit integer\n- Long: 64-bit integer\n- Short: 16-bit integer\n- Byte: 8-bit integer\n- Float: 32-bit floating-point number\n- Double: 64-bit floating-point number\n- Char: 16-bit Unicode character\n- Boolean: true or false\n\nKotlin also has special classes for representing nullable versions of these types (e.g., Int? for a nullable integer).",
+    "difficulty": "Unknown",
+    "topCategory": "Kotlin",
+    "topCategoryId": 22,
+    "subCategory": "Unknown",
+    "subCategoryId": 0
+  },
+  {
+    "id": 308,
+    "question": "What is coroutine scope and how is it different from coroutine context?",
+    "answer": "Coroutine scope in Kotlin is an interface provided by the CoroutineScope class, which defines the lifetime of coroutines. It is used to launch coroutines and manages their lifecycle. Coroutine scope defines the context in which a coroutine runs, including the coroutine dispatcher and other configuration parameters.\n\nOn the other hand, coroutine context is a set of elements that define the behavior and configuration of a coroutine. It includes the coroutine dispatcher, job, exception handler, and other context elements. Coroutine context is immutable, and new context elements can be added to it using the 'plus' operator.\n\nIn summary, coroutine scope is a higher-level concept that manages the lifecycle of coroutines, while coroutine context is a lower-level concept that defines the specific behavior and configuration of a coroutine.",
+    "difficulty": "Unknown",
+    "topCategory": "Kotlin",
+    "topCategoryId": 22,
+    "subCategory": "Unknown",
+    "subCategoryId": 0
+  },
+  {
+    "id": 309,
+    "question": "Compare coroutines to RxJava",
+    "answer": "Both coroutines and RxJava are used for asynchronous programming and handling streams of data. However, there are some key differences between the two:\n\n1. Syntax: Coroutines use native language constructs like suspend functions and structured concurrency, making the code more readable and less boilerplate compared to RxJava's functional-style syntax.\n2. Learning Curve: Coroutines have a lower learning curve for developers familiar with Kotlin, as they are a part of the language itself, whereas RxJava introduces new concepts and operators.\n3. Error Handling: Coroutines use regular try-catch blocks for error handling, while RxJava has built-in operators for handling errors in the stream.\n4. Performance: Coroutines are generally considered more lightweight and efficient than RxJava, as they use fewer abstractions and run on fewer threads by default.\n\nThe choice between coroutines and RxJava depends on the specific requirements and familiarity of the development team.",
+    "difficulty": "Unknown",
+    "topCategory": "Kotlin",
+    "topCategoryId": 22,
+    "subCategory": "Unknown",
+    "subCategoryId": 0
+  },
+  {
+    "id": 310,
+    "question": "Difference between launch/join and async/await",
+    "answer": "In Kotlin coroutines, 'launch' and 'async' are two ways to start a coroutine:\n\n1. launch: It launches a coroutine and returns a Job immediately without any result. It is suitable for fire-and-forget operations, as there is no need to wait for a result.\n2. async: It launches a coroutine that computes a result and returns a Deferred object, which is a lightweight non-blocking future. You can use 'await' on the Deferred to suspend and wait for the result.\n\n'join' is used to wait for a specific coroutine to complete, while 'await' is used to wait for the result of a deferred computation.\n\nIn summary, 'launch' is used for fire-and-forget tasks, 'async' is used for computing a result, and 'join' and 'await' are used to wait for coroutines to complete or retrieve their results.",
+    "difficulty": "Unknown",
+    "topCategory": "Kotlin",
+    "topCategoryId": 22,
+    "subCategory": "Unknown",
+    "subCategoryId": 0
+  },
+  {
+    "id": 311,
+    "question": "Does coroutine run in a single thread?",
+    "answer": "No, coroutines in Kotlin can run in multiple threads. By default, coroutines are not bound to any specific thread and can be executed on different threads depending on the context and coroutine dispatcher used. The coroutine dispatcher determines the execution context of the coroutine. For example, using 'Dispatchers.IO' will execute the coroutine in a thread pool optimized for I/O tasks, while using 'Dispatchers.Main' will run the coroutine on the main/UI thread.\n\nHowever, suspending functions in coroutines are non-blocking and allow the underlying thread to be released during the suspension, preventing it from being blocked and making more efficient use of threads.",
+    "difficulty": "Unknown",
+    "topCategory": "Kotlin",
+    "topCategoryId": 22,
+    "subCategory": "Unknown",
+    "subCategoryId": 0
+  },
+  {
+    "id": 312,
+    "question": "What are some data class built-in methods?",
+    "answer": "Data classes in Kotlin automatically generate certain methods, which are commonly used for working with data:\n\n1. toString(): This method returns a string representation of the object's properties.\n2. equals(): This method compares two objects based on their property values.\n3. hashCode(): This method generates a hash code based on the object's properties.\n4. copy(): This method creates a copy of the object with optional changes to some properties.\n\nThese built-in methods make it convenient to work with data classes without having to manually implement these functionalities.",
+    "difficulty": "Unknown",
+    "topCategory": "Kotlin",
+    "topCategoryId": 22,
+    "subCategory": "Unknown",
+    "subCategoryId": 0
+  },
+  {
+    "id": 313,
+    "question": "What are sealed classes?",
+    "answer": "Sealed classes in Kotlin are a special type of class that represents restricted class hierarchies. A sealed class can have a limited number of subclasses, which must be defined within the same file as the sealed class itself. The subclasses of a sealed class are typically used to represent different states or variants of a particular type.\n\nThe main benefit of sealed classes is that they provide exhaustive handling in when expressions. Since all subclasses are known and limited, the compiler can ensure that all possible cases are handled, making the code more robust and less prone to runtime errors.",
+    "difficulty": "Unknown",
+    "topCategory": "Kotlin",
+    "topCategoryId": 22,
+    "subCategory": "Unknown",
+    "subCategoryId": 0
+  },
+  {
+    "id": 314,
+    "question": "What is init block?",
+    "answer": "In Kotlin, the 'init' block is an initializer block that is part of a class. It is executed when an instance of the class is created, immediately after the primary constructor. The 'init' block allows you to perform initialization tasks or other actions that need to be executed when an object is constructed.\n\nThe 'init' block is useful for setting up initial state, performing checks, or executing any code that should run when an object is created. You can have multiple 'init' blocks in a class, and they are executed in the order they appear in the class.",
+    "difficulty": "Unknown",
+    "topCategory": "Kotlin",
+    "topCategoryId": 22,
+    "subCategory": "Unknown",
+    "subCategoryId": 0
+  },
+  {
+    "id": 315,
+    "question": "Purpose of companion objects",
+    "answer": "In Kotlin, a companion object is an object declared within a class that is similar to static fields and methods in Java. It allows you to define members that are associated with the class itself, rather than with instances of the class. The companion object is defined using the 'companion' keyword.\n\nThe purpose of companion objects is to provide a way to define static members that are specific to a class. This can be useful for creating factory methods, defining constants, or implementing the Singleton pattern. The members defined in the companion object can be accessed directly using the class name, similar to static members in Java.",
+    "difficulty": "Unknown",
+    "topCategory": "Kotlin",
+    "topCategoryId": 22,
+    "subCategory": "Unknown",
+    "subCategoryId": 0
   }
 ]

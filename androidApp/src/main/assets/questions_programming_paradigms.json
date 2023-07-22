@@ -118,5 +118,25 @@
     "topCategoryId": 2,
     "subCategory": "Unknown",
     "subCategoryId": 0
+  },
+  {
+    "id": 325,
+    "question": "Single Responsibility Principle",
+    "answer": "The Single Responsibility Principle (SRP) is one of the five SOLID principles of object-oriented programming. It states that a class should have only one reason to change, meaning that a class should have only one responsibility or job within the application.\n\nBy adhering to the SRP, a class becomes more focused, cohesive, and maintainable. When a class has multiple responsibilities, changes in one area of the code can inadvertently affect other unrelated areas, making the code harder to understand and maintain.\n\nFollowing the SRP helps to keep classes small, focused, and flexible, allowing for easier changes and reducing the risk of introducing bugs due to unintended interactions between different responsibilities.",
+    "difficulty": "Unknown",
+    "topCategory": "Programming Paradigms",
+    "topCategoryId": 20,
+    "subCategory": "Unknown",
+    "subCategoryId": 0
+  },
+  {
+    "id": 326,
+    "question": "SOLID principles",
+    "answer": "SOLID is an acronym that represents a set of five object-oriented design principles aimed at creating robust, maintainable, and scalable software. The SOLID principles were introduced by Robert C. Martin and have become a fundamental part of object-oriented programming and software design.\n\nThe five SOLID principles are:\n\n1. Single Responsibility Principle (SRP): A class should have only one reason to change, meaning it should have only one responsibility.\n\n2. Open/Closed Principle (OCP): A class should be open for extension but closed for modification. This encourages adding new features through inheritance or composition rather than modifying existing code.\n\n3. Liskov Substitution Principle (LSP): Subtypes (derived classes) should be substitutable for their base types (parent classes) without affecting the correctness of the program.\n\n4. Interface Segregation Principle (ISP): Clients should not be forced to depend on interfaces they do not use. This encourages the use of specific, focused interfaces for different client needs.\n\n5. Dependency Inversion Principle (DIP): High-level modules should not depend on low-level modules. Both should depend on abstractions. Abstractions should not depend on details; details should depend on abstractions.\n\nBy adhering to these principles, developers can create more maintainable, flexible, and scalable codebases.",
+    "difficulty": "Unknown",
+    "topCategory": "Programming Paradigms",
+    "topCategoryId": 20,
+    "subCategory": "Unknown",
+    "subCategoryId": 0
   }
 ]

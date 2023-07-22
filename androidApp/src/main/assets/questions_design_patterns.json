@@ -78,5 +78,55 @@
     "topCategoryId": 21,
     "subCategory": "Unknown",
     "subCategoryId": 0
+  },
+  {
+    "id": 316,
+    "question": "Factory design pattern",
+    "answer": "The Factory design pattern is a creational pattern that provides an interface for creating objects in a super class but allows subclasses to alter the type of objects that will be created. It promotes loose coupling by eliminating the need for the client code to specify the exact class of the object that will be created. Instead, the factory method determines the class of the object to be instantiated based on certain conditions.\n\nThe Factory pattern is useful when there is a need to create multiple objects of similar types or when the exact class of the object to be created can vary depending on the application's logic.",
+    "difficulty": "Unknown",
+    "topCategory": "Design Patterns",
+    "topCategoryId": 21,
+    "subCategory": "Unknown",
+    "subCategoryId": 0
+  },
+  {
+    "id": 317,
+    "question": "Builder design pattern",
+    "answer": "The Builder design pattern is a creational pattern that separates the construction of a complex object from its representation. It allows the same construction process to create different representations of an object. The Builder pattern involves defining a separate Builder class that constructs the complex object step by step, and a Director class that controls the construction process.\n\nThe Builder pattern is useful when an object requires a large number of configuration options or parameters during construction, and having multiple constructors with different combinations of parameters would be cumbersome. By using the Builder pattern, the client code can construct objects with a clear and readable syntax.",
+    "difficulty": "Unknown",
+    "topCategory": "Design Patterns",
+    "topCategoryId": 21,
+    "subCategory": "Unknown",
+    "subCategoryId": 0
+  },
+  {
+    "id": 318,
+    "question": "Factory vs builder design pattern",
+    "answer": "The Factory and Builder design patterns are both creational patterns, but they serve different purposes:\n\n1. Factory Pattern: The Factory pattern is used to create objects of similar types, where the exact class of the object to be created is determined at runtime. It provides an interface for creating objects in a super class and allows subclasses to change the type of objects that will be created.\n\n2. Builder Pattern: The Builder pattern is used to construct complex objects step by step, separating the construction from the representation. It allows the same construction process to create different representations of the object.\n\nIn summary, the Factory pattern focuses on creating objects of similar types, while the Builder pattern focuses on constructing complex objects with flexible configuration options.",
+    "difficulty": "Unknown",
+    "topCategory": "Design Patterns",
+    "topCategoryId": 21,
+    "subCategory": "Unknown",
+    "subCategoryId": 0
+  },
+  {
+    "id": 319,
+    "question": "Facade design pattern",
+    "answer": "The Facade design pattern is a structural pattern that provides a simple and unified interface to a complex system or a set of interfaces in a subsystem. It acts as a high-level interface that makes the underlying system easier to use and understand for client code.\n\nThe main purpose of the Facade pattern is to provide a single entry point to access a set of functionalities or services. It hides the complexities of the subsystem from the client, simplifying the interactions and reducing dependencies between the client and the subsystem.\n\nThe Facade pattern is useful when there is a need to provide a simplified interface to a complex system or to reduce the coupling between the client and the subsystem.",
+    "difficulty": "Unknown",
+    "topCategory": "Design Patterns",
+    "topCategoryId": 21,
+    "subCategory": "Unknown",
+    "subCategoryId": 0
+  },
+  {
+    "id": 320,
+    "question": "Observer design pattern",
+    "answer": "The Observer design pattern is a behavioral pattern that establishes a one-to-many dependency between objects, where multiple observers (subscribers) are notified automatically of any state changes that occur in a subject (publisher).\n\nIn the Observer pattern, the subject maintains a list of its dependents (observers) and notifies them of any changes in its state. When the state of the subject changes, it broadcasts the notification to all registered observers, and each observer can react to the update accordingly.\n\nThe Observer pattern is useful in scenarios where there is a need for loose coupling between the subject and its observers, allowing for easy extensibility and flexibility in adding or removing observers.",
+    "difficulty": "Unknown",
+    "topCategory": "Design Patterns",
+    "topCategoryId": 21,
+    "subCategory": "Unknown",
+    "subCategoryId": 0
   }
 ]
