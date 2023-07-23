@@ -1,7 +1,4 @@
-@file:OptIn(
-    ExperimentalAnimationApi::class, ExperimentalAnimationApi::class,
-    ExperimentalAnimationApi::class
-)
+@file:OptIn(ExperimentalAnimationApi::class)
 
 package com.example.myapplication.android
 
