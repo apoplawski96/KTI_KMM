@@ -1,6 +1,6 @@
 package com.example.myapplication.domain
 
-import com.example.myapplication.QuestionSchema
+import com.example.myapplication.data.model.QuestionSchema
 import com.example.myapplication.model.DeprecatedCategory
 import com.example.myapplication.model.Difficulty
 import com.example.myapplication.model.Question

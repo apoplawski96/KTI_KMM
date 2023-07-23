@@ -26,27 +26,3 @@ fun App() {
         }
     }
 }
-
-@Serializable
-data class QuestionSchema(
-    val id: Int,
-    val question: String,
-    val answer: String,
-    val difficulty: String,
-    @SerialName("topCategory")
-    val topCategory: String,
-    @SerialName("topCategoryId")
-    val topCategoryId: Int,
-    @SerialName("subCategory")
-    val subCategory: String,
-    @SerialName("subCategoryId")
-    val subCategoryId: Int
-)
-
-//data class MQuestion(
-//    val id: Long,
-//    val question: String,
-//    val answer: String,
-//    val topCategory: MTopCategory,
-//    val subCategory: MSubCategory,
-//)

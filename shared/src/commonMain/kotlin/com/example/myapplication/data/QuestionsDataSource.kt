@@ -1,7 +1,7 @@
 package com.example.myapplication.data
 
-import com.example.myapplication.QuestionSchema
 import com.example.myapplication.common.JsonFileReader
+import com.example.myapplication.data.model.QuestionSchema
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.json.Json
 
