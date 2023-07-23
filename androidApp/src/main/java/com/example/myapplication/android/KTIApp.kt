@@ -4,7 +4,6 @@ import android.app.Application
 import android.content.Context
 import android.content.SharedPreferences
 import android.util.Log
-import co.apoplawski96.kti.questions.domain.interactors.GetQuestionsShuffled
 import co.touchlab.kampkit.AppInfo
 import co.touchlab.kampkit.initKoin
 import co.touchlab.kampkit.models.BreedViewModel
@@ -42,7 +41,6 @@ class MainApp : Application() {
                 viewModelOf(::WelcomeScreenViewModel)
                 singleOf(::SubCategoriesRepository)
                 singleOf(::CategoriesRepository)
-                singleOf(::GetQuestionsShuffled)
                 singleOf(::QuestionsRepository)
                 single<SharedPreferences> {
                     get<Context>().getSharedPreferences(

@@ -1,5 +1,7 @@
 package co.apoplawski96.kti.navigation.model
 
+import com.example.myapplication.navigation.model.NavigationDestination
+
 sealed class NavigationCommand {
 
     object NavigateBack : NavigationCommand()

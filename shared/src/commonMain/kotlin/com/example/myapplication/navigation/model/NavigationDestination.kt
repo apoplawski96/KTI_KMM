@@ -1,6 +1,4 @@
-package co.apoplawski96.kti.navigation.model
-
-import com.example.myapplication.navigation.model.NavigationArgument
+package com.example.myapplication.navigation.model
 
 interface NavigationDestination {
 

@@ -1,7 +1,7 @@
 package com.example.myapplication.navigation
 
 import co.apoplawski96.kti.navigation.model.NavigationCommand
-import co.apoplawski96.kti.navigation.model.NavigationDestination
+import com.example.myapplication.navigation.model.NavigationDestination
 import kotlinx.coroutines.flow.SharedFlow
 
 interface Navigator {

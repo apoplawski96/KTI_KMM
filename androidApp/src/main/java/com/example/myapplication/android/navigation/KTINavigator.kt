@@ -2,7 +2,7 @@ package com.example.myapplication.android.navigation
 
 import com.example.myapplication.navigation.Navigator
 import co.apoplawski96.kti.navigation.model.NavigationCommand
-import co.apoplawski96.kti.navigation.model.NavigationDestination
+import com.example.myapplication.navigation.model.NavigationDestination
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.launch

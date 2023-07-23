@@ -15,12 +15,3 @@ data class Question(
     val question: String,
     val answer: String,
 )
-
-val question1 = Question(
-    topCategory = TopCategory.ANDROID,
-    subCategory = AndroidSubCategory.Compose,
-    difficulty = Difficulty.Advanced,
-    question = "hello",
-    answer = "hello2",
-    category = DeprecatedCategory.Android
-)

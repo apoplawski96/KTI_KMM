@@ -1,8 +1,5 @@
 package com.example.myapplication.navigation.model
 
-import co.apoplawski96.kti.navigation.model.NavigationDestination
-import co.apoplawski96.kti.navigation.model.navigationDestinationOf
-
 object Destinations {
 
     object Menu : NavigationDestination {

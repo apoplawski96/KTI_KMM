@@ -1,6 +1,5 @@
 package co.touchlab.kampkit
 
-import co.apoplawski96.kti.questions.di.questionsModule
 import co.touchlab.kampkit.ktor.DogApi
 import co.touchlab.kampkit.ktor.DogApiImpl
 import co.touchlab.kampkit.models.BreedRepository
@@ -28,7 +27,6 @@ fun initKoin(appModule: Module): KoinApplication {
             appModule,
             platformModule,
             coreModule,
-            questionsModule
         )
     }
 
