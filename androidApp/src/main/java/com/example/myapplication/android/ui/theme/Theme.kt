@@ -3,7 +3,6 @@ package com.example.myapplication.android.ui.theme
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
-import co.touchlab.kampkit.android.ui.theme.Shapes
 
 val LightColorPalette = KTIColors(
     primary = White,

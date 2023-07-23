@@ -84,15 +84,7 @@ fun SubCategoriesScreenContent(
                         middleContentText = "${topCategory.displayName} categories",
                         isNested = true,
                         hasBrandingLine = true,
-                        rightActionButtons = {
-                            IconButton(onClick = { }) {
-//                                Icon(
-//                                    imageVector = Icons.Filled.Search,
-//                                    contentDescription = "Back Icon",
-//                                    tint = kti_accent_color
-//                                )
-                            }
-                        })
+                    )
                     CategoriesGrid(
                         categories = state.categories,
                         onClick = onClick,

@@ -1,6 +1,5 @@
 package com.example.myapplication.android.ui.categories
 
-import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -35,11 +34,8 @@ import com.example.myapplication.android.common.ui.component.KTITextTopBar
 import com.example.myapplication.android.common.ui.component.KTIVerticalSpacer
 import com.example.myapplication.android.common.ui.component.clickableNoRipple
 import com.example.myapplication.android.ui.theme.kti_accent
-import com.example.myapplication.android.ui.theme.kti_grayish_light
-import com.example.myapplication.android.ui.theme.kti_grayish
 import com.example.myapplication.android.ui.theme.kti_soft_black
 import com.example.myapplication.android.ui.theme.kti_soft_white
-import com.example.myapplication.android.ui.theme.kti_text_icons
 import com.example.myapplication.model.subcategory.CardDisplayable
 import com.example.myapplication.model.subcategory.TopCategory
 import com.example.myapplication.screens.categories.CategoriesViewModel
@@ -122,11 +118,6 @@ fun CategoriesGrid(
             }
         }
     )
-//    LazyColumn(content = {
-//        items(items = categories) { category ->
-//            CategoryCard(category = category, onClick = onClick)
-//        }
-//    })
 }
 
 @Composable

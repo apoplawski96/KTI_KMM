@@ -13,7 +13,6 @@ import androidx.navigation.NavType
 import androidx.navigation.navArgument
 import co.apoplawski96.kti.navigation.model.NavigationCommand
 import com.example.myapplication.android.ui.home.MenuScreen
-import co.touchlab.kampkit.android.ui.quiz.QuizScreen
 import com.example.myapplication.android.ui.categories.CategoriesScreen
 import com.example.myapplication.android.ui.questions.list.ListScreen
 import com.example.myapplication.android.ui.subcategory.SubCategoriesScreen
@@ -44,7 +43,6 @@ fun KTINavHost(navigator: Navigator = get()) {
     ) {
         menuScreen()
         listScreen()
-        quizScreen()
         categoriesScreen()
         subCategoriesScreen()
     }
@@ -103,12 +101,6 @@ private fun NavigationArgument.getArgType(): NavType<out Any?> = when (this) {
 private fun NavGraphBuilder.menuScreen() {
     composable(route = Destinations.Menu.route) {
         MenuScreen()
-    }
-}
-
-private fun NavGraphBuilder.quizScreen() {
-    composable(route = Destinations.QuestionsQuiz.route) {
-        QuizScreen()
     }
 }
 
