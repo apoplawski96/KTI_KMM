@@ -1,9 +1,9 @@
 package com.example.myapplication.screens.quiz
 
+import co.touchlab.kampkit.models.ViewModel
+import com.example.myapplication.data.questions.questions
 import com.example.myapplication.legacy.QuestionsRepository
 import com.example.myapplication.model.Question
-import com.example.myapplication.data.questions.questions
-import co.touchlab.kampkit.models.ViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update

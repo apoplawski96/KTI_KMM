@@ -1,12 +1,12 @@
 package co.touchlab.kampkit
 
 import co.touchlab.kampkit.db.KaMPKitDb
-import com.example.myapplication.coroutines.AndroidDispatcherProvider
-import com.example.myapplication.json.AndroidJsonFilePathRetriever
-import com.example.myapplication.json.AndroidJsonFileReader
 import com.example.myapplication.common.JsonFilePathRetriever
 import com.example.myapplication.common.JsonFileReader
 import com.example.myapplication.common.coroutines.DispatcherProvider
+import com.example.myapplication.coroutines.AndroidDispatcherProvider
+import com.example.myapplication.json.AndroidJsonFilePathRetriever
+import com.example.myapplication.json.AndroidJsonFileReader
 import com.russhwolf.settings.Settings
 import com.russhwolf.settings.SharedPreferencesSettings
 import com.squareup.sqldelight.android.AndroidSqliteDriver

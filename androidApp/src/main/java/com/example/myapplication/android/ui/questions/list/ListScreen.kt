@@ -38,10 +38,10 @@ import com.example.myapplication.android.ui.questions.list.components.ListScreen
 import com.example.myapplication.android.ui.questions.list.components.ListScreenScoreBar
 import com.example.myapplication.android.ui.questions.list.components.ListScreenTopBar
 import com.example.myapplication.android.ui.theme.kti_accent
-import com.example.myapplication.android.ui.theme.kti_soft_white
 import com.example.myapplication.android.ui.theme.kti_divider
 import com.example.myapplication.android.ui.theme.kti_green
 import com.example.myapplication.android.ui.theme.kti_soft_black
+import com.example.myapplication.android.ui.theme.kti_soft_white
 import com.example.myapplication.model.Question
 import com.example.myapplication.model.subcategory.SubCategory
 import com.example.myapplication.model.subcategory.TopCategory

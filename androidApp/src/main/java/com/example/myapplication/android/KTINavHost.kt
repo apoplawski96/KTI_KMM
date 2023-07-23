@@ -12,8 +12,8 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavType
 import androidx.navigation.navArgument
 import co.apoplawski96.kti.navigation.model.NavigationCommand
-import com.example.myapplication.android.ui.home.MenuScreen
 import com.example.myapplication.android.ui.categories.CategoriesScreen
+import com.example.myapplication.android.ui.home.MenuScreen
 import com.example.myapplication.android.ui.questions.list.ListScreen
 import com.example.myapplication.android.ui.subcategory.SubCategoriesScreen
 import com.example.myapplication.model.subcategory.TopCategory

@@ -1,7 +1,6 @@
 package com.example.myapplication.screens.subcategories
 
 import com.example.myapplication.model.subcategory.AndroidSubCategory
-import com.example.myapplication.model.subcategory.IOSSubCategory
 import com.example.myapplication.model.subcategory.SubCategory
 import com.example.myapplication.model.subcategory.TopCategory
 

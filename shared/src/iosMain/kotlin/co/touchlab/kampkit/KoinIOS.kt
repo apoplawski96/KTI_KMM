@@ -3,8 +3,6 @@ package co.touchlab.kampkit
 import co.touchlab.kermit.Logger
 import com.russhwolf.settings.NSUserDefaultsSettings
 import com.russhwolf.settings.Settings
-import com.squareup.sqldelight.db.SqlDriver
-import com.squareup.sqldelight.drivers.native.NativeSqliteDriver
 import io.ktor.client.engine.darwin.Darwin
 import org.koin.core.Koin
 import org.koin.core.KoinApplication

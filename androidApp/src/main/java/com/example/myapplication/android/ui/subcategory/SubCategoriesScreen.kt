@@ -13,7 +13,6 @@ import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.lazy.grid.rememberLazyGridState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Card
-import androidx.compose.material.IconButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
@@ -24,14 +23,14 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.myapplication.android.common.ui.component.KTIBoxWithGradientBackground
-import com.example.myapplication.android.common.ui.component.KTIVerticalSpacer
-import com.example.myapplication.android.common.ui.component.KTITextTopBar
 import com.example.myapplication.android.common.ui.component.KTICircularProgressIndicator
 import com.example.myapplication.android.common.ui.component.KTITextNew
+import com.example.myapplication.android.common.ui.component.KTITextTopBar
+import com.example.myapplication.android.common.ui.component.KTIVerticalSpacer
 import com.example.myapplication.android.common.ui.component.clickableNoRipple
 import com.example.myapplication.android.ui.theme.kti_accent
-import com.example.myapplication.android.ui.theme.kti_grayish_light
 import com.example.myapplication.android.ui.theme.kti_grayish
+import com.example.myapplication.android.ui.theme.kti_grayish_light
 import com.example.myapplication.android.ui.theme.kti_text_icons
 import com.example.myapplication.model.subcategory.SubCategory
 import com.example.myapplication.model.subcategory.TopCategory

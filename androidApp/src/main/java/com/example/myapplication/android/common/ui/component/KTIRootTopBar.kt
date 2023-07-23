@@ -30,8 +30,8 @@ import androidx.compose.ui.unit.Constraints
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.myapplication.android.ui.theme.kti_accent
-import com.example.myapplication.android.ui.theme.kti_soft_white
 import com.example.myapplication.android.ui.theme.kti_soft_black
+import com.example.myapplication.android.ui.theme.kti_soft_white
 import com.example.myapplication.navigation.Navigator
 import org.koin.androidx.compose.get
 import kotlin.math.max

@@ -1,9 +1,9 @@
 package com.example.myapplication.screens.categories
 
-import com.example.myapplication.navigation.Navigator
 import co.touchlab.kampkit.models.ViewModel
-import com.example.myapplication.navigation.model.Destinations
 import com.example.myapplication.model.subcategory.TopCategory
+import com.example.myapplication.navigation.Navigator
+import com.example.myapplication.navigation.model.Destinations
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update
