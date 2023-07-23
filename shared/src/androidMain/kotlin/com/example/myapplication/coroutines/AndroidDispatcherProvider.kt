@@ -1,4 +1,4 @@
-package co.touchlab.kampkit
+package com.example.myapplication.coroutines
 
 import com.example.myapplication.common.coroutines.DispatcherProvider
 import kotlinx.coroutines.CoroutineDispatcher

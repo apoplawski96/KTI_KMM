@@ -1,11 +1,12 @@
 package co.touchlab.kampkit
 
-import android.content.Context
-import com.example.myapplication.common.coroutines.DispatcherProvider
 import co.touchlab.kampkit.db.KaMPKitDb
-import com.example.myapplication.AndroidJsonFileReader
+import com.example.myapplication.coroutines.AndroidDispatcherProvider
+import com.example.myapplication.json.AndroidJsonFilePathRetriever
+import com.example.myapplication.json.AndroidJsonFileReader
 import com.example.myapplication.common.JsonFilePathRetriever
 import com.example.myapplication.common.JsonFileReader
+import com.example.myapplication.common.coroutines.DispatcherProvider
 import com.russhwolf.settings.Settings
 import com.russhwolf.settings.SharedPreferencesSettings
 import com.squareup.sqldelight.android.AndroidSqliteDriver
@@ -36,15 +37,4 @@ actual val platformModule: Module = module {
 
     single<JsonFilePathRetriever> { AndroidJsonFilePathRetriever(context = get()) }
     single<JsonFileReader> { AndroidJsonFileReader(context = get()) }
-}
-
-class AndroidJsonFilePathRetriever(private val context: Context) : JsonFilePathRetriever {
-
-    override fun getPath(fileName: String): String = context.assets.open(fileName).toString()
-}
-
-fun Context.loadJSONFromAssets(fileName: String): String {
-    return applicationContext.assets.open(fileName).bufferedReader().use { reader ->
-        reader.readText()
-    }
 }
