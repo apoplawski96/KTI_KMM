@@ -37,8 +37,8 @@ fun KTIRadioButton(
     ),
 ) {
     val dotRadius by animateDpAsState(
-        targetValue = if (selected) FcRadioButtonDotSize / 2 else 0.dp,
-        animationSpec = tween(durationMillis = FcRadioAnimationDuration)
+        targetValue = if (selected) KTIRadioButtonDotSize / 2 else 0.dp,
+        animationSpec = tween(durationMillis = KTIRadioAnimationDuration)
     )
     val radioColor by colors.radioColor(enabled, selected)
     val selectableModifier =
@@ -51,7 +51,7 @@ fun KTIRadioButton(
                 interactionSource = interactionSource,
                 indication = rememberRipple(
                     bounded = false,
-                    radius = FcRadioButtonRippleRadius
+                    radius = KTIRadioButtonRippleRadius
                 )
             )
         } else {
@@ -61,26 +61,26 @@ fun KTIRadioButton(
         modifier
             .then(selectableModifier)
             .wrapContentSize(Alignment.Center)
-            .padding(FcRadioButtonPadding)
-            .requiredSize(FcRadioButtonSize)
+            .padding(KTIRadioButtonPadding)
+            .requiredSize(KTIRadioButtonSize)
     ) {
         drawRadio(radioColor, dotRadius)
     }
 }
 
 private fun DrawScope.drawRadio(color: Color, dotRadius: Dp) {
-    val strokeWidth = FcRadioStrokeWidth.toPx()
-    drawCircle(color, FcRadioRadius.toPx() - strokeWidth / 2, style = Stroke(strokeWidth))
+    val strokeWidth = KTIRadioStrokeWidth.toPx()
+    drawCircle(color, KTIRadioRadius.toPx() - strokeWidth / 2, style = Stroke(strokeWidth))
     if (dotRadius > 0.dp) {
         drawCircle(color, dotRadius.toPx() - strokeWidth / 2, style = Fill)
     }
 }
 
-private const val FcRadioAnimationDuration = 100
+private const val KTIRadioAnimationDuration = 100
 
-private val FcRadioButtonRippleRadius = 20.dp
-private val FcRadioButtonPadding = 2.dp
-private val FcRadioButtonSize = 20.dp
-private val FcRadioRadius = FcRadioButtonSize / 2
-private val FcRadioButtonDotSize = 10.dp
-private val FcRadioStrokeWidth = 1.dp
+private val KTIRadioButtonRippleRadius = 20.dp
+private val KTIRadioButtonPadding = 2.dp
+private val KTIRadioButtonSize = 20.dp
+private val KTIRadioRadius = KTIRadioButtonSize / 2
+private val KTIRadioButtonDotSize = 10.dp
+private val KTIRadioStrokeWidth = 1.dp

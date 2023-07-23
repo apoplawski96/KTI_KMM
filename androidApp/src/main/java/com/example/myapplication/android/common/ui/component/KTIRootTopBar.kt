@@ -43,7 +43,7 @@ fun KTIRootTopBar(
     rightActionButtons: @Composable (RowScope.() -> Unit)? = {  },
     hasBrandingLine: Boolean = false,
 ) {
-    FcTopBarContent(leftActionButtons, middleContent, rightActionButtons, hasBrandingLine)
+    KTITopBarContent(leftActionButtons, middleContent, rightActionButtons, hasBrandingLine)
 }
 
 @Composable
@@ -55,7 +55,7 @@ fun KTITextTopBar(
     rightActionButtons: @Composable RowScope.() -> Unit = { },
     navigator: Navigator = get()
 ) {
-    FcTopBarContent(
+    KTITopBarContent(
         leftActionButtons = {
             if (isNested) {
                 IconButton(onClick = { navigator.navigateBack() }) {
@@ -70,7 +70,7 @@ fun KTITextTopBar(
 }
 
 @Composable
-private fun FcTopBarContent(
+private fun KTITopBarContent(
     leftActionButtons: @Composable RowScope.() -> Unit,
     middleContent: @Composable () -> Unit,
     rightActionButtons: @Composable (RowScope.() -> Unit)?,
@@ -131,7 +131,7 @@ private fun FcTopBarContent(
 }
 
 @Composable
-fun TopBarText(text: String) {
+private fun TopBarText(text: String) {
     Box(
         modifier = Modifier
             .fillMaxSize(),

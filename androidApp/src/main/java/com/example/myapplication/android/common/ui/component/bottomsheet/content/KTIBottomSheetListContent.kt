@@ -95,11 +95,6 @@ fun <T> SelectableListItem(
                 isSelected = isSelected,
                 onClick = { onItemSelected(item.value) }
             )
-//            BottomSheetListItemType.SWITCH -> FcSwitch(
-//                isChecked = isSelected,
-//                onCheckedChange = { onItemSelected(item.value) },
-//                modifier = Modifier.size(20.dp)
-//            )
             BottomSheetListItemType.SWITCH -> {
 
             }
