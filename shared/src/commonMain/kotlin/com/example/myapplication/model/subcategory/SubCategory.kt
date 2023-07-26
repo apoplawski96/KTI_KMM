@@ -24,7 +24,9 @@ enum class AndroidSubCategory(
     Compose(keyName = "Compose", id = "3", displayName = "Compose"),
     Rx(keyName = "Rx", id = "7", displayName = "RxJava"),
     StateAndSharedFlow(keyName = "StateAndSharedFlow", id = "8", "State & Shared Flow"),
-    AndroidPlatform(keyName = "Android Platform", id = "11", displayName = "Android Platform");
+    AndroidPlatform(keyName = "Android Platform", id = "11", displayName = "Android Platform"),
+    Lifecycle(keyName = "Lifecycle", id = "20", displayName = "Lifecycle"),
+    Security(keyName = "Security", id = "21", displayName = "Security");
 }
 
 enum class IOSSubCategory(
