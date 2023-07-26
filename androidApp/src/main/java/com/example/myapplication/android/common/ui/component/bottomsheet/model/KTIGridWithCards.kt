@@ -1,5 +1,6 @@
 package com.example.myapplication.android.common.ui.component.bottomsheet.model
 
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -21,19 +22,27 @@ import androidx.compose.ui.unit.sp
 import com.example.myapplication.android.common.ui.component.KTITextNew
 import com.example.myapplication.android.common.ui.component.KTIVerticalSpacer
 import com.example.myapplication.android.common.ui.component.clickableNoRipple
+import com.example.myapplication.android.ui.theme.kti_accent
+import com.example.myapplication.android.ui.theme.kti_grayish
+import com.example.myapplication.android.ui.theme.kti_grayish_light
 import com.example.myapplication.android.ui.theme.kti_soft_black
 import com.example.myapplication.android.ui.theme.kti_soft_white
+import com.example.myapplication.android.ui.theme.kti_text_icons
+import com.example.myapplication.model.subcategory.SubCategory
 
 data class CardItem<T>(
     val value: T,
     val label: String,
 )
 
+enum class GridVariant { TOP_CATEGORY, SUB_CATEGORY; }
+
 @Composable
 fun <T> KTIGridWithCards(
     items: List<CardItem<T>>,
-    onClick: (T) -> Unit,
+    onClick: (T?) -> Unit,
     state: LazyGridState,
+    variant: GridVariant
 ) {
     LazyVerticalGrid(
         columns = GridCells.Fixed(count = 2),
@@ -42,6 +51,11 @@ fun <T> KTIGridWithCards(
         content = {
             item { KTIVerticalSpacer(height = 8.dp) }
             item { KTIVerticalSpacer(height = 8.dp) }
+            if (variant == GridVariant.SUB_CATEGORY) {
+                item {
+                    AllCard(onClick = { onClick(null) })
+                }
+            }
             this.items(items = items) { item ->
                 KTIGridCard(item = item, onClick = onClick)
             }
@@ -77,6 +91,34 @@ private fun <T> KTIGridCard(
                 fontWeight = FontWeight(400),
                 fontSize = 14.sp,
                 color = kti_soft_black
+            )
+        }
+    }
+}
+
+@Composable
+private fun AllCard(onClick: () -> Unit) {
+    Card(
+        shape = RoundedCornerShape(size = 8.dp),
+        backgroundColor = kti_grayish,
+        border = BorderStroke(width = 0.5.dp, color = kti_grayish_light.copy(alpha = 0.2f)),
+        modifier = Modifier
+            .clickableNoRipple { onClick.invoke() }
+            .padding(2.dp)
+            .heightIn(min = 96.dp)
+    ) {
+        Column(
+            modifier = Modifier.padding(12.dp),
+            horizontalAlignment = Alignment.Start,
+            verticalArrangement = Arrangement.Bottom,
+        ) {
+            KTITextNew(
+                text = "All",
+                maxLines = 2,
+                overflow = TextOverflow.Ellipsis,
+                fontWeight = FontWeight(400),
+                fontSize = 14.sp,
+                color = kti_accent
             )
         }
     }

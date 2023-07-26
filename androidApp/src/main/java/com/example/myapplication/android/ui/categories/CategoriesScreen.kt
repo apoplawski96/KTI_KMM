@@ -33,6 +33,7 @@ import com.example.myapplication.android.common.ui.component.KTITextNew
 import com.example.myapplication.android.common.ui.component.KTITextTopBar
 import com.example.myapplication.android.common.ui.component.KTIVerticalSpacer
 import com.example.myapplication.android.common.ui.component.bottomsheet.model.CardItem
+import com.example.myapplication.android.common.ui.component.bottomsheet.model.GridVariant
 import com.example.myapplication.android.common.ui.component.bottomsheet.model.KTIGridWithCards
 import com.example.myapplication.android.common.ui.component.clickableNoRipple
 import com.example.myapplication.android.ui.theme.kti_accent
@@ -67,7 +68,7 @@ fun CategoriesScreen(viewModel: CategoriesViewModel = getViewModel()) {
 @Composable
 private fun CategoriesScreenContent(
     state: CategoriesViewModel.ViewState,
-    onClick: (CardDisplayable) -> Unit,
+    onClick: (CardDisplayable?) -> Unit,
     lazyGridState: LazyGridState
 ) {
     KTIBoxWithGradientBackground {
@@ -95,7 +96,8 @@ private fun CategoriesScreenContent(
                             )
                         },
                         onClick = onClick,
-                        state = lazyGridState
+                        state = lazyGridState,
+                        variant = GridVariant.TOP_CATEGORY,
                     )
                 }
             }
