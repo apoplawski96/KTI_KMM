@@ -23,14 +23,13 @@ enum class AndroidSubCategory(
     Coroutines(keyName = "Coroutines", id = "2", displayName = "Coroutines"),
     Compose(keyName = "Compose", id = "3", displayName = "Compose"),
     Rx(keyName = "Rx", id = "7", displayName = "RxJava"),
-    StateAndSharedFlow(keyName = "StateAndSharedFlow", id = "8", "State & Shared Flow"),
+    StateAndSharedFlow(keyName = "StateAndSharedFlow", id = "8", "Flow, Shared Flow & State Flow"),
     AndroidPlatform(keyName = "Android Platform", id = "11", displayName = "Android Platform"),
     Lifecycle(keyName = "Lifecycle", id = "20", displayName = "Lifecycle"),
     Security(keyName = "Security", id = "21", displayName = "Security"),
     Architecture(keyName = "Architecture", id = "22", displayName = "Architecture"),
     Configuration(keyName = "Configuration", id = "23", displayName = "Configuration changes"),
-    ViewModel(keyName = "ViewModel", id = "25", displayName = "View Model")
-    ;
+    ViewModel(keyName = "ViewModel", id = "25", displayName = "View Model");
 }
 
 enum class IOSSubCategory(

@@ -32,6 +32,8 @@ import com.example.myapplication.android.common.ui.component.KTIHorizontalSpacer
 import com.example.myapplication.android.common.ui.component.KTITextNew
 import com.example.myapplication.android.common.ui.component.KTITextTopBar
 import com.example.myapplication.android.common.ui.component.KTIVerticalSpacer
+import com.example.myapplication.android.common.ui.component.bottomsheet.model.CardItem
+import com.example.myapplication.android.common.ui.component.bottomsheet.model.KTIGridWithCards
 import com.example.myapplication.android.common.ui.component.clickableNoRipple
 import com.example.myapplication.android.ui.theme.kti_accent
 import com.example.myapplication.android.ui.theme.kti_soft_black
@@ -85,8 +87,13 @@ private fun CategoriesScreenContent(
                             )
                             KTIHorizontalSpacer(width = 8.dp)
                         })
-                    CategoriesGrid(
-                        categories = state.categories,
+                    KTIGridWithCards(
+                        items = state.categories.map { topCategory ->
+                            CardItem(
+                                value = topCategory,
+                                label = topCategory.displayName
+                            )
+                        },
                         onClick = onClick,
                         state = lazyGridState
                     )
@@ -96,59 +103,6 @@ private fun CategoriesScreenContent(
             is CategoriesViewModel.ViewState.Loading -> {
                 KTICircularProgressIndicator()
             }
-        }
-    }
-}
-
-@Composable
-fun CategoriesGrid(
-    categories: List<CardDisplayable>,
-    onClick: (CardDisplayable) -> Unit,
-    state: LazyGridState,
-) {
-    LazyVerticalGrid(
-        columns = GridCells.Fixed(count = 2),
-        modifier = Modifier.padding(start = 8.dp, end = 8.dp),
-        state = state,
-        content = {
-            item { KTIVerticalSpacer(height = 8.dp) }
-            item { KTIVerticalSpacer(height = 8.dp) }
-            items(items = categories) { category ->
-                CategoryCard(category = category, onClick = onClick)
-            }
-        }
-    )
-}
-
-@Composable
-private fun CategoryCard(
-    category: CardDisplayable,
-    onClick: (CardDisplayable) -> Unit,
-) {
-    Card(
-        shape = RoundedCornerShape(size = 12.dp),
-        backgroundColor = kti_soft_white,
-//        border = BorderStroke(width = 0.5.dp, color = kti_grayish_light.copy(alpha = 0.2f)),
-        modifier = Modifier
-            .clickableNoRipple { onClick.invoke(category) }
-            .padding(4.dp)
-            .heightIn(min = 96.dp)
-            .fillMaxWidth(),
-        elevation = 2.dp
-    ) {
-        Column(
-            modifier = Modifier.padding(12.dp),
-            horizontalAlignment = Alignment.Start,
-            verticalArrangement = Arrangement.Bottom,
-        ) {
-            KTITextNew(
-                text = category.displayName,
-                maxLines = 2,
-                overflow = TextOverflow.Ellipsis,
-                fontWeight = FontWeight(400),
-                fontSize = 14.sp,
-                color = kti_soft_black
-            )
         }
     }
 }

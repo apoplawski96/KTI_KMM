@@ -304,9 +304,8 @@ private fun QuestionItem(
 private fun QuestionTopSection(
     question: Question,
 ) {
-    val difficulty = "(Difficulty: ${question.difficulty.displayName})"
     KTITextNew(
-        text = "${question.topCategory.displayName}, ${question.subCategory?.displayName}", // todo: check subcategory
+        text = "${question.topCategory.displayName}, ${question.subCategory?.displayName}",
         fontSize = 10.sp,
         fontWeight = FontWeight.W300,
         color = kti_soft_black.copy(alpha = 0.6f),
