@@ -2,16 +2,16 @@ package com.example.myapplication.model.subcategory
 
 enum class TopCategory(
     val id: String,
-    override val displayName: String,
-) : CardDisplayable {
+    val displayName: String,
+) {
     ANDROID(id = "1", displayName = "Android"),
 //    IOS(id = "2", displayName = "iOS"),
-    GIT("3", "GIT"),
-    REST("4", "Rest"),
+    GIT(id = "3", displayName = "GIT"),
+    REST(id = "4", displayName = "Rest"),
 //    DATA_STRUCTURES("5", "Data structures"),
 //    ALGORITHMS("6", "Algorithms"),
-    DESIGN_PATTERNS("7", "Design Patterns"),
-    PROGRAMMING_PARADIGMS("13", "Programming Paradigms"),
+    DESIGN_PATTERNS(id = "7", displayName = "Design Patterns"),
+    PROGRAMMING_PARADIGMS(id = "13", displayName = "Programming Paradigms"),
 //    REACT("8", "React"),
 //    WEB("9", "Web"),
 //    C_SHARP("10", "C#"),
@@ -20,7 +20,7 @@ enum class TopCategory(
 //    GRAPH_QL("11", "Graph QL"),
 //    SCRUM("11", "Scrum"),
 //    CPP("11", "C++"),
-    KOTLIN("12", "Kotlin");
+    KOTLIN(id = "12", displayName = "Kotlin");
 
     companion object {
 

@@ -27,8 +27,6 @@ import com.example.myapplication.android.ui.theme.kti_grayish
 import com.example.myapplication.android.ui.theme.kti_grayish_light
 import com.example.myapplication.android.ui.theme.kti_soft_black
 import com.example.myapplication.android.ui.theme.kti_soft_white
-import com.example.myapplication.android.ui.theme.kti_text_icons
-import com.example.myapplication.model.subcategory.SubCategory
 
 data class CardItem<T>(
     val value: T,
@@ -57,14 +55,20 @@ fun <T> KTIGridWithCards(
                 }
             }
             this.items(items = items) { item ->
-                KTIGridCard(item = item, onClick = onClick)
+                GridCard(item = item, onClick = onClick)
+            }
+            if (items.count() % 2 == 0) {
+                item { KTIVerticalSpacer(height = 8.dp) }
+                item { KTIVerticalSpacer(height = 8.dp) }
+            } else {
+                item { KTIVerticalSpacer(height = 8.dp) }
             }
         }
     )
 }
 
 @Composable
-private fun <T> KTIGridCard(
+private fun <T> GridCard(
     item: CardItem<T>,
     onClick: (T) -> Unit
 ) {
