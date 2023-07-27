@@ -3,9 +3,10 @@ package com.example.myapplication.model.subcategory
 enum class TopCategory(
     val id: String,
     val displayName: String,
+    val subCategories: List<SubCategory> = emptyList(),
 ) {
-    ANDROID(id = "1", displayName = "Android"),
-//    IOS(id = "2", displayName = "iOS"),
+    ANDROID(id = "1", displayName = "Android", subCategories = AndroidSubCategory.values().toList()),
+    IOS(id = "2", displayName = "iOS", subCategories = IOSSubCategory.values().toList()),
     GIT(id = "3", displayName = "GIT"),
     REST(id = "4", displayName = "Rest"),
 //    DATA_STRUCTURES("5", "Data structures"),

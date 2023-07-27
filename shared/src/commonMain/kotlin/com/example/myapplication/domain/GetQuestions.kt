@@ -23,6 +23,7 @@ class GetQuestions(
             TopCategory.DESIGN_PATTERNS -> questionsDataSource.getQuestionsDesignPatterns()
             TopCategory.PROGRAMMING_PARADIGMS -> questionsDataSource.getQuestionsProgrammingParadigms()
             TopCategory.KOTLIN -> questionsDataSource.getQuestionsKotlin()
+            TopCategory.IOS -> questionsDataSource.getQuestionsIOS()
         }
         val questionsConverted = questionsMapper.map(questionsRaw)
 

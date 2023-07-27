@@ -7,6 +7,8 @@ import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyGridState
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
@@ -16,9 +18,11 @@ import androidx.compose.material.Card
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
-import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.myapplication.android.common.ui.component.KTITextNew
@@ -29,10 +33,13 @@ import com.example.myapplication.android.ui.theme.kti_grayish
 import com.example.myapplication.android.ui.theme.kti_grayish_light
 import com.example.myapplication.android.ui.theme.kti_soft_black
 import com.example.myapplication.android.ui.theme.kti_soft_white
+import com.example.myapplication.android.ui.theme.white
+import com.example.myapplication.model.subcategory.AndroidSubCategory
 
 data class KTICardItem<T>(
     val value: T,
     val label: String,
+    val cardColor: Color? = null,
 )
 
 enum class GridVariant { TOP_CATEGORY, SUB_CATEGORY; }
@@ -101,6 +108,88 @@ fun <T> KTICard(
             )
         }
     }
+}
+
+@Composable
+fun <T> KTICardSmall(
+    item: KTICardItem<T>,
+    onClick: (T) -> Unit,
+) {
+    Card(
+        shape = RoundedCornerShape(size = 12.dp),
+        backgroundColor = item.cardColor ?: kti_soft_white,
+        modifier = Modifier
+            .clickableNoRipple { onClick.invoke(item.value) }
+            .padding(PaddingValues(end = 8.dp, top = 8.dp, bottom = 8.dp))
+            .size(84.dp),
+        elevation = 2.dp
+    ) {
+        Column(
+            modifier = Modifier.padding(horizontal = 2.dp),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Center,
+        ) {
+            KTITextNew(
+                text = item.label,
+                maxLines = 2,
+                overflow = TextOverflow.Ellipsis,
+                fontWeight = FontWeight(500),
+                fontSize = 12.sp,
+                color = white,
+                textAlign = TextAlign.Center
+            )
+        }
+    }
+}
+
+@Composable
+fun <T> KTICardSmallWithUnderText(
+    item: KTICardItem<T>,
+    onClick: (T) -> Unit,
+    padding: PaddingValues = PaddingValues(),
+) {
+    Column(
+        modifier = Modifier.padding(end = 8.dp, top = 8.dp, bottom = 8.dp).width(84.dp),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center,
+    ) {
+        Card(
+            shape = RoundedCornerShape(size = 12.dp),
+            backgroundColor = item.cardColor ?: kti_soft_white,
+//        border = BorderStroke(width = 0.5.dp, color = kti_grayish_light.copy(alpha = 0.2f)),
+            modifier = Modifier
+                .clickableNoRipple { onClick.invoke(item.value) }
+                .padding(padding)
+                .size(78.dp),
+            elevation = 2.dp
+        ) {
+
+        }
+        KTIVerticalSpacer(height = 8.dp)
+        KTITextNew(
+            text = item.label,
+            maxLines = 2,
+            overflow = TextOverflow.Ellipsis,
+            fontWeight = FontWeight(300),
+            fontSize = 12.sp,
+            color = kti_soft_black,
+            textAlign = TextAlign.Center
+        )
+    }
+}
+
+
+
+@Preview
+@Composable
+private fun KTICardSmallPreview() {
+    KTICardSmall(
+        item = KTICardItem(
+            value = AndroidSubCategory.StateAndSharedFlow,
+            label = AndroidSubCategory.StateAndSharedFlow.displayName
+        ),
+        onClick = { }
+    )
 }
 
 @Composable

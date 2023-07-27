@@ -24,7 +24,7 @@ class SubCategoriesViewModel(
 
     fun initialize(category: TopCategory) {
         _state.update {
-            val subCategories = subCategoriesRepository.invoke(category)
+            val subCategories = subCategoriesRepository.getSubCategories(category)
             ViewState.SubCategoriesLoaded(subCategories)
         }
     }

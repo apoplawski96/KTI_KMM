@@ -69,6 +69,6 @@ fun KTITextNew(
         fontSize = fontSize,
         color = color,
         lineHeight = lineHeight,
-        fontStyle = fontStyle
+        fontStyle = fontStyle,
     )
 }

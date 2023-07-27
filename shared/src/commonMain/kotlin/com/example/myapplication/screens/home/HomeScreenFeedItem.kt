@@ -16,7 +16,7 @@ sealed interface HomeScreenFeedItem {
     ) : HomeScreenFeedItem
     data class RandomSubCategoriesCarousel(
         val subCategories: List<SubCategory>,
-        val category: TopCategory
+        val topCategory: TopCategory
     ) : HomeScreenFeedItem
     data class RandomBookmarkedQuestion(
         val question: Question

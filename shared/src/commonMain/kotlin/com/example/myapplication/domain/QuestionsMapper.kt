@@ -6,7 +6,7 @@ import com.example.myapplication.model.Difficulty
 import com.example.myapplication.model.Question
 import com.example.myapplication.model.subcategory.SubCategory
 import com.example.myapplication.model.subcategory.TopCategory
-import com.example.myapplication.model.subcategory.allSubCategories
+import com.example.myapplication.model.subcategory.allSubCategoriesFlatten
 
 class QuestionsMapper {
 
@@ -26,7 +26,7 @@ class QuestionsMapper {
         }
 
     private fun getSubCategoryForName(name: String): SubCategory? =
-        allSubCategories.firstOrNull { subCategory ->
+        allSubCategoriesFlatten.firstOrNull { subCategory ->
             name == subCategory.keyName
         }
 }
