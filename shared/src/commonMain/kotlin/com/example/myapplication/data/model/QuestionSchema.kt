@@ -8,7 +8,6 @@ data class QuestionSchema(
     val id: Int,
     val question: String,
     val answer: String,
-    val difficulty: String,
     @SerialName("topCategory")
     val topCategory: String,
     @SerialName("topCategoryId")
@@ -16,5 +15,6 @@ data class QuestionSchema(
     @SerialName("subCategory")
     val subCategory: String,
     @SerialName("subCategoryId")
-    val subCategoryId: Int
+    val subCategoryId: Int,
+    val difficulty: String? = null,
 )

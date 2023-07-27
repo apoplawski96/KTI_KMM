@@ -7,7 +7,7 @@ import com.example.myapplication.model.subcategory.TopCategory
 
 class GetQuestions(
     private val questionsDataSource: QuestionsDataSource,
-    private val questionsConverter: QuestionsConverter,
+    private val questionsMapper: QuestionsMapper,
 ) {
 
     sealed interface Result {
@@ -24,7 +24,7 @@ class GetQuestions(
             TopCategory.PROGRAMMING_PARADIGMS -> questionsDataSource.getQuestionsProgrammingParadigms()
             TopCategory.KOTLIN -> questionsDataSource.getQuestionsKotlin()
         }
-        val questionsConverted = questionsConverter.convert(questionsRaw)
+        val questionsConverted = questionsMapper.map(questionsRaw)
 
         val result = if (subCategory != null) {
             questionsConverted.filter { question ->

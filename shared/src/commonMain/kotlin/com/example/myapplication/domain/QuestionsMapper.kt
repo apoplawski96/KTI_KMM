@@ -8,9 +8,9 @@ import com.example.myapplication.model.subcategory.SubCategory
 import com.example.myapplication.model.subcategory.TopCategory
 import com.example.myapplication.model.subcategory.allSubCategories
 
-class QuestionsConverter {
+class QuestionsMapper {
 
-    fun convert(questions: List<QuestionSchema>): List<Question> =
+    fun map(questions: List<QuestionSchema>): List<Question> =
         questions.mapNotNull { questionSchema ->
             Question(
                 id = questionSchema.id,

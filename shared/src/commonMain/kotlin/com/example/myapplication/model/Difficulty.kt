@@ -7,7 +7,7 @@ enum class Difficulty(val id: Int, val displayName: String, val keyName: String)
 
     companion object {
 
-        fun getForName(name: String): Difficulty? = values().toList().firstOrNull { difficulty ->
+        fun getForName(name: String?): Difficulty? = values().toList().firstOrNull { difficulty ->
             name == difficulty.keyName
         }
     }
