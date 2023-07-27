@@ -11,6 +11,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.Dp
+import com.example.myapplication.android.ui.theme.KTITheme
 import com.example.myapplication.android.ui.theme.kti_soft_black
 import com.example.myapplication.navigation.Navigator
 import org.koin.androidx.compose.get
@@ -18,9 +19,9 @@ import org.koin.androidx.compose.get
 @Composable
 fun KTIIcon(
     @DrawableRes drawableRes: Int,
-    size: Dp,
-    tint: Color,
     modifier: Modifier = Modifier,
+    size: Dp = Dp.Unspecified,
+    tint: Color = KTITheme.colors.textMain,
     contentDescription: String? = null,
 ) {
     Icon(

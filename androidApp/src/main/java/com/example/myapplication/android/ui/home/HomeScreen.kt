@@ -18,7 +18,10 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.myapplication.android.R
 import com.example.myapplication.android.common.ui.component.KTIBackButton
+import com.example.myapplication.android.common.ui.component.KTIIcon
+import com.example.myapplication.android.common.ui.component.KTIIconButton
 import com.example.myapplication.android.common.ui.component.KTITextNew
 import com.example.myapplication.android.common.ui.component.bottomsheet.model.KTICard
 import com.example.myapplication.android.common.ui.component.bottomsheet.model.KTICardItem
@@ -72,9 +75,28 @@ private fun TopBarSection() {
     Row(
         modifier = Modifier.fillMaxWidth(),
         verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.Start,
+        horizontalArrangement = Arrangement.SpaceBetween,
     ) {
         KTIBackButton()
+        TopBarIconsSection()
+    }
+}
+
+@Composable
+private fun TopBarIconsSection() {
+    Row(
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.End,
+    ) {
+        KTIIconButton(onClick = { }) {
+            KTIIcon(drawableRes = R.drawable.ic_bookmarks)
+        }
+        KTIIconButton(onClick = { }) {
+            KTIIcon(drawableRes = R.drawable.ic_user)
+        }
+        KTIIconButton(onClick = { }) {
+            KTIIcon(drawableRes = R.drawable.ic_menu)
+        }
     }
 }
 
@@ -107,7 +129,9 @@ private fun MenuItems(
     items: List<HomeScreenItem>,
     onItemClicked: (HomeScreenItem) -> Unit,
 ) {
-    Column(modifier = Modifier.fillMaxWidth().padding(vertical = 8.dp)) {
+    Column(modifier = Modifier
+        .fillMaxWidth()
+        .padding(vertical = 8.dp)) {
         items.forEach { homeItem ->
             KTICard(
                 item = KTICardItem(value = homeItem, label = homeItem.displayName),
