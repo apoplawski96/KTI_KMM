@@ -26,7 +26,8 @@ import com.example.myapplication.android.common.ui.component.KTITextNew
 import com.example.myapplication.android.common.ui.component.bottomsheet.model.KTICard
 import com.example.myapplication.android.common.ui.component.bottomsheet.model.KTICardItem
 import com.example.myapplication.android.ui.theme.KTITheme
-import com.example.myapplication.screens.home.HomeScreenItem
+import com.example.myapplication.screens.home.HomeScreenFeedItem
+import com.example.myapplication.screens.home.HomeScreenMenuItem
 import com.example.myapplication.screens.home.HomeScreenViewModel
 import org.koin.androidx.compose.getViewModel
 
@@ -40,14 +41,14 @@ fun HomeScreen(viewModel: HomeScreenViewModel = getViewModel()) {
 
     HomeScreenContent(
         state = viewState,
-        onItemClicked = { item -> viewModel.onItemClicked(item) }
+        onMenuItemClicked = { item -> viewModel.onItemClicked(item) }
     )
 }
 
 @Composable
 private fun HomeScreenContent(
     state: HomeScreenViewModel.ViewState,
-    onItemClicked: (HomeScreenItem) -> Unit,
+    onMenuItemClicked: (HomeScreenMenuItem) -> Unit,
 ) {
     Column(
         modifier = Modifier
@@ -60,7 +61,7 @@ private fun HomeScreenContent(
         HelloSection()
         when (state) {
             is HomeScreenViewModel.ViewState.HomeItems -> {
-                MenuItems(items = state.items, onItemClicked = onItemClicked)
+                HomeScreenFeedSection(feed = state.items, onMenuItemClicked = onMenuItemClicked)
             }
 
             is HomeScreenViewModel.ViewState.Loading -> {
@@ -125,13 +126,40 @@ private fun HelloSection() {
 }
 
 @Composable
-private fun MenuItems(
-    items: List<HomeScreenItem>,
-    onItemClicked: (HomeScreenItem) -> Unit,
+private fun HomeScreenFeedSection(
+    feed: List<HomeScreenFeedItem>,
+    onMenuItemClicked: (HomeScreenMenuItem) -> Unit,
 ) {
-    Column(modifier = Modifier
-        .fillMaxWidth()
-        .padding(vertical = 8.dp)) {
+    // TODO: Migrate to LazyColumn when feed grows
+    Column(
+        modifier = Modifier.fillMaxWidth(),
+        verticalArrangement = Arrangement.Top,
+        horizontalAlignment = Alignment.CenterHorizontally,
+    ) {
+        feed.forEach { feedItem ->
+            when(feedItem) {
+                is HomeScreenFeedItem.MenuItems -> {
+                    MenuItems(items = feedItem.items, onItemClicked = onMenuItemClicked)
+                }
+                is HomeScreenFeedItem.LastLearnedSubCategoriesCarousel -> { }
+                is HomeScreenFeedItem.LastLearnedSubCategory -> { }
+                is HomeScreenFeedItem.RandomBookmarkedQuestion -> { }
+                is HomeScreenFeedItem.RandomSubCategoriesCarousel -> { }
+            }
+        }
+    }
+}
+
+@Composable
+private fun MenuItems(
+    items: List<HomeScreenMenuItem>,
+    onItemClicked: (HomeScreenMenuItem) -> Unit,
+) {
+    Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(vertical = 8.dp)
+    ) {
         items.forEach { homeItem ->
             KTICard(
                 item = KTICardItem(value = homeItem, label = homeItem.displayName),
@@ -140,13 +168,4 @@ private fun MenuItems(
             )
         }
     }
-}
-
-@Preview
-@Composable
-private fun Preview() {
-    HomeScreenContent(
-        state = HomeScreenViewModel.ViewState.HomeItems(HomeScreenItem.values().toList()),
-        onItemClicked = {}
-    )
 }
