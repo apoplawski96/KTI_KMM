@@ -3,6 +3,7 @@ package com.example.myapplication.android.common.ui.component.bottomsheet.model
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
@@ -17,6 +18,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.myapplication.android.common.ui.component.KTITextNew
@@ -28,7 +30,7 @@ import com.example.myapplication.android.ui.theme.kti_grayish_light
 import com.example.myapplication.android.ui.theme.kti_soft_black
 import com.example.myapplication.android.ui.theme.kti_soft_white
 
-data class CardItem<T>(
+data class KTICardItem<T>(
     val value: T,
     val label: String,
 )
@@ -37,7 +39,7 @@ enum class GridVariant { TOP_CATEGORY, SUB_CATEGORY; }
 
 @Composable
 fun <T> KTIGridWithCards(
-    items: List<CardItem<T>>,
+    items: List<KTICardItem<T>>,
     onClick: (T?) -> Unit,
     state: LazyGridState,
     variant: GridVariant
@@ -55,7 +57,7 @@ fun <T> KTIGridWithCards(
                 }
             }
             this.items(items = items) { item ->
-                GridCard(item = item, onClick = onClick)
+                KTICard(item = item, onClick = onClick, padding = PaddingValues(all = 4.dp))
             }
             if (items.count() % 2 == 0) {
                 item { KTIVerticalSpacer(height = 8.dp) }
@@ -68,9 +70,10 @@ fun <T> KTIGridWithCards(
 }
 
 @Composable
-private fun <T> GridCard(
-    item: CardItem<T>,
-    onClick: (T) -> Unit
+fun <T> KTICard(
+    item: KTICardItem<T>,
+    onClick: (T) -> Unit,
+    padding: PaddingValues,
 ) {
     Card(
         shape = RoundedCornerShape(size = 12.dp),
@@ -78,7 +81,7 @@ private fun <T> GridCard(
 //        border = BorderStroke(width = 0.5.dp, color = kti_grayish_light.copy(alpha = 0.2f)),
         modifier = Modifier
             .clickableNoRipple { onClick.invoke(item.value) }
-            .padding(4.dp)
+            .padding(padding)
             .heightIn(min = 96.dp)
             .fillMaxWidth(),
         elevation = 2.dp

@@ -27,7 +27,7 @@ import com.example.myapplication.android.common.ui.component.KTICircularProgress
 import com.example.myapplication.android.common.ui.component.KTITextNew
 import com.example.myapplication.android.common.ui.component.KTITextTopBar
 import com.example.myapplication.android.common.ui.component.KTIVerticalSpacer
-import com.example.myapplication.android.common.ui.component.bottomsheet.model.CardItem
+import com.example.myapplication.android.common.ui.component.bottomsheet.model.KTICardItem
 import com.example.myapplication.android.common.ui.component.bottomsheet.model.GridVariant
 import com.example.myapplication.android.common.ui.component.bottomsheet.model.KTIGridWithCards
 import com.example.myapplication.android.common.ui.component.clickableNoRipple
@@ -89,7 +89,7 @@ fun SubCategoriesScreenContent(
                     )
                     KTIGridWithCards(
                         items = state.categories.map { subCategory: SubCategory ->
-                            CardItem(
+                            KTICardItem(
                                 value = subCategory,
                                 label = subCategory.displayName
                             )

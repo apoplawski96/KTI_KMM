@@ -17,7 +17,7 @@ import com.example.myapplication.android.common.ui.component.KTIBoxWithGradientB
 import com.example.myapplication.android.common.ui.component.KTICircularProgressIndicator
 import com.example.myapplication.android.common.ui.component.KTIHorizontalSpacer
 import com.example.myapplication.android.common.ui.component.KTITextTopBar
-import com.example.myapplication.android.common.ui.component.bottomsheet.model.CardItem
+import com.example.myapplication.android.common.ui.component.bottomsheet.model.KTICardItem
 import com.example.myapplication.android.common.ui.component.bottomsheet.model.GridVariant
 import com.example.myapplication.android.common.ui.component.bottomsheet.model.KTIGridWithCards
 import com.example.myapplication.android.ui.theme.kti_accent
@@ -58,7 +58,7 @@ private fun CategoriesScreenContent(
                 Column(modifier = Modifier.fillMaxSize()) {
                     KTITextTopBar(
                         middleContentText = "Categories",
-                        isNested = false,
+                        isNested = true,
                         hasBrandingLine = true,
                         rightActionButtons = {
                             Icon(
@@ -71,7 +71,7 @@ private fun CategoriesScreenContent(
                         })
                     KTIGridWithCards(
                         items = state.categories.map { topCategory ->
-                            CardItem(
+                            KTICardItem(
                                 value = topCategory,
                                 label = topCategory.displayName
                             )

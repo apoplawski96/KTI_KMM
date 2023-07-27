@@ -21,7 +21,6 @@ class HomeScreenViewModel(private val navigator: Navigator) : ViewModel() {
         _viewState.update {
             ViewState.HomeItems(
                 items = listOf(
-                    HomeScreenItem.QUESTIONS_LIST,
                     HomeScreenItem.QUESTIONS_QUIZ,
                     HomeScreenItem.QUESTIONS_CATEGORIES,
                 )
@@ -32,8 +31,6 @@ class HomeScreenViewModel(private val navigator: Navigator) : ViewModel() {
     fun onItemClicked(item: HomeScreenItem) {
         val destination = when(item) {
             HomeScreenItem.QUESTIONS_QUIZ -> Destinations.QuestionsQuiz
-            HomeScreenItem.QUESTIONS_LIST -> Destinations.QuestionsList
-            HomeScreenItem.DOGS -> Destinations.Dogs
             HomeScreenItem.QUESTIONS_CATEGORIES -> Destinations.Categories
         }
         navigator.navigate(destination = destination)
