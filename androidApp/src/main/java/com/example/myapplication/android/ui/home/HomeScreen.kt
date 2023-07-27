@@ -25,7 +25,7 @@ import com.example.myapplication.screens.home.HomeScreenViewModel
 import org.koin.androidx.compose.getViewModel
 
 @Composable
-fun MenuScreen(viewModel: HomeScreenViewModel = getViewModel()) {
+fun HomeScreen(viewModel: HomeScreenViewModel = getViewModel()) {
     val viewState = viewModel.viewState.collectAsState().value
 
     LaunchedEffect(null) {

@@ -2,6 +2,15 @@ package com.example.myapplication.navigation.model
 
 object Destinations {
 
+    object WelcomeScreen : NavigationDestination {
+        override val route: String
+            get() = "destination_welcome_screen"
+        override val genericRoute: String
+            get() = "destination_welcome_screen"
+        override val arguments: List<NavigationArgument>
+            get() = emptyList()
+    }
+
     object Menu : NavigationDestination {
 
         override val route: String = "destination_menu"
@@ -77,14 +86,5 @@ object Destinations {
             genericRoute = genericRoute,
             arguments = arguments
         )
-    }
-
-    object WelcomeScreen : NavigationDestination {
-        override val route: String
-            get() = "destination_welcome_screen"
-        override val genericRoute: String
-            get() = "destination_welcome_screen"
-        override val arguments: List<NavigationArgument>
-            get() = emptyList()
     }
 }

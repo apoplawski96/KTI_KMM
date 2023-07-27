@@ -9,4 +9,8 @@ class WelcomeScreenViewModel(private val navigator: Navigator) : ViewModel() {
     fun navigateToHomeScreen() {
         navigator.navigate(Destinations.Menu)
     }
+
+    fun navigateToAuthenticationScreen() {
+        // TODO
+    }
 }

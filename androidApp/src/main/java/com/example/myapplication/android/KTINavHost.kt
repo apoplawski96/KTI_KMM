@@ -13,9 +13,10 @@ import androidx.navigation.NavType
 import androidx.navigation.navArgument
 import co.apoplawski96.kti.navigation.model.NavigationCommand
 import com.example.myapplication.android.ui.categories.CategoriesScreen
-import com.example.myapplication.android.ui.home.MenuScreen
+import com.example.myapplication.android.ui.home.HomeScreen
 import com.example.myapplication.android.ui.questions.list.ListScreen
 import com.example.myapplication.android.ui.subcategory.SubCategoriesScreen
+import com.example.myapplication.android.ui.welcome.WelcomeScreen
 import com.example.myapplication.model.subcategory.TopCategory
 import com.example.myapplication.model.subcategory.getSubCategoryForId
 import com.example.myapplication.navigation.Navigator
@@ -39,8 +40,9 @@ fun KTINavHost(navigator: Navigator = get()) {
 
     AnimatedNavHost(
         navController = animatedNavController,
-        startDestination = Destinations.Categories.route
+        startDestination = Destinations.WelcomeScreen.route
     ) {
+        welcomeScreen()
         menuScreen()
         listScreen()
         categoriesScreen()
@@ -98,9 +100,15 @@ private fun NavigationArgument.getArgType(): NavType<out Any?> = when (this) {
     is NavigationArgument.StringArgument -> NavType.StringType
 }
 
+private fun NavGraphBuilder.welcomeScreen() {
+    composable(route = Destinations.WelcomeScreen.route) {
+        WelcomeScreen()
+    }
+}
+
 private fun NavGraphBuilder.menuScreen() {
     composable(route = Destinations.Menu.route) {
-        MenuScreen()
+        HomeScreen()
     }
 }
 
