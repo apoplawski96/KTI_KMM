@@ -1,15 +1,14 @@
-package com.example.myapplication.android.common.ui.component.bottomsheet.model
+package com.example.myapplication.android.common.ui.component
 
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.BorderStroke
-import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -18,6 +17,7 @@ import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyGridState
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
+import androidx.compose.foundation.lazy.grid.itemsIndexed
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Card
 import androidx.compose.runtime.Composable
@@ -31,14 +31,10 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.myapplication.android.common.ui.component.KTIIllustration
-import com.example.myapplication.android.common.ui.component.KTITextNew
-import com.example.myapplication.android.common.ui.component.KTIVerticalSpacer
-import com.example.myapplication.android.common.ui.component.clickableNoRipple
-import com.example.myapplication.android.ui.theme.KTITheme
 import com.example.myapplication.android.ui.theme.kti_accent
 import com.example.myapplication.android.ui.theme.kti_grayish
 import com.example.myapplication.android.ui.theme.kti_grayish_light
+import com.example.myapplication.android.ui.theme.kti_offblack
 import com.example.myapplication.android.ui.theme.kti_soft_black
 import com.example.myapplication.android.ui.theme.kti_soft_white
 import com.example.myapplication.android.ui.theme.white
@@ -71,8 +67,8 @@ fun <T> KTIGridWithCards(
                     AllCard(onClick = { onClick(null) })
                 }
             }
-            this.items(items = items) { item ->
-                KTICard(item = item, onClick = onClick, padding = PaddingValues(all = 4.dp))
+            this.itemsIndexed(items = items) { index, item ->
+                KTICard(item = item.applyColor(index), onClick = onClick, padding = PaddingValues(all = 4.dp), textColor = kti_offblack)
             }
             if (items.count() % 2 == 0) {
                 item { KTIVerticalSpacer(height = 8.dp) }
@@ -95,7 +91,7 @@ fun <T> KTICard(
 ) {
     Card(
         shape = RoundedCornerShape(size = 12.dp),
-        backgroundColor = backgroundColor,
+        backgroundColor = item.cardColor ?: backgroundColor,
 //        border = BorderStroke(width = 0.5.dp, color = kti_grayish_light.copy(alpha = 0.2f)),
         modifier = Modifier
             .clickableNoRipple { onClick.invoke(item.value) }
@@ -138,7 +134,7 @@ fun <T> KTICardWithIllustration(
         backgroundColor = backgroundColor,
         elevation = 2.dp,
         modifier = Modifier
-            .clickableNoRipple { onClick.invoke(item.value) }
+            .clickable { onClick.invoke(item.value) }
             .fillMaxWidth()
             .heightIn(cardMinHeight),
     ) {

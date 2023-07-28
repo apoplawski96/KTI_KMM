@@ -11,15 +11,20 @@ import androidx.compose.material.icons.outlined.AccountCircle
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import com.example.myapplication.android.R
 import com.example.myapplication.android.common.ui.component.KTIBoxWithGradientBackground
 import com.example.myapplication.android.common.ui.component.KTICircularProgressIndicator
 import com.example.myapplication.android.common.ui.component.KTIHorizontalSpacer
 import com.example.myapplication.android.common.ui.component.KTITextTopBar
-import com.example.myapplication.android.common.ui.component.bottomsheet.model.KTICardItem
-import com.example.myapplication.android.common.ui.component.bottomsheet.model.GridVariant
-import com.example.myapplication.android.common.ui.component.bottomsheet.model.KTIGridWithCards
+import com.example.myapplication.android.common.ui.component.KTICardItem
+import com.example.myapplication.android.common.ui.component.GridVariant
+import com.example.myapplication.android.common.ui.component.KTIGridWithCards
+import com.example.myapplication.android.common.ui.component.KTIIllustration
+import com.example.myapplication.android.common.ui.component.KTIVerticalSpacer
+import com.example.myapplication.android.common.ui.component.bottomsheet.KTITopBarNew
 import com.example.myapplication.android.ui.theme.kti_accent
 import com.example.myapplication.model.subcategory.TopCategory
 import com.example.myapplication.screens.categories.CategoriesViewModel
@@ -55,20 +60,8 @@ private fun CategoriesScreenContent(
     KTIBoxWithGradientBackground {
         when (state) {
             is CategoriesViewModel.ViewState.CategoriesLoaded -> {
-                Column(modifier = Modifier.fillMaxSize()) {
-                    KTITextTopBar(
-                        middleContentText = "Categories",
-                        isNested = true,
-                        hasBrandingLine = true,
-                        rightActionButtons = {
-                            Icon(
-                                imageVector = Icons.Outlined.AccountCircle,
-                                contentDescription = "",
-                                tint = kti_accent,
-                                modifier = Modifier.size(24.dp)
-                            )
-                            KTIHorizontalSpacer(width = 8.dp)
-                        })
+                Column(modifier = Modifier.fillMaxSize(), horizontalAlignment = Alignment.CenterHorizontally) {
+                    KTITopBarNew(title = "Categories")
                     KTIGridWithCards(
                         items = state.categories.map { topCategory ->
                             KTICardItem(
@@ -80,6 +73,8 @@ private fun CategoriesScreenContent(
                         state = lazyGridState,
                         variant = GridVariant.TOP_CATEGORY,
                     )
+                    KTIVerticalSpacer(height = 64.dp)
+                    KTIIllustration(drawableRes = R.drawable.undraw_scientist_ft0o)
                 }
             }
 

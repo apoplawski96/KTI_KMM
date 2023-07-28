@@ -3,7 +3,6 @@ package com.example.myapplication.android.ui.home
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -31,14 +30,11 @@ import com.example.myapplication.android.common.ui.component.KTIIllustration
 import com.example.myapplication.android.common.ui.component.KTITextNew
 import com.example.myapplication.android.common.ui.component.KTIVerticalSpacer
 import com.example.myapplication.android.common.ui.component.applyColor
-import com.example.myapplication.android.common.ui.component.bottomsheet.model.KTICard
-import com.example.myapplication.android.common.ui.component.bottomsheet.model.KTICardItem
-import com.example.myapplication.android.common.ui.component.bottomsheet.model.KTICardSmall
-import com.example.myapplication.android.common.ui.component.bottomsheet.model.KTICardWithIllustration
+import com.example.myapplication.android.common.ui.component.KTICardItem
+import com.example.myapplication.android.common.ui.component.KTICardSmallWithUnderText
+import com.example.myapplication.android.common.ui.component.KTICardWithIllustration
+import com.example.myapplication.android.common.ui.component.bottomsheet.KTITopBarNew
 import com.example.myapplication.android.ui.theme.KTITheme
-import com.example.myapplication.android.ui.theme.kti_grayish
-import com.example.myapplication.android.ui.theme.kti_grayish_variant
-import com.example.myapplication.android.ui.theme.kti_soft_white
 import com.example.myapplication.model.subcategory.SubCategory
 import com.example.myapplication.model.subcategory.TopCategory
 import com.example.myapplication.screens.home.HomeScreenFeedItem
@@ -75,7 +71,7 @@ private fun HomeScreenContent(
         verticalArrangement = Arrangement.Top,
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-        TopBarSection()
+        KTITopBarNew()
         HelloSection()
         KTIVerticalSpacer(height = 32.dp)
         IllustrationSection()
@@ -90,36 +86,6 @@ private fun HomeScreenContent(
             is HomeScreenViewModel.ViewState.Loading -> {
                 CircularProgressIndicator()
             }
-        }
-    }
-}
-
-@Composable
-private fun TopBarSection() {
-    Row(
-        modifier = Modifier.fillMaxWidth(),
-        verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.SpaceBetween,
-    ) {
-        KTIBackButton()
-        TopBarIconsSection()
-    }
-}
-
-@Composable
-private fun TopBarIconsSection() {
-    Row(
-        verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.End,
-    ) {
-        KTIIconButton(onClick = { }) {
-            KTIIcon(drawableRes = R.drawable.ic_bookmarks)
-        }
-        KTIIconButton(onClick = { }) {
-            KTIIcon(drawableRes = R.drawable.ic_user)
-        }
-        KTIIconButton(onClick = { }) {
-            KTIIcon(drawableRes = R.drawable.ic_menu)
         }
     }
 }
@@ -230,7 +196,7 @@ private fun RandomSubCategoriesCarousel(
         LazyRow {
             item { KTIHorizontalSpacer(width = 16.dp) }
             itemsIndexed(items = subCategories, key = { _, subCategory -> subCategory.id }) { index, subCategory ->
-                KTICardSmall(
+                KTICardSmallWithUnderText(
                     item = KTICardItem(value = subCategory, label = subCategory.displayName).applyColor(index),
                     onClick = onSubCategoryClick
                 )

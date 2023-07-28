@@ -1,6 +1,5 @@
 package com.example.myapplication.android.common.ui.component
 
-import com.example.myapplication.android.common.ui.component.bottomsheet.model.KTICardItem
 import com.example.myapplication.android.ui.theme.kti_blue
 import com.example.myapplication.android.ui.theme.kti_bright_red
 import com.example.myapplication.android.ui.theme.kti_green

@@ -27,9 +27,9 @@ import com.example.myapplication.android.common.ui.component.KTICircularProgress
 import com.example.myapplication.android.common.ui.component.KTITextNew
 import com.example.myapplication.android.common.ui.component.KTITextTopBar
 import com.example.myapplication.android.common.ui.component.KTIVerticalSpacer
-import com.example.myapplication.android.common.ui.component.bottomsheet.model.KTICardItem
-import com.example.myapplication.android.common.ui.component.bottomsheet.model.GridVariant
-import com.example.myapplication.android.common.ui.component.bottomsheet.model.KTIGridWithCards
+import com.example.myapplication.android.common.ui.component.KTICardItem
+import com.example.myapplication.android.common.ui.component.GridVariant
+import com.example.myapplication.android.common.ui.component.KTIGridWithCards
 import com.example.myapplication.android.common.ui.component.clickableNoRipple
 import com.example.myapplication.android.ui.theme.kti_accent
 import com.example.myapplication.android.ui.theme.kti_grayish
