@@ -35,6 +35,7 @@ import com.example.myapplication.android.common.ui.component.KTIIllustration
 import com.example.myapplication.android.common.ui.component.KTITextNew
 import com.example.myapplication.android.common.ui.component.KTIVerticalSpacer
 import com.example.myapplication.android.common.ui.component.clickableNoRipple
+import com.example.myapplication.android.ui.theme.KTITheme
 import com.example.myapplication.android.ui.theme.kti_accent
 import com.example.myapplication.android.ui.theme.kti_grayish
 import com.example.myapplication.android.ui.theme.kti_grayish_light
@@ -156,7 +157,7 @@ fun <T> KTICardWithIllustration(
                     fontWeight = fontWeight,
                     fontSize = labelSize,
                     color = textColor,
-                    modifier = Modifier.padding(horizontal = 12.dp, vertical = 8.dp)
+                    modifier = Modifier.padding(horizontal = 16.dp, vertical = 12.dp)
                 )
             }
             Box(
