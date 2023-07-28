@@ -81,6 +81,7 @@ fun <T> KTICard(
     item: KTICardItem<T>,
     onClick: (T) -> Unit,
     padding: PaddingValues,
+    fontWeight: FontWeight = FontWeight(400)
 ) {
     Card(
         shape = RoundedCornerShape(size = 12.dp),
@@ -102,7 +103,7 @@ fun <T> KTICard(
                 text = item.label,
                 maxLines = 2,
                 overflow = TextOverflow.Ellipsis,
-                fontWeight = FontWeight(400),
+                fontWeight = fontWeight,
                 fontSize = 14.sp,
                 color = kti_soft_black
             )

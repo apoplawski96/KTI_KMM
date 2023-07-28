@@ -1,6 +1,7 @@
 package com.example.myapplication.android.common.ui.component
 
 import androidx.annotation.DrawableRes
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
@@ -30,6 +31,15 @@ fun KTIIcon(
         modifier = modifier then Modifier.size(size),
         tint = tint
     )
+}
+
+@Composable
+fun KTIIllustration(
+    @DrawableRes drawableRes: Int,
+    modifier: Modifier = Modifier,
+    contentDescription: String? = null,
+) {
+    Image(painter = painterResource(id = drawableRes), contentDescription = "")
 }
 
 @Composable

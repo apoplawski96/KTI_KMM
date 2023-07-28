@@ -185,7 +185,8 @@ private fun MenuItems(
             KTICard(
                 item = KTICardItem(value = homeItem, label = homeItem.displayName),
                 onClick = onItemClicked,
-                padding = PaddingValues(horizontal = 16.dp, vertical = 8.dp)
+                padding = PaddingValues(horizontal = 16.dp, vertical = 8.dp),
+                fontWeight = FontWeight.W500
             )
         }
     }

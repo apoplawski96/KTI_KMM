@@ -8,6 +8,7 @@ import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.Icon
 import androidx.compose.material.TextButton
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
@@ -21,13 +22,15 @@ fun KTIButton(
     labelColor: Color,
     backgroundColor: Color,
     onClick: () -> Unit,
+    modifier: Modifier = Modifier,
     @DrawableRes iconResId: Int? = null
 ) {
     Button(
         onClick = onClick,
         colors = ButtonDefaults.buttonColors(backgroundColor = backgroundColor),
         contentPadding = PaddingValues(vertical = 0.dp, horizontal = 8.dp),
-        shape = RoundedCornerShape(8.dp)
+        shape = RoundedCornerShape(8.dp),
+        modifier = modifier
     ) {
         if (iconResId != null) {
             Icon(painter = painterResource(id = iconResId), contentDescription = "Button icon", tint = labelColor)
