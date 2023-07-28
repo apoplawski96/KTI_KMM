@@ -1,10 +1,15 @@
 package com.example.myapplication.android.common.ui.component.bottomsheet.model
 
+import androidx.annotation.DrawableRes
 import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -23,8 +28,10 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.myapplication.android.common.ui.component.KTIIllustration
 import com.example.myapplication.android.common.ui.component.KTITextNew
 import com.example.myapplication.android.common.ui.component.KTIVerticalSpacer
 import com.example.myapplication.android.common.ui.component.clickableNoRipple
@@ -81,11 +88,13 @@ fun <T> KTICard(
     item: KTICardItem<T>,
     onClick: (T) -> Unit,
     padding: PaddingValues,
-    fontWeight: FontWeight = FontWeight(400)
+    fontWeight: FontWeight = FontWeight(400),
+    backgroundColor: Color = kti_soft_white,
+    textColor: Color = kti_soft_black,
 ) {
     Card(
         shape = RoundedCornerShape(size = 12.dp),
-        backgroundColor = kti_soft_white,
+        backgroundColor = backgroundColor,
 //        border = BorderStroke(width = 0.5.dp, color = kti_grayish_light.copy(alpha = 0.2f)),
         modifier = Modifier
             .clickableNoRipple { onClick.invoke(item.value) }
@@ -105,8 +114,57 @@ fun <T> KTICard(
                 overflow = TextOverflow.Ellipsis,
                 fontWeight = fontWeight,
                 fontSize = 14.sp,
-                color = kti_soft_black
+                color = textColor
             )
+        }
+    }
+}
+
+private val cardMinHeight = 112.dp
+
+@Composable
+fun <T> KTICardWithIllustration(
+    item: KTICardItem<T>,
+    onClick: (T) -> Unit,
+    @DrawableRes illustrationResId: Int,
+    fontWeight: FontWeight = FontWeight(400),
+    backgroundColor: Color = kti_soft_white,
+    textColor: Color = kti_soft_black,
+    labelSize: TextUnit = 16.sp,
+) {
+    Card(
+        shape = RoundedCornerShape(size = 12.dp),
+        backgroundColor = backgroundColor,
+        elevation = 2.dp,
+        modifier = Modifier
+            .clickableNoRipple { onClick.invoke(item.value) }
+            .fillMaxWidth()
+            .heightIn(cardMinHeight),
+    ) {
+        Row(
+            modifier = Modifier.fillMaxWidth().heightIn(cardMinHeight)
+        ) {
+            Column(
+                modifier = Modifier.weight(2f).heightIn(cardMinHeight),
+                horizontalAlignment = Alignment.Start,
+                verticalArrangement = Arrangement.Bottom,
+            ) {
+                KTITextNew(
+                    text = item.label,
+                    maxLines = 2,
+                    overflow = TextOverflow.Ellipsis,
+                    fontWeight = fontWeight,
+                    fontSize = labelSize,
+                    color = textColor,
+                    modifier = Modifier.padding(horizontal = 12.dp, vertical = 8.dp)
+                )
+            }
+            Box(
+                modifier = Modifier.weight(1.2f).heightIn(cardMinHeight).padding(horizontal = 16.dp, vertical = 4.dp),
+                contentAlignment = Alignment.Center
+            ) {
+                KTIIllustration(drawableRes = illustrationResId)
+            }
         }
     }
 }
@@ -150,7 +208,9 @@ fun <T> KTICardSmallWithUnderText(
     padding: PaddingValues = PaddingValues(),
 ) {
     Column(
-        modifier = Modifier.padding(end = 8.dp, top = 8.dp, bottom = 8.dp).width(84.dp),
+        modifier = Modifier
+            .padding(end = 8.dp, top = 8.dp, bottom = 8.dp)
+            .width(84.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,
     ) {
@@ -178,7 +238,6 @@ fun <T> KTICardSmallWithUnderText(
         )
     }
 }
-
 
 
 @Preview

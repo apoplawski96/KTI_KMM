@@ -24,6 +24,7 @@ import androidx.compose.ui.graphics.Color
 
 /* KTI V2 */
 val kti_grayish = Color(0xFF2E2E2E)
+val kti_grayish_variant = Color(0xFF313131)
 val kti_soft_white = Color(0xFFF5F5F0)
 val kti_grayish_light = Color(0xFF23313c)
 val kti_text_icons = Color(0xFFF5F5F0)

@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.itemsIndexed
@@ -26,12 +27,18 @@ import com.example.myapplication.android.common.ui.component.KTIBackButton
 import com.example.myapplication.android.common.ui.component.KTIHorizontalSpacer
 import com.example.myapplication.android.common.ui.component.KTIIcon
 import com.example.myapplication.android.common.ui.component.KTIIconButton
+import com.example.myapplication.android.common.ui.component.KTIIllustration
 import com.example.myapplication.android.common.ui.component.KTITextNew
+import com.example.myapplication.android.common.ui.component.KTIVerticalSpacer
 import com.example.myapplication.android.common.ui.component.applyColor
 import com.example.myapplication.android.common.ui.component.bottomsheet.model.KTICard
 import com.example.myapplication.android.common.ui.component.bottomsheet.model.KTICardItem
 import com.example.myapplication.android.common.ui.component.bottomsheet.model.KTICardSmall
+import com.example.myapplication.android.common.ui.component.bottomsheet.model.KTICardWithIllustration
 import com.example.myapplication.android.ui.theme.KTITheme
+import com.example.myapplication.android.ui.theme.kti_grayish
+import com.example.myapplication.android.ui.theme.kti_grayish_variant
+import com.example.myapplication.android.ui.theme.kti_soft_white
 import com.example.myapplication.model.subcategory.SubCategory
 import com.example.myapplication.model.subcategory.TopCategory
 import com.example.myapplication.screens.home.HomeScreenFeedItem
@@ -70,6 +77,8 @@ private fun HomeScreenContent(
     ) {
         TopBarSection()
         HelloSection()
+        KTIVerticalSpacer(height = 32.dp)
+        IllustrationSection()
         when (state) {
             is HomeScreenViewModel.ViewState.HomeItems -> {
                 HomeScreenFeedSection(
@@ -125,18 +134,23 @@ private fun HelloSection() {
         verticalArrangement = Arrangement.Center
     ) {
         KTITextNew(
-            text = "Hello candidate!",
+            text = "Hello candidate",
             fontSize = 20.sp,
             fontWeight = FontWeight.SemiBold,
             color = KTITheme.colors.textMain
         )
         KTITextNew(
-            text = "Prepare to kill your next interview",
+            text = "It's time to prepare for your next interview!",
             fontSize = 12.sp,
             fontWeight = FontWeight.Normal,
             color = KTITheme.colors.textVariant2
         )
     }
+}
+
+@Composable
+private fun IllustrationSection() {
+    KTIIllustration(drawableRes = R.drawable.undraw_certificate_re_yadi, modifier = Modifier.height(256.dp))
 }
 
 @Composable
@@ -179,15 +193,19 @@ private fun MenuItems(
     Column(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(vertical = 8.dp)
+            .padding(bottom = 8.dp, start = 16.dp, end = 16.dp)
     ) {
         items.forEach { homeItem ->
-            KTICard(
+            KTICardWithIllustration(
                 item = KTICardItem(value = homeItem, label = homeItem.displayName),
                 onClick = onItemClicked,
-                padding = PaddingValues(horizontal = 16.dp, vertical = 8.dp),
-                fontWeight = FontWeight.W500
+                fontWeight = FontWeight.W500,
+                illustrationResId = when(homeItem) {
+                    HomeScreenMenuItem.QUESTIONS_QUIZ -> R.drawable.undraw_engineering_team_a7n2
+                    HomeScreenMenuItem.QUESTIONS_CATEGORIES -> R.drawable.undraw_educator_re_ju47
+                }
             )
+            KTIVerticalSpacer(height = 12.dp)
         }
     }
 }

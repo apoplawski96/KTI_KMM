@@ -39,7 +39,11 @@ fun KTIIllustration(
     modifier: Modifier = Modifier,
     contentDescription: String? = null,
 ) {
-    Image(painter = painterResource(id = drawableRes), contentDescription = "")
+    Image(
+        painter = painterResource(id = drawableRes),
+        contentDescription = contentDescription,
+        modifier = modifier
+    )
 }
 
 @Composable
