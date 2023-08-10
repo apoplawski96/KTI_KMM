@@ -26,6 +26,7 @@ import com.google.accompanist.navigation.animation.AnimatedNavHost
 import com.google.accompanist.navigation.animation.composable
 import com.google.accompanist.navigation.animation.rememberAnimatedNavController
 import org.koin.androidx.compose.get
+import org.koin.androidx.compose.koinViewModel
 
 @ExperimentalAnimationApi
 @Composable
@@ -108,7 +109,7 @@ private fun NavGraphBuilder.welcomeScreen() {
 
 private fun NavGraphBuilder.menuScreen() {
     composable(route = Destinations.Menu.route) {
-        HomeScreen()
+        HomeScreen(viewModel = koinViewModel())
     }
 }
 
@@ -140,7 +141,8 @@ private fun NavGraphBuilder.listScreen() {
             backStackEntry.arguments?.getString(Destinations.QuestionsList.subCategoryIdArg)
         ListScreen(
             topCategory = TopCategory.getForId(categoryId.toString()),
-            subCategory = getSubCategoryForId(subCategoryId)
+            subCategory = getSubCategoryForId(subCategoryId),
+            viewModel = koinViewModel()
         )
     }
 }

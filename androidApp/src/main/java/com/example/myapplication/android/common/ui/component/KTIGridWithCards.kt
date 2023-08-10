@@ -16,7 +16,6 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyGridState
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
-import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.lazy.grid.itemsIndexed
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Card
@@ -34,7 +33,6 @@ import androidx.compose.ui.unit.sp
 import com.example.myapplication.android.ui.theme.kti_accent
 import com.example.myapplication.android.ui.theme.kti_grayish
 import com.example.myapplication.android.ui.theme.kti_grayish_light
-import com.example.myapplication.android.ui.theme.kti_offblack
 import com.example.myapplication.android.ui.theme.kti_soft_black
 import com.example.myapplication.android.ui.theme.kti_soft_white
 import com.example.myapplication.android.ui.theme.white
@@ -68,7 +66,13 @@ fun <T> KTIGridWithCards(
                 }
             }
             this.itemsIndexed(items = items) { index, item ->
-                KTICard(item = item.applyColor(index), onClick = onClick, padding = PaddingValues(all = 4.dp), textColor = kti_offblack)
+                KTICard(
+                    item = item.applyColor(index),
+                    onClick = onClick,
+                    padding = PaddingValues(all = 4.dp),
+                    textColor = white,
+                    fontWeight = FontWeight.W500
+                )
             }
             if (items.count() % 2 == 0) {
                 item { KTIVerticalSpacer(height = 8.dp) }
@@ -90,7 +94,7 @@ fun <T> KTICard(
     textColor: Color = kti_soft_black,
 ) {
     Card(
-        shape = RoundedCornerShape(size = 12.dp),
+        shape = RoundedCornerShape(size = 8.dp),
         backgroundColor = item.cardColor ?: backgroundColor,
 //        border = BorderStroke(width = 0.5.dp, color = kti_grayish_light.copy(alpha = 0.2f)),
         modifier = Modifier
@@ -110,7 +114,7 @@ fun <T> KTICard(
                 maxLines = 2,
                 overflow = TextOverflow.Ellipsis,
                 fontWeight = fontWeight,
-                fontSize = 14.sp,
+                fontSize = 16.sp,
                 color = textColor
             )
         }
@@ -139,10 +143,14 @@ fun <T> KTICardWithIllustration(
             .heightIn(cardMinHeight),
     ) {
         Row(
-            modifier = Modifier.fillMaxWidth().heightIn(cardMinHeight)
+            modifier = Modifier
+                .fillMaxWidth()
+                .heightIn(cardMinHeight)
         ) {
             Column(
-                modifier = Modifier.weight(2f).heightIn(cardMinHeight),
+                modifier = Modifier
+                    .weight(2f)
+                    .heightIn(cardMinHeight),
                 horizontalAlignment = Alignment.Start,
                 verticalArrangement = Arrangement.Bottom,
             ) {
@@ -157,7 +165,10 @@ fun <T> KTICardWithIllustration(
                 )
             }
             Box(
-                modifier = Modifier.weight(1.2f).heightIn(cardMinHeight).padding(horizontal = 16.dp, vertical = 4.dp),
+                modifier = Modifier
+                    .weight(1.2f)
+                    .heightIn(cardMinHeight)
+                    .padding(horizontal = 16.dp, vertical = 4.dp),
                 contentAlignment = Alignment.Center
             ) {
                 KTIIllustration(drawableRes = illustrationResId)

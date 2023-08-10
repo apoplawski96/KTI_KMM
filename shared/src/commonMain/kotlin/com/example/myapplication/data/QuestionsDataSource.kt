@@ -14,6 +14,8 @@ private const val FILE_NAME_DROID_ARCHITECTURE = "questions_android_architecture
 private const val FILE_NAME_DROID_CONFIGURATION = "questions_android_configuration.json"
 private const val FILE_NAME_DROID_VIEW_MODEL = "questions_android_viewmodel.json"
 private const val FILE_NAME_DROID_CORE = "questions_android_core.json"
+private const val FILE_NAME_DROID_COMPOSE = "questions_android_compose.json"
+
 
 private const val FILE_NAME_IOS = "questions_ios.json"
 private const val FILE_NAME_DESIGN_PATTERNS = "questions_design_patterns.json"
@@ -31,7 +33,8 @@ class QuestionsDataSource(private val jsonFileReader: JsonFileReader) {
             decodeQuestionsFromFile(FILE_NAME_DROID_ARCHITECTURE) +
             decodeQuestionsFromFile(FILE_NAME_DROID_CONFIGURATION) +
             decodeQuestionsFromFile(FILE_NAME_DROID_VIEW_MODEL) +
-            decodeQuestionsFromFile(FILE_NAME_DROID_CORE)
+            decodeQuestionsFromFile(FILE_NAME_DROID_CORE) +
+            decodeQuestionsFromFile(FILE_NAME_DROID_COMPOSE)
 
     fun getQuestionsIOS(): List<QuestionSchema> =
         decodeQuestionsFromFile(FILE_NAME_IOS)
