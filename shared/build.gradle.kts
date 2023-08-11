@@ -46,6 +46,12 @@ kotlin {
                 implementation(libs.kotlinx.dateTime)
                 api(libs.touchlab.kermit)
                 implementation(libs.kotlinx.serialization.json)
+
+                implementation(platform("com.aallam.openai:openai-client-bom:3.3.0"))
+
+                // define dependencies without versions
+                implementation("com.aallam.openai:openai-client")
+                runtimeOnly ("io.ktor:ktor-client-okhttp")
             }
         }
         val commonTest by getting {
