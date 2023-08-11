@@ -6,6 +6,7 @@ import co.touchlab.kampkit.models.BreedRepository
 import co.touchlab.kermit.Logger
 import co.touchlab.kermit.StaticConfig
 import co.touchlab.kermit.platformLogWriter
+import com.example.myapplication.data.QuestionsDatabaseHelper
 import com.example.myapplication.di.dataModule
 import com.example.myapplication.di.domainModule
 import kotlinx.coroutines.Dispatchers
@@ -47,6 +48,11 @@ fun initKoin(vararg modules: Module): KoinApplication {
 private val coreModule = module {
     single {
         DatabaseHelper(
+            sqlDriver = get(),
+            log = getWith("DatabaseHelper"),
+            backgroundDispatcher = Dispatchers.Default
+        )
+        QuestionsDatabaseHelper(
             sqlDriver = get(),
             log = getWith("DatabaseHelper"),
             backgroundDispatcher = Dispatchers.Default

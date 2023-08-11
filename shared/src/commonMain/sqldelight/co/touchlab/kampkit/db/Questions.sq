@@ -1,0 +1,18 @@
+CREATE TABLE Question (
+id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+questionText TEXT NOT NULL,
+answer TEXT NOT NULL
+);
+
+selectAll:
+SELECT * FROM Question;
+
+selectById:
+SELECT * FROM Question WHERE id = ?;
+
+insertQuestion:
+INSERT OR IGNORE INTO Question(questionText, answer)
+VALUES (?, ?);
+
+deleteAll:
+DELETE FROM Question;
