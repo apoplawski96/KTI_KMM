@@ -16,7 +16,6 @@ private const val FILE_NAME_DROID_VIEW_MODEL = "questions_android_viewmodel.json
 private const val FILE_NAME_DROID_CORE = "questions_android_core.json"
 private const val FILE_NAME_DROID_COMPOSE = "questions_android_compose.json"
 
-
 private const val FILE_NAME_IOS = "questions_ios.json"
 private const val FILE_NAME_DESIGN_PATTERNS = "questions_design_patterns.json"
 private const val FILE_NAME_KOTLIN = "questions_kotlin.json"
