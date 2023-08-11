@@ -1,4 +1,4 @@
-package com.example.myapplication.screens.interview
+package com.example.myapplication.screens.interview.domain.model
 
 data class Role(
     val roleType: RoleType,
