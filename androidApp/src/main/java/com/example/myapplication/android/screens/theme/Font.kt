@@ -1,4 +1,4 @@
-package com.example.myapplication.android.ui.theme
+package com.example.myapplication.android.screens.theme
 
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily

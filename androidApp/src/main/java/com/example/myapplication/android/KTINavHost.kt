@@ -12,11 +12,11 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavType
 import androidx.navigation.navArgument
 import co.apoplawski96.kti.navigation.model.NavigationCommand
-import com.example.myapplication.android.ui.categories.CategoriesScreen
-import com.example.myapplication.android.ui.home.HomeScreen
-import com.example.myapplication.android.ui.questions.list.ListScreen
-import com.example.myapplication.android.ui.subcategory.SubCategoriesScreen
-import com.example.myapplication.android.ui.welcome.WelcomeScreen
+import com.example.myapplication.android.screens.categories.CategoriesScreen
+import com.example.myapplication.android.screens.home.HomeScreen
+import com.example.myapplication.android.screens.questions.list.ListScreen
+import com.example.myapplication.android.screens.subcategory.SubCategoriesScreen
+import com.example.myapplication.android.screens.welcome.WelcomeScreen
 import com.example.myapplication.model.subcategory.TopCategory
 import com.example.myapplication.model.subcategory.getSubCategoryForId
 import com.example.myapplication.navigation.Navigator

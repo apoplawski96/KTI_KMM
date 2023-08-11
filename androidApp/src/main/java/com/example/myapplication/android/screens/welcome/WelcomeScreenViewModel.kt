@@ -1,4 +1,4 @@
-package com.example.myapplication.android.ui.welcome
+package com.example.myapplication.android.screens.welcome
 
 import co.touchlab.kampkit.models.ViewModel
 import com.example.myapplication.navigation.Navigator

@@ -1,4 +1,4 @@
-package com.example.myapplication.android.ui.theme
+package com.example.myapplication.android.screens.theme
 
 import androidx.compose.material.ripple.LocalRippleTheme
 import androidx.compose.material.ripple.RippleAlpha

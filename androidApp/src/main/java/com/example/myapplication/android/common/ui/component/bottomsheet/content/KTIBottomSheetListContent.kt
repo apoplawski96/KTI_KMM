@@ -18,9 +18,9 @@ import com.example.myapplication.android.R
 import com.example.myapplication.android.common.ui.component.KTIText
 import com.example.myapplication.android.common.ui.component.bottomsheet.base.KTIBottomSheetSurface
 import com.example.myapplication.android.common.ui.component.bottomsheet.model.BottomSheetListItem
-import com.example.myapplication.android.ui.theme.kti_grayish
-import com.example.myapplication.android.ui.theme.kti_green
-import com.example.myapplication.android.ui.theme.kti_secondary_text
+import com.example.myapplication.android.screens.theme.kti_grayish
+import com.example.myapplication.android.screens.theme.kti_green
+import com.example.myapplication.android.screens.theme.kti_secondary_text
 
 enum class BottomSheetListItemType {
     RADIO,

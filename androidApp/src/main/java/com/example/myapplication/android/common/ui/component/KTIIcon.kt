@@ -12,8 +12,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.Dp
-import com.example.myapplication.android.ui.theme.KTITheme
-import com.example.myapplication.android.ui.theme.kti_soft_black
+import com.example.myapplication.android.screens.theme.KTITheme
+import com.example.myapplication.android.screens.theme.kti_soft_black
 import com.example.myapplication.navigation.Navigator
 import org.koin.androidx.compose.get
 

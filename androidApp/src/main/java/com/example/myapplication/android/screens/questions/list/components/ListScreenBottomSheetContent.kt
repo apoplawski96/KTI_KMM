@@ -1,4 +1,4 @@
-package com.example.myapplication.android.ui.questions.list.components
+package com.example.myapplication.android.screens.questions.list.components
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth

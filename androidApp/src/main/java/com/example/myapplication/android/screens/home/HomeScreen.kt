@@ -1,9 +1,8 @@
-package com.example.myapplication.android.ui.home
+package com.example.myapplication.android.screens.home
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -22,10 +21,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.myapplication.android.R
-import com.example.myapplication.android.common.ui.component.KTIBackButton
 import com.example.myapplication.android.common.ui.component.KTIHorizontalSpacer
-import com.example.myapplication.android.common.ui.component.KTIIcon
-import com.example.myapplication.android.common.ui.component.KTIIconButton
 import com.example.myapplication.android.common.ui.component.KTIIllustration
 import com.example.myapplication.android.common.ui.component.KTITextNew
 import com.example.myapplication.android.common.ui.component.KTIVerticalSpacer
@@ -34,7 +30,7 @@ import com.example.myapplication.android.common.ui.component.KTICardItem
 import com.example.myapplication.android.common.ui.component.KTICardSmallWithUnderText
 import com.example.myapplication.android.common.ui.component.KTICardWithIllustration
 import com.example.myapplication.android.common.ui.component.bottomsheet.KTITopBarNew
-import com.example.myapplication.android.ui.theme.KTITheme
+import com.example.myapplication.android.screens.theme.KTITheme
 import com.example.myapplication.model.subcategory.SubCategory
 import com.example.myapplication.model.subcategory.TopCategory
 import com.example.myapplication.screens.home.HomeScreenFeedItem

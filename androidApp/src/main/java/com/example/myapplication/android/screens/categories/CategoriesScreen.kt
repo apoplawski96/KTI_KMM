@@ -1,13 +1,9 @@
-package com.example.myapplication.android.ui.categories
+package com.example.myapplication.android.screens.categories
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.grid.LazyGridState
 import androidx.compose.foundation.lazy.grid.rememberLazyGridState
-import androidx.compose.material.Icon
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.outlined.AccountCircle
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
@@ -17,15 +13,12 @@ import androidx.compose.ui.unit.dp
 import com.example.myapplication.android.R
 import com.example.myapplication.android.common.ui.component.KTIBoxWithGradientBackground
 import com.example.myapplication.android.common.ui.component.KTICircularProgressIndicator
-import com.example.myapplication.android.common.ui.component.KTIHorizontalSpacer
-import com.example.myapplication.android.common.ui.component.KTITextTopBar
 import com.example.myapplication.android.common.ui.component.KTICardItem
 import com.example.myapplication.android.common.ui.component.GridVariant
 import com.example.myapplication.android.common.ui.component.KTIGridWithCards
 import com.example.myapplication.android.common.ui.component.KTIIllustration
 import com.example.myapplication.android.common.ui.component.KTIVerticalSpacer
 import com.example.myapplication.android.common.ui.component.bottomsheet.KTITopBarNew
-import com.example.myapplication.android.ui.theme.kti_accent
 import com.example.myapplication.model.subcategory.TopCategory
 import com.example.myapplication.screens.categories.CategoriesViewModel
 import org.koin.androidx.compose.getViewModel

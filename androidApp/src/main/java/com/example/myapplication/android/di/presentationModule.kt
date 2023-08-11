@@ -1,6 +1,6 @@
 package com.example.myapplication.android.di
 
-import com.example.myapplication.android.ui.welcome.WelcomeScreenViewModel
+import com.example.myapplication.android.screens.welcome.WelcomeScreenViewModel
 import com.example.myapplication.screens.categories.CategoriesViewModel
 import com.example.myapplication.screens.home.HomeScreenViewModel
 import com.example.myapplication.screens.list.ListViewModel

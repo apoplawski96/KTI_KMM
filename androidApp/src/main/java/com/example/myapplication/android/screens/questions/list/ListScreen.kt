@@ -1,6 +1,6 @@
 @file:OptIn(ExperimentalMaterialApi::class)
 
-package com.example.myapplication.android.ui.questions.list
+package com.example.myapplication.android.screens.questions.list
 
 import android.annotation.SuppressLint
 import androidx.compose.animation.AnimatedVisibility
@@ -34,14 +34,14 @@ import com.example.myapplication.android.common.ui.component.KTITextNew
 import com.example.myapplication.android.common.ui.component.KTIVerticalSpacer
 import com.example.myapplication.android.common.ui.component.bottomsheet.base.KTIModalBottomSheetLayout
 import com.example.myapplication.android.common.ui.component.clickableNoRipple
-import com.example.myapplication.android.ui.questions.list.components.ListScreenBottomSheetContent
-import com.example.myapplication.android.ui.questions.list.components.ListScreenScoreBar
-import com.example.myapplication.android.ui.questions.list.components.ListScreenTopBar
-import com.example.myapplication.android.ui.theme.kti_accent
-import com.example.myapplication.android.ui.theme.kti_divider
-import com.example.myapplication.android.ui.theme.kti_green
-import com.example.myapplication.android.ui.theme.kti_soft_black
-import com.example.myapplication.android.ui.theme.kti_soft_white
+import com.example.myapplication.android.screens.questions.list.components.ListScreenBottomSheetContent
+import com.example.myapplication.android.screens.questions.list.components.ListScreenScoreBar
+import com.example.myapplication.android.screens.questions.list.components.ListScreenTopBar
+import com.example.myapplication.android.screens.theme.kti_accent
+import com.example.myapplication.android.screens.theme.kti_divider
+import com.example.myapplication.android.screens.theme.kti_green
+import com.example.myapplication.android.screens.theme.kti_soft_black
+import com.example.myapplication.android.screens.theme.kti_soft_white
 import com.example.myapplication.model.Question
 import com.example.myapplication.model.subcategory.SubCategory
 import com.example.myapplication.model.subcategory.TopCategory

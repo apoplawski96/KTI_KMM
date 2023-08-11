@@ -1,4 +1,4 @@
-package com.example.myapplication.android.ui.subcategory
+package com.example.myapplication.android.screens.subcategory
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Arrangement
@@ -31,10 +31,10 @@ import com.example.myapplication.android.common.ui.component.KTICardItem
 import com.example.myapplication.android.common.ui.component.GridVariant
 import com.example.myapplication.android.common.ui.component.KTIGridWithCards
 import com.example.myapplication.android.common.ui.component.clickableNoRipple
-import com.example.myapplication.android.ui.theme.kti_accent
-import com.example.myapplication.android.ui.theme.kti_grayish
-import com.example.myapplication.android.ui.theme.kti_grayish_light
-import com.example.myapplication.android.ui.theme.kti_text_icons
+import com.example.myapplication.android.screens.theme.kti_accent
+import com.example.myapplication.android.screens.theme.kti_grayish
+import com.example.myapplication.android.screens.theme.kti_grayish_light
+import com.example.myapplication.android.screens.theme.kti_text_icons
 import com.example.myapplication.model.subcategory.SubCategory
 import com.example.myapplication.model.subcategory.TopCategory
 import com.example.myapplication.screens.subcategories.SubCategoriesViewModel

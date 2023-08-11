@@ -8,9 +8,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
-import com.example.myapplication.android.ui.theme.kti_background_grey
-import com.example.myapplication.android.ui.theme.kti_grey
-import com.example.myapplication.android.ui.theme.kti_soft_white
+import com.example.myapplication.android.screens.theme.kti_background_grey
+import com.example.myapplication.android.screens.theme.kti_grey
+import com.example.myapplication.android.screens.theme.kti_soft_white
 
 @Composable
 fun KTIColumnWithGradientColumn(

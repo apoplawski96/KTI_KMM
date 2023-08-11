@@ -32,7 +32,10 @@ class HomeScreenViewModel(
 
     fun onItemClicked(item: HomeScreenMenuItem) {
         val destination = when(item) {
-            HomeScreenMenuItem.QUESTIONS_QUIZ -> Destinations.QuestionsQuiz
+            HomeScreenMenuItem.QUESTIONS_QUIZ -> {
+                println("2137 - $this")
+                return
+            }
             HomeScreenMenuItem.QUESTIONS_CATEGORIES -> Destinations.Categories
         }
         navigator.navigate(destination = destination)

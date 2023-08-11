@@ -1,4 +1,4 @@
-package com.example.myapplication.android.ui.questions.list.components
+package com.example.myapplication.android.screens.questions.list.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
@@ -12,9 +12,9 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.myapplication.android.common.ui.component.KTITextNew
-import com.example.myapplication.android.ui.theme.kti_accent
-import com.example.myapplication.android.ui.theme.kti_soft_black
-import com.example.myapplication.android.ui.theme.kti_soft_white
+import com.example.myapplication.android.screens.theme.kti_accent
+import com.example.myapplication.android.screens.theme.kti_soft_black
+import com.example.myapplication.android.screens.theme.kti_soft_white
 
 @Composable
 fun ListScreenScoreBar(score: Int, total: Int) {

@@ -1,4 +1,4 @@
-package com.example.myapplication.android.ui.welcome
+package com.example.myapplication.android.screens.welcome
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -17,12 +17,11 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.myapplication.android.R
 import com.example.myapplication.android.common.ui.component.KTIButton
-import com.example.myapplication.android.common.ui.component.KTIIcon
 import com.example.myapplication.android.common.ui.component.KTIIllustration
 import com.example.myapplication.android.common.ui.component.KTITextButton
 import com.example.myapplication.android.common.ui.component.KTITextNew
 import com.example.myapplication.android.common.ui.component.KTIVerticalSpacer
-import com.example.myapplication.android.ui.theme.KTITheme
+import com.example.myapplication.android.screens.theme.KTITheme
 import org.koin.androidx.compose.get
 
 @Composable
