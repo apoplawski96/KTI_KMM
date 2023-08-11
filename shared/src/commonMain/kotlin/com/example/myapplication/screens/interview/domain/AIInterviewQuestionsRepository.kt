@@ -13,18 +13,23 @@ class AIInterviewQuestionsRepository(
         object Error : Result
     }
 
-    suspend fun promptForQuestion(role: Role): Result {
+    suspend fun promptForQuestion(role: Role): Result = try {
         val prompt = """
             Hello chat! I am applying for ${role.seniority} ${role.roleType} position and I am preparing for a technical interview.
             Act as an interviewer and ask me a question that is relevant for my position and seniority.
+            Try to really role-play an interviewer.
+            Don't generate answers.
         """.trimIndent()
 
         val promptResponse = openAIPrompter.executePrompt(prompt)
 
-        return if (promptResponse.isNullOrEmpty() || promptResponse.isBlank()) {
+        if (promptResponse.isNullOrEmpty() || promptResponse.isBlank()) {
             Result.Error
         } else {
             Result.Success(question = AIQuestion(content = promptResponse))
         }
+    } catch (e: Exception) {
+        println("2137 - exception: $e")
+        Result.Error
     }
 }

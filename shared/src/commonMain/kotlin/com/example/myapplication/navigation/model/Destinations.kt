@@ -70,6 +70,16 @@ object Destinations {
             get() = listOf()
     }
 
+    object AIInterview : NavigationDestination {
+
+        override val route: String
+            get() = "destination_ai_interview"
+        override val genericRoute: String
+            get() = "destination_ai_interview"
+        override val arguments: List<NavigationArgument>
+            get() = listOf()
+    }
+
     object SubCategories : NavigationDestination {
 
         const val categoryIdArgName = "categoryId"

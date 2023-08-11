@@ -14,6 +14,7 @@ import androidx.navigation.navArgument
 import co.apoplawski96.kti.navigation.model.NavigationCommand
 import com.example.myapplication.android.screens.categories.CategoriesScreen
 import com.example.myapplication.android.screens.home.HomeScreen
+import com.example.myapplication.android.screens.interview.AIInterviewScreen
 import com.example.myapplication.android.screens.questions.list.ListScreen
 import com.example.myapplication.android.screens.subcategory.SubCategoriesScreen
 import com.example.myapplication.android.screens.welcome.WelcomeScreen
@@ -22,6 +23,9 @@ import com.example.myapplication.model.subcategory.getSubCategoryForId
 import com.example.myapplication.navigation.Navigator
 import com.example.myapplication.navigation.model.Destinations
 import com.example.myapplication.navigation.model.NavigationArgument
+import com.example.myapplication.screens.interview.domain.model.Role
+import com.example.myapplication.screens.interview.domain.model.RoleType
+import com.example.myapplication.screens.interview.domain.model.Seniority
 import com.google.accompanist.navigation.animation.AnimatedNavHost
 import com.google.accompanist.navigation.animation.composable
 import com.google.accompanist.navigation.animation.rememberAnimatedNavController
@@ -48,6 +52,7 @@ fun KTINavHost(navigator: Navigator = get()) {
         listScreen()
         categoriesScreen()
         subCategoriesScreen()
+        aiInterviewScreen()
     }
 }
 
@@ -116,6 +121,12 @@ private fun NavGraphBuilder.menuScreen() {
 private fun NavGraphBuilder.categoriesScreen() {
     composable(route = Destinations.Categories.route) {
         CategoriesScreen()
+    }
+}
+
+private fun NavGraphBuilder.aiInterviewScreen() {
+    composable(route = Destinations.AIInterview.route) {
+        AIInterviewScreen(role = Role(roleType = RoleType.ANDROID_DEVELOPER, seniority = Seniority.SENIOR))
     }
 }
 

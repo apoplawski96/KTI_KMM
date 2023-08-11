@@ -48,7 +48,7 @@ dependencies {
 
     implementation("io.coil-kt:coil-compose:2.2.2")
 
-    val ktorVersion = "1.6.4"
+    val ktorVersion = "2.3.1"
     implementation ("io.ktor:ktor-client-core:$ktorVersion")
 
 // HTTP engine: The HTTP client used to perform network requests.
@@ -60,6 +60,8 @@ dependencies {
 
 // Logging
     implementation ("io.ktor:ktor-client-logging:$ktorVersion")
+
+    implementation("io.ktor:ktor-client-okhttp:$ktorVersion")
 
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.2")
 

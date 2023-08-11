@@ -64,6 +64,7 @@ kotlin {
                 implementation(libs.androidx.lifecycle.viewmodel)
                 implementation(libs.sqlDelight.android)
                 implementation(libs.ktor.client.okHttp)
+                implementation("io.ktor:ktor-client-okhttp")
             }
         }
         val iosMain by getting {
