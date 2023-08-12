@@ -18,7 +18,7 @@ import com.example.myapplication.android.common.ui.component.GridVariant
 import com.example.myapplication.android.common.ui.component.KTIGridWithCards
 import com.example.myapplication.android.common.ui.component.KTIIllustration
 import com.example.myapplication.android.common.ui.component.KTIVerticalSpacer
-import com.example.myapplication.android.common.ui.component.bottomsheet.KTITopBarNew
+import com.example.myapplication.android.common.ui.component.KTITopBarNew
 import com.example.myapplication.model.subcategory.TopCategory
 import com.example.myapplication.screens.categories.CategoriesViewModel
 import org.koin.androidx.compose.getViewModel

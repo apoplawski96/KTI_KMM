@@ -33,7 +33,7 @@ import com.example.myapplication.android.common.ui.component.KTIIllustration
 import com.example.myapplication.android.common.ui.component.KTITextButton
 import com.example.myapplication.android.common.ui.component.KTITextNew
 import com.example.myapplication.android.common.ui.component.KTIVerticalSpacer
-import com.example.myapplication.android.common.ui.component.bottomsheet.KTITopBarNew
+import com.example.myapplication.android.common.ui.component.KTITopBarNew
 import com.example.myapplication.android.common.ui.component.clickableNoRipple
 import com.example.myapplication.android.screens.theme.KTITheme
 import com.example.myapplication.android.screens.theme.kti_accent

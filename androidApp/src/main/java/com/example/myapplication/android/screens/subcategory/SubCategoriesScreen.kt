@@ -25,12 +25,11 @@ import androidx.compose.ui.unit.sp
 import com.example.myapplication.android.common.ui.component.KTIBoxWithGradientBackground
 import com.example.myapplication.android.common.ui.component.KTICircularProgressIndicator
 import com.example.myapplication.android.common.ui.component.KTITextNew
-import com.example.myapplication.android.common.ui.component.KTITextTopBar
 import com.example.myapplication.android.common.ui.component.KTIVerticalSpacer
 import com.example.myapplication.android.common.ui.component.KTICardItem
 import com.example.myapplication.android.common.ui.component.GridVariant
 import com.example.myapplication.android.common.ui.component.KTIGridWithCards
-import com.example.myapplication.android.common.ui.component.bottomsheet.KTITopBarNew
+import com.example.myapplication.android.common.ui.component.KTITopBarNew
 import com.example.myapplication.android.common.ui.component.clickableNoRipple
 import com.example.myapplication.android.screens.theme.kti_accent
 import com.example.myapplication.android.screens.theme.kti_grayish
@@ -97,58 +96,6 @@ fun SubCategoriesScreenContent(
                     )
                 }
             }
-        }
-    }
-}
-
-@Composable
-private fun CategoriesGrid(
-    categories: List<SubCategory>,
-    onClick: (SubCategory?) -> Unit,
-    state: LazyGridState,
-) {
-    LazyVerticalGrid(
-        columns = GridCells.Fixed(count = 2),
-        modifier = Modifier.padding(start = 4.dp, end = 4.dp),
-        state = state,
-        content = {
-            item { KTIVerticalSpacer(height = 20.dp) }
-            item { KTIVerticalSpacer(height = 20.dp) }
-            item { SubCategoryCard(subCategory = null, onClick = { onClick(null) }) }
-            items(items = categories) { category ->
-                SubCategoryCard(subCategory = category, onClick = onClick)
-            }
-        }
-    )
-}
-
-@Composable
-private fun SubCategoryCard(
-    subCategory: SubCategory?,
-    onClick: (SubCategory?) -> Unit,
-) {
-    Card(
-        shape = RoundedCornerShape(size = 8.dp),
-        backgroundColor = kti_grayish,
-        border = BorderStroke(width = 0.5.dp, color = kti_grayish_light.copy(alpha = 0.2f)),
-        modifier = Modifier
-            .clickableNoRipple { onClick.invoke(subCategory) }
-            .padding(2.dp)
-            .heightIn(min = 96.dp)
-    ) {
-        Column(
-            modifier = Modifier.padding(12.dp),
-            horizontalAlignment = Alignment.Start,
-            verticalArrangement = Arrangement.Bottom,
-        ) {
-            KTITextNew(
-                text = subCategory?.displayName ?: "All",
-                maxLines = 2,
-                overflow = TextOverflow.Ellipsis,
-                fontWeight = FontWeight(400),
-                fontSize = 14.sp,
-                color = if (subCategory != null) kti_text_icons else kti_accent
-            )
         }
     }
 }

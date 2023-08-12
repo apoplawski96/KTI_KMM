@@ -29,7 +29,7 @@ import com.example.myapplication.android.common.ui.component.applyColor
 import com.example.myapplication.android.common.ui.component.KTICardItem
 import com.example.myapplication.android.common.ui.component.KTICardSmallWithUnderText
 import com.example.myapplication.android.common.ui.component.KTICardWithIllustration
-import com.example.myapplication.android.common.ui.component.bottomsheet.KTITopBarNew
+import com.example.myapplication.android.common.ui.component.KTITopBarNew
 import com.example.myapplication.android.screens.theme.KTITheme
 import com.example.myapplication.model.subcategory.SubCategory
 import com.example.myapplication.model.subcategory.TopCategory
@@ -67,7 +67,7 @@ private fun HomeScreenContent(
         verticalArrangement = Arrangement.Top,
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-        KTITopBarNew()
+        KTITopBarNew(isNested = false)
         HelloSection()
         KTIVerticalSpacer(height = 32.dp)
         IllustrationSection()

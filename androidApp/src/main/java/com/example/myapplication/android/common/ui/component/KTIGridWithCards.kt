@@ -70,7 +70,7 @@ fun <T> KTIGridWithCards(
                     item = item.applyColor(index),
                     onClick = onClick,
                     padding = PaddingValues(all = 4.dp),
-                    textColor = white,
+                    textColor = kti_soft_white,
                     fontWeight = FontWeight.W500
                 )
             }
@@ -268,7 +268,7 @@ private fun AllCard(onClick: () -> Unit) {
         border = BorderStroke(width = 0.5.dp, color = kti_grayish_light.copy(alpha = 0.2f)),
         modifier = Modifier
             .clickableNoRipple { onClick.invoke() }
-            .padding(2.dp)
+            .padding(4.dp)
             .heightIn(min = 96.dp)
     ) {
         Column(

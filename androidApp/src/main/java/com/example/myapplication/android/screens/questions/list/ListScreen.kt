@@ -28,12 +28,15 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.compose.ui.window.PopupProperties
+import com.example.myapplication.android.R
 import com.example.myapplication.android.common.ui.component.KTICircularProgressIndicator
 import com.example.myapplication.android.common.ui.component.KTIColumnWithGradientColumn
+import com.example.myapplication.android.common.ui.component.KTIIcon
 import com.example.myapplication.android.common.ui.component.KTIText
 import com.example.myapplication.android.common.ui.component.KTITextNew
 import com.example.myapplication.android.common.ui.component.KTIVerticalSpacer
-import com.example.myapplication.android.common.ui.component.bottomsheet.KTITopBarNew
+import com.example.myapplication.android.common.ui.component.KTITopBarNew
 import com.example.myapplication.android.common.ui.component.bottomsheet.base.KTIModalBottomSheetLayout
 import com.example.myapplication.android.common.ui.component.clickableNoRipple
 import com.example.myapplication.android.screens.questions.list.components.ListScreenBottomSheetContent
@@ -164,30 +167,27 @@ private fun ListScreenContent(
                     title = topBarTitle,
                     iconsSection = {
                         IconButton(onClick = onToggleBottomSheetClick) {
-                            if (bottomSheetState.isVisible) {
-                                Icon(
-                                    imageVector = Icons.Filled.KeyboardArrowDown,
-                                    contentDescription = "Bottom sheet icon",
-                                    tint = kti_accent
-                                )
-                            } else {
-                                Icon(
-                                    imageVector = Icons.Filled.KeyboardArrowUp,
-                                    contentDescription = "Bottom sheet icon",
-                                    tint = kti_accent
-                                )
-                            }
+//                            if (bottomSheetState.isVisible) {
+//                                Icon(
+//                                    imageVector = Icons.Filled.KeyboardArrowDown,
+//                                    contentDescription = "Bottom sheet icon",
+//                                    tint = kti_accent
+//                                )
+//                            } else {
+//                                Icon(
+//                                    imageVector = Icons.Filled.KeyboardArrowUp,
+//                                    contentDescription = "Bottom sheet icon",
+//                                    tint = kti_accent
+//                                )
+//                            }
                         }
                         IconButton(onClick = toggleDropdownMenu) {
-                            Icon(
-                                imageVector = Icons.Outlined.Menu,
-                                contentDescription = "Menu icon",
-                                tint = kti_soft_black
-                            )
+                            KTIIcon(drawableRes = R.drawable.ic_sort, tint = kti_soft_black)
                         }
                         DropdownMenu(
                             expanded = sortDropdownMenuDisplayed,
-                            onDismissRequest = toggleDropdownMenu
+                            onDismissRequest = toggleDropdownMenu,
+                            modifier = Modifier.background(kti_soft_white)
                         ) {
                             ListViewModel.SortMode.values().toList().forEach { sortMode ->
                                 DropdownMenuItem(onClick = { onSortModeClick(sortMode) }) {
