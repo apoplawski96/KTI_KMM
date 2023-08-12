@@ -13,6 +13,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.KeyboardArrowDown
 import androidx.compose.material.icons.filled.KeyboardArrowUp
 import androidx.compose.material.icons.filled.Refresh
+import androidx.compose.material.icons.outlined.Menu
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
@@ -27,16 +28,16 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.myapplication.android.common.ui.component.KTIBoxWithGradientBackground
 import com.example.myapplication.android.common.ui.component.KTICircularProgressIndicator
+import com.example.myapplication.android.common.ui.component.KTIColumnWithGradientColumn
 import com.example.myapplication.android.common.ui.component.KTIText
 import com.example.myapplication.android.common.ui.component.KTITextNew
 import com.example.myapplication.android.common.ui.component.KTIVerticalSpacer
+import com.example.myapplication.android.common.ui.component.bottomsheet.KTITopBarNew
 import com.example.myapplication.android.common.ui.component.bottomsheet.base.KTIModalBottomSheetLayout
 import com.example.myapplication.android.common.ui.component.clickableNoRipple
 import com.example.myapplication.android.screens.questions.list.components.ListScreenBottomSheetContent
 import com.example.myapplication.android.screens.questions.list.components.ListScreenScoreBar
-import com.example.myapplication.android.screens.questions.list.components.ListScreenTopBar
 import com.example.myapplication.android.screens.theme.kti_accent
 import com.example.myapplication.android.screens.theme.kti_divider
 import com.example.myapplication.android.screens.theme.kti_green
@@ -132,53 +133,96 @@ private fun ListScreenContent(
     questionsAnsweredCount: Int,
     questionsTotalCount: Int,
 ) {
-    Scaffold(
-        topBar = {
-            ListScreenTopBar(
-                bottomSheetState = bottomSheetState,
-                onToggleBottomSheetClick = onToggleBottomSheetClick,
-                topBarTitle = topBarTitle,
-                sortDropdownMenuDisplayed = sortDropdownMenuDisplayed,
-                toggleDropdownMenu = toggleDropdownMenu,
-                onSortModeClick = onSortModeClick
-            )
-        },
+//    Scaffold(
+//        topBar = {
+//            ListScreenTopBar(
+//                bottomSheetState = bottomSheetState,
+//                onToggleBottomSheetClick = onToggleBottomSheetClick,
+//                topBarTitle = topBarTitle,
+//                sortDropdownMenuDisplayed = sortDropdownMenuDisplayed,
+//                toggleDropdownMenu = toggleDropdownMenu,
+//                onSortModeClick = onSortModeClick
+//            )
+//        },
+//    ) {
+//
+//
+//    }
+    Box(
+        contentAlignment = Alignment.Center,
+        modifier = Modifier
+            .fillMaxSize()
+            .background(kti_soft_white),
     ) {
-        Box(
-            contentAlignment = Alignment.Center,
-            modifier = Modifier
-                .fillMaxSize()
-                .background(kti_soft_white),
+        KTIModalBottomSheetLayout(
+            sheetState = bottomSheetState,
+            bottomSheetContent = bottomSheetContent,
+            modifier = Modifier.fillMaxSize(),
         ) {
-            KTIModalBottomSheetLayout(
-                sheetState = bottomSheetState,
-                bottomSheetContent = bottomSheetContent,
-                modifier = Modifier.fillMaxSize(),
-            ) {
-                KTIBoxWithGradientBackground {
-                    when (viewState) {
-                        is ListViewModel.ViewState.QuestionsLoaded -> {
-                            QuestionList(
-                                questions = viewState.questions,
-                                markAsAnswered = markAsAnswered,
-                                markAsUnanswered = markAsUnanswered,
-                                questionsTotalCount = questionsTotalCount,
-                                questionsAnsweredCount = questionsAnsweredCount
+            KTIColumnWithGradientColumn {
+                KTITopBarNew(
+                    title = topBarTitle,
+                    iconsSection = {
+                        IconButton(onClick = onToggleBottomSheetClick) {
+                            if (bottomSheetState.isVisible) {
+                                Icon(
+                                    imageVector = Icons.Filled.KeyboardArrowDown,
+                                    contentDescription = "Bottom sheet icon",
+                                    tint = kti_accent
+                                )
+                            } else {
+                                Icon(
+                                    imageVector = Icons.Filled.KeyboardArrowUp,
+                                    contentDescription = "Bottom sheet icon",
+                                    tint = kti_accent
+                                )
+                            }
+                        }
+                        IconButton(onClick = toggleDropdownMenu) {
+                            Icon(
+                                imageVector = Icons.Outlined.Menu,
+                                contentDescription = "Menu icon",
+                                tint = kti_soft_black
                             )
                         }
-
-                        is ListViewModel.ViewState.Loading -> {
-                            KTICircularProgressIndicator()
+                        DropdownMenu(
+                            expanded = sortDropdownMenuDisplayed,
+                            onDismissRequest = toggleDropdownMenu
+                        ) {
+                            ListViewModel.SortMode.values().toList().forEach { sortMode ->
+                                DropdownMenuItem(onClick = { onSortModeClick(sortMode) }) {
+                                    KTITextNew(
+                                        text = sortMode.displayName,
+                                        fontSize = 16.sp,
+                                        fontWeight = FontWeight.W400,
+                                        color = kti_soft_black
+                                    )
+                                }
+                            }
                         }
+                    }
+                )
+                when (viewState) {
+                    is ListViewModel.ViewState.QuestionsLoaded -> {
+                        QuestionList(
+                            questions = viewState.questions,
+                            markAsAnswered = markAsAnswered,
+                            markAsUnanswered = markAsUnanswered,
+                            questionsTotalCount = questionsTotalCount,
+                            questionsAnsweredCount = questionsAnsweredCount
+                        )
+                    }
 
-                        ListViewModel.ViewState.Error -> {
-                            KTIText(text = "Error!")
-                        }
+                    is ListViewModel.ViewState.Loading -> {
+                        KTICircularProgressIndicator()
+                    }
+
+                    ListViewModel.ViewState.Error -> {
+                        KTIText(text = "Error!")
                     }
                 }
             }
         }
-
     }
 }
 

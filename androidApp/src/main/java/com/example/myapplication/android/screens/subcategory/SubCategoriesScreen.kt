@@ -30,6 +30,7 @@ import com.example.myapplication.android.common.ui.component.KTIVerticalSpacer
 import com.example.myapplication.android.common.ui.component.KTICardItem
 import com.example.myapplication.android.common.ui.component.GridVariant
 import com.example.myapplication.android.common.ui.component.KTIGridWithCards
+import com.example.myapplication.android.common.ui.component.bottomsheet.KTITopBarNew
 import com.example.myapplication.android.common.ui.component.clickableNoRipple
 import com.example.myapplication.android.screens.theme.kti_accent
 import com.example.myapplication.android.screens.theme.kti_grayish
@@ -82,11 +83,7 @@ fun SubCategoriesScreenContent(
 
             is SubCategoriesViewModel.ViewState.SubCategoriesLoaded -> {
                 Column(modifier = Modifier.fillMaxSize()) {
-                    KTITextTopBar(
-                        middleContentText = "${topCategory.displayName} categories",
-                        isNested = true,
-                        hasBrandingLine = true,
-                    )
+                    KTITopBarNew(title = "${topCategory.displayName} categories")
                     KTIGridWithCards(
                         items = state.categories.map { subCategory: SubCategory ->
                             KTICardItem(

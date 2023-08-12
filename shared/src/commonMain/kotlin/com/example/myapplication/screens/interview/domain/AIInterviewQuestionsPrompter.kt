@@ -22,6 +22,8 @@ class AIInterviewQuestionsPrompter(
         object Error : ResultJson
     }
 
+    private val inMemoryQuestionsCache: MutableList<AIQuestionSchema> = mutableListOf()
+
     suspend fun promptForQuestionJson(role: Role): ResultJson = try {
         val prompt = """
             Hello chat! I am applying for ${role.seniority} ${role.roleType} position and I am preparing for a technical interview.
@@ -29,6 +31,8 @@ class AIInterviewQuestionsPrompter(
             Ask only concrete, technical questions. 
             Try to really role-play an interviewer.
             Generate answer to the question.
+            Do not repeat questions, that are already in cache, cache: ${inMemoryQuestionsCache.map { questionSchema -> questionSchema.question }}
+            Ask only about modern technologies, do not use outdated and old sources.
             Return question and answer as JSON object. 
             Return JSON and nothing else.
             Example structure for the JSON object:
@@ -44,7 +48,10 @@ class AIInterviewQuestionsPrompter(
             ResultJson.Error
         } else {
             val question: AIQuestionSchema = Json.decodeFromString(promptResponse)
+
             questionsDatabase.insertQuestions(listOf(question))
+            inMemoryQuestionsCache.add(question)
+
             ResultJson.Success(question = question)
         }
     } catch (e: Exception) {
@@ -52,23 +59,23 @@ class AIInterviewQuestionsPrompter(
         ResultJson.Error
     }
 
-    suspend fun promptForQuestion(role: Role): Result = try {
-        val prompt = """
-            Hello chat! I am applying for ${role.seniority} ${role.roleType} position and I am preparing for a technical interview.
-            Act as an interviewer and ask me a question that is relevant for my position and seniority.
-            Try to really role-play an interviewer.
-            Don't generate answers.
-        """.trimIndent()
-
-        val promptResponse = openAIPrompter.executePrompt(prompt)
-
-        if (promptResponse.isNullOrEmpty() || promptResponse.isBlank()) {
-            Result.Error
-        } else {
-            Result.Success(question = AIQuestion(content = promptResponse))
-        }
-    } catch (e: Exception) {
-        println("2137 - exception: $e")
-        Result.Error
-    }
+//    suspend fun promptForQuestion(role: Role): Result = try {
+//        val prompt = """
+//            Hello chat! I am applying for ${role.seniority} ${role.roleType} position and I am preparing for a technical interview.
+//            Act as an interviewer and ask me a question that is relevant for my position and seniority.
+//            Try to really role-play an interviewer.
+//            Don't generate answers.
+//        """.trimIndent()
+//
+//        val promptResponse = openAIPrompter.executePrompt(prompt)
+//
+//        if (promptResponse.isNullOrEmpty() || promptResponse.isBlank()) {
+//            Result.Error
+//        } else {
+//            Result.Success(question = AIQuestion(content = promptResponse))
+//        }
+//    } catch (e: Exception) {
+//        println("2137 - exception: $e")
+//        Result.Error
+//    }
 }

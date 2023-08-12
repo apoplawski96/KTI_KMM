@@ -2,6 +2,7 @@ package com.example.myapplication.android.common.ui.component.bottomsheet
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -17,19 +18,24 @@ import com.example.myapplication.android.common.ui.component.KTIIconButton
 import com.example.myapplication.android.common.ui.component.KTITextNew
 
 @Composable
-fun KTITopBarNew(title: String? = null) {
+fun KTITopBarNew(
+    title: String? = null,
+    iconsSection: @Composable () -> Unit = { TopBarIconsSection() }
+) {
     Row(
         modifier = Modifier.fillMaxWidth(),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.SpaceBetween,
     ) {
         LeftSection(title = title)
-        TopBarIconsSection()
+        Row(verticalAlignment = Alignment.CenterVertically) {
+            iconsSection.invoke()
+        }
     }
 }
 
 @Composable
-private fun LeftSection(title: String? = null) {
+private fun RowScope.LeftSection(title: String? = null) {
     Row(
         verticalAlignment = Alignment.CenterVertically,
     ) {

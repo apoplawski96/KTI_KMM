@@ -22,7 +22,6 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.myapplication.android.R
@@ -63,9 +62,6 @@ fun AIInterviewScreen(
         onGenerateQuestionClick = {
             viewModel.onEventHandle(AIInterviewViewModel.ViewEvent.GenerateQuestion)
         },
-        onGenerateNextClick = {
-
-        },
         isLoading = isLoading
     )
 }
@@ -74,7 +70,6 @@ fun AIInterviewScreen(
 private fun AIInterviewScreenContent(
     viewState: AIInterviewViewModel.ViewState,
     onGenerateQuestionClick: () -> Unit,
-    onGenerateNextClick: () -> Unit,
     isLoading: Boolean,
 ) {
     Column(
@@ -109,7 +104,7 @@ private fun AIInterviewScreenContent(
                         horizontalAlignment = Alignment.CenterHorizontally,
                         verticalArrangement = Arrangement.Top,
                     ) {
-                        KTIIllustration(drawableRes = R.drawable.undraw_healthy_habit_kwe6)
+                        KTIIllustration(drawableRes = R.drawable.undraw_interview_re_e5jn)
                         KTIVerticalSpacer(height = 16.dp)
                         QuestionCard(aiQuestionSchema = viewState.question, isLoading = isLoading)
                         KTIButton(
@@ -144,19 +139,29 @@ private fun QuestionCard(
             .fillMaxWidth(),
         elevation = 2.dp
     ) {
-        Column {
-            if (isLoading) {
-                Box(modifier = Modifier.fillMaxWidth().padding(36.dp), contentAlignment = Alignment.Center) {
-                    KTICircularProgressIndicator()
-                }
-            } else {
+        AnimatedVisibility(visible = isLoading) {
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(36.dp), contentAlignment = Alignment.Center
+            ) {
+                KTICircularProgressIndicator()
+            }
+        }
+        AnimatedVisibility(visible = isLoading.not()) {
+            Column {
                 KTITextNew(
                     text = aiQuestionSchema?.question
                         ?: ("Hello fellow candidate on this interview simulation.\n" +
                                 "Use the button make AI ask you a question."),
                     fontSize = 18.sp,
                     fontWeight = FontWeight.W400,
-                    modifier = Modifier.padding(start = 12.dp, end = 12.dp, top = 12.dp, bottom = 8.dp)
+                    modifier = Modifier.padding(
+                        start = 12.dp,
+                        end = 12.dp,
+                        top = 12.dp,
+                        bottom = 8.dp
+                    )
                 )
                 AnimatedVisibility(visible = aiQuestionSchema != null) {
                     Row {
