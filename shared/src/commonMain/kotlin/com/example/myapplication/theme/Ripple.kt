@@ -1,4 +1,4 @@
-package com.example.myapplication.android.theme
+package com.example.myapplication.theme
 
 import androidx.compose.material.ripple.LocalRippleTheme
 import androidx.compose.material.ripple.RippleAlpha
@@ -6,7 +6,6 @@ import androidx.compose.material.ripple.RippleTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.graphics.Color
-import com.example.myapplication.theme.KTITheme
 
 @Composable
 internal fun ProvideKTIRipple(

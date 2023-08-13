@@ -1,4 +1,4 @@
-package com.example.myapplication.android.screens.welcome
+package com.example.myapplication.screens
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -12,25 +12,24 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.myapplication.android.R
-import com.example.myapplication.android.common.ui.component.KTIButton
-import com.example.myapplication.android.common.ui.component.KTIIllustration
-import com.example.myapplication.android.common.ui.component.KTITextButton
-import com.example.myapplication.android.common.ui.component.KTITextNew
-import com.example.myapplication.android.common.ui.component.KTIVerticalSpacer
+import cafe.adriel.voyager.core.screen.Screen
+import com.example.myapplication.compose.KTIButton
+import com.example.myapplication.compose.KTITextButton
+import com.example.myapplication.compose.KTITextNew
+import com.example.myapplication.compose.KTIVerticalSpacer
 import com.example.myapplication.theme.KTITheme
-import org.koin.androidx.compose.get
 
-@Composable
-fun WelcomeScreen(viewModel: WelcomeScreenViewModel = get()) {
+object ExampleScreen : Screen {
 
-    WelcomeScreenContent(
-        navigateToHomeScreen = { viewModel.navigateToHomeScreen() },
-        navigateToLoginScreen = { }
-    )
+    @Composable
+    override fun Content() {
+        WelcomeScreenContent(
+            navigateToLoginScreen = { },
+            navigateToHomeScreen = { },
+        )
+    }
 }
 
 @Composable
@@ -53,7 +52,7 @@ private fun WelcomeScreenContent(
 @Composable
 private fun TopSection(modifier: Modifier = Modifier) {
     Box(modifier = modifier then Modifier.fillMaxWidth(), contentAlignment = Alignment.Center) {
-        KTIIllustration(drawableRes = R.drawable.undraw_programming_re_kg9v)
+//        KTIIllustration(drawableRes = R.drawable.undraw_programming_re_kg9v)
     }
 }
 
@@ -91,10 +90,4 @@ private fun BottomSection(
             size = 12.sp
         )
     }
-}
-
-@Preview
-@Composable
-private fun Preview() {
-    WelcomeScreenContent(navigateToHomeScreen = { }, navigateToLoginScreen = { })
 }

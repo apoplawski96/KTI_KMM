@@ -35,10 +35,10 @@ import com.example.myapplication.android.common.ui.component.KTITextNew
 import com.example.myapplication.android.common.ui.component.KTIVerticalSpacer
 import com.example.myapplication.android.common.ui.component.KTITopAppBar
 import com.example.myapplication.android.common.ui.component.clickableNoRipple
-import com.example.myapplication.android.theme.KTITheme
-import com.example.myapplication.android.theme.kti_accent
-import com.example.myapplication.android.theme.kti_soft_black
-import com.example.myapplication.android.theme.kti_soft_white
+import com.example.myapplication.theme.KTITheme
+import com.example.myapplication.theme.kti_accent
+import com.example.myapplication.theme.kti_soft_black
+import com.example.myapplication.theme.kti_soft_white
 import com.example.myapplication.feature.interview.AIInterviewViewModel
 import com.example.myapplication.model.schema.AIQuestionSchema
 import com.example.myapplication.model.Role

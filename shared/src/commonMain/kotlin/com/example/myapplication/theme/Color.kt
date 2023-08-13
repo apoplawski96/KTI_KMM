@@ -1,4 +1,4 @@
-package com.example.myapplication.android.theme
+package com.example.myapplication.theme
 
 import androidx.compose.material.Colors
 import androidx.compose.runtime.Composable
@@ -10,7 +10,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.graphics.Color
-import com.example.myapplication.theme.KTIColors
 
 ///* KTI V1 */
 //val kti_primary = Color(0xFF141414)

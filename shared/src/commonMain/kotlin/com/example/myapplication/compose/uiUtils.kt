@@ -1,4 +1,4 @@
-package com.example.myapplication.android.common.ui.component
+package com.example.myapplication.compose
 
 import com.example.myapplication.theme.kti_bright_red
 import com.example.myapplication.theme.kti_dark_blue

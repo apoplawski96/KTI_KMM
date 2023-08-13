@@ -1,6 +1,5 @@
-package com.example.myapplication.android.common.ui.component
+package com.example.myapplication.compose
 
-import androidx.annotation.DrawableRes
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -26,7 +25,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -127,7 +125,7 @@ private val cardMinHeight = 112.dp
 fun <T> KTICardWithIllustration(
     item: KTICardItem<T>,
     onClick: (T) -> Unit,
-    @DrawableRes illustrationResId: Int,
+    illustrationResId: Int,
     fontWeight: FontWeight = FontWeight(400),
     backgroundColor: Color = kti_soft_white,
     textColor: Color = kti_soft_black,
@@ -245,19 +243,6 @@ fun <T> KTICardSmallWithUnderText(
             textAlign = TextAlign.Center
         )
     }
-}
-
-
-@Preview
-@Composable
-private fun KTICardSmallPreview() {
-    KTICardSmall(
-        item = KTICardItem(
-            value = AndroidSubCategory.StateAndSharedFlow,
-            label = AndroidSubCategory.StateAndSharedFlow.displayName
-        ),
-        onClick = { }
-    )
 }
 
 @Composable

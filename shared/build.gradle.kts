@@ -49,6 +49,28 @@ kotlin {
 
                 implementation(platform("com.aallam.openai:openai-client-bom:3.3.0"))
 
+                val voyagerVersion = "1.0.0-rc05"
+
+                // Multiplatform
+
+                // Navigator
+                implementation("cafe.adriel.voyager:voyager-navigator:$voyagerVersion")
+
+                // BottomSheetNavigator
+                implementation("cafe.adriel.voyager:voyager-bottom-sheet-navigator:$voyagerVersion")
+
+                // TabNavigator
+                implementation("cafe.adriel.voyager:voyager-tab-navigator:$voyagerVersion")
+
+                // Transitions
+                implementation("cafe.adriel.voyager:voyager-transitions:$voyagerVersion")
+
+                // Android ViewModel integration
+                implementation("cafe.adriel.voyager:voyager-androidx:$voyagerVersion")
+
+                // Koin integration
+                implementation("cafe.adriel.voyager:voyager-koin:$voyagerVersion")
+
                 // define dependencies without versions
                 implementation("com.aallam.openai:openai-client")
                 runtimeOnly ("io.ktor:ktor-client-okhttp")

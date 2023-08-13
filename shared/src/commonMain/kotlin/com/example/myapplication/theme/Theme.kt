@@ -1,9 +1,9 @@
-package com.example.myapplication.android.theme
+package com.example.myapplication.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
-import com.example.myapplication.theme.KTIColors
+import com.example.myapplication.android.theme.AppThemeMode
 
 val LightColorPalette = KTIColors(
     primary = white,

@@ -39,11 +39,11 @@ import com.example.myapplication.android.common.ui.component.bottomsheet.base.KT
 import com.example.myapplication.android.common.ui.component.clickableNoRipple
 import com.example.myapplication.android.screens.questions.list.components.ListScreenBottomSheetContent
 import com.example.myapplication.android.screens.questions.list.components.ListScreenScoreBar
-import com.example.myapplication.android.theme.kti_accent
-import com.example.myapplication.android.theme.kti_divider
-import com.example.myapplication.android.theme.kti_green
-import com.example.myapplication.android.theme.kti_soft_black
-import com.example.myapplication.android.theme.kti_soft_white
+import com.example.myapplication.theme.kti_accent
+import com.example.myapplication.theme.kti_divider
+import com.example.myapplication.theme.kti_green
+import com.example.myapplication.theme.kti_soft_black
+import com.example.myapplication.theme.kti_soft_white
 import com.example.myapplication.model.Question
 import com.example.myapplication.model.SubCategory
 import com.example.myapplication.model.TopCategory

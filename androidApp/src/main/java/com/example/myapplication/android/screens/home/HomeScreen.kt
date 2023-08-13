@@ -30,7 +30,7 @@ import com.example.myapplication.android.common.ui.component.KTICardItem
 import com.example.myapplication.android.common.ui.component.KTICardSmallWithUnderText
 import com.example.myapplication.android.common.ui.component.KTICardWithIllustration
 import com.example.myapplication.android.common.ui.component.KTITopAppBar
-import com.example.myapplication.android.theme.KTITheme
+import com.example.myapplication.theme.KTITheme
 import com.example.myapplication.model.SubCategory
 import com.example.myapplication.model.TopCategory
 import com.example.myapplication.model.HomeScreenFeedItem
