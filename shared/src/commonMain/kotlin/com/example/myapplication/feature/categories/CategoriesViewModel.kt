@@ -1,7 +1,8 @@
 package com.example.myapplication.feature.categories
 
 import co.touchlab.kampkit.models.ViewModel
-import com.example.myapplication.model.domain.TopCategory
+import com.example.myapplication.feature.categories.data.CategoriesRepository
+import com.example.myapplication.model.TopCategory
 import com.example.myapplication.navigation.Navigator
 import com.example.myapplication.navigation.model.Destinations
 import kotlinx.coroutines.flow.MutableStateFlow

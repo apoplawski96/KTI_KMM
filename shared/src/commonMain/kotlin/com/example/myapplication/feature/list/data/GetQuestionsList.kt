@@ -1,9 +1,9 @@
-package com.example.myapplication.feature.list.domain
+package com.example.myapplication.feature.list.data
 
 import com.example.myapplication.data.QuestionsDataSource
-import com.example.myapplication.model.domain.Question
-import com.example.myapplication.model.domain.SubCategory
-import com.example.myapplication.model.domain.TopCategory
+import com.example.myapplication.model.Question
+import com.example.myapplication.model.SubCategory
+import com.example.myapplication.model.TopCategory
 
 class GetQuestionsList(
     private val questionsDataSource: QuestionsDataSource,

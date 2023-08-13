@@ -31,10 +31,10 @@ import com.example.myapplication.android.common.ui.component.KTICardSmallWithUnd
 import com.example.myapplication.android.common.ui.component.KTICardWithIllustration
 import com.example.myapplication.android.common.ui.component.KTITopAppBar
 import com.example.myapplication.android.theme.KTITheme
-import com.example.myapplication.model.domain.SubCategory
-import com.example.myapplication.model.domain.TopCategory
-import com.example.myapplication.model.domain.HomeScreenFeedItem
-import com.example.myapplication.model.domain.HomeScreenMenuItem
+import com.example.myapplication.model.SubCategory
+import com.example.myapplication.model.TopCategory
+import com.example.myapplication.model.HomeScreenFeedItem
+import com.example.myapplication.model.HomeScreenMenuItem
 import com.example.myapplication.feature.home.HomeScreenViewModel
 import org.koin.androidx.compose.getViewModel
 

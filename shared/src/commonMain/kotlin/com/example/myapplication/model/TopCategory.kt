@@ -1,4 +1,4 @@
-package com.example.myapplication.model.domain
+package com.example.myapplication.model
 
 enum class TopCategory(
     val id: String,

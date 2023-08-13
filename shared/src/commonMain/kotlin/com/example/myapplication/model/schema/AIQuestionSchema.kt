@@ -1,4 +1,4 @@
-package com.example.myapplication.model.data
+package com.example.myapplication.model.schema
 
 import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmInline

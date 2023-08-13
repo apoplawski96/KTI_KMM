@@ -4,7 +4,7 @@ import com.example.myapplication._legacy.questions.questions
 import com.example.myapplication._legacy.questions.questionsAndroidFramework
 import com.example.myapplication._legacy.questions.questionsNew
 import com.example.myapplication._legacy.questions.questionsRxJava
-import com.example.myapplication.model.domain.Question
+import com.example.myapplication.model.Question
 
 class QuestionsRepository{
 

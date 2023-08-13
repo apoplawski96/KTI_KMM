@@ -14,8 +14,8 @@ import com.example.myapplication.android.common.ui.component.KTICardItem
 import com.example.myapplication.android.common.ui.component.GridVariant
 import com.example.myapplication.android.common.ui.component.KTIGridWithCards
 import com.example.myapplication.android.common.ui.component.KTITopAppBar
-import com.example.myapplication.model.domain.SubCategory
-import com.example.myapplication.model.domain.TopCategory
+import com.example.myapplication.model.SubCategory
+import com.example.myapplication.model.TopCategory
 import com.example.myapplication.feature.subcategories.SubCategoriesViewModel
 import org.koin.androidx.compose.getViewModel
 

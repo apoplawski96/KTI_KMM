@@ -1,9 +1,9 @@
-package com.example.myapplication.feature.interview.domain
+package com.example.myapplication.feature.interview.data
 
 import com.example.myapplication.data.QuestionsDatabaseHelper
-import com.example.myapplication.data.OpenAIPrompter
-import com.example.myapplication.model.data.AIQuestionSchema
-import com.example.myapplication.model.domain.Role
+import com.example.myapplication.data.openAi.OpenAIPrompter
+import com.example.myapplication.model.schema.AIQuestionSchema
+import com.example.myapplication.model.Role
 import kotlinx.serialization.json.Json
 
 class AIInterviewQuestionsPrompter(

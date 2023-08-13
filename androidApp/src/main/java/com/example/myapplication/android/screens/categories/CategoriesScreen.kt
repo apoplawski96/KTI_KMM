@@ -19,7 +19,7 @@ import com.example.myapplication.android.common.ui.component.KTIGridWithCards
 import com.example.myapplication.android.common.ui.component.KTIIllustration
 import com.example.myapplication.android.common.ui.component.KTIVerticalSpacer
 import com.example.myapplication.android.common.ui.component.KTITopAppBar
-import com.example.myapplication.model.domain.TopCategory
+import com.example.myapplication.model.TopCategory
 import com.example.myapplication.feature.categories.CategoriesViewModel
 import org.koin.androidx.compose.getViewModel
 

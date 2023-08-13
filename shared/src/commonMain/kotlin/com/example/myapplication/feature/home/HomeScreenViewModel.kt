@@ -1,11 +1,11 @@
 package com.example.myapplication.feature.home
 
 import co.touchlab.kampkit.models.ViewModel
-import com.example.myapplication.model.domain.HomeScreenFeedItem
-import com.example.myapplication.model.domain.HomeScreenMenuItem
+import com.example.myapplication.model.HomeScreenFeedItem
+import com.example.myapplication.model.HomeScreenMenuItem
 import com.example.myapplication.navigation.Navigator
 import com.example.myapplication.navigation.model.Destinations
-import com.example.myapplication.feature.home.domain.GetHomeScreenFeedItems
+import com.example.myapplication.feature.home.data.GetHomeScreenFeedItems
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update

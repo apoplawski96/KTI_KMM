@@ -1,11 +1,11 @@
 package com.example.myapplication.feature.list
 
 import co.touchlab.kampkit.models.ViewModel
-import com.example.myapplication.feature.list.domain.GetQuestionsList
-import com.example.myapplication.model.domain.Difficulty
-import com.example.myapplication.model.domain.Question
-import com.example.myapplication.model.domain.SubCategory
-import com.example.myapplication.model.domain.TopCategory
+import com.example.myapplication.feature.list.data.GetQuestionsList
+import com.example.myapplication.model.Difficulty
+import com.example.myapplication.model.Question
+import com.example.myapplication.model.SubCategory
+import com.example.myapplication.model.TopCategory
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharedFlow

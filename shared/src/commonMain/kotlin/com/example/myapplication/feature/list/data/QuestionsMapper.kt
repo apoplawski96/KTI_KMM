@@ -1,12 +1,12 @@
-package com.example.myapplication.feature.list.domain
+package com.example.myapplication.feature.list.data
 
-import com.example.myapplication.model.data.QuestionSchema
+import com.example.myapplication.model.schema.QuestionSchema
 import com.example.myapplication._legacy.DeprecatedCategory
-import com.example.myapplication.model.domain.Difficulty
-import com.example.myapplication.model.domain.Question
-import com.example.myapplication.model.domain.SubCategory
-import com.example.myapplication.model.domain.TopCategory
-import com.example.myapplication.model.domain.allSubCategoriesFlatten
+import com.example.myapplication.model.Difficulty
+import com.example.myapplication.model.Question
+import com.example.myapplication.model.SubCategory
+import com.example.myapplication.model.TopCategory
+import com.example.myapplication.model.allSubCategoriesFlatten
 
 class QuestionsMapper {
 

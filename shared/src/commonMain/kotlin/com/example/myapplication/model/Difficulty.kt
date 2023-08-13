@@ -1,4 +1,4 @@
-package com.example.myapplication.model.domain
+package com.example.myapplication.model
 
 enum class Difficulty(val id: Int, val displayName: String, val keyName: String) {
     Beginner(id = 1, displayName = "Beginner", keyName = "Easy"),

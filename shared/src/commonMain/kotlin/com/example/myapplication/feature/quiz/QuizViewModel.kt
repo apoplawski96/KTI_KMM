@@ -3,7 +3,7 @@ package com.example.myapplication.feature.quiz
 import co.touchlab.kampkit.models.ViewModel
 import com.example.myapplication._legacy.questions.questions
 import com.example.myapplication._legacy.QuestionsRepository
-import com.example.myapplication.model.domain.Question
+import com.example.myapplication.model.Question
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update

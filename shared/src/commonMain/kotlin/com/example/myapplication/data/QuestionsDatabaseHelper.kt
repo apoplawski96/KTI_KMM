@@ -3,7 +3,7 @@ package com.example.myapplication.data
 import co.touchlab.kampkit.db.KaMPKitDb
 import co.touchlab.kampkit.db.Question
 import co.touchlab.kampkit.sqldelight.transactionWithContext
-import com.example.myapplication.model.data.AIQuestionSchema
+import com.example.myapplication.model.schema.AIQuestionSchema
 import com.squareup.sqldelight.db.SqlDriver
 import com.squareup.sqldelight.runtime.coroutines.asFlow
 import com.squareup.sqldelight.runtime.coroutines.mapToList

@@ -1,10 +1,10 @@
 package com.example.myapplication.feature.interview
 
 import co.touchlab.kampkit.models.ViewModel
-import com.example.myapplication.feature.interview.domain.AIInterviewQuestionsPrompter
-import com.example.myapplication.model.data.AIQuestion
-import com.example.myapplication.model.data.AIQuestionSchema
-import com.example.myapplication.model.domain.Role
+import com.example.myapplication.feature.interview.data.AIInterviewQuestionsPrompter
+import com.example.myapplication.model.schema.AIQuestion
+import com.example.myapplication.model.schema.AIQuestionSchema
+import com.example.myapplication.model.Role
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update

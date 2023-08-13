@@ -40,8 +40,8 @@ import com.example.myapplication.android.theme.kti_accent
 import com.example.myapplication.android.theme.kti_soft_black
 import com.example.myapplication.android.theme.kti_soft_white
 import com.example.myapplication.feature.interview.AIInterviewViewModel
-import com.example.myapplication.model.data.AIQuestionSchema
-import com.example.myapplication.model.domain.Role
+import com.example.myapplication.model.schema.AIQuestionSchema
+import com.example.myapplication.model.Role
 import org.koin.androidx.compose.koinViewModel
 
 @Composable

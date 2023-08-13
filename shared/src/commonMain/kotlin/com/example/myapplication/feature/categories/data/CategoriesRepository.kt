@@ -1,6 +1,6 @@
-package com.example.myapplication.feature.categories
+package com.example.myapplication.feature.categories.data
 
-import com.example.myapplication.model.domain.TopCategory
+import com.example.myapplication.model.TopCategory
 
 class CategoriesRepository {
 

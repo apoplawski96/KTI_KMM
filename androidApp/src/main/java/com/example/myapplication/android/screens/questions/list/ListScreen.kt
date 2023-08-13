@@ -44,9 +44,9 @@ import com.example.myapplication.android.theme.kti_divider
 import com.example.myapplication.android.theme.kti_green
 import com.example.myapplication.android.theme.kti_soft_black
 import com.example.myapplication.android.theme.kti_soft_white
-import com.example.myapplication.model.domain.Question
-import com.example.myapplication.model.domain.SubCategory
-import com.example.myapplication.model.domain.TopCategory
+import com.example.myapplication.model.Question
+import com.example.myapplication.model.SubCategory
+import com.example.myapplication.model.TopCategory
 import com.example.myapplication.feature.list.QuestionsListViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch

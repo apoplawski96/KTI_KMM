@@ -1,7 +1,7 @@
-package com.example.myapplication.feature.home.domain
+package com.example.myapplication.feature.home.data
 
-import com.example.myapplication.model.domain.HomeScreenFeedItem
-import com.example.myapplication.model.domain.HomeScreenMenuItem
+import com.example.myapplication.model.HomeScreenFeedItem
+import com.example.myapplication.model.HomeScreenMenuItem
 
 class GetHomeScreenFeedItems(private val getRandomSubCategories: GetRandomSubCategories) {
 

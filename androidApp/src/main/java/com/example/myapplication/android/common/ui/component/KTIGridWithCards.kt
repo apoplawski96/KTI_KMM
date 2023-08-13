@@ -36,7 +36,7 @@ import com.example.myapplication.android.theme.kti_grayish_light
 import com.example.myapplication.android.theme.kti_soft_black
 import com.example.myapplication.android.theme.kti_soft_white
 import com.example.myapplication.android.theme.white
-import com.example.myapplication.model.domain.AndroidSubCategory
+import com.example.myapplication.model.AndroidSubCategory
 
 data class KTICardItem<T>(
     val value: T,

@@ -1,4 +1,4 @@
-package com.example.myapplication.data
+package com.example.myapplication.data.openAi
 
 import com.aallam.openai.api.BetaOpenAI
 import com.aallam.openai.api.chat.ChatCompletionRequest
@@ -7,7 +7,6 @@ import com.aallam.openai.api.chat.ChatRole
 import com.aallam.openai.api.http.Timeout
 import com.aallam.openai.api.model.ModelId
 import com.aallam.openai.client.OpenAI
-import com.example.myapplication.data.openAi.API_KEY
 import kotlin.time.DurationUnit
 import kotlin.time.toDuration
 
