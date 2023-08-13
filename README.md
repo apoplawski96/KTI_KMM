@@ -25,14 +25,16 @@ Capabilities:
 
 ## Architecture
 
-The app is written in MVVM/MVI, Single-Activity architecture with Compose Navigation, where each composable screen has its own ViewModel (that resides in shared KMM module and can be reused between Android and iOS), as well as:
+Project is built out of [KaMPKit][kampkit], which is a starter project for Kotlin Multiplatform Mobile apps.
+The app is written in MVVM/MVI, aiming to follow [Modern App Architecture][modernAppArchitecture] guidelines throughout both, Android and KMM modules.
+
+Objectives:
 - Layered architecture with data, domain & UI layers
 - Unidireactional Data Flow, Single Soure Of Truth
+- Sharing as much code as possible in KMM module, so it can be reused throughout platforms
 - Testability
 
-It generally follows [Modern App Architecture][modernAppArchitecture] guidelines.
-
-The goal is to contain as much code in shared module as possible.
+Android module follows single-Activity architecture with Compose Navigation, where each screen has its own ViewModel from KMM module. iOS module development is not yet started.
 
 
 
@@ -42,4 +44,6 @@ The goal is to contain as much code in shared module as possible.
  [openAiClient]: https://github.com/aallam/openai-kotlin
  [compose]: https://developer.android.com/jetpack/compose
  [kmm]: https://kotlinlang.org/docs/multiplatform-mobile-getting-started.html
+ [kampkit]: https://github.com/touchlab/KaMPKit
+
 
