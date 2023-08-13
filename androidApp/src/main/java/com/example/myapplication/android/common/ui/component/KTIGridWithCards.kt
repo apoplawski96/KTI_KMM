@@ -281,7 +281,7 @@ private fun AllCard(onClick: () -> Unit) {
                 maxLines = 2,
                 overflow = TextOverflow.Ellipsis,
                 fontWeight = FontWeight(400),
-                fontSize = 14.sp,
+                fontSize = 16.sp,
                 color = kti_accent
             )
         }

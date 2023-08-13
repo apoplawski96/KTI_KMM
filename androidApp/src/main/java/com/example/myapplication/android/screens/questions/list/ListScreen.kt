@@ -75,7 +75,7 @@ fun ListScreen(
 
     var sortDropdownMenuDisplayed by remember { mutableStateOf(false) }
 
-    val subCategoryTitle = subCategory?.displayName ?: "All"
+    val subCategoryTitle = subCategory?.displayName ?: topCategory.displayName
 
     LaunchedEffect(null) {
         viewModel.viewEvents.collect { event ->

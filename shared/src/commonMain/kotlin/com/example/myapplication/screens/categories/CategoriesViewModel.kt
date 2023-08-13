@@ -30,6 +30,15 @@ class CategoriesViewModel(
     }
 
     fun categorySelected(category: TopCategory) {
-        navigator.navigate(Destinations.SubCategories.destination(category.id))
+        if (category.subCategories.isEmpty().not()) {
+            navigator.navigate(Destinations.SubCategories.destination(category.id))
+        } else {
+            navigator.navigate(
+                Destinations.QuestionsList.destination(
+                    topCategoryId = category.id,
+                    subCategoryId = null
+                )
+            )
+        }
     }
 }

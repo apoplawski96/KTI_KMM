@@ -36,7 +36,7 @@ fun CategoriesScreen(viewModel: CategoriesViewModel = getViewModel()) {
     CategoriesScreenContent(
         state = viewState,
         lazyGridState = lazyGridState,
-        onClick = { category ->
+        onCategoryClick = { category ->
             if (category is TopCategory) {
                 viewModel.categorySelected(category)
             }
@@ -47,7 +47,7 @@ fun CategoriesScreen(viewModel: CategoriesViewModel = getViewModel()) {
 @Composable
 private fun CategoriesScreenContent(
     state: CategoriesViewModel.ViewState,
-    onClick: (TopCategory?) -> Unit,
+    onCategoryClick: (TopCategory?) -> Unit,
     lazyGridState: LazyGridState
 ) {
     KTIBoxWithGradientBackground {
@@ -62,7 +62,7 @@ private fun CategoriesScreenContent(
                                 label = topCategory.displayName
                             )
                         },
-                        onClick = onClick,
+                        onClick = onCategoryClick,
                         state = lazyGridState,
                         variant = GridVariant.TOP_CATEGORY,
                     )
