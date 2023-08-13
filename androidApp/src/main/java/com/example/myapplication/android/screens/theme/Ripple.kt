@@ -8,17 +8,17 @@ import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.graphics.Color
 
 @Composable
-internal fun ProvideGoalRipple(
+internal fun ProvideKTIRipple(
     darkTheme: Boolean,
     content: @Composable () -> Unit
 ) {
     CompositionLocalProvider(
-        LocalRippleTheme provides GoalRippleTheme(darkTheme),
+        LocalRippleTheme provides KTIRippleTheme(darkTheme),
         content = content
     )
 }
 
-private class GoalRippleTheme(val darkTheme: Boolean) : RippleTheme {
+private class KTIRippleTheme(val darkTheme: Boolean) : RippleTheme {
 
     @Composable
     override fun defaultColor(): Color = KTITheme.colors.ripple

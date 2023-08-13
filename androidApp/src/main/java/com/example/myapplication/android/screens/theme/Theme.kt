@@ -106,12 +106,12 @@ fun KTITheme(
 //        }
 //    }
 
-    ProvideGoalColors(colors = colors) {
+    ProvideKTIColors(colors = colors) {
         MaterialTheme(
             colors = debugColors(),
             shapes = Shapes,
         ) {
-            ProvideGoalRipple(darkTheme = darkTheme) {
+            ProvideKTIRipple(darkTheme = darkTheme) {
                 content()
             }
         }

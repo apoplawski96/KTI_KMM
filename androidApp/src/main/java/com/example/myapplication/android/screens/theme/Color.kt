@@ -63,41 +63,40 @@ val kti_black_30alpha = Color(0x4D000000)
 
 @Stable
 class KTIColors(
-    /* DARK MODE/LIGHT MODE */
-    primary: Color, /* black/white */
-    secondary: Color, /* goalRed/goalRed */
-    onPrimary: Color, /* white/black */
-    onSecondary: Color, /* white/white */
-    textMain: Color, /* white/black */
-    textVariant: Color, /* lightGrey/darkGrey */
-    textVariant2: Color, /* lightGrey/grey */
-    textVariant3: Color, /* Grey/Grey */
-    textVariant4: Color, /* offBlack/offBlack */
-    textVariant5: Color, /* midGrey/grey */
-    textVariant6: Color, /* midGrey/darkGrey */
-    backgroundRoot: Color, /* offBlack/lightGrey (root background behind all content between TopBar and BottomNav) */
-    backgroundSurface: Color, /* darkGrey/white (bottom up menu, card activity, card grid item) */
-    backgroundSurfaceVariant: Color, /* offBlack/white (card settings, card news, card list item, viewpager picker) */
-    backgroundSurfaceVariant2: Color, /* darkGrey/lightGrey (text field background, card list header) */
-    backgroundSurfaceVariant3: Color, /* Grey/MidGrey */
-    backgroundDim: Color, /* black60Alpha/black30Alpha (applied on the content behind bottom drawer) */
-    divider: Color, /* darkGrey/midGrey */
-    dividerVariant: Color, /* black/lightGrey */
-    dividerVariant2: Color, /* Grey/DarkGrey */
-    accentGreen: Color, /* green/green */
-    ripple: Color, /* white/grey */
-    unselected: Color, /* white/offBlack */ // TODO refactor to be the new onPrimary?
-    border: Color, /* lightGrey/offBlack */
-    borderVariant: Color, /* lightGrey/black */
-    error: Color, /* errorRed/errorRed (error message background, input field accent colour when error) */
-    brightRed: Color, /* brightRed/brightRed */
-    yellow: Color /* yellow/yellow */,
-    blue: Color /* blue/blue */,
-    lightBlue: Color /* lightBlue/lightBlue */,
-    orange: Color /* orange/orange */,
-    purple: Color /* purple/purple */,
-    mauve: Color /* mauve/mauve */,
-    countDownTimerButton: Color /* white/darkBlue */,
+    primary: Color,
+    secondary: Color,
+    onPrimary: Color,
+    onSecondary: Color,
+    textMain: Color,
+    textVariant: Color,
+    textVariant2: Color,
+    textVariant3: Color,
+    textVariant4: Color,
+    textVariant5: Color,
+    textVariant6: Color,
+    backgroundRoot: Color,
+    backgroundSurface: Color,
+    backgroundSurfaceVariant: Color,
+    backgroundSurfaceVariant2: Color,
+    backgroundSurfaceVariant3: Color,
+    backgroundDim: Color,
+    divider: Color,
+    dividerVariant: Color,
+    dividerVariant2: Color,
+    accentGreen: Color,
+    ripple: Color,
+    unselected: Color,
+    border: Color,
+    borderVariant: Color,
+    error: Color,
+    brightRed: Color,
+    yellow: Color,
+    blue: Color,
+    lightBlue: Color,
+    orange: Color,
+    purple: Color,
+    mauve: Color,
+    countDownTimerButton: Color,
     isDark: Boolean,
 ) {
     var primary by mutableStateOf(primary)
@@ -249,7 +248,7 @@ class KTIColors(
 }
 
 @Composable
-internal fun ProvideGoalColors(
+internal fun ProvideKTIColors(
     colors: KTIColors,
     content: @Composable () -> Unit
 ) {
@@ -259,7 +258,7 @@ internal fun ProvideGoalColors(
 }
 
 val LocalKTIColors = staticCompositionLocalOf<KTIColors> {
-    error("No GoalColorPalette provided")
+    error("No KTIColorPalette provided")
 }
 
 internal fun debugColors(debugColor: Color = Color.Magenta) = Colors(
