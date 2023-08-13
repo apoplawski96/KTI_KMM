@@ -33,15 +33,15 @@ import com.example.myapplication.android.common.ui.component.KTIIllustration
 import com.example.myapplication.android.common.ui.component.KTITextButton
 import com.example.myapplication.android.common.ui.component.KTITextNew
 import com.example.myapplication.android.common.ui.component.KTIVerticalSpacer
-import com.example.myapplication.android.common.ui.component.KTITopBarNew
+import com.example.myapplication.android.common.ui.component.KTITopAppBar
 import com.example.myapplication.android.common.ui.component.clickableNoRipple
-import com.example.myapplication.android.screens.theme.KTITheme
-import com.example.myapplication.android.screens.theme.kti_accent
-import com.example.myapplication.android.screens.theme.kti_soft_black
-import com.example.myapplication.android.screens.theme.kti_soft_white
-import com.example.myapplication.screens.interview.AIInterviewViewModel
-import com.example.myapplication.screens.interview.domain.model.AIQuestionSchema
-import com.example.myapplication.screens.interview.domain.model.Role
+import com.example.myapplication.android.theme.KTITheme
+import com.example.myapplication.android.theme.kti_accent
+import com.example.myapplication.android.theme.kti_soft_black
+import com.example.myapplication.android.theme.kti_soft_white
+import com.example.myapplication.feature.interview.AIInterviewViewModel
+import com.example.myapplication.model.data.AIQuestionSchema
+import com.example.myapplication.model.domain.Role
 import org.koin.androidx.compose.koinViewModel
 
 @Composable
@@ -77,7 +77,7 @@ private fun AIInterviewScreenContent(
             .fillMaxSize()
             .background(kti_soft_white)
     ) {
-        KTITopBarNew(title = "AI Interview")
+        KTITopAppBar(title = "AI Interview")
         KTIVerticalSpacer(height = 8.dp)
         Box(
             modifier = Modifier

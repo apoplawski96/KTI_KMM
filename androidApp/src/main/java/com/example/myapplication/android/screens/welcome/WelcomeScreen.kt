@@ -21,7 +21,7 @@ import com.example.myapplication.android.common.ui.component.KTIIllustration
 import com.example.myapplication.android.common.ui.component.KTITextButton
 import com.example.myapplication.android.common.ui.component.KTITextNew
 import com.example.myapplication.android.common.ui.component.KTIVerticalSpacer
-import com.example.myapplication.android.screens.theme.KTITheme
+import com.example.myapplication.android.theme.KTITheme
 import org.koin.androidx.compose.get
 
 @Composable

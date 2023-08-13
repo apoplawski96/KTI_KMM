@@ -1,8 +1,7 @@
 package com.example.myapplication.data
 
 import com.example.myapplication.common.JsonFileReader
-import com.example.myapplication.data.model.QuestionSchema
-import kotlinx.serialization.decodeFromString
+import com.example.myapplication.model.data.QuestionSchema
 import kotlinx.serialization.json.Json
 
 private const val FILE_NAME_DROID = "questions_android.json"

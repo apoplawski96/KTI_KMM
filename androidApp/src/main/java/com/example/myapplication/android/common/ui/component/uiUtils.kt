@@ -1,13 +1,13 @@
 package com.example.myapplication.android.common.ui.component
 
-import com.example.myapplication.android.screens.theme.kti_bright_red
-import com.example.myapplication.android.screens.theme.kti_dark_blue
-import com.example.myapplication.android.screens.theme.kti_green
-import com.example.myapplication.android.screens.theme.kti_green_variant
-import com.example.myapplication.android.screens.theme.kti_mauve
-import com.example.myapplication.android.screens.theme.kti_orange
-import com.example.myapplication.android.screens.theme.kti_purple
-import com.example.myapplication.android.screens.theme.kti_yellow
+import com.example.myapplication.android.theme.kti_bright_red
+import com.example.myapplication.android.theme.kti_dark_blue
+import com.example.myapplication.android.theme.kti_green
+import com.example.myapplication.android.theme.kti_green_variant
+import com.example.myapplication.android.theme.kti_mauve
+import com.example.myapplication.android.theme.kti_orange
+import com.example.myapplication.android.theme.kti_purple
+import com.example.myapplication.android.theme.kti_yellow
 
 fun <T> KTICardItem<T>.applyColor(itemIndex: Int): KTICardItem<T> {
     val colorIndex = itemIndex % cardColors.size

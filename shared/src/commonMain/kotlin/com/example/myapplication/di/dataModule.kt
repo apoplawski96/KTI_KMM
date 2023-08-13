@@ -1,12 +1,11 @@
 package com.example.myapplication.di
 
+import com.example.myapplication._legacy.QuestionsRepository
 import com.example.myapplication.data.QuestionsDataSource
-import com.example.myapplication.data.QuestionsDatabaseHelper
-import com.example.myapplication.legacy.QuestionsRepository
-import com.example.myapplication.screens.categories.CategoriesRepository
-import com.example.myapplication.screens.interview.data.OpenAIPrompter
-import com.example.myapplication.screens.interview.domain.AIInterviewQuestionsPrompter
-import com.example.myapplication.screens.subcategories.SubCategoriesRepository
+import com.example.myapplication.feature.categories.CategoriesRepository
+import com.example.myapplication.data.OpenAIPrompter
+import com.example.myapplication.feature.interview.domain.AIInterviewQuestionsPrompter
+import com.example.myapplication.feature.subcategories.SubCategoriesRepository
 import org.koin.core.module.dsl.singleOf
 import org.koin.dsl.module
 

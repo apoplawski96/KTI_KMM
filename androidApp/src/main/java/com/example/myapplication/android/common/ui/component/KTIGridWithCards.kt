@@ -30,13 +30,13 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.myapplication.android.screens.theme.kti_accent
-import com.example.myapplication.android.screens.theme.kti_grayish
-import com.example.myapplication.android.screens.theme.kti_grayish_light
-import com.example.myapplication.android.screens.theme.kti_soft_black
-import com.example.myapplication.android.screens.theme.kti_soft_white
-import com.example.myapplication.android.screens.theme.white
-import com.example.myapplication.model.subcategory.AndroidSubCategory
+import com.example.myapplication.android.theme.kti_accent
+import com.example.myapplication.android.theme.kti_grayish
+import com.example.myapplication.android.theme.kti_grayish_light
+import com.example.myapplication.android.theme.kti_soft_black
+import com.example.myapplication.android.theme.kti_soft_white
+import com.example.myapplication.android.theme.white
+import com.example.myapplication.model.domain.AndroidSubCategory
 
 data class KTICardItem<T>(
     val value: T,

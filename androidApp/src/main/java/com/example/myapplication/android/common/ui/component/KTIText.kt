@@ -13,9 +13,9 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.TextUnitType
 import androidx.compose.ui.unit.sp
-import com.example.myapplication.android.screens.theme.fontsKanit
-import com.example.myapplication.android.screens.theme.kti_soft_black
-import com.example.myapplication.android.screens.theme.kti_text_icons
+import com.example.myapplication.android.theme.fontsKanit
+import com.example.myapplication.android.theme.kti_soft_black
+import com.example.myapplication.android.theme.kti_text_icons
 
 @Composable
 fun KTIText(

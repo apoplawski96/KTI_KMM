@@ -11,7 +11,10 @@ class MainApp : Application() {
     override fun onCreate() {
         super.onCreate()
         initKoin(
-            modules = arrayOf(presentationModule, appModule(this))
+            modules = arrayOf(
+                presentationModule,
+                appModule(this)
+            )
         )
     }
 }

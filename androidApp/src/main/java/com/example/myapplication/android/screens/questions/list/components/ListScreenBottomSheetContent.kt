@@ -10,7 +10,7 @@ import com.example.myapplication.android.common.ui.component.bottomsheet.base.KT
 import com.example.myapplication.android.common.ui.component.bottomsheet.content.BottomSheetListItemType
 import com.example.myapplication.android.common.ui.component.bottomsheet.content.SelectableListItem
 import com.example.myapplication.android.common.ui.component.bottomsheet.model.BottomSheetListItem
-import com.example.myapplication.model.Difficulty
+import com.example.myapplication.model.domain.Difficulty
 
 @Composable
 fun ListScreenBottomSheetContent(

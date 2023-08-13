@@ -13,7 +13,6 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.KeyboardArrowDown
 import androidx.compose.material.icons.filled.KeyboardArrowUp
 import androidx.compose.material.icons.filled.Refresh
-import androidx.compose.material.icons.outlined.Menu
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
@@ -28,7 +27,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.compose.ui.window.PopupProperties
 import com.example.myapplication.android.R
 import com.example.myapplication.android.common.ui.component.KTICircularProgressIndicator
 import com.example.myapplication.android.common.ui.component.KTIColumnWithGradientColumn
@@ -36,20 +34,20 @@ import com.example.myapplication.android.common.ui.component.KTIIcon
 import com.example.myapplication.android.common.ui.component.KTIText
 import com.example.myapplication.android.common.ui.component.KTITextNew
 import com.example.myapplication.android.common.ui.component.KTIVerticalSpacer
-import com.example.myapplication.android.common.ui.component.KTITopBarNew
+import com.example.myapplication.android.common.ui.component.KTITopAppBar
 import com.example.myapplication.android.common.ui.component.bottomsheet.base.KTIModalBottomSheetLayout
 import com.example.myapplication.android.common.ui.component.clickableNoRipple
 import com.example.myapplication.android.screens.questions.list.components.ListScreenBottomSheetContent
 import com.example.myapplication.android.screens.questions.list.components.ListScreenScoreBar
-import com.example.myapplication.android.screens.theme.kti_accent
-import com.example.myapplication.android.screens.theme.kti_divider
-import com.example.myapplication.android.screens.theme.kti_green
-import com.example.myapplication.android.screens.theme.kti_soft_black
-import com.example.myapplication.android.screens.theme.kti_soft_white
-import com.example.myapplication.model.Question
-import com.example.myapplication.model.subcategory.SubCategory
-import com.example.myapplication.model.subcategory.TopCategory
-import com.example.myapplication.screens.list.ListViewModel
+import com.example.myapplication.android.theme.kti_accent
+import com.example.myapplication.android.theme.kti_divider
+import com.example.myapplication.android.theme.kti_green
+import com.example.myapplication.android.theme.kti_soft_black
+import com.example.myapplication.android.theme.kti_soft_white
+import com.example.myapplication.model.domain.Question
+import com.example.myapplication.model.domain.SubCategory
+import com.example.myapplication.model.domain.TopCategory
+import com.example.myapplication.feature.list.QuestionsListViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 import org.koin.androidx.compose.getViewModel
@@ -57,7 +55,7 @@ import org.koin.androidx.compose.getViewModel
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
 fun ListScreen(
-    viewModel: ListViewModel = getViewModel(),
+    viewModel: QuestionsListViewModel = getViewModel(),
     topCategory: TopCategory?,
     subCategory: SubCategory?,
 ) {
@@ -80,7 +78,7 @@ fun ListScreen(
     LaunchedEffect(null) {
         viewModel.viewEvents.collect { event ->
             when (event) {
-                ListViewModel.ViewEvent.ToggleBottomSheet -> {
+                QuestionsListViewModel.ViewEvent.ToggleBottomSheet -> {
                     toggleBottomSheet(
                         scope = scope,
                         bottomSheetState = bottomSheetState,
@@ -123,14 +121,14 @@ fun ListScreen(
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
 private fun ListScreenContent(
-    viewState: ListViewModel.ViewState,
+    viewState: QuestionsListViewModel.ViewState,
     bottomSheetState: ModalBottomSheetState,
     bottomSheetContent: @Composable () -> Unit,
     onToggleBottomSheetClick: () -> Unit,
     topBarTitle: String,
     sortDropdownMenuDisplayed: Boolean,
     toggleDropdownMenu: () -> Unit,
-    onSortModeClick: (ListViewModel.SortMode) -> Unit,
+    onSortModeClick: (QuestionsListViewModel.SortMode) -> Unit,
     markAsAnswered: (Question) -> Unit,
     markAsUnanswered: (Question) -> Unit,
     questionsAnsweredCount: Int,
@@ -163,7 +161,7 @@ private fun ListScreenContent(
             modifier = Modifier.fillMaxSize(),
         ) {
             KTIColumnWithGradientColumn {
-                KTITopBarNew(
+                KTITopAppBar(
                     title = topBarTitle,
                     iconsSection = {
                         IconButton(onClick = onToggleBottomSheetClick) {
@@ -189,7 +187,7 @@ private fun ListScreenContent(
                             onDismissRequest = toggleDropdownMenu,
                             modifier = Modifier.background(kti_soft_white)
                         ) {
-                            ListViewModel.SortMode.values().toList().forEach { sortMode ->
+                            QuestionsListViewModel.SortMode.values().toList().forEach { sortMode ->
                                 DropdownMenuItem(onClick = { onSortModeClick(sortMode) }) {
                                     KTITextNew(
                                         text = sortMode.displayName,
@@ -203,7 +201,7 @@ private fun ListScreenContent(
                     }
                 )
                 when (viewState) {
-                    is ListViewModel.ViewState.QuestionsLoaded -> {
+                    is QuestionsListViewModel.ViewState.QuestionsLoaded -> {
                         QuestionList(
                             questions = viewState.questions,
                             markAsAnswered = markAsAnswered,
@@ -213,11 +211,11 @@ private fun ListScreenContent(
                         )
                     }
 
-                    is ListViewModel.ViewState.Loading -> {
+                    is QuestionsListViewModel.ViewState.Loading -> {
                         KTICircularProgressIndicator()
                     }
 
-                    ListViewModel.ViewState.Error -> {
+                    QuestionsListViewModel.ViewState.Error -> {
                         KTIText(text = "Error!")
                     }
                 }

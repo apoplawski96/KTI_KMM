@@ -6,8 +6,8 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.animation.ExperimentalAnimationApi
-import com.example.myapplication.android.screens.theme.AppThemeMode
-import com.example.myapplication.android.screens.theme.KTITheme
+import com.example.myapplication.android.theme.AppThemeMode
+import com.example.myapplication.android.theme.KTITheme
 import org.koin.core.component.KoinComponent
 
 class MainActivity : ComponentActivity(), KoinComponent {

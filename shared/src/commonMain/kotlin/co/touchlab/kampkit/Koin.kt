@@ -54,7 +54,6 @@ private val coreModule = module {
         )
         QuestionsDatabaseHelper(
             sqlDriver = get(),
-            log = getWith("DatabaseHelper"),
             backgroundDispatcher = Dispatchers.Default
         )
     }

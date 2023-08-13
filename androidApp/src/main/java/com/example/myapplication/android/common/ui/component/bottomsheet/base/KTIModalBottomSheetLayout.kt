@@ -22,7 +22,6 @@ fun KTIModalBottomSheetLayout(
     ModalBottomSheetLayout(
         modifier = modifier,
         sheetContent = {
-            // Sheet content height must be >= 1dp
             Box(modifier = Modifier.defaultMinSize(minHeight = 1.dp)) {
                 bottomSheetContent()
             }
@@ -31,7 +30,6 @@ fun KTIModalBottomSheetLayout(
         sheetBackgroundColor = Color.Transparent,
         sheetShape = RoundedCornerShape(topStart = 0.dp, topEnd = 0.dp),
         sheetElevation = 0.dp,
-//        scrimColor = scrimColor,
         content = content
     )
 }

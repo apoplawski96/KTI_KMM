@@ -18,52 +18,12 @@ import com.example.myapplication.android.R
 import com.example.myapplication.android.common.ui.component.KTIText
 import com.example.myapplication.android.common.ui.component.bottomsheet.base.KTIBottomSheetSurface
 import com.example.myapplication.android.common.ui.component.bottomsheet.model.BottomSheetListItem
-import com.example.myapplication.android.screens.theme.kti_grayish
-import com.example.myapplication.android.screens.theme.kti_green
-import com.example.myapplication.android.screens.theme.kti_secondary_text
+import com.example.myapplication.android.theme.kti_grayish
+import com.example.myapplication.android.theme.kti_green
+import com.example.myapplication.android.theme.kti_secondary_text
 
 enum class BottomSheetListItemType {
-    RADIO,
-    CHECKABLE,
-    SWITCH;
-}
-
-@Composable
-fun <T> KTIBottomSheetListContent(
-    title: String,
-    listItems: List<BottomSheetListItem<T>>,
-    onItemSelected: (T) -> Unit,
-) {
-    KTIBottomSheetSurface(title = title) {
-        SelectableItemsList(
-            listItems = listItems,
-            onItemSelected = onItemSelected,
-        )
-    }
-}
-
-@Composable
-private fun <T> SelectableItemsList(
-    listItems: List<BottomSheetListItem<T>>,
-    onItemSelected: (T) -> Unit,
-    modifier: Modifier = Modifier,
-) {
-    LazyColumn(
-        modifier = modifier then Modifier.fillMaxWidth(),
-        contentPadding = PaddingValues(bottom = 80.dp)
-    ) {
-        items(listItems) { item ->
-            SelectableListItem(
-                modifier = Modifier
-                    .fillParentMaxWidth()
-                    .wrapContentHeight(),
-                isSelected = item.isSelected,
-                item = item,
-                onItemSelected = onItemSelected,
-                itemType = item.bottomSheetListItemType
-            )
-        }
-    }
+    CHECKABLE;
 }
 
 @Composable
@@ -95,13 +55,6 @@ fun <T> SelectableListItem(
             BottomSheetListItemType.CHECKABLE -> CheckableItem(
                 isSelected = isSelected
             )
-            BottomSheetListItemType.RADIO -> RadioItem(
-                isSelected = isSelected,
-                onClick = { onItemSelected(item.value) }
-            )
-            BottomSheetListItemType.SWITCH -> {
-
-            }
         }
     }
 }
@@ -137,9 +90,4 @@ private fun UnselectedItemCheckmark() {
         size = 20.dp,
         tint = kti_grayish
     )
-}
-
-@Composable
-private fun RadioItem(isSelected: Boolean, onClick: (() -> Unit)?) {
-    KTIRadioButton(selected = isSelected, onClick = onClick)
 }

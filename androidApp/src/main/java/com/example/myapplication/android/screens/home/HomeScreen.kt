@@ -29,13 +29,13 @@ import com.example.myapplication.android.common.ui.component.applyColor
 import com.example.myapplication.android.common.ui.component.KTICardItem
 import com.example.myapplication.android.common.ui.component.KTICardSmallWithUnderText
 import com.example.myapplication.android.common.ui.component.KTICardWithIllustration
-import com.example.myapplication.android.common.ui.component.KTITopBarNew
-import com.example.myapplication.android.screens.theme.KTITheme
-import com.example.myapplication.model.subcategory.SubCategory
-import com.example.myapplication.model.subcategory.TopCategory
-import com.example.myapplication.screens.home.HomeScreenFeedItem
-import com.example.myapplication.screens.home.HomeScreenMenuItem
-import com.example.myapplication.screens.home.HomeScreenViewModel
+import com.example.myapplication.android.common.ui.component.KTITopAppBar
+import com.example.myapplication.android.theme.KTITheme
+import com.example.myapplication.model.domain.SubCategory
+import com.example.myapplication.model.domain.TopCategory
+import com.example.myapplication.model.domain.HomeScreenFeedItem
+import com.example.myapplication.model.domain.HomeScreenMenuItem
+import com.example.myapplication.feature.home.HomeScreenViewModel
 import org.koin.androidx.compose.getViewModel
 
 @Composable
@@ -67,7 +67,7 @@ private fun HomeScreenContent(
         verticalArrangement = Arrangement.Top,
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-        KTITopBarNew(isNested = false)
+        KTITopAppBar(isNested = false)
         HelloSection()
         KTIVerticalSpacer(height = 32.dp)
         IllustrationSection()
