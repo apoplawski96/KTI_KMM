@@ -14,8 +14,10 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import org.jetbrains.compose.resources.ExperimentalResourceApi
 import org.jetbrains.compose.resources.painterResource
 
+@OptIn(ExperimentalResourceApi::class)
 @Composable
 fun KTIButton(
     label: String,
@@ -23,7 +25,7 @@ fun KTIButton(
     backgroundColor: Color,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
-    iconResId: Int? = null,
+    iconResId: String? = null,
 ) {
     Button(
         onClick = onClick,
@@ -33,16 +35,17 @@ fun KTIButton(
         modifier = modifier
     ) {
         if (iconResId != null) {
-//            Icon(
-//                painter = painterResource(id = iconResId),
-//                contentDescription = "Button icon",
-//                tint = labelColor
-//            )
+            Icon(
+                painter = painterResource(res = iconResId),
+                contentDescription = "Button icon",
+                tint = labelColor
+            )
         }
         KTITextNew(text = label, fontSize = 14.sp, fontWeight = FontWeight.W400, color = labelColor, modifier = Modifier.padding(vertical = 16.dp))
     }
 }
 
+@OptIn(ExperimentalResourceApi::class)
 @Composable
 fun KTIButton(
     label: String,
@@ -50,7 +53,7 @@ fun KTIButton(
     backgroundColor: Color,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
-    iconResId: Int? = null,
+    iconResId: String? = null,
     isLoading: Boolean = false,
 ) {
     Button(
@@ -62,11 +65,11 @@ fun KTIButton(
         enabled = isLoading.not(),
     ) {
         if (iconResId != null) {
-//            Icon(
-//                painter = painterResource(id = iconResId),
-//                contentDescription = "Button icon",
-//                tint = labelColor
-//            )
+            Icon(
+                painter = painterResource(res = iconResId),
+                contentDescription = "Button icon",
+                tint = labelColor
+            )
         }
         KTITextNew(text = label, fontSize = 12.sp, fontWeight = FontWeight.W400, color = labelColor)
         if (isLoading) { KTICircularProgressIndicator() }
