@@ -27,8 +27,8 @@ kotlin {
         it.binaries.framework {
             baseName = "shared"
             isStatic = true
-            export("dev.icerock.moko:resources:0.23.0")
-            export("dev.icerock.moko:graphics:0.9.0") // toUIColor here
+//            export("dev.icerock.moko:resources:0.23.0")
+//            export("dev.icerock.moko:graphics:0.9.0") // toUIColor here
         }
     }
 
@@ -85,7 +85,7 @@ kotlin {
         val commonTest by getting {
             dependencies {
                 implementation(kotlin("test"))
-                implementation("dev.icerock.moko:resources-test:0.23.0")
+//                implementation("dev.icerock.moko:resources-test:0.23.0")
             }
         }
         val androidMain by getting {
@@ -122,7 +122,5 @@ sqldelight {
 multiplatformResources {
     multiplatformResourcesPackage = "com.example.myapplication" // required
     multiplatformResourcesClassName = "SharedRes" // optional, default MR
-    multiplatformResourcesVisibility = dev.icerock.gradle.MRVisibility.Internal // optional, default Public
-    iosBaseLocalizationRegion = "en" // optional, default "en"
     multiplatformResourcesSourceSet = "commonMain"  // optional, default "commonMain"
 }

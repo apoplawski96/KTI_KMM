@@ -24,8 +24,8 @@ tasks.register("clean", Delete::class) {
     delete(rootProject.buildDir)
 }
 
-allprojects {
-    repositories {
-        mavenCentral()
-    }
-}
+//allprojects {
+//    repositories {
+//        mavenCentral()
+//    }
+//}
