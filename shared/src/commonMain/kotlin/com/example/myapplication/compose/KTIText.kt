@@ -13,8 +13,11 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.TextUnitType
 import androidx.compose.ui.unit.sp
+import com.example.myapplication.SharedRes
 import com.example.myapplication.theme.kti_soft_black
 import com.example.myapplication.theme.kti_text_icons
+import dev.icerock.moko.resources.FontResource
+import dev.icerock.moko.resources.compose.fontFamilyResource
 
 @Composable
 fun KTIText(
@@ -50,7 +53,6 @@ fun KTITextNew(
     fontWeight: FontWeight,
     modifier: Modifier = Modifier,
     color: Color = kti_soft_black,
-    fontFamily: FontFamily = FontFamily.Default,
     maxLines: Int = Int.MAX_VALUE,
     overflow: TextOverflow = TextOverflow.Ellipsis,
     textAlign: TextAlign = TextAlign.Start,
@@ -59,7 +61,7 @@ fun KTITextNew(
 ) {
     Text(
         text = text,
-        fontFamily = fontFamily,
+        fontFamily = fontFamilyResource(getForWeight(fontWeight)),
         fontWeight = fontWeight,
         maxLines = maxLines,
         overflow = overflow,
@@ -70,4 +72,14 @@ fun KTITextNew(
         lineHeight = lineHeight,
         fontStyle = fontStyle,
     )
+}
+
+@Composable
+private fun getForWeight(fontWeight: FontWeight): FontResource = when (fontWeight) {
+    FontWeight.W300 -> SharedRes.fonts.kanit.light
+    FontWeight.W400 -> SharedRes.fonts.kanit.regular
+    FontWeight.W500 -> SharedRes.fonts.kanit.medium
+    FontWeight.W600 -> SharedRes.fonts.kanit.semibold
+    FontWeight.W700 -> SharedRes.fonts.kanit.bold
+    else -> SharedRes.fonts.kanit.regular
 }
