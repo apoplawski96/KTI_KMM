@@ -1,4 +1,4 @@
-package com.example.myapplication.android.screens.home
+package com.example.myapplication.screens.home
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -20,42 +20,74 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.myapplication.android.R
-import com.example.myapplication.android.common.ui.component.KTIHorizontalSpacer
-import com.example.myapplication.android.common.ui.component.KTIIllustration
-import com.example.myapplication.android.common.ui.component.KTITextNew
-import com.example.myapplication.android.common.ui.component.KTIVerticalSpacer
-import com.example.myapplication.android.common.ui.component.applyColor
-import com.example.myapplication.android.common.ui.component.KTICardItem
-import com.example.myapplication.android.common.ui.component.KTICardSmallWithUnderText
-import com.example.myapplication.android.common.ui.component.KTICardWithIllustration
-import com.example.myapplication.android.common.ui.component.KTITopAppBar
-import com.example.myapplication.theme.KTITheme
-import com.example.myapplication.model.SubCategory
-import com.example.myapplication.model.TopCategory
+import cafe.adriel.voyager.core.screen.Screen
+import cafe.adriel.voyager.navigator.LocalNavigator
+import cafe.adriel.voyager.navigator.currentOrThrow
+import com.example.myapplication.SharedRes
+import com.example.myapplication.compose.KTICardItem
+import com.example.myapplication.compose.KTICardSmallWithUnderText
+import com.example.myapplication.compose.KTICardWithIllustration
+import com.example.myapplication.compose.KTIHorizontalSpacer
+import com.example.myapplication.compose.KTIIllustration
+import com.example.myapplication.compose.KTITextNew
+import com.example.myapplication.compose.KTITopAppBar
+import com.example.myapplication.compose.KTIVerticalSpacer
+import com.example.myapplication.compose.applyColor
+import com.example.myapplication.di.getScreenModel
 import com.example.myapplication.model.HomeScreenFeedItem
 import com.example.myapplication.model.HomeScreenMenuItem
-import com.example.myapplication.feature.home.HomeScreenViewModel
-import org.koin.androidx.compose.getViewModel
+import com.example.myapplication.model.Role
+import com.example.myapplication.model.RoleType
+import com.example.myapplication.model.Seniority
+import com.example.myapplication.model.SubCategory
+import com.example.myapplication.model.TopCategory
+import com.example.myapplication.screens.categories.CategoriesScreen
+import com.example.myapplication.screens.interview.AIInterviewScreen
+import com.example.myapplication.theme.KTITheme
 
-@Composable
-fun HomeScreen(viewModel: HomeScreenViewModel = getViewModel()) {
-    val viewState = viewModel.viewState.collectAsState().value
+object HomeScreen : Screen {
 
-    LaunchedEffect(null) {
-        viewModel.initialize()
+    @Composable
+    override fun Content() {
+        val navigator = LocalNavigator.currentOrThrow
+        val screenModel: HomeScreenModel = getScreenModel()
+
+        val viewState = screenModel.viewState.collectAsState().value
+
+        LaunchedEffect(null) {
+            screenModel.initialize()
+        }
+
+        HomeScreenContent(
+            state = viewState,
+            onMenuItemClicked = { item ->
+                when (item) {
+                    HomeScreenMenuItem.AI_INTERVIEW -> {
+                        navigator.push(
+                            AIInterviewScreen(
+                                Role(
+                                    RoleType.ANDROID_DEVELOPER,
+                                    Seniority.SENIOR
+                                )
+                            )
+                        )
+                    }
+
+                    HomeScreenMenuItem.QUESTIONS_CATEGORIES -> {
+                        navigator.push(
+                            CategoriesScreen
+                        )
+                    }
+                }
+            },
+            onSubCategoryClick = { subCategory -> }
+        )
     }
-
-    HomeScreenContent(
-        state = viewState,
-        onMenuItemClicked = { item -> viewModel.onItemClicked(item) },
-        onSubCategoryClick = { subCategory -> }
-    )
 }
 
 @Composable
 private fun HomeScreenContent(
-    state: HomeScreenViewModel.ViewState,
+    state: HomeScreenModel.ViewState,
     onMenuItemClicked: (HomeScreenMenuItem) -> Unit,
     onSubCategoryClick: (SubCategory) -> Unit,
 ) {
@@ -72,14 +104,15 @@ private fun HomeScreenContent(
         KTIVerticalSpacer(height = 32.dp)
         IllustrationSection()
         when (state) {
-            is HomeScreenViewModel.ViewState.HomeItems -> {
+            is HomeScreenModel.ViewState.HomeItems -> {
                 HomeScreenFeedSection(
                     feed = state.items,
                     onMenuItemClicked = onMenuItemClicked,
                     onSubCategoryClick = onSubCategoryClick
                 )
             }
-            is HomeScreenViewModel.ViewState.Loading -> {
+
+            is HomeScreenModel.ViewState.Loading -> {
                 CircularProgressIndicator()
             }
         }
@@ -112,7 +145,10 @@ private fun HelloSection() {
 
 @Composable
 private fun IllustrationSection() {
-    KTIIllustration(drawableRes = R.drawable.undraw_certificate_re_yadi, modifier = Modifier.height(256.dp))
+    KTIIllustration(
+        imageResource = SharedRes.images.undraw_certificate_re_yadi,
+        modifier = Modifier.height(256.dp)
+    )
 }
 
 @Composable
@@ -132,6 +168,7 @@ private fun HomeScreenFeedSection(
                 is HomeScreenFeedItem.MenuItems -> {
                     MenuItems(items = feedItem.items, onItemClicked = onMenuItemClicked)
                 }
+
                 is HomeScreenFeedItem.RandomSubCategoriesCarousel -> {
                     RandomSubCategoriesCarousel(
                         onSubCategoryClick = onSubCategoryClick,
@@ -139,6 +176,7 @@ private fun HomeScreenFeedSection(
                         topCategory = feedItem.topCategory
                     )
                 }
+
                 is HomeScreenFeedItem.LastLearnedSubCategoriesCarousel -> {}
                 is HomeScreenFeedItem.LastLearnedSubCategory -> {}
                 is HomeScreenFeedItem.RandomBookmarkedQuestion -> {}
@@ -162,9 +200,9 @@ private fun MenuItems(
                 item = KTICardItem(value = homeItem, label = homeItem.displayName),
                 onClick = onItemClicked,
                 fontWeight = FontWeight.W500,
-                illustrationResId = when(homeItem) {
-                    HomeScreenMenuItem.AI_INTERVIEW -> R.drawable.undraw_engineering_team_a7n2
-                    HomeScreenMenuItem.QUESTIONS_CATEGORIES -> R.drawable.undraw_educator_re_ju47
+                imageResource = when (homeItem) {
+                    HomeScreenMenuItem.AI_INTERVIEW -> SharedRes.images.undraw_certificate_re_yadi
+                    HomeScreenMenuItem.QUESTIONS_CATEGORIES -> SharedRes.images.undraw_programming_re_kg9v
                 }
             )
             KTIVerticalSpacer(height = 12.dp)
@@ -191,9 +229,14 @@ private fun RandomSubCategoriesCarousel(
         )
         LazyRow {
             item { KTIHorizontalSpacer(width = 16.dp) }
-            itemsIndexed(items = subCategories, key = { _, subCategory -> subCategory.id }) { index, subCategory ->
+            itemsIndexed(
+                items = subCategories,
+                key = { _, subCategory -> subCategory.id }) { index, subCategory ->
                 KTICardSmallWithUnderText(
-                    item = KTICardItem(value = subCategory, label = subCategory.displayName).applyColor(index),
+                    item = KTICardItem(
+                        value = subCategory,
+                        label = subCategory.displayName
+                    ).applyColor(index),
                     onClick = onSubCategoryClick
                 )
             }

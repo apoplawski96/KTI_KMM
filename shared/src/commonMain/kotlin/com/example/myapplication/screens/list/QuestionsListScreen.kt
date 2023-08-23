@@ -1,8 +1,7 @@
 @file:OptIn(ExperimentalMaterialApi::class)
 
-package com.example.myapplication.android.screens.questions.list
+package com.example.myapplication.screens.list
 
-import android.annotation.SuppressLint
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -27,35 +26,51 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.myapplication.android.R
-import com.example.myapplication.android.common.ui.component.KTICircularProgressIndicator
-import com.example.myapplication.android.common.ui.component.KTIColumnWithGradientColumn
-import com.example.myapplication.android.common.ui.component.KTIIcon
-import com.example.myapplication.android.common.ui.component.KTIText
-import com.example.myapplication.android.common.ui.component.KTITextNew
-import com.example.myapplication.android.common.ui.component.KTIVerticalSpacer
-import com.example.myapplication.android.common.ui.component.KTITopAppBar
+import cafe.adriel.voyager.core.screen.Screen
+import com.example.myapplication.compose.KTICircularProgressIndicator
+import com.example.myapplication.compose.KTIColumnWithGradientColumn
+import com.example.myapplication.compose.KTIText
+import com.example.myapplication.compose.KTITextNew
+import com.example.myapplication.compose.KTITopAppBar
+import com.example.myapplication.compose.KTIVerticalSpacer
 import com.example.myapplication.compose.bottomsheet.base.KTIModalBottomSheetLayout
-import com.example.myapplication.android.common.ui.component.clickableNoRipple
-import com.example.myapplication.android.screens.questions.list.components.ListScreenBottomSheetContent
-import com.example.myapplication.android.screens.questions.list.components.ListScreenScoreBar
+import com.example.myapplication.compose.clickableNoRipple
+import com.example.myapplication.di.getScreenModel
+import com.example.myapplication.model.Question
+import com.example.myapplication.model.SubCategory
+import com.example.myapplication.model.TopCategory
+import com.example.myapplication.screens.list.components.ListScreenBottomSheetContent
+import com.example.myapplication.screens.list.components.ListScreenScoreBar
 import com.example.myapplication.theme.kti_accent
 import com.example.myapplication.theme.kti_divider
 import com.example.myapplication.theme.kti_green
 import com.example.myapplication.theme.kti_soft_black
 import com.example.myapplication.theme.kti_soft_white
-import com.example.myapplication.model.Question
-import com.example.myapplication.model.SubCategory
-import com.example.myapplication.model.TopCategory
-import com.example.myapplication.feature.list.QuestionsListViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
-import org.koin.androidx.compose.getViewModel
+
+class QuestionsListScreen(
+    private val topCategory: TopCategory?,
+    private val subCategory: SubCategory?,
+) : Screen {
+
+    @Composable
+    override fun Content() {
+        val screenModel: QuestionsListScreenModel = getScreenModel()
+
+        ListScreen(
+            viewModel = screenModel,
+            topCategory = topCategory,
+            subCategory = subCategory
+        )
+    }
+}
+
 
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
 fun ListScreen(
-    viewModel: QuestionsListViewModel = getViewModel(),
+    viewModel: QuestionsListScreenModel,
     topCategory: TopCategory?,
     subCategory: SubCategory?,
 ) {
@@ -78,7 +93,7 @@ fun ListScreen(
     LaunchedEffect(null) {
         viewModel.viewEvents.collect { event ->
             when (event) {
-                QuestionsListViewModel.ViewEvent.ToggleBottomSheet -> {
+                QuestionsListScreenModel.ViewEvent.ToggleBottomSheet -> {
                     toggleBottomSheet(
                         scope = scope,
                         bottomSheetState = bottomSheetState,
@@ -118,17 +133,17 @@ fun ListScreen(
     )
 }
 
-@SuppressLint("UnusedMaterialScaffoldPaddingParameter")
+@OptIn(ExperimentalMaterialApi::class)
 @Composable
 private fun ListScreenContent(
-    viewState: QuestionsListViewModel.ViewState,
+    viewState: QuestionsListScreenModel.ViewState,
     bottomSheetState: ModalBottomSheetState,
     bottomSheetContent: @Composable () -> Unit,
     onToggleBottomSheetClick: () -> Unit,
     topBarTitle: String,
     sortDropdownMenuDisplayed: Boolean,
     toggleDropdownMenu: () -> Unit,
-    onSortModeClick: (QuestionsListViewModel.SortMode) -> Unit,
+    onSortModeClick: (QuestionsListScreenModel.SortMode) -> Unit,
     markAsAnswered: (Question) -> Unit,
     markAsUnanswered: (Question) -> Unit,
     questionsAnsweredCount: Int,
@@ -179,29 +194,29 @@ private fun ListScreenContent(
 //                                )
 //                            }
                         }
-                        IconButton(onClick = toggleDropdownMenu) {
-                            KTIIcon(drawableRes = R.drawable.ic_sort, tint = kti_soft_black)
-                        }
-                        DropdownMenu(
-                            expanded = sortDropdownMenuDisplayed,
-                            onDismissRequest = toggleDropdownMenu,
-                            modifier = Modifier.background(kti_soft_white)
-                        ) {
-                            QuestionsListViewModel.SortMode.values().toList().forEach { sortMode ->
-                                DropdownMenuItem(onClick = { onSortModeClick(sortMode) }) {
-                                    KTITextNew(
-                                        text = sortMode.displayName,
-                                        fontSize = 16.sp,
-                                        fontWeight = FontWeight.W400,
-                                        color = kti_soft_black
-                                    )
-                                }
-                            }
-                        }
+//                        IconButton(onClick = toggleDropdownMenu) {
+//                            KTIIcon(drawableRes = R.drawable.ic_sort, tint = kti_soft_black)
+//                        }
+//                        DropdownMenu(
+//                            expanded = sortDropdownMenuDisplayed,
+//                            onDismissRequest = toggleDropdownMenu,
+//                            modifier = Modifier.background(kti_soft_white)
+//                        ) {
+//                            QuestionsListViewModel.SortMode.values().toList().forEach { sortMode ->
+//                                DropdownMenuItem(onClick = { onSortModeClick(sortMode) }) {
+//                                    KTITextNew(
+//                                        text = sortMode.displayName,
+//                                        fontSize = 16.sp,
+//                                        fontWeight = FontWeight.W400,
+//                                        color = kti_soft_black
+//                                    )
+//                                }
+//                            }
+//                        }
                     }
                 )
                 when (viewState) {
-                    is QuestionsListViewModel.ViewState.QuestionsLoaded -> {
+                    is QuestionsListScreenModel.ViewState.QuestionsLoaded -> {
                         QuestionList(
                             questions = viewState.questions,
                             markAsAnswered = markAsAnswered,
@@ -211,11 +226,11 @@ private fun ListScreenContent(
                         )
                     }
 
-                    is QuestionsListViewModel.ViewState.Loading -> {
+                    is QuestionsListScreenModel.ViewState.Loading -> {
                         KTICircularProgressIndicator()
                     }
 
-                    QuestionsListViewModel.ViewState.Error -> {
+                    QuestionsListScreenModel.ViewState.Error -> {
                         KTIText(text = "Error!")
                     }
                 }

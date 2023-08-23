@@ -1,11 +1,11 @@
-package com.example.myapplication.android.screens.questions.list.components
+package com.example.myapplication.screens.list.components
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.example.myapplication.android.common.ui.component.KTIVerticalSpacer
+import com.example.myapplication.compose.KTIVerticalSpacer
 import com.example.myapplication.compose.bottomsheet.base.KTIBottomSheetSurface
 import com.example.myapplication.compose.bottomsheet.content.BottomSheetListItemType
 import com.example.myapplication.compose.bottomsheet.content.SelectableListItem

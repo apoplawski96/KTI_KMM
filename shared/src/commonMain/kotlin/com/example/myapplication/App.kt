@@ -2,7 +2,7 @@ package com.example.myapplication
 
 import androidx.compose.runtime.Composable
 import cafe.adriel.voyager.navigator.Navigator
-import com.example.myapplication.screens.ExampleScreen
+import com.example.myapplication.screens.welcome.WelcomeScreen
 
 @Composable
 fun KMMApp() {
@@ -15,5 +15,5 @@ fun KMMApp() {
 //            Text("Count: $count")
 //        }
 //    }
-    Navigator(ExampleScreen)
+    Navigator(WelcomeScreen)
 }

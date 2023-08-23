@@ -1,4 +1,4 @@
-package com.example.myapplication.android.common.ui.component.bottomsheet.model
+package com.example.myapplication.compose.bottomsheet.model
 
 import com.example.myapplication.compose.bottomsheet.content.BottomSheetListItemType
 

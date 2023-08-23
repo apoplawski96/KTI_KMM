@@ -1,4 +1,4 @@
-package com.example.myapplication.android.common.ui.component.bottomsheet.base
+package com.example.myapplication.compose.bottomsheet.base
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
@@ -19,9 +19,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.myapplication.android.common.ui.component.KTITextNew
-import com.example.myapplication.android.common.ui.component.KTIVerticalSpacer
-import com.example.myapplication.compose.bottomsheet.base.BottomSheetTitleProperties
+import com.example.myapplication.compose.KTITextNew
+import com.example.myapplication.compose.KTIVerticalSpacer
 import com.example.myapplication.theme.kti_soft_black
 import com.example.myapplication.theme.kti_soft_white
 

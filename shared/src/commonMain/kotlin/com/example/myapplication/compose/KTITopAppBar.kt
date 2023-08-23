@@ -10,6 +10,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.myapplication.SharedRes
 
 @Composable
 fun KTITopAppBar(
@@ -45,31 +46,30 @@ private fun RowScope.LeftSection(
 
 @Composable
 private fun TopBarIconsSection() {
-//    val context = LocalContext.current
     Row(
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.End,
     ) {
-//        KTIIconButton(
-//            onClick = {
-////                showNotYetImplementedToast(context)
-//            }
-//        ) {
-//            KTIIcon(drawableRes = R.drawable.ic_bookmarks)
-//        }
-//        KTIIconButton(
-//            onClick = {
-////                showNotYetImplementedToast(context)
-//            }
-//        ) {
-//            KTIIcon(drawableRes = R.drawable.ic_user)
-//        }
-//        KTIIconButton(
-//            onClick = {
-////                showNotYetImplementedToast(context)
-//            }
-//        ) {
-//            KTIIcon(drawableRes = R.drawable.ic_menu)
-//        }
+        KTIIconButton(
+            onClick = {
+//                showNotYetImplementedToast(context)
+            }
+        ) {
+            KTIIcon(imageResource = SharedRes.images.ic_bookmark, size = 24.dp)
+        }
+        KTIIconButton(
+            onClick = {
+//                showNotYetImplementedToast(context)
+            }
+        ) {
+            KTIIcon(imageResource = SharedRes.images.ic_user, size = 24.dp)
+        }
+        KTIIconButton(
+            onClick = {
+//                showNotYetImplementedToast(context)
+            }
+        ) {
+            KTIIcon(imageResource = SharedRes.images.ic_menu, size = 24.dp)
+        }
     }
 }

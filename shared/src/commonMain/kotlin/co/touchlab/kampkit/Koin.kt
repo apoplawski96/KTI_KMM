@@ -9,6 +9,7 @@ import co.touchlab.kermit.platformLogWriter
 import com.example.myapplication.data.QuestionsDatabaseHelper
 import com.example.myapplication.di.dataModule
 import com.example.myapplication.di.domainModule
+import com.example.myapplication.di.screenModelModule
 import kotlinx.coroutines.Dispatchers
 import kotlinx.datetime.Clock
 import org.koin.core.KoinApplication
@@ -27,6 +28,7 @@ fun initKoin(vararg modules: Module): KoinApplication {
             coreModule,
             dataModule,
             domainModule,
+            screenModelModule,
             *modules
         )
     }

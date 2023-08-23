@@ -11,7 +11,7 @@ class GetHomeScreenFeedItems(private val getRandomSubCategories: GetRandomSubCat
         return listOf(
             HomeScreenFeedItem.MenuItems(
                 items = listOf(
-                    HomeScreenMenuItem.QUESTIONS_QUIZ,
+                    HomeScreenMenuItem.AI_INTERVIEW,
                     HomeScreenMenuItem.QUESTIONS_CATEGORIES
                 )
             ),

@@ -35,6 +35,7 @@ import com.example.myapplication.theme.kti_soft_black
 import com.example.myapplication.theme.kti_soft_white
 import com.example.myapplication.theme.white
 import com.example.myapplication.model.AndroidSubCategory
+import dev.icerock.moko.resources.ImageResource
 
 data class KTICardItem<T>(
     val value: T,
@@ -125,7 +126,7 @@ private val cardMinHeight = 112.dp
 fun <T> KTICardWithIllustration(
     item: KTICardItem<T>,
     onClick: (T) -> Unit,
-    illustrationResId: Int,
+    imageResource: ImageResource,
     fontWeight: FontWeight = FontWeight(400),
     backgroundColor: Color = kti_soft_white,
     textColor: Color = kti_soft_black,
@@ -169,7 +170,7 @@ fun <T> KTICardWithIllustration(
                     .padding(horizontal = 16.dp, vertical = 4.dp),
                 contentAlignment = Alignment.Center
             ) {
-                KTIIllustration(drawableRes = illustrationResId)
+                KTIIllustration(imageResource, modifier = Modifier.size(128.dp))
             }
         }
     }

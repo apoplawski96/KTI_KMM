@@ -1,4 +1,4 @@
-package com.example.myapplication.screens
+package com.example.myapplication.screens.welcome
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -15,19 +15,30 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import cafe.adriel.voyager.core.screen.Screen
+import cafe.adriel.voyager.navigator.LocalNavigator
+import cafe.adriel.voyager.navigator.currentOrThrow
+import com.example.myapplication.SharedRes
 import com.example.myapplication.compose.KTIButton
+import com.example.myapplication.compose.KTIIllustration
 import com.example.myapplication.compose.KTITextButton
 import com.example.myapplication.compose.KTITextNew
 import com.example.myapplication.compose.KTIVerticalSpacer
+import com.example.myapplication.screens.home.HomeScreen
 import com.example.myapplication.theme.KTITheme
 
-object ExampleScreen : Screen {
+object WelcomeScreen : Screen {
 
     @Composable
     override fun Content() {
+        val navigator = LocalNavigator.currentOrThrow
+
         WelcomeScreenContent(
-            navigateToLoginScreen = { },
-            navigateToHomeScreen = { },
+            navigateToHomeScreen = {
+                navigator.push(HomeScreen)
+            },
+            navigateToLoginScreen = {
+                // TODO
+            }
         )
     }
 }
@@ -45,14 +56,18 @@ private fun WelcomeScreenContent(
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         TopSection(modifier = Modifier.weight(2f))
-        BottomSection(navigateToHomeScreen = navigateToHomeScreen, navigateToLoginScreen = navigateToLoginScreen, modifier = Modifier.weight(1f))
+        BottomSection(
+            navigateToHomeScreen = navigateToHomeScreen,
+            navigateToLoginScreen = navigateToLoginScreen,
+            modifier = Modifier.weight(1f)
+        )
     }
 }
 
 @Composable
 private fun TopSection(modifier: Modifier = Modifier) {
     Box(modifier = modifier then Modifier.fillMaxWidth(), contentAlignment = Alignment.Center) {
-//        KTIIllustration(drawableRes = R.drawable.undraw_programming_re_kg9v)
+        KTIIllustration(imageResource = SharedRes.images.undraw_programming_re_kg9v)
     }
 }
 

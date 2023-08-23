@@ -32,6 +32,15 @@ kotlin {
         }
     }
 
+    val napierVersion = "2.6.1"
+    val ktorVersion = "2.2.4"
+    val compose_image = "1.2.10"
+    val koin_core_version = "3.4.0"
+    val koin_android_version = "3.3.3"
+    val koin_android_compose_version = "3.4.2"
+    val voyagerVersion = "1.0.0-rc04"
+    val mokoResourcesVersion = "0.21.2"
+
     sourceSets {
         val commonMain by getting {
             dependencies {
@@ -52,26 +61,12 @@ kotlin {
 
                 implementation(platform("com.aallam.openai:openai-client-bom:3.3.0"))
 
-                val voyagerVersion = "1.0.0-rc05"
-
                 // Multiplatform
 
-                // Navigator
-                implementation("cafe.adriel.voyager:voyager-navigator:$voyagerVersion")
+                api("io.insert-koin:koin-core:$koin_core_version")
 
-                // BottomSheetNavigator
-                implementation("cafe.adriel.voyager:voyager-bottom-sheet-navigator:$voyagerVersion")
-
-                // TabNavigator
-                implementation("cafe.adriel.voyager:voyager-tab-navigator:$voyagerVersion")
-
-                // Transitions
-                implementation("cafe.adriel.voyager:voyager-transitions:$voyagerVersion")
-
-                // Android ViewModel integration
-                implementation("cafe.adriel.voyager:voyager-androidx:$voyagerVersion")
-
-                // Koin integration
+                api("cafe.adriel.voyager:voyager-navigator:$voyagerVersion")
+                api("cafe.adriel.voyager:voyager-transitions:$voyagerVersion")
                 implementation("cafe.adriel.voyager:voyager-koin:$voyagerVersion")
 
                 // define dependencies without versions
@@ -94,6 +89,13 @@ kotlin {
                 implementation(libs.sqlDelight.android)
                 implementation(libs.ktor.client.okHttp)
                 implementation("io.ktor:ktor-client-okhttp")
+                api("io.insert-koin:koin-android:$koin_android_version")
+                // Jetpack WorkManager
+                api("io.insert-koin:koin-androidx-workmanager:$koin_android_version")
+                // Navigation Graph
+                api("io.insert-koin:koin-androidx-navigation:$koin_android_version")
+                // Compose
+                api("io.insert-koin:koin-androidx-compose:$koin_android_compose_version")
             }
         }
         val iosMain by getting {

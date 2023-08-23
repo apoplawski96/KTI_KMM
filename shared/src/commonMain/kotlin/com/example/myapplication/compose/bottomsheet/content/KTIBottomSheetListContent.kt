@@ -1,4 +1,4 @@
-package com.example.myapplication.android.common.ui.component.bottomsheet.content
+package com.example.myapplication.compose.bottomsheet.content
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Row
@@ -10,10 +10,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.example.myapplication.android.R
-import com.example.myapplication.android.common.ui.component.KTIText
+import com.example.myapplication.SharedRes
 import com.example.myapplication.compose.bottomsheet.model.BottomSheetListItem
-import com.example.myapplication.compose.bottomsheet.content.BottomSheetListItemType
+import com.example.myapplication.compose.KTIIcon
+import com.example.myapplication.compose.KTIText
 import com.example.myapplication.theme.kti_grayish
 import com.example.myapplication.theme.kti_green
 import com.example.myapplication.theme.kti_secondary_text
@@ -70,20 +70,21 @@ private fun SelectedItemCheckmark() {
         color = kti_green,
         shape = CircleShape
     ) {
-        com.example.myapplication.android.common.ui.component.KTIIcon(
-            drawableRes = R.drawable.ic_check,
+        KTIIcon(
             size = 20.dp,
             contentDescription = null,
             tint = kti_grayish,
+            imageResource = SharedRes.images.ic_check
         )
     }
 }
 
 @Composable
 private fun UnselectedItemCheckmark() {
-    com.example.myapplication.android.common.ui.component.KTIIcon(
-        drawableRes = R.drawable.ic_circle,
+    KTIIcon(
         size = 20.dp,
-        tint = kti_grayish
+        contentDescription = null,
+        tint = kti_grayish,
+        imageResource = SharedRes.images.ic_circle
     )
 }

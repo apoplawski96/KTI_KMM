@@ -1,6 +1,7 @@
-package com.example.myapplication.feature.home
+package com.example.myapplication.screens.home
 
-import co.touchlab.kampkit.models.ViewModel
+import cafe.adriel.voyager.core.model.ScreenModel
+import cafe.adriel.voyager.core.model.coroutineScope
 import com.example.myapplication.model.HomeScreenFeedItem
 import com.example.myapplication.model.HomeScreenMenuItem
 import com.example.myapplication.navigation.Navigator
@@ -11,10 +12,10 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
-class HomeScreenViewModel(
+class HomeScreenModel(
     private val getHomeScreenFeedItems: GetHomeScreenFeedItems,
     private val navigator: Navigator,
-) : ViewModel() {
+) : ScreenModel {
 
     sealed interface ViewState {
         object Loading : ViewState
@@ -25,7 +26,7 @@ class HomeScreenViewModel(
     val viewState = _viewState.asStateFlow()
 
     fun initialize() {
-        viewModelScope.launch {
+        coroutineScope.launch {
             _viewState.update {
                 ViewState.HomeItems(items = getHomeScreenFeedItems.get())
             }
